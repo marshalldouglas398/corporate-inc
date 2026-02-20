@@ -1,0 +1,23 @@
+[
+    {
+        "title":"How?", 
+        "description":"Just do the thing.", 
+        "sections":[
+            "c9b5d3f6-08bf-4f87-9ab9-3b40dfe5da21"
+        ], 
+        "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2b", 
+        "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
+        "comments": [], 
+        "rating": 4.5, 
+        "type": "QuestionType.TECHNICAL", 
+        "discipline": "Discipline.COMPSCI", 
+        "difficulty": "Difficulty.EASY", 
+        "course": [], 
+        "isInterviewMode": true, 
+        "tag": [], 
+        "hints": [
+            "Ask Joe", 
+            "Joe Mama"
+        ]
+    }
+]
