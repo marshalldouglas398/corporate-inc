@@ -2,9 +2,7 @@
     {
         "title":"How?", 
         "description":"Just do the thing.", 
-        "sections":[
-            "c9b5d3f6-08bf-4f87-9ab9-3b40dfe5da21"
-        ], 
+        "sections":[], 
         "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2b", 
         "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
         "comments": [], 
@@ -18,6 +16,24 @@
         "hints": [
             "Ask Joe", 
             "Joe Mama"
+        ]
+    },
+    {
+        "title":"How would you react?", 
+        "description":"You walk into the office and see your boss is on fire. What do you do?", 
+        "sections":[], 
+        "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2c", 
+        "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
+        "comments": [], 
+        "rating": 4.7, 
+        "type": "QuestionType.BEHAVIORAL", 
+        "discipline": "Discipline.COMPSCI", 
+        "difficulty": "Difficulty.EASY", 
+        "course": [], 
+        "isInterviewMode": true, 
+        "tag": [], 
+        "hints": [
+            "Be normal"
         ]
     }
 ]
