@@ -5,6 +5,9 @@ Our program offers a variety of questions that could potentially be asked in a t
 
 With this software, we hope to improve the student employment rate and get USC students the jobs the deserve!
 
+<br></br>
+
+#### Documents
 [Requirements Specification](https://docs.google.com/spreadsheets/d/1OC83J5mYAY2e_fdWBkc7uswDeVkR-3VG_oGX0ZXKn-Y/edit?usp=sharing)
 [UML Class Diagram](https://lucid.app/lucidchart/90204523-be28-4d7f-9fc4-487df54c1f7a/edit?view_items=DOAtsHQSG7Ou&page=0_0&invitationId=inv_5001b69f-eb2b-49a8-ac29-7d3649cdbe87)
 [UML Sequence Diagram 1](https://lucid.app/lucidchart/6efcfc32-3a18-43dc-ab73-48ff24d4569e/edit?view_items=Lq7xBwT6IkK8&page=0_0&invitationId=inv_d95c24a4-9636-45d1-aa62-2a71a38d853c)
