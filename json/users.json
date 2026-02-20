@@ -5,8 +5,8 @@
         "dateOfBirth":"2026-02-19T10:15:30.000Z", 
         "id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
         "email":"student@email.com", 
-        "questionsSolved":
-    }, 
+        "questionsSolved":[]
+    },
     {
         "username":"editor", 
         "password":"password", 
