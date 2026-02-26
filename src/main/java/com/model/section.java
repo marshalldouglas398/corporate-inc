@@ -3,7 +3,7 @@ package com.model;
 import java.io.File;
 /**
  * This class represents a section of a question or comment
- * @author Eden Moore(idk if we need this or not edit later if needed)
+ * @author Eden Moore(idk if we need this edit later if needed)
  */
 public class section {
     private String title;
