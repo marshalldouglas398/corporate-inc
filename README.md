@@ -5,6 +5,13 @@ Our program offers a variety of questions that could potentially be asked in a t
 
 With this software, we hope to improve the student employment rate and get USC students the jobs the deserve!
 
+## Scrum Board Feature List
+- Maintain a shared bank of technical interview questions submitted by companies and users.
+- Filter questions to target specific interview scenarios.
+- Practice by browsing and answering questions from the full catalog.
+- Add comments on questions and reply to existing comments for discussion.
+- Rate questions and comments so high-quality content is easier to find.
+
 <br></br>
 
 #### Documents

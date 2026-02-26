@@ -1,4 +1,4 @@
-package json;
+package com.corporate.json;
 
 import java.util.UUID;
 
