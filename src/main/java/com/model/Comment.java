@@ -156,4 +156,36 @@ public class Comment {
         return this.numRatings;
     }
 
+    /**
+     * Sets the title of the comment
+     * @param title The new title to set for the comment
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Sets the content of the comment
+     * @param comment The new content to set for the comment
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    /**
+     * Sets the sections associated with the comment
+     * @param sections The new sections to set for the comment
+     */
+    public void setSections(ArrayList<Section> sections) {
+        this.sections = sections;
+    }
+
+    /**
+     * Sets the tags associated with the comment
+     * @param tags The new tags to set for the comment
+     */
+    public void setTags(ArrayList<CommentTag> tags) {
+        this.tags = tags;
+    }
+
 }
