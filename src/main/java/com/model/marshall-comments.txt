@@ -30,3 +30,17 @@ Question.java:
 Admin.java:
  - I think that editUser() and deleteUser() should be public and I think that they
    should take a UUID instead of a username.
+
+The tasks that are in the in Progress section are being held up by the following:
+ - Implement Admin class: We don't have any database operations yet to work with users
+ - Implement addRating method + Implement rateComment method: I want consensus on adding a 
+   numRatings element for calculating average rating before I consider the issue closed
+ - Implement setInterviewMode method: I have no idea how the timing will work with this, but I 
+   still started building it out, so it's "in progress"
+ - Implement Editor class: Requires database operations
+ - Implement User class: Requires database operations
+ - Implement Comment class: I'm not sure how we will figure out if the comment author is the 
+   comment's question's author because the comment can't see the question. This alse depends on
+   rateComment() consensus to be completed.
+ - Implement Question class: Requires database operations for Question construction by UUID, 
+   addRating() consensus as before, and implementation of setInterviewMode
