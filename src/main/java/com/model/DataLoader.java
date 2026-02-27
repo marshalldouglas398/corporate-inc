@@ -11,6 +11,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
+    private static QuestionList questionList = QuestionList.getInstance();
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
         
@@ -42,7 +43,7 @@ public class DataLoader extends DataConstants {
                         }
                         Editor editor = new Editor(username, password, dateOfBirth, email, role);
                         for (UUID questionID : questionsMade) {
-                            Question question = QuestionList.getQuestion(questionID);
+                            Question question = questionList.getQuestion(questionID);
                             if (question != null) {
                                 editor.addQuestion(question);
                             }
