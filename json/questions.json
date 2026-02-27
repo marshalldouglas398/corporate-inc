@@ -11,28 +11,28 @@
         "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2b", 
         "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
         "comments": [{
-            "title": "Joe Mama",
+            "titleC": "Joe Mama",
             "comment": "Joe Mama is the best answer to this question.",
             "sections": [{
-                "title": "This is my code.", 
-                "description": "I just used a print statement", 
+                "titleS": "This is my code.", 
+                "descriptionS": "I just used a print statement", 
                 "file": "code.py", 
                 "code": "print('This is how I would do the thing.')"
             }], 
-            "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+            "authorC": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
             "replies": [
                 {
-                    "title": "Joe Papa",
+                    "titleC": "Joe Papa",
                     "comment": "Joe Papa is the second best answer to this question.",
-                    "sections": [
+                    "sectionsC": [
                         {
-                            "title": "This is my code.", 
-                            "description": "I just used a print statement", 
+                            "titleS": "This is my code.", 
+                            "descriptionS": "I just used a print statement", 
                             "file": "code.py", 
                             "code": "print('This is how I would do the thing.')"
                         }
                     ], 
-                    "author": "9f144030-5747-41ee-a3f6-f03a838c088c", 
+                    "authorC": "9f144030-5747-41ee-a3f6-f03a838c088c", 
                     "replies": [{}], 
                     "rating": 4.0, 
                     "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"], 
@@ -40,8 +40,7 @@
                 }
             ], 
             "rating": 5.0, 
-            "tags": ["QuestionType.SOLUTION", "Discipline.DISCUSSION", "Difficulty.HINT"], 
-            "isQuestionAuthor": false
+            "tags": ["QuestionType.SOLUTION", "Discipline.DISCUSSION", "Difficulty.HINT"]
         }], 
         "rating": 4.5, 
         "type": "QuestionType.TECHNICAL", 
@@ -78,8 +77,7 @@
             "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
             "replies": [{}], 
             "rating": 4.5, 
-            "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"], 
-            "isQuestionAuthor": false
+            "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"]
         }], 
         "rating": 4.7, 
         "type": "QuestionType.BEHAVIORAL", 
