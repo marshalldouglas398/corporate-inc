@@ -7,9 +7,17 @@ User.java:
    Question.
  - The resetPassword() function was private and never used inside the class.
    I think it should be a public function, so I made it public. It also had no
-   password to change the password to. If I'm missing something, just change it
-   back.
+   password to change the password to, so I added that as a parameter. If I'm 
+   missing something, just change it back.
  - To create a copy constructor by UUID, I need to be able to get a user's
    attributes by UUID, which means I need to be able to query for a user by 
    UUID. I'm going to add that. The UML only has getUser(String username, 
    String password)
+
+Comment.java:
+ - The UML has no way to do an average of the ratings. I have added that. Just 
+   remove if I've made a mistake.
+ - The comment has no idea what question it is on, so it definitely has no
+   idea who the question author is, so I can't set it in the constructor or in
+   any other thing. We could work with it as a setter and then implement it with 
+   a different add comment closer to the UI but not embedded in the comment itself.
