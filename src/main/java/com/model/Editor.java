@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * This class represents an editor, which is a type of user that can create, edit, and delete questions
@@ -20,7 +21,22 @@ public class Editor extends User {
      * @param role The role of the editor
      */
     public Editor(String username, String password, Date dateOfBirth, String email, String role) {
-        super(username, password, dateOfBirth, email);
+        super(UUID.randomUUID(), username, password, dateOfBirth, email);
+        this.role = role;
+        this.questionsMade = new ArrayList<>();
+    }
+
+    /**
+     * Copy constructor for the Editor class
+     * @param id The UUID of the editor to copy
+     * @param username The username of the editor to copy
+     * @param password The password of the editor to copy
+     * @param dateOfBirth The date of birth of the editor to copy
+     * @param email The email of the editor to copy
+     * @param role The role of the editor to copy
+     */
+    public Editor(UUID id, String username, String password, Date dateOfBirth, String email, String role) {
+        super(id, username, password, dateOfBirth, email);
         this.role = role;
         this.questionsMade = new ArrayList<>();
     }

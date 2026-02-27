@@ -46,7 +46,4 @@ public class UserList {
     public boolean isAdmin(User user) {
         return user.isAdmin();
     }
-    public User login(String username, String password) { //to do
-        return getUser(username, password);
-    }
 }
