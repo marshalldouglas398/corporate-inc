@@ -32,4 +32,13 @@ public class UserList {
         }
         return null;
     }
+    public boolean checkForUser(String password, String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
