@@ -40,7 +40,10 @@ public class UserList {
         }
         return false;
     }
-    public boolean save() {
+    public boolean save() { // to do
         return true;
+    }
+    public boolean isAdmin(User user) {
+        return user.isAdmin();
     }
 }
