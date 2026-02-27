@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * This class represents a student, which is a type of user that can answer questions
@@ -24,6 +25,24 @@ public class Student extends User {
      */
     public Student(String username, String password, Date dateOfBirth, String email, String uscID, String major) {
         super(username, password, dateOfBirth, email);
+        this.uscID = uscID;
+        this.major = major;
+        this.questionsAnswered = new ArrayList<>();
+        this.coursesTaken = new ArrayList<>();
+    }
+
+    /**
+     * Copy constructor for the Student class
+     * @param id The UUID of the student to copy
+     * @param username The username of the student to copy
+     * @param password The password of the student to copy
+     * @param dateOfBirth The date of birth of the student to copy
+     * @param email The email of the student to copy
+     * @param uscID The USC ID of the student to copy
+     * @param major The major of the student to copy
+     */
+    public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major) {
+        super(id, username, password, dateOfBirth, email);
         this.uscID = uscID;
         this.major = major;
         this.questionsAnswered = new ArrayList<>();
