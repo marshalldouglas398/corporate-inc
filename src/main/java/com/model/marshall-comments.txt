@@ -24,3 +24,5 @@ Comment.java:
 
 Question.java:
  - I did the same rating average trick for the question's rating.
+ - I have no idea what to do about the timer in setInterviewMode(). That may come in later
+   functionality.
