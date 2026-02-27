@@ -66,4 +66,10 @@ public class Editor extends User {
     public String getRole() {
         return this.role;
     }
+
+    /**
+     * Checks if the user is an editor
+     * @return true if the user is an editor, false otherwise
+     */
+    public boolean isEditor() { return true; } // This method overrides the isEditor method in the User class to return true for editors
 }
