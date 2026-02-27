@@ -7,49 +7,81 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants{
-    public static boolean saveUsers() {
-        UserList users = UserList.getInstance();
-        ArrayList<User> userList = users.getUsers();
+    public boolean saveUsers() { 
+        try {
+            UserList users = UserList.getInstance();
+            ArrayList<User> userList = users.getUsers();
 
-        JSONArray jsonUsers = new JSONArray();
+            JSONArray jsonUsers = new JSONArray();
 
-        for (int i = 0; i < userList.size(); i++) {
-            jsonUsers.add(getUserJSON(userList.get(i)));
+            for (int i = 0; i < userList.size(); i++) {
+                jsonUsers.add(getUserJSON(userList.get(i)));
+            }
+
+            try (FileWriter file = new FileWriter(/*ADD FILE HERE*/)) {
+                file.write(jsonUsers.toJSONString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace(); 
+            }
+            
+            return true;  
+        } catch (Exception e) {
+            return false;
         }
-
-        try (FileWriter file = new FileWriter(User_TEMP_FILE_NAME)) {
-            file.write(jsonUsers.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace(); 
-        }
-        
-        return true;
     }
 
-    public static JSONObject getUserJSON(User user) {
-        JSONObject userDetails = newJSONObject();
+    public JSONObject getUserJSON(User user) {
+        JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ID, user.getId().toString());
         userDetails.put(USER_NAME, user.getUsername());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_DATE_OF_BIRTH, user.getBirthDate());
         userDetails.put(USER_EMAIL, user.getEmail());
-        userDetails.put(USER_QUESTIONS_SOLVED, user.getQuestionsSolved);
-        userDetails.put(USER_COURSES_TAKEN, user.getCoursesTaken);
-        userDetails.put(USER_USCID, user.getUSCID());
-        userDetails.put(USER_MAJOR, user.getMajor());
-        userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
-        userDetails.put(USER_ROLE, user.getRole());
-    
+        String role = user.getRole().toString();
+        switch (role) {
+            case "Student" :
+                userDetails.put(USER_QUESTIONS_SOLVED, user.getQuestionsSolved());
+                userDetails.put(USER_COURSES_TAKEN, user.getCoursesTaken());
+                userDetails.put(USER_USCID, user.getUSCID());
+                userDetails.put(USER_MAJOR, user.getMajor());
+                break;
+            case "Editor" :
+                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                break;
+            case "Admin" :
+                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                break;
+        }    
         return userDetails;
     }
 
-    public static boolean saveQuestions() {
-        return true;
+    public boolean saveQuestions() {
+        try {
+            QuestionList questions = QuestionList.getInstance();
+            ArrayList<Question> questionList = questions.getQuestions();
+
+            JSONArray jsonQuestions = new JSONArray();
+
+            for (int i = 0; i < questionList.size(); i++) {
+                jsonQuestions.add(getQuestionsJSON(questionList.get(i)));
+            }
+
+            try (FileWriter file = new FileWriter(/*ADD FILE HERE*/)) {
+                file.write(jsonQuestions.toJSONString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace(); 
+            }
+            
+            return true;  
+        } catch (Exception e) {
+            return false;
+        }
     }
     
-    public static JSONObject getQuestionsJSON(Question question){
-        JSONObject questionDetails = newJSONObject();
+    public JSONObject getQuestionsJSON(Question question){
+        JSONObject questionDetails = new JSONObject();
         questionDetails.put(QUESTION_TITLE, question.getQuestionTitle());
         questionDetails.put(QUESTION_DESCRIPTION, question.getDescription());
         questionDetails.put(QUESTION_SECTIONS, question.getSections());
