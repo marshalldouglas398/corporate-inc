@@ -26,3 +26,7 @@ Question.java:
  - I did the same rating average trick for the question's rating.
  - I have no idea what to do about the timer in setInterviewMode(). That may come in later
    functionality.
+
+Admin.java:
+ - I think that editUser() and deleteUser() should be public and I think that they
+   should take a UUID instead of a username.
