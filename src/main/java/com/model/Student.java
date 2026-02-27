@@ -1,0 +1,80 @@
+package com.model;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+/**
+ * This class represents a student, which is a type of user that can answer questions
+ * @author Marshall Pigford
+ */
+public class Student extends User {
+    private ArrayList<Question> questionsAnswered;
+    private ArrayList<Course> coursesTaken;
+    private String uscID;
+    private String major;
+
+    /**
+     * Parameterized constructor for the Student class
+     * @param username The username of the student
+     * @param password The password of the student
+     * @param dateOfBirth The date of birth of the student
+     * @param email The email of the student
+     * @param uscID The USC ID of the student
+     * @param major The major of the student
+     */
+    public Student(String username, String password, Date dateOfBirth, String email, String uscID, String major) {
+        super(username, password, dateOfBirth, email);
+        this.uscID = uscID;
+        this.major = major;
+        this.questionsAnswered = new ArrayList<>();
+        this.coursesTaken = new ArrayList<>();
+    }
+
+    /**
+     * Gets the list of questions answered by the student
+     * @return The list of questions answered by the student
+     */
+    public ArrayList<Question> getQuestionsAnswered() {
+        return this.questionsAnswered;
+    }
+
+    /**
+     * Gets the list of courses taken by the student
+     * @return The list of courses taken by the student
+     */
+    public ArrayList<Course> getCoursesTaken() {
+        return this.coursesTaken;
+    }
+
+    /**
+     * Gets the USC ID of the student
+     * @return The USC ID of the student
+     */
+    public String getUscID() {
+        return this.uscID;
+    }
+
+    /**
+     * Gets the major of the student
+     * @return The major of the student
+     */
+    public String getMajor() {
+        return this.major;
+    }
+
+    /**
+     * Sets the USC ID of the student
+     * @param uscID The new USC ID to set for the student
+     */
+    public void setUscID(String uscID) {
+        this.uscID = uscID;
+    }
+
+    /**
+     * Sets the major of the student
+     * @param major The new major to set for the student
+     */
+    public void setMajor(String major) {
+        this.major = major;
+    }
+}

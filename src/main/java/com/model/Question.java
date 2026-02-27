@@ -108,7 +108,7 @@ public class Question {
      * @param student The student to complete the question for
      */
     public void completeQuestion(Student student) {
-        student.questionsSolved.add(this);
+        student.getQuestionsAnswered().add(this);
     }
 
     /**
@@ -136,8 +136,17 @@ public class Question {
      * @param user The user to check if they are the author of the question
      * @return True if the given user is the author of the question, false otherwise
      */
-    public boolean isAuthor(User user) {
-        return user.questionsMade.contains(this);
+    public boolean isAuthor(Editor user) {
+        return user.getQuestionsMade().contains(this);
+    }
+
+    /**
+     * Checks if the given admin is the author of the question
+     * @param user The admin to check if they are the author of the question
+     * @return True if the given admin is the author of the question, false otherwise
+     */
+    public boolean isAuthor(Admin user) {
+        return user.getQuestionsMade().contains(this);
     }
 
     /**
