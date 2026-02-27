@@ -16,6 +16,13 @@ public class UserList {
         }
         return userlist;
     }
-    
+    public User searchUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
 
 }
