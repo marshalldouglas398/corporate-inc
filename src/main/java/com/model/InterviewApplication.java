@@ -13,5 +13,7 @@ public class InterviewApplication {
         this.questionList = QuestionList.getInstance();
         this.userlist = UserList.getInstance();
     }
-    
+    public User login(String username, String password) { //to do
+        return null;
+    }
 }
