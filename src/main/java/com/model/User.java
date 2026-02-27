@@ -32,9 +32,17 @@ public class User {
     /**
      * Copy constructor for the User class
      * @param id The UUID of the user to copy
+     * @param username The username of the user to copy
+     * @param password The password of the user to copy
+     * @param dateOfBirth The date of birth of the user to copy
+     * @param email The email of the user to copy
      */
-    public User(UUID id) {
-        // You need to implement user retrieval first before you can implement this constructor
+    public User(UUID id, String username, String password, Date dateOfBirth, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
     }
 
     /**

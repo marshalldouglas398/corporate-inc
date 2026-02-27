@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * This class represents an admin, which is a type of user that can create, edit, and delete questions
@@ -23,10 +24,23 @@ public class Admin extends User {
     }
 
     /**
+     * Copy constructor for the Admin class
+     * @param id The UUID of the admin to copy
+     * @param username The username of the admin to copy
+     * @param password The password of the admin to copy
+     * @param dateOfBirth The date of birth of the admin to copy
+     * @param email The email of the admin to copy
+     */
+    public Admin(UUID id, String username, String password, Date dateOfBirth, String email) {
+        super(id, username, password, dateOfBirth, email);
+        this.questionsMade = new ArrayList<>();
+    }
+
+    /**
      * Removes a user from the database
      * @param username The username of the user to remove from the database
      */
-    private void deletUser(String username) {
+    private void deleteUser(String username) {
         // Delete user from database
     }
 
