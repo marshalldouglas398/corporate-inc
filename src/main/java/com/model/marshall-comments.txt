@@ -1,0 +1,15 @@
+My opinions based on implementing things
+
+User.java:
+ - The User class does not have a Question anymore with QuestionList; 
+   it's the Student, Editor, and Admin that technically have the question. 
+   This might mean that the arrow should be pointing from those three to 
+   Question.
+ - The resetPassword() function was private and never used inside the class.
+   I think it should be a public function, so I made it public. It also had no
+   password to change the password to. If I'm missing something, just change it
+   back.
+ - To create a copy constructor by UUID, I need to be able to get a user's
+   attributes by UUID, which means I need to be able to query for a user by 
+   UUID. I'm going to add that. The UML only has getUser(String username, 
+   String password)

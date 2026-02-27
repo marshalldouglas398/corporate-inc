@@ -57,7 +57,7 @@ public class User {
      * Resets the password of the user
      * @param password The new password to set for the user
      */
-    private void resetPassword(String password) {
+    public void resetPassword(String password) {
         this.password = password;
     }
 
