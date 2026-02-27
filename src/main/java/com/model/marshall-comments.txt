@@ -21,3 +21,6 @@ Comment.java:
    idea who the question author is, so I can't set it in the constructor or in
    any other thing. We could work with it as a setter and then implement it with 
    a different add comment closer to the UI but not embedded in the comment itself.
+
+Question.java:
+ - I did the same rating average trick for the question's rating.
