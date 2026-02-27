@@ -40,4 +40,7 @@ public class UserList {
         }
         return false;
     }
+    public boolean save() {
+        return true;
+    }
 }
