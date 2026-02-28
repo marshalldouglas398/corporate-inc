@@ -25,4 +25,7 @@ public class InterviewApplication {
     public User createAccount(String username, String password, Date dateOfBirth, String email) { // to do
         return user;
     }
+    public boolean deleteUser(User user) { // to do
+        return true;
+    }
 }
