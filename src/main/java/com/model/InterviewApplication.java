@@ -1,4 +1,7 @@
 package com.model;
+
+import java.util.Date;
+
 /**
  * This class represents an the actions you can take in the inteview application
  * @Author Eden Moore
@@ -19,4 +22,7 @@ public class InterviewApplication {
     public boolean logout(User user) { // to do
         return true;
     } 
+    public User createAccount(String username, String password, Date dateOfBirth, String email) { // to do
+        return user;
+    }
 }
