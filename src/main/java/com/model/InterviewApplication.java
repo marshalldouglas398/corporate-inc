@@ -16,4 +16,7 @@ public class InterviewApplication {
     public User login(String username, String password) { //to do
         return null;
     }
+    public boolean logout(User user) { // to do
+        return true;
+    }
 }
