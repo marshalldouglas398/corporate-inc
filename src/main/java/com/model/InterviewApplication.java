@@ -28,4 +28,7 @@ public class InterviewApplication {
     public boolean deleteUser(User user) { // to do
         return true;
     }
+    public boolean editUser(User user) { // to do
+        return true;
+    }
 }
