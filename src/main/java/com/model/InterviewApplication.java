@@ -87,7 +87,10 @@ public class InterviewApplication {
      * Adds a question to the list of questions
      * @return true if the question was added, false otherwise
      */
-    public boolean addQuestion() {
+    public boolean addQuestion() { // to do
+        return true;
+    }
+    public boolean editQuestion(Question question) { // to do
         return true;
     }
 }
