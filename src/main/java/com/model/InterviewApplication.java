@@ -116,4 +116,12 @@ public class InterviewApplication {
         this.currentQuestion = question;
         return true;
     }
+    /**
+     * Adds a comment to a question
+     * @param question the question you want to add a comment to
+     * @return true if the comment was added, false otherwise
+     */
+    public boolean addCommentQ(Question question) {
+        return true;
+    }
 }
