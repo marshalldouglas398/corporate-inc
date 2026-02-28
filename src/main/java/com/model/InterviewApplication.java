@@ -75,7 +75,19 @@ public class InterviewApplication {
         Discipline d, Difficulty diff, Course c, QuestionTag qt) { // to do
             return questionList;
     }
+    /**
+     * Finds a user based on username
+     * @param username username of the user you want to find
+     * @return the user if found, null otherwise
+     */
     public User findUser(String username) { // to do
         return null;
+    }
+    /**
+     * Adds a question to the list of questions
+     * @return true if the question was added, false otherwise
+     */
+    public boolean addQuestion() {
+        return true;
     }
 }
