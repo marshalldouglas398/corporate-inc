@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,19 +17,62 @@ public class InterviewApplication {
         this.questionList = QuestionList.getInstance();
         this.userlist = UserList.getInstance();
     }
+    /**
+     * Logs in a user based on username and password
+     * @param username username of the user you want to log in
+     * @param password password of the user you want to log in
+     * @return the user if found, null otherwise
+     */
     public User login(String username, String password) { //to do
         return null;
     }
+    /**
+     * Logs a user out of the application
+     * @param user the user you want to log out
+     * @return true if the user was logged out, false otherwise
+     */
     public boolean logout(User user) { // to do
         return true;
     } 
+    /**
+     * Creates an account for a user
+     * @param username username of the new user
+     * @param password password of the new user
+     * @param dateOfBirth date of birth of the new user
+     * @param email email of the new user
+     * @return the new user account if created, null otherwise
+     */
     public User createAccount(String username, String password, Date dateOfBirth, String email) { // to do
         return user;
     }
+    /**
+     * Deletes a user account
+     * @param user the user you want to delete
+     * @return true if the user was deleted, false otherwise
+     */
     public boolean deleteUser(User user) { // to do
         return true;
     }
+    /**
+     * Edits a user account
+     * @param user the user you want to edit
+     * @return true if the user was edited, false otherwise
+     */
     public boolean editUser(User user) { // to do
         return true;
+    }
+    /**
+     * Filters the list of questions based on the given parameters
+     * @param questionList the list of questions you want to filter
+     * @param qtype the type of question you want to filter by
+     * @param d the discipline you want to filter by
+     * @param diff the difficulty you want to filter by
+     * @param c the course you want to filter by
+     * @param qt the tag you want to filter by
+     * @return the filtered list of questions
+     */
+    public ArrayList<Question> filterQuestion(ArrayList<Question> questionList, QuestionType qtype,
+        Discipline d, Difficulty diff, Course c, QuestionTag qt) {
+            return questionList;
     }
 }
