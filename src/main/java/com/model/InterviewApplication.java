@@ -90,7 +90,21 @@ public class InterviewApplication {
     public boolean addQuestion() { // to do
         return true;
     }
+    /**
+     * Edits a question in the list of questions
+     * @param question the question you want to edit
+     * @return true if the question was edited, false otherwise
+     */
     public boolean editQuestion(Question question) { // to do
+        return true;
+    }
+    /**
+     * Rates a question
+     * @param question the question you want to rate
+     * @param num the rating value
+     * @return true if the question was rated, false otherwise
+     */
+    public boolean rateQuestion(Question question, Double num) { // to do
         return true;
     }
 }
