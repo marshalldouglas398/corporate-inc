@@ -18,5 +18,5 @@ public class InterviewApplication {
     }
     public boolean logout(User user) { // to do
         return true;
-    }
+    } 
 }
