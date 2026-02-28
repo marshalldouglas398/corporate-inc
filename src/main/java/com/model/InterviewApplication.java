@@ -107,4 +107,13 @@ public class InterviewApplication {
     public boolean rateQuestion(Question question, Double num) { // to do
         return true;
     }
+    /**
+     * Selects a question to be the current question
+     * @param question the question you want to select
+     * @return true if the question was selected, false otherwise
+     */
+    public boolean selectQuestion(Question question) {
+        this.currentQuestion = question;
+        return true;
+    }
 }
