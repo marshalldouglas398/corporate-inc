@@ -67,8 +67,8 @@ public class UserList {
      * Saves the list of users to the database
      * @return true if saved, false if not
      */
-    public boolean save() { // to do
-        return true;
+    public boolean save() {
+        return DataWriter.saveUsers();
     }
     /**
      * Checks if a user is an admin
@@ -84,15 +84,22 @@ public class UserList {
      * @param password password of the user you want to log in
      * @return the user who logged in
      */
-    public User login(String username, String password) { //to do
-        return getUser(username, password);
+    public User login(String username, String password) {
+        boolean userExists = checkForUser(password, username);
+        if (!userExists) {
+            return null;
+        } else {
+            return getUser(username, password);
+        }
     }
     /**
      * Logs out a user
      * @param user user you want to log out
-     * @return true if logged out, false if not
+     * @return null as user has been logged out
      */
-    public boolean logout(User user) { // to do
-        return true;
+    public User logout(User user) { // may need updating
+        UserList.getInstance().save();
+        QuestionList.getInstance().save();
+        return null;
     }
 }
