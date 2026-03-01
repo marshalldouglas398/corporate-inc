@@ -11,6 +11,50 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
+    public static ArrayList<Question> getQuestions() {
+        ArrayList<Question> questions = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(QUESTION_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray questionJSON = (JSONArray) parser.parse(reader);
+            for (int i = 0; i < questionJSON.size(); i++) {
+                JSONObject questionData = (JSONObject) questionJSON.get(i);
+                UUID id = UUID.fromString(questionData.get(QUESTION_ID).toString());
+                String title = questionData.get(QUESTION_TITLE).toString();
+                User author = UserList.getInstance().getUser(questionData.get(QUESTION_AUTHOR).toString(), questionData.get(USER_PASSWORD).toString());
+                JSONArray hintsArray = (JSONArray) questionData.get(QUESTION_HINTS);
+                ArrayList<String> hints = new ArrayList<>();
+                for (Object obj : hintsArray) {
+                    hints.add(obj.toString());
+                }
+                QuestionType type = QuestionType.valueOf(questionData.get(QUESTION_TYPE).toString());
+                JSONArray disciplineArray = (JSONArray) questionData.get(QUESTION_DISCIPLINE);
+                ArrayList<Discipline> discipline = new ArrayList<>();
+                for (Object obj : disciplineArray) {
+                    discipline.add(Discipline.valueOf(obj.toString()));
+                }
+                Difficulty difficulty = Difficulty.valueOf(questionData.get(QUESTION_DIFFICULTY).toString());
+                JSONArray courseArray = (JSONArray) questionData.get(QUESTION_COURSES);
+                ArrayList<Course> course = new ArrayList<>();
+                for (Object obj : courseArray) {
+                    course.add(Course.valueOf(obj.toString()));
+                }
+                JSONArray tagArray = (JSONArray) questionData.get(QUESTION_TAGS);
+                ArrayList<QuestionTag> tag = new ArrayList<>();
+                for (Object obj : tagArray) {
+                    tag.add(QuestionTag.valueOf(obj.toString()));
+                }
+                Question question = new Question(title, author, hints, type, discipline, difficulty, course);
+                questions.add(question);
+                QuestionList.getInstance().addQuestion(title, author, hints, type, discipline, difficulty, course);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return questions;
+    }
+
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
         
@@ -42,7 +86,7 @@ public class DataLoader extends DataConstants {
                         }
                         Editor editor = new Editor(username, password, dateOfBirth, email, role);
                         for (UUID questionID : questionsMade) {
-                            Question question = QuestionList.getQuestion(questionID);
+                            Question question = QuestionList.getInstance().getQuestion(questionID);
                             if (question != null) {
                                 editor.addQuestion(question);
                             }
