@@ -24,6 +24,7 @@ public class Question {
     private boolean isInterviewMode; // I'll make a getter and setter for this
     private ArrayList<QuestionTag> tag;
     private ArrayList<String> hints;
+    private Double timeLimit;
 
     /**
      * Parameterized constructor for the Question class
@@ -90,7 +91,7 @@ public class Question {
      */
     public void setInterviewMode(boolean b, int time) {
         this.isInterviewMode = b;
-        // We can implement the timer functionality later if we want to, but for now we can just set the interview mode to true or false
+        this.timeLimit = time * 60.0;
     }
 
     /**

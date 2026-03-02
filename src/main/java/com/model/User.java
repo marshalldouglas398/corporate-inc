@@ -70,6 +70,30 @@ public class User {
     }
 
     /**
+     * Gets the date of birth of the user
+     * @return The date of birth of the user
+     */
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * Gets the email of the user
+     * @return The email of the user
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Gets the UUID of the user
+     * @return The UUID of the user
+     */
+    public UUID getId() {
+        return id;
+    }
+
+    /**
      * Checks if the user is an editor
      * @return true if the user is an editor, false otherwise
      */
