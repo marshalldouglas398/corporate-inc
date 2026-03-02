@@ -124,4 +124,29 @@ public class InterviewApplication {
     public boolean addCommentQ(Question question) {
         return true;
     }
+    /**
+     * Adds a comment to a comment
+     * @param comment the comment you want to add a comment to
+     * @return true if the comment was added, false otherwise
+     */
+    public boolean addCommentC(Comment comment) {
+        return true;
+    }
+    /**
+     * Edits a comment on a question
+     * @param comment the comment you want to edit
+     * @return true if the comment was edited, false otherwise
+     */
+    public boolean editComment(Comment comment) {
+        return true;
+    }
+    /**
+     * Rates a comment on a question
+     * @param comment comment you want to rate
+     * @param num what you want to rate the comment
+     * @return true if the comment was rated, false otherwise
+     */
+    public boolean rateComment(Comment comment, Double num) {
+        return true;
+    }
 }
