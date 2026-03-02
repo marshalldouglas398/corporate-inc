@@ -48,4 +48,8 @@ public class QuestionList {
 		// to do
 		return true;
 	}
+
+	public ArrayList<Question> getQuestions() {
+		return this.questions;
+	}
 }

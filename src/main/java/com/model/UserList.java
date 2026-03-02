@@ -102,4 +102,8 @@ public class UserList {
         QuestionList.getInstance().save();
         return null;
     }
+
+    public ArrayList<User> getUsers() {
+        return this.users;
+    }
 }

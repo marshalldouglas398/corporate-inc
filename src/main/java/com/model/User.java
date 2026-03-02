@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -59,6 +60,42 @@ public class User {
      */
     public String getPassword() {
         return password;
+    }
+
+    public String getID() {
+        return id.toString();
+    }
+
+    public String getBirthDate() {
+        return dateOfBirth.toString();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return "User";
+    }
+
+    public QuestionList getQuestionsSolved() {
+        return null;
+    }
+
+    public ArrayList<Course> getCoursesTaken() {
+        return null;
+    }
+    
+    public String getUSCID() {
+        return null;
+    }
+
+    public String getMajor() {
+        return null;
+    }
+
+    public ArrayList<Question> getQuestionsMade() {
+        return null;
     }
 
     /**
