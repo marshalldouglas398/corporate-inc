@@ -146,7 +146,7 @@ public class InterviewApplication {
      * @param num what you want to rate the comment
      * @return true if the comment was rated, false otherwise
      */
-    public boolean rateComment(Comment comment, Double num) {
+    public boolean rateComment(Comment comment, Double rating) {
         return true;
     }
 }
