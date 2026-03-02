@@ -6,19 +6,19 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class DataWriter extends DataConstants{
+public class DataWriter extends DataConstants {
     public boolean saveUsers() { 
         try {
-            UserList users = UserList.getInstance();
-            ArrayList<User> userList = users.getUsers();
+            UserList userList = UserList.getInstance();
+            ArrayList<User> users = users.getUsers();
 
             JSONArray jsonUsers = new JSONArray();
 
-            for (int i = 0; i < userList.size(); i++) {
-                jsonUsers.add(getUserJSON(userList.get(i)));
+            for (int i = 0; i < users.size(); i++) {
+                jsonUsers.add(getUserJSON(users.get(i)));
             }
 
-            try (FileWriter file = new FileWriter(/*ADD FILE HERE*/)) {
+            try (FileWriter file = new FileWriter(jsonUsers.get(USER_FILE_NAME))) {
                 file.write(jsonUsers.toJSONString());
                 file.flush();
             } catch (IOException e) {
