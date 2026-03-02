@@ -71,7 +71,7 @@ public class DataWriter extends DataConstants {
                 file.write(jsonQuestions.toJSONString());
                 file.flush();
             } catch (IOException e) {
-                e.printStackTrace(); 
+                e.printStackTrace();
             }
             
             return true;  
