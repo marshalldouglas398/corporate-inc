@@ -100,7 +100,7 @@ public class UserList {
     public User logout(User user) { // may need updating
         UserList.getInstance().save();
         QuestionList.getInstance().save();
-        return null;
+        return null; 
     }
 
     public ArrayList<User> getUsers() {
