@@ -68,6 +68,7 @@ public class UserList {
      * @return true if saved, false if not
      */
     public boolean save() { // to do
+        
         return true;
     }
     /**
@@ -94,5 +95,13 @@ public class UserList {
      */
     public boolean logout(User user) { // to do
         return true;
+    }
+
+    /**
+     * Gets the list of users
+     * @return the list of users
+     */
+    public ArrayList<User> getUsers() {
+        return users;
     }
 }

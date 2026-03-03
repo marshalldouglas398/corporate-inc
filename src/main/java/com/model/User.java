@@ -13,6 +13,7 @@ public class User {
     protected Date dateOfBirth;
     protected UUID id;
     protected String email;
+    protected String role;
 
     /**
      * Parameterized constructor for the User class
@@ -94,6 +95,14 @@ public class User {
     }
 
     /**
+     * Gets the role of the user
+     * @return The role of the user
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
      * Checks if the user is an editor
      * @return true if the user is an editor, false otherwise
      */
@@ -104,4 +113,5 @@ public class User {
      * @return true if the user is an admin, false otherwise
      */
     public boolean isAdmin() { return false; } // This method will be overridden in the Admin class
+
 }

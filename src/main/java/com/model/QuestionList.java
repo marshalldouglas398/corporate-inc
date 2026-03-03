@@ -44,6 +44,10 @@ public class QuestionList {
 		return null;
 	}
 
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
 	public boolean save() {
 		// to do
 		return true;
