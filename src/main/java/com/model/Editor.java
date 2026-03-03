@@ -47,15 +47,22 @@ public class Editor extends User {
      */
     public void addQuestion(Question newQuestion) {
         this.questionsMade.add(newQuestion);
-        // Put new question in database
+        QuestionList questionList = QuestionList.getInstance();
+        questionList.getQuestions().add(newQuestion);
+        questionList.save();
     }
     
     /**
      * Edits a question in the list of questions made by the editor and the database
      * @param curQuestion The question to edit in the list of questions made by the editor
      */
-    public void editQuestion(Question curQuestion) {
-        // This probably needs a UUID and several UI elements to work.
+    public void editQuestion(Question curQuestion, Question newQuestion) {
+        this.questionsMade.remove(curQuestion);
+        this.questionsMade.add(newQuestion);
+        QuestionList questionList = QuestionList.getInstance();
+        questionList.getQuestions().remove(curQuestion);
+        questionList.getQuestions().add(newQuestion);
+        questionList.save();
     }
 
     /**
@@ -64,7 +71,9 @@ public class Editor extends User {
      */
     public void deleteQuestion(Question curQuestion) {
         this.questionsMade.remove(curQuestion);
-        // Remove question from database
+        QuestionList questionList = QuestionList.getInstance();
+        questionList.getQuestions().remove(curQuestion);
+        questionList.save();
     }
 
     /**
