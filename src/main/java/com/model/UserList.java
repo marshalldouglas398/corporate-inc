@@ -86,7 +86,7 @@ public class UserList {
      * @return the user who logged in
      */
     public User login(String username, String password) { // changed to unbreak might need to fix again
-        boolean userExists = checkForUser(password, username);
+        boolean userExists = checkForUser(username, password);
         if (!userExists) {
             return null;
         } else {
