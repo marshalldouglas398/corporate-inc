@@ -26,7 +26,7 @@ public class Comment {
      * @param ct The tags associated with the comment
      * @param sections The sections associated with the comment (if any)
      */
-    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections) {
+    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA) {
         this.title = title;
         this.comment = comment;
         this.author = author;
@@ -35,7 +35,7 @@ public class Comment {
         this.replies = new ArrayList<>();
         this.rating = null;
         this.numRatings = 0.0;
-        // How do we determine if the comment author is the question author? We need to implement question retrieval first before we can implement this constructor
+        this.isQuestionAuthor = qA;
     }
 
     /**
@@ -186,6 +186,14 @@ public class Comment {
      */
     public void setTags(ArrayList<CommentTag> tags) {
         this.tags = tags;
+    }
+
+    /**
+     * Sets whether the author of the comment is the author of the question
+     * @param isQuestionAuthor True if the author of the comment is the author of the question, false otherwise
+     */
+    public void setIsQuestionAuthor(boolean isQuestionAuthor) {
+        this.isQuestionAuthor = isQuestionAuthor;
     }
 
 }

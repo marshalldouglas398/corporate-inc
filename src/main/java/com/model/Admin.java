@@ -38,18 +38,25 @@ public class Admin extends User {
 
     /**
      * Removes a user from the database
-     * @param username The username of the user to remove from the database
+     * @param username The username of the user to remove from the user list
      */
-    private void deleteUser(String username) {
-        // Delete user from database
+    public void deleteUser(String username) {
+        UserList userList = UserList.getInstance();
+        User user = userList.searchUser(username);
+        userList.getUsers().remove(user);
+        userList.save();
     }
 
     /**
      * Edits a user in the database
      * @param username The username of the user to edit in the database
      */
-    private void editUser(String username) {
-        // Edit user in database
+    public void editUser(String username, User user) {
+        UserList userList = UserList.getInstance();
+        User oldUser = userList.searchUser(username);
+        userList.getUsers().remove(oldUser);
+        userList.getUsers().add(user);
+        userList.save();
     }
 
     /**
