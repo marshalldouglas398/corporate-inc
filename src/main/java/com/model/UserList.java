@@ -85,12 +85,12 @@ public class UserList {
      * @param password password of the user you want to log in
      * @return the user who logged in
      */
-    public User login(String username, String password) {
+    public User login(String username, String password) { // changed to unbreak might need to fix again
         boolean userExists = checkForUser(password, username);
         if (!userExists) {
             return null;
         } else {
-            return getUser(username, password);
+            return searchUser(username);
         }
     }
     /**
