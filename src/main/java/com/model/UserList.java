@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 /**
  * This class represents a list of all users
  * @author Eden Moore
@@ -41,9 +42,9 @@ public class UserList {
      * @param password password of the user you want to find
      * @return the user if found, null otherwise
      */
-    public User getUser(String username, String password) {
+    public User getUser(UUID uuid) {
         for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+            if (user.getID().equals(uuid)) {
                 return user;
             }
         }
@@ -84,12 +85,12 @@ public class UserList {
      * @param password password of the user you want to log in
      * @return the user who logged in
      */
-    public User login(String username, String password) {
+    public User login(String username, String password) { // changed to unbreak might need to fix again
         boolean userExists = checkForUser(password, username);
         if (!userExists) {
             return null;
         } else {
-            return getUser(username, password);
+            return searchUser(username);
         }
     }
     /**
@@ -97,12 +98,6 @@ public class UserList {
      * @param user user you want to log out
      * @return null as user has been logged out
      */
-    public User logout(User user) { // may need updating
-        UserList.getInstance().save();
-        QuestionList.getInstance().save();
-        return null; 
-    }
-
     public ArrayList<User> getUsers() {
         return this.users;
     }
