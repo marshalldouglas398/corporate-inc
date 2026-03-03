@@ -56,7 +56,7 @@ public class UserList {
      * @param username username of the user you want to find
      * @return true if found, false if not
      */
-    public boolean checkForUser(String password, String username) {
+    public boolean checkForUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return true;
