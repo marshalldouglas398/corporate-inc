@@ -98,12 +98,6 @@ public class UserList {
      * @param user user you want to log out
      * @return null as user has been logged out
      */
-    public User logout(User user) { // may need updating
-        UserList.getInstance().save();
-        QuestionList.getInstance().save();
-        return null; 
-    }
-
     public ArrayList<User> getUsers() {
         return this.users;
     }

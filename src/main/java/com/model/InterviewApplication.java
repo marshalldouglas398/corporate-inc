@@ -31,7 +31,8 @@ public class InterviewApplication {
      * @param user the user you want to log out
      * @return true if the user was logged out, false otherwise
      */
-    public boolean logout(User user) { // to do
+    public boolean logout(User user) {
+        userlist.save();
         return true;
     } 
     /**
