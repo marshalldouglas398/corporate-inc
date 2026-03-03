@@ -1,58 +1,53 @@
 package com.model;
 
+/**
+ * This class represents the driver, where our program is tested through scenarios.
+ * @author Ainsley Weaver
+ */
+
 public class Driver {
 
     private InterviewApplication interviewApp;
 
-    //is this the correct way to do it..?
-    void InterviewApplication() {
+    Driver() {
         interviewApp = new InterviewApplication();
     }
 
+    /**
+     * Runs the scenarios
+     */
     public void run() {
         scenario1();
         scenario2();
     }
 
+    /**
+     * First scenario of a user logging in, where the login should fail
+     */
     public void scenario1() {
-        System.out.println("test");
-        /*
-        if () {
+        if (interviewApp.login("jhardee", "password123") == null) {
             System.out.println("Login failed");
         } else {
             System.out.println("Login successful");
         }
-
-        System.out.println("[USER] is now logged in");
-        */
-        
-        //filter through questions
-
-        //select question
-
-        //add commentQ
-        
-        //rate question
-        
-        /*
-        if () {
-            System.out.println("Logout failed");
-        } else {
-            System.out.println("Logout successful");
-        }
-        */
     }
 
+    /**
+     * Second scenario of a user logging in, where the login should succeed
+     */
     public void scenario2() {
-        System.out.println("test");
+        if (interviewApp.login("student", "password") == null) {
+            System.out.println("Login failed");
+        } else {
+            System.out.println("Login successful");
+        }
+    }
 
-        //login
-
-        //add question
-
-        //add section
-
-        //logout
+    /**
+     * Third scenario, where a user creates an account
+     */
+    public void scenario3() {
+        //interviewApp.createAccount("jhardee", "password", , "jhardee@email.com");
     }
 
     public static void main(String[] args) {

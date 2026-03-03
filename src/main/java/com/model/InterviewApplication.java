@@ -24,7 +24,8 @@ public class InterviewApplication {
      * @return the user if found, null otherwise
      */
     public User login(String username, String password) { //to do
-        return null;
+        User loginUser = userlist.login(username, password);
+        return loginUser;
     }
     /**
      * Logs a user out of the application
