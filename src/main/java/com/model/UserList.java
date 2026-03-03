@@ -11,7 +11,7 @@ public class UserList {
     private ArrayList<User> users;
 
     private UserList() {
-        this.users = new ArrayList<User>();
+        this.users = DataLoader.getUsers();
     }
 /**
  * Gets the instance of the UserList class
@@ -45,7 +45,7 @@ public class UserList {
      */
     public User getUser(UUID uuid) {
         for (User user : users) {
-            if (user.getID().equals(uuid)) {
+            if (user.getID().equals(uuid.toString())) {
                 return user;
             }
         }
