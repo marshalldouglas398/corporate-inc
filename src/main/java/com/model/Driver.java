@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.Date;
+
 /**
  * This class represents the driver, where our program is tested through scenarios.
  * @author Ainsley Weaver
@@ -47,7 +49,7 @@ public class Driver {
      * Third scenario, where a user creates an account
      */
     public void scenario3() {
-        //interviewApp.createAccount("jhardee", "password", , "jhardee@email.com");
+        interviewApp.createAccount("jhardee", "password", new Date(), "jhardee@email.com");
     }
 
     public static void main(String[] args) {
