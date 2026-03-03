@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 /**
  * This class represents a list of all users
  * @author Eden Moore
@@ -41,9 +42,9 @@ public class UserList {
      * @param password password of the user you want to find
      * @return the user if found, null otherwise
      */
-    public User getUser(String username, String password) {
+    public User getUser(UUID uuid) {
         for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+            if (user.getID().equals(uuid)) {
                 return user;
             }
         }
