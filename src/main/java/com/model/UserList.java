@@ -20,6 +20,7 @@ public class UserList {
     public static UserList getInstance() {
         if (userlist == null) {
             userlist = new UserList();
+            userlist.users = DataLoader.getUsers();
         }
         return userlist;
     }
