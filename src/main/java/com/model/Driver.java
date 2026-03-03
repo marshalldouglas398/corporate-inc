@@ -40,6 +40,17 @@ public class Driver {
             System.out.println("Login failed");
         } else {
             System.out.println("Login successful");
+        // Test logging out and getting user characteristics
+        // Get the logged in user
+        User user = interviewApp.login("student", "password");
+        if (user != null) {
+            // Print user characteristics
+            System.out.println("Username: " + user.getUsername());
+            System.out.println("Date of Birth: " + user.getBirthDate());
+            // Logout
+            boolean loggedOut = interviewApp.logout(user);
+            System.out.println("User logged out: " + loggedOut);
+        }
         }
     }
 
