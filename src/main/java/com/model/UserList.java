@@ -11,7 +11,7 @@ public class UserList {
     private ArrayList<User> users;
 
     private UserList() {
-        this.users = new ArrayList<User>();
+        this.users = DataLoader.getUsers();
     }
 /**
  * Gets the instance of the UserList class
@@ -20,6 +20,7 @@ public class UserList {
     public static UserList getInstance() {
         if (userlist == null) {
             userlist = new UserList();
+            userlist.users = DataLoader.getUsers();
         }
         return userlist;
     }
@@ -44,7 +45,7 @@ public class UserList {
      */
     public User getUser(UUID uuid) {
         for (User user : users) {
-            if (user.getID().equals(uuid)) {
+            if (user.getID().equals(uuid.toString())) {
                 return user;
             }
         }
@@ -56,7 +57,7 @@ public class UserList {
      * @param username username of the user you want to find
      * @return true if found, false if not
      */
-    public boolean checkForUser(String password, String username) {
+    public boolean checkForUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return true;
@@ -86,7 +87,7 @@ public class UserList {
      * @return the user who logged in
      */
     public User login(String username, String password) { // changed to unbreak might need to fix again
-        boolean userExists = checkForUser(password, username);
+        boolean userExists = checkForUser(username, password);
         if (!userExists) {
             return null;
         } else {

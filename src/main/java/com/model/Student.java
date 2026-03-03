@@ -24,7 +24,7 @@ public class Student extends User {
      * @param major The major of the student
      */
     public Student(String username, String password, Date dateOfBirth, String email, String uscID, String major) {
-        super(username, password, dateOfBirth, email);
+        super(username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
         this.questionsAnswered = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Student extends User {
      * @param major The major of the student to copy
      */
     public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major) {
-        super(id, username, password, dateOfBirth, email);
+        super(id, username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
         this.questionsAnswered = new ArrayList<>();

@@ -21,7 +21,7 @@ public class DataLoader extends DataConstants {
                 JSONObject questionData = (JSONObject) questionJSON.get(i);
                 UUID id = UUID.fromString(questionData.get(QUESTION_ID).toString());
                 String title = questionData.get(QUESTION_TITLE).toString();
-                User author = UserList.getInstance().getUser(questionData.get(QUESTION_AUTHOR).toString(), questionData.get(USER_PASSWORD).toString());
+                User author = UserList.getInstance().getUser(UUID.fromString(questionData.get(QUESTION_AUTHOR).toString()));
                 JSONArray hintsArray = (JSONArray) questionData.get(QUESTION_HINTS);
                 ArrayList<String> hints = new ArrayList<>();
                 for (Object obj : hintsArray) {
@@ -75,16 +75,16 @@ public class DataLoader extends DataConstants {
                     case "Student":
                         String uscID = userData.get(USER_USCID).toString();
                         String major = userData.get(USER_MAJOR).toString();
-                        Student student = new Student(username, password, dateOfBirth, email, uscID, major);
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major);
                         users.add(student);
                         break;
                     case "Editor":
                         JSONArray questionsArray = (JSONArray) userData.get(USER_QUESTIONS_MADE);
                         ArrayList<UUID> questionsMade = new ArrayList<>();
                         for (Object obj : questionsArray) {
-                            questionsMade.add(UUID.fromString(obj.toString()));
+                            questionsMade.add(UUID.fromString(obj.toString()));     
                         }
-                        Editor editor = new Editor(username, password, dateOfBirth, email, role);
+                        Editor editor = new Editor(id, username, password, dateOfBirth, email, role);
                         for (UUID questionID : questionsMade) {
                             Question question = QuestionList.getInstance().getQuestion(questionID);
                             if (question != null) {
@@ -94,7 +94,7 @@ public class DataLoader extends DataConstants {
                         users.add(editor);
                         break;
                     case "Admin":
-                        Admin admin = new Admin(username, password, dateOfBirth, email);
+                        Admin admin = new Admin(id, username, password, dateOfBirth, email);
                         users.add(admin);
                         break;
                     default:

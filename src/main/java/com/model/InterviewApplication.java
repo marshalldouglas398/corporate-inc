@@ -23,9 +23,9 @@ public class InterviewApplication {
      * @param password password of the user you want to log in
      * @return the user if found, null otherwise
      */
-    public User login(String username, String password) { //to do
-        User loginUser = userlist.login(username, password);
-        return loginUser;
+    public User login(String username, String password) {
+        user = userlist.login(username, password);
+        return user;
     }
     /**
      * Logs a user out of the application

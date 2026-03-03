@@ -19,7 +19,7 @@ public class Admin extends User {
      * @param email The email of the admin
      */
     public Admin(String username, String password, Date dateOfBirth, String email) {
-        super(username, password, dateOfBirth, email);
+        super(username, password, dateOfBirth, email, "Admin");
         this.questionsMade = new ArrayList<>();
     }
 
@@ -32,7 +32,7 @@ public class Admin extends User {
      * @param email The email of the admin to copy
      */
     public Admin(UUID id, String username, String password, Date dateOfBirth, String email) {
-        super(id, username, password, dateOfBirth, email);
+        super(id, username, password, dateOfBirth, email, "Admin");
         this.questionsMade = new ArrayList<>();
     }
 

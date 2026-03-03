@@ -21,7 +21,7 @@ public class Editor extends User {
      * @param role The role of the editor
      */
     public Editor(String username, String password, Date dateOfBirth, String email, String role) {
-        super(UUID.randomUUID(), username, password, dateOfBirth, email);
+        super(UUID.randomUUID(), username, password, dateOfBirth, email, role);
         this.role = role;
         this.questionsMade = new ArrayList<>();
     }
@@ -36,7 +36,7 @@ public class Editor extends User {
      * @param role The role of the editor to copy
      */
     public Editor(UUID id, String username, String password, Date dateOfBirth, String email, String role) {
-        super(id, username, password, dateOfBirth, email);
+        super(id, username, password, dateOfBirth, email, role);
         this.role = role;
         this.questionsMade = new ArrayList<>();
     }
