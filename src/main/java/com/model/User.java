@@ -14,6 +14,7 @@ public class User {
     protected Date dateOfBirth;
     protected UUID id;
     protected String email;
+    protected String role;
 
     /**
      * Parameterized constructor for the User class
@@ -21,13 +22,15 @@ public class User {
      * @param password The password of the user
      * @param dateOfBirth The date of birth of the user
      * @param email The email of the user
+     * @param role The role of the user
      */
-    public User(String username, String password, Date dateOfBirth, String email) {
+    public User(String username, String password, Date dateOfBirth, String email, String role) {
         this.username = username;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.id = UUID.randomUUID();
         this.email = email;
+        this.role = role;
     }
 
     /**
@@ -37,13 +40,15 @@ public class User {
      * @param password The password of the user to copy
      * @param dateOfBirth The date of birth of the user to copy
      * @param email The email of the user to copy
+     * @param role The role of the user to copy
      */
-    public User(UUID id, String username, String password, Date dateOfBirth, String email) {
+    public User(UUID id, String username, String password, Date dateOfBirth, String email, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
+        this.role = role;
     }
 
     /**
