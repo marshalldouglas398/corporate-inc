@@ -15,7 +15,7 @@ public class Driver {
     }
 
     public void scenario1() {
-        System.out.println();
+        System.out.println("test");
         /*
         if () {
             System.out.println("Login failed");
@@ -44,7 +44,7 @@ public class Driver {
     }
 
     public void scenario2() {
-        System.out.println();
+        System.out.println("test");
 
         //login
 
@@ -56,6 +56,7 @@ public class Driver {
     }
 
     public static void main(String[] args) {
-        
+        Driver driver = new Driver();
+        driver.run();
     }
 }
