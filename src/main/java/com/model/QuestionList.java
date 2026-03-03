@@ -15,6 +15,7 @@ public class QuestionList {
 	public static QuestionList getInstance() {
 		if (questionList == null) {
 			questionList = new QuestionList();
+			questionList.questions = DataLoader.getQuestions();
 		}
 		return questionList;
 	}
@@ -45,8 +46,7 @@ public class QuestionList {
 	}
 
 	public boolean save() {
-		// to do
-		return true;
+		return DataWriter.saveQuestions();
 	}
 
 	public ArrayList<Question> getQuestions() {
