@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 /**
  * This class represents a list of all users
@@ -101,5 +102,18 @@ public class UserList {
      */
     public ArrayList<User> getUsers() {
         return this.users;
+    }
+
+    public boolean addUser(String username, String password, Date dateOfBirth, String email, String role) {
+        if (checkForUser(username, password) != true) {
+            return false;
+        }
+        User newUser = new User(username, password, dateOfBirth, email, role);
+        users.add(newUser);
+        System.out.println("Users in memory: " + users.size());
+        System.out.println("Created: " + newUser.getUsername());
+        System.out.println("UserList instance in addUser: " + this);
+        return true;
+
     }
 }

@@ -2,7 +2,7 @@
     {
         "username":"student", 
         "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "dateOfBirth":"2026-02-19", 
         "id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
         "email":"student@email.com", 
         "role": "Student",
@@ -14,7 +14,7 @@
     {
         "username":"editor", 
         "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "dateOfBirth":"2026-02-20", 
         "id":"9f144030-5747-41ee-a3f6-f03a838c088c", 
         "email":"editor@email.com", 
         "role": "Editor",
@@ -23,7 +23,7 @@
     {
         "username":"admin", 
         "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "dateOfBirth":"2026-02-21", 
         "id":"abc8402f-d765-46cf-8269-2a601825024a", 
         "email":"admin@email.com", 
         "role": "Admin",

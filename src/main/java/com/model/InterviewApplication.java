@@ -44,8 +44,8 @@ public class InterviewApplication {
      * @param email email of the new user
      * @return the new user account if created, null otherwise
      */
-    public User createAccount(String username, String password, Date dateOfBirth, String email) { // to do
-        return user;
+    public boolean createAccount(String username, String password, Date dateOfBirth, String email, String role) { // to do
+        return userlist.addUser(username, password, dateOfBirth, email, role);
     }
     /**
      * Deletes a user account

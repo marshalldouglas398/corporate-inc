@@ -50,7 +50,6 @@ public class DataLoader extends DataConstants {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
         return questions;
     }
@@ -85,12 +84,12 @@ public class DataLoader extends DataConstants {
                             questionsMade.add(UUID.fromString(obj.toString()));     
                         }
                         Editor editor = new Editor(id, username, password, dateOfBirth, email, role);
-                        for (UUID questionID : questionsMade) {
+                        /*for (UUID questionID : questionsMade) {
                             Question question = QuestionList.getInstance().getQuestion(questionID);
                             if (question != null) {
                                 editor.addQuestion(question);
                             }
-                        }
+                        }*/
                         users.add(editor);
                         break;
                     case "Admin":
@@ -103,8 +102,8 @@ public class DataLoader extends DataConstants {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
+        System.out.println("Users loaded: " + users.size());
         return users;
     }
 }

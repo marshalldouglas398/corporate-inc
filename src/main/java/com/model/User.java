@@ -80,10 +80,10 @@ public class User {
     }
 
     public String getRole() {
-        return "User";
+        return role;
     }
 
-    public QuestionList getQuestionsSolved() {
+    public ArrayList<Question> getQuestionsSolved() {
         return null;
     }
 
