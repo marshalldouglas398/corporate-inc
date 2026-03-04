@@ -2,6 +2,8 @@ package com.model;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
@@ -17,7 +19,11 @@ public class DataWriter extends DataConstants {
             UserList userList = UserList.getInstance();
             System.out.println("UserList instance in saveUsers: " + userList);
             ArrayList<User> users = userList.getUsers();
-
+            /*ArrayList<User> newUsers = new ArrayList<>();
+            for (User user : users) {
+                newUsers.add(user);
+                System.out.println("User in saveUsers: " + user.getUsername());
+            }*/
             JSONArray jsonUsers = new JSONArray();
 
             for (int i = 0; i < users.size(); i++) {
@@ -44,6 +50,7 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_PASSWORD, user.getPassword());
         //userDetails.put(USER_DATE_OF_BIRTH, user.getBirthDate());
         //DateTimeFormatter formatter = new DateTimeFormatter;
+        System.out.println(user.getBirthDate());
         userDetails.put(USER_DATE_OF_BIRTH, DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).parse(user.getBirthDate()));
         userDetails.put(USER_ID, user.getID().toString());
         userDetails.put(USER_EMAIL, user.getEmail());

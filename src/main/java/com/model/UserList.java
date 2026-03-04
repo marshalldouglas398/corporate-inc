@@ -8,7 +8,7 @@ import java.util.UUID;
  * @author Eden Moore
  */
 public class UserList {
-    private static  UserList userlist;
+    private static UserList userlist;
     private ArrayList<User> users;
 
     private UserList() {
@@ -96,16 +96,19 @@ public class UserList {
         }
     }
     /**
-     * Logs out a user
-     * @param user user you want to log out
-     * @return null as user has been logged out
+     * Returns the list of users
+     * @return list of users
      */
     public ArrayList<User> getUsers() {
-        return this.users;
+        ArrayList<User> newUsers = new ArrayList<>();
+        for (User user : users) {
+            newUsers.add(user);
+        }
+        return newUsers;
     }
 
     public boolean addUser(String username, String password, Date dateOfBirth, String email, String role) {
-        if (checkForUser(username, password) != true) {
+        if (checkForUser(username, password) == true) {
             return false;
         }
         User newUser = new User(username, password, dateOfBirth, email, role);
@@ -113,6 +116,10 @@ public class UserList {
         System.out.println("Users in memory: " + users.size());
         System.out.println("Created: " + newUser.getUsername());
         System.out.println("UserList instance in addUser: " + this);
+        /*for (User user : users) {
+            System.out.println("User in list: " + user.getUsername());
+        }*/
+       save();
         return true;
 
     }

@@ -21,7 +21,7 @@ public class Driver {
     public void run() {
         scenario1();
         scenario2();
-        //scenario3();
+        scenario3();
     }
 
     /**
@@ -62,8 +62,8 @@ public class Driver {
      * WIP 
      */
     public void scenario3() {
-        interviewApp.createAccount("jhardee", "password", new Date(), "jhardee@email.com", "Student");
-        interviewApp.createAccount("amsith", "password", new Date(), "asmith@email.com", "Student");
+        interviewApp.createAccount("jhardee", "password", new Date(2026-03-04), "jhardee@email.com", "Student");
+        interviewApp.createAccount("amsith", "password", new Date(2026-03-03), "asmith@email.com", "Student");
     }
 
     public static void main(String[] args) {

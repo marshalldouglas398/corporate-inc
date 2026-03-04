@@ -2,6 +2,8 @@ package com.model;
 
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -67,7 +69,9 @@ public class DataLoader extends DataConstants {
                 UUID id = UUID.fromString(userData.get(USER_ID).toString());
                 String username = userData.get(USER_NAME).toString();
                 String password = userData.get(USER_PASSWORD).toString();
-                Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(userData.get(USER_DATE_OF_BIRTH).toString());
+
+                Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(userData.get(USER_DATE_OF_BIRTH).toString());
+
                 String email = userData.get(USER_EMAIL).toString();
                 String role = userData.get(USER_ROLE).toString();
                 switch (role) {

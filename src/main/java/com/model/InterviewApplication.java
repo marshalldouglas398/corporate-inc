@@ -45,6 +45,7 @@ public class InterviewApplication {
      * @return the new user account if created, null otherwise
      */
     public boolean createAccount(String username, String password, Date dateOfBirth, String email, String role) { // to do
+        System.out.println("running createaccount");
         return userlist.addUser(username, password, dateOfBirth, email, role);
     }
     /**
