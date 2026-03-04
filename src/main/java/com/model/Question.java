@@ -24,7 +24,7 @@ public class Question {
     private boolean isInterviewMode; // I'll make a getter and setter for this
     private ArrayList<QuestionTag> tag;
     private ArrayList<String> hints;
-    private Double timeLimit;
+    private int time = -1; // Time limit for interview mode in minutes, -1 means no time limit
 
     /**
      * Parameterized constructor for the Question class
@@ -55,7 +55,33 @@ public class Question {
      * @param id The UUID of the question to copy
      */
     public Question(UUID id) {
-        // You need to implement question retrieval first before you can implement this constructor
+        QuestionList questionList = QuestionList.getInstance();
+        Question question = questionList.getQuestion(id);
+        if (question != null) {
+            this.title = question.getTitle();
+            this.author = question.getAuthor();
+            this.hints = question.getHints();
+            this.type = question.getType();
+            this.discipline = question.getDiscipline();
+            this.difficulty = question.getDifficulty();
+            this.course = question.getCourse();
+            this.id = question.getId();
+            this.comments = question.getComments();
+            this.rating = question.getRating();
+            this.numRatings = question.getNumRatings();
+        } else {
+            this.title = "";
+            this.author = null;
+            this.hints = new ArrayList<>();
+            this.type = null;
+            this.discipline = new ArrayList<>();
+            this.difficulty = null;
+            this.course = new ArrayList<>();
+            this.id = id;
+            this.comments = new ArrayList<>();
+            this.rating = null;
+            this.numRatings = 0.0;
+        }
     }
 
     /**
@@ -91,7 +117,7 @@ public class Question {
      */
     public void setInterviewMode(boolean b, int time) {
         this.isInterviewMode = b;
-        this.timeLimit = time * 60.0;
+        this.time = time;
     }
 
     /**

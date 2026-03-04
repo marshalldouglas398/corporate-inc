@@ -1,4 +1,5 @@
 package com.model;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,75 +7,86 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class DataWriter extends DataConstants{
-    public static boolean saveUsers() {
-        UserList users = UserList.getInstance();
-        ArrayList<User> userList = users.getUsers();
-        JSONArray jsonUsers = new JSONArray();
+public class DataWriter extends DataConstants {
+    public static boolean saveUsers() { 
+        try {
+            UserList userList = UserList.getInstance();
+            ArrayList<User> users = userList.getUsers();
 
-        for(int i = 0; i < userList.size(); i++) {
-            jsonUsers.add(getUserJSON(userList.get(i)));
-        }
+            JSONArray jsonUsers = new JSONArray();
 
-        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
-            file.write(jsonUsers.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+            for (int i = 0; i < users.size(); i++) {
+                jsonUsers.add(getUserJSON(users.get(i)));
+            }
+
+            try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
+                file.write(jsonUsers.toJSONString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace(); 
+            }
+            return true;  
+        } catch (Exception e) {
             return false;
         }
-        return true;
     }
 
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getId().toString());
+        userDetails.put(USER_ID, user.getID().toString());
         userDetails.put(USER_NAME, user.getUsername());
         userDetails.put(USER_PASSWORD, user.getPassword());
-        userDetails.put(USER_DATE_OF_BIRTH, user.getDateOfBirth().toString());
+        userDetails.put(USER_DATE_OF_BIRTH, user.getBirthDate());
         userDetails.put(USER_EMAIL, user.getEmail());
-        userDetails.put(USER_ROLE, user.getRole());
-
-        if(user.isEditor()) {
-            userDetails.put(USER_QUESTIONS_MADE, ((Editor) user).getQuestionsMade());
-        } else if (user.isAdmin()) {
-            userDetails.put(USER_QUESTIONS_MADE, ((Admin) user).getQuestionsMade());
-        } else {
-            userDetails.put(USER_QUESTIONS_SOLVED, ((Student) user).getQuestionsAnswered());
-            userDetails.put(USER_COURSES_TAKEN, ((Student) user).getCoursesTaken());
-            userDetails.put(USER_USCID, ((Student) user).getUscID());
-            userDetails.put(USER_MAJOR, ((Student) user).getMajor());
-        }
-        
+        String role = user.getRole().toString();
+        switch (role) {
+            case "Student" :
+                userDetails.put(USER_QUESTIONS_SOLVED, user.getQuestionsSolved());
+                userDetails.put(USER_COURSES_TAKEN, user.getCoursesTaken());
+                userDetails.put(USER_USCID, user.getUSCID());
+                userDetails.put(USER_MAJOR, user.getMajor());
+                break;
+            case "Editor" :
+                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                break;
+            case "Admin" :
+                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                break;
+        }    
         return userDetails;
     }
 
     public static boolean saveQuestions() {
-        QuestionList questions = QuestionList.getInstance();
-        ArrayList<Question> questionList = questions.getQuestions();
-        JSONArray jsonQuestions = new JSONArray();
+        try {
+            QuestionList questionList = QuestionList.getInstance();
+            ArrayList<Question> questions = questionList.getQuestions();
 
-        for(int i = 0; i < questionList.size(); i++) {
-            jsonQuestions.add(getQuestionJSON(questionList.get(i)));
-        }
+            JSONArray jsonQuestions = new JSONArray();
 
-        try (FileWriter file = new FileWriter(QUESTION_FILE_NAME)) {
-            file.write(jsonQuestions.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+            for (int i = 0; i < questions.size(); i++) {
+                jsonQuestions.add(getQuestionsJSON(questions.get(i)));
+            }
+
+            try (FileWriter file = new FileWriter(QUESTION_FILE_NAME)) {
+                file.write(jsonQuestions.toJSONString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+            return true;  
+        } catch (Exception e) {
             return false;
         }
-        return true;
     }
-
-    public static JSONObject getQuestionJSON(Question question) {
+    
+    public static JSONObject getQuestionsJSON(Question question){
         JSONObject questionDetails = new JSONObject();
-        questionDetails.put(QUESTION_ID, question.getId().toString());
         questionDetails.put(QUESTION_TITLE, question.getTitle());
         questionDetails.put(QUESTION_DESCRIPTION, question.getDescription());
         questionDetails.put(QUESTION_SECTIONS, question.getSections());
-        questionDetails.put(QUESTION_AUTHOR, question.getAuthor().getUsername());
+        questionDetails.put(QUESTION_ID, question.getId());
+        questionDetails.put(QUESTION_AUTHOR, question.getAuthor());
         questionDetails.put(QUESTION_COMMENTS, question.getComments());
         questionDetails.put(QUESTION_RATING, question.getRating());
         questionDetails.put(QUESTION_TYPE, question.getType());
@@ -84,7 +96,13 @@ public class DataWriter extends DataConstants{
         questionDetails.put(QUESTION_INTERVIEW, question.isInterviewMode());
         questionDetails.put(QUESTION_TAGS, question.getTag());
         questionDetails.put(QUESTION_HINTS, question.getHints());
-
+    
         return questionDetails;
+    }
+
+
+    public static void main(String[] args){
+        DataWriter.saveUsers();
+        DataWriter.saveQuestions();
     }
 }
