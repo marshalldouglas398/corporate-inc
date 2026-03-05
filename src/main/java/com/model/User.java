@@ -80,7 +80,7 @@ public class User {
     }
 
     public String getRole() {
-        return "User";
+        return this.role;
     }
 
     public QuestionList getQuestionsSolved() {
