@@ -71,8 +71,8 @@ public class User {
         return id;
     }
 
-    public Date getBirthDate() {
-        return dateOfBirth;
+    public String getBirthDate() {
+        return new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(dateOfBirth);
     }
 
     public String getEmail() {
