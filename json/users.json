@@ -1,1 +1,32 @@
-[{"password":"password","coursesTaken":[],"questionsSolved":null,"major":"Computer Science","uscID":null,"dateOfBirth":"2026-02-19T10:15:30.000Z","id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240","email":"student@email.com","username":"student"},{"password":"password","dateOfBirth":"2026-02-19T10:15:30.000Z","id":"9f144030-5747-41ee-a3f6-f03a838c088c","questionsMade":[],"email":"editor@email.com","username":"editor"},{"password":"password","dateOfBirth":"2026-02-19T10:15:30.000Z","id":"abc8402f-d765-46cf-8269-2a601825024a","questionsMade":[],"email":"admin@email.com","username":"admin"},{"password":"password123","dateOfBirth":"2026-03-05T12:40:59.415Z","id":"e9a8bc25-1081-4cc9-b154-fe5ab21b29c1","email":"newuser@email.com","username":"newuser"}]
+[
+    {
+        "username":"student", 
+        "password":"password", 
+        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+        "email":"student@email.com", 
+        "role": "Student",
+        "questionsSolved":["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"], 
+        "coursesTaken":["Course.CSCS145"], 
+        "uscID": "1234567890", 
+        "major": "Computer Science"
+    },
+    {
+        "username":"editor", 
+        "password":"password", 
+        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "id":"9f144030-5747-41ee-a3f6-f03a838c088c", 
+        "email":"editor@email.com", 
+        "role": "Editor",
+        "questionsMade": ["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"]
+    }, 
+    {
+        "username":"admin", 
+        "password":"password", 
+        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
+        "id":"abc8402f-d765-46cf-8269-2a601825024a", 
+        "email":"admin@email.com", 
+        "role": "Admin",
+        "questionsMade": ["c82ae2a3-8d55-4079-a241-5cd82d499061"]
+    }
+]
