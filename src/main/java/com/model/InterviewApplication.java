@@ -44,8 +44,24 @@ public class InterviewApplication {
      * @param email email of the new user
      * @return the new user account if created, null otherwise
      */
-    public User createAccount(String username, String password, Date dateOfBirth, String email) { // to do
-        return user;
+    public User createAccount(String username, String password, Date dateOfBirth, String email) {
+        // Basic validation: all fields required
+        if (username == null || username.isBlank()
+                || password == null || password.isBlank()
+                || email == null || email.isBlank()
+                || dateOfBirth == null) {
+            return null;
+        }
+
+        // Username must be unique
+        if (userlist.searchUser(username) != null) {
+            return null;
+        }
+
+        User newUser = new User(username, password, dateOfBirth, email, "User");
+        userlist.getUsers().add(newUser);
+        userlist.save();
+        return newUser;
     }
     /**
      * Deletes a user account
