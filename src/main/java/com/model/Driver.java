@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.Date;
+
 /**
  * This class represents the driver, where our program is tested through scenarios.
  * @author Ainsley Weaver
@@ -21,6 +23,8 @@ public class Driver {
         scenario2();
         scenario3();
         scenario4();
+        scenario5();
+        scenario6();
     }
 
     /**
@@ -121,6 +125,44 @@ public class Driver {
             }
             boolean loggedOut = interviewApp.logout(user);
             System.out.println("User logged out: " + loggedOut);
+        }
+    }
+
+        /**
+     * Fifth scenario: create a valid user account
+     */
+    public void scenario5() {
+        System.out.println("--------------------------------");
+        System.out.println("Scenario 5: Create valid user account");
+
+        Date dob = new Date();
+        User newUser = interviewApp.createAccount("newuser", "password123", dob, "newuser@email.com");
+
+        if (newUser != null) {
+            System.out.println("Account creation successful");
+            System.out.println("Username: " + newUser.getUsername());
+            System.out.println("Date of Birth: " + newUser.getBirthDate());
+            System.out.println("Email: " + newUser.getEmail());
+            System.out.println("Role: " + newUser.getRole());
+        } else {
+            System.out.println("Account creation failed");
+        }
+    }
+
+    /**
+     * Sixth scenario: attempt to create an invalid user account (blank username)
+     */
+    public void scenario6() {
+        System.out.println("--------------------------------");
+        System.out.println("Scenario 6: Create invalid user account (blank username)");
+
+        Date dob = new Date();
+        User invalidUser = interviewApp.createAccount("", "password123", dob, "invaliduser@email.com");
+
+        if (invalidUser != null) {
+            System.out.println("Account creation unexpectedly succeeded");
+        } else {
+            System.out.println("Account creation failed as expected due to invalid username");
         }
     }
 
