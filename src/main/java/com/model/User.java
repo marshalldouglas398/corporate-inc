@@ -67,8 +67,8 @@ public class User {
         return password;
     }
 
-    public String getID() {
-        return id.toString();
+    public UUID getID() {
+        return id;
     }
 
     public Date getBirthDate() {
