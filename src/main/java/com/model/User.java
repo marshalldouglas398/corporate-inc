@@ -71,8 +71,8 @@ public class User {
         return id.toString();
     }
 
-    public String getBirthDate() {
-        return dateOfBirth.toString();
+    public Date getBirthDate() {
+        return dateOfBirth;
     }
 
     public String getEmail() {
