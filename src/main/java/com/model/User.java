@@ -67,38 +67,74 @@ public class User {
         return password;
     }
 
+    /**
+     * Gets the UUID of the user
+     * @return The UUID of the user
+     */
     public UUID getID() {
         return id;
     }
 
+    /**
+     * Gets the date of birth of the user
+     * @return The date of birth of the user in ISO 8601 format
+     */
     public String getBirthDate() {
         return new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(dateOfBirth);
     }
 
+    /**
+     * Gets the email of the user
+     * @return The email of the user
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Gets the role of the user
+     * @return The role of the user
+     */
     public String getRole() {
         return this.role;
     }
 
+    /**
+     * Gets the list of questions solved by the user
+     * @return The list of questions solved by the user
+     */
     public QuestionList getQuestionsSolved() {
         return null;
     }
 
+    /**
+     * Gets the list of courses taken by the user
+     * @return The list of courses taken by the user
+     */
     public ArrayList<Course> getCoursesTaken() {
         return null;
     }
     
+    /**
+     * Gets the USC ID of the user
+     * @return The USC ID of the user
+     */
     public String getUSCID() {
         return null;
     }
 
+    /**
+     * Gets the major of the user
+     * @return The major of the user
+     */
     public String getMajor() {
         return null;
     }
 
+    /**
+     * Gets the list of questions made by the user
+     * @return The list of questions made by the user
+     */
     public ArrayList<Question> getQuestionsMade() {
         return null;
     }
