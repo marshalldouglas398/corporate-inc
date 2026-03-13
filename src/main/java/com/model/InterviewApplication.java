@@ -77,7 +77,14 @@ public class InterviewApplication {
      * @return true if the user was edited, false otherwise
      */
     public boolean editUser(User user) { // to do
-        return true;
+        if(this.user.getRole().equals("Admin")) {
+            ArrayList<User> users = userlist.getUsers();
+            users.remove(userlist.getUser(user.getID()));
+            users.add(user);
+            userlist.save();
+            return true;
+        }
+        return false;
     }
     /**
      * Filters the list of questions based on the given parameters
