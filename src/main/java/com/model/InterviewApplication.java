@@ -68,15 +68,22 @@ public class InterviewApplication {
      * @param user the user you want to delete
      * @return true if the user was deleted, false otherwise
      */
-    public boolean deleteUser(User user) { // to do
-        return true;
+    public boolean deleteUser(User user) {
+        if(this.user.getRole().equals("Admin")) {
+            ArrayList<User> users = userlist.getUsers();
+            users.remove(userlist.getUser(user.getID()));
+            userlist.save();
+            return true;
+
+        }
+        return false;
     }
     /**
      * Edits a user account
      * @param user the user you want to edit
      * @return true if the user was edited, false otherwise
      */
-    public boolean editUser(User user) { // to do
+    public boolean editUser(User user) { 
         if(this.user.getRole().equals("Admin")) {
             ArrayList<User> users = userlist.getUsers();
             users.remove(userlist.getUser(user.getID()));
