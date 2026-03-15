@@ -1,6 +1,5 @@
 package com.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -103,23 +102,24 @@ public class User {
      * Gets the list of questions solved by the user
      * @return The list of questions solved by the user
      */
-    public QuestionList getQuestionsSolved() {
-        return null;
-    }
+    /*public QuestionList getQuestionsSolved() {
+        Student student = (Student) this;
+        return student.getQuestionsAnswered();
+    }*/
 
     /**
      * Gets the list of courses taken by the user
      * @return The list of courses taken by the user
      */
-    public ArrayList<Course> getCoursesTaken() {
+    /*public ArrayList<Course> getCoursesTaken() {
         return null;
-    }
+    }*/
     
     /**
      * Gets the USC ID of the user
      * @return The USC ID of the user
      */
-    public String getUSCID() {
+    /*public String getUSCID() {
         return null;
     }
 
@@ -127,17 +127,17 @@ public class User {
      * Gets the major of the user
      * @return The major of the user
      */
-    public String getMajor() {
+    /*public String getMajor() {
         return null;
-    }
+    }*/
 
     /**
      * Gets the list of questions made by the user
      * @return The list of questions made by the user
      */
-    public ArrayList<Question> getQuestionsMade() {
+    /*public ArrayList<Question> getQuestionsMade() {
         return null;
-    }
+    }*/
 
     /**
      * Resets the password of the user

@@ -69,7 +69,7 @@ public class Student extends User {
      * Gets the USC ID of the student
      * @return The USC ID of the student
      */
-    public String getUscID() {
+    public String getUSCID() {
         return this.uscID;
     }
 

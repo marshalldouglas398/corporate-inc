@@ -60,7 +60,7 @@ public class Driver {
             // Student-specific info
             if (user instanceof Student) {
                 Student student = (Student) user;
-                System.out.println("USC ID: " + student.getUscID());
+                System.out.println("USC ID: " + student.getUSCID());
                 System.out.println("Major: " + student.getMajor());
                 System.out.println("Courses Taken: " + student.getCoursesTaken());
             }

@@ -20,7 +20,15 @@ public class DataWriter extends DataConstants {
             }
 
             try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
-                file.write(jsonUsers.toJSONString());
+                file.write("[\n");
+                for (int i = 0; i < users.size(); i++) {
+                    JSONObject userJSON = getUserJSON(users.get(i));
+                    file.write(" " + userJSON.toJSONString());
+                    if (i < users.size() - 1) {
+                        file.write(", \n");
+                    }
+                }
+                file.write("\n]");
                 file.flush();
             } catch (IOException e) {
                 e.printStackTrace(); 
@@ -33,24 +41,28 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getID().toString());
         userDetails.put(USER_NAME, user.getUsername());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_DATE_OF_BIRTH, user.getBirthDate());
+        userDetails.put(USER_ID, user.getID().toString());
         userDetails.put(USER_EMAIL, user.getEmail());
         String role = user.getRole().toString();
+        userDetails.put(USER_ROLE, role);
         switch (role) {
             case "Student" :
-                userDetails.put(USER_QUESTIONS_SOLVED, user.getQuestionsSolved());
-                userDetails.put(USER_COURSES_TAKEN, user.getCoursesTaken());
-                userDetails.put(USER_USCID, user.getUSCID());
-                userDetails.put(USER_MAJOR, user.getMajor());
+                Student student = (Student) user;
+                userDetails.put(USER_QUESTIONS_SOLVED, student.getQuestionsAnswered());
+                userDetails.put(USER_COURSES_TAKEN, student.getCoursesTaken());
+                userDetails.put(USER_USCID, student.getUSCID());
+                userDetails.put(USER_MAJOR, student.getMajor());
                 break;
             case "Editor" :
-                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                Editor editor = (Editor) user;
+                userDetails.put(USER_QUESTIONS_MADE, editor.getQuestionsMade());
                 break;
             case "Admin" :
-                userDetails.put(USER_QUESTIONS_MADE, user.getQuestionsMade());
+                Admin admin = (Admin) user;
+                userDetails.put(USER_QUESTIONS_MADE, admin.getQuestionsMade());
                 break;
         }    
         return userDetails;
