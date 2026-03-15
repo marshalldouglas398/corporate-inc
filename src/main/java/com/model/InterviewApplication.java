@@ -105,8 +105,8 @@ public class InterviewApplication {
      * @param username username of the user you want to find
      * @return the user if found, null otherwise
      */
-    public User findUser(String username) { // to do
-        return null;
+    public User findUser(String username) {
+        return userlist.searchUser(username);
     }
     /**
      * Adds a question to the list of questions
