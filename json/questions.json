@@ -43,12 +43,12 @@
             "tags": ["QuestionType.SOLUTION", "Discipline.DISCUSSION", "Difficulty.HINT"]
         }], 
         "rating": 4.5, 
-        "type": "QuestionType.TECHNICAL", 
-        "discipline": "Discipline.COMPSCI", 
-        "difficulty": "Difficulty.EASY", 
-        "course": ["Course.CSCS145"], 
+        "type": "TECHNICAL", 
+        "discipline": ["COMPSCI"], 
+        "difficulty": "EASY", 
+        "course": ["CSCE145"], 
         "isInterviewMode": true, 
-        "tag": ["QuestionTag.FIND_THE_ERROR"], 
+        "tags": ["FIND_THE_ERROR"], 
         "hints": [
             "Ask Joe", 
             "Joe Mama"
@@ -80,12 +80,12 @@
             "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"]
         }], 
         "rating": 4.7, 
-        "type": "QuestionType.BEHAVIORAL", 
-        "discipline": "Discipline.COMPSCI", 
-        "difficulty": "Difficulty.EASY", 
-        "course": ["Course.CSCS145"], 
+        "type": "BEHAVIORAL", 
+        "discipline": ["COMPSCI"], 
+        "difficulty": "EASY", 
+        "course": ["CSCE145"], 
         "isInterviewMode": true, 
-        "tag": ["QuestionTag.SITUATION"], 
+        "tags": ["SITUATION"], 
         "hints": [
             "Be normal"
         ]
