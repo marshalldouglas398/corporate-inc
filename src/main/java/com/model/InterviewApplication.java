@@ -74,7 +74,6 @@ public class InterviewApplication {
             users.remove(userlist.getUser(user.getID()));
             userlist.save();
             return true;
-
         }
         return false;
     }
@@ -119,8 +118,12 @@ public class InterviewApplication {
      * Adds a question to the list of questions
      * @return true if the question was added, false otherwise
      */
-    public boolean addQuestion() { // to do
-        return true;
+    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
+        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course);
+            return true;
+        }
+        return false;
     }
     /**
      * Edits a question in the list of questions
