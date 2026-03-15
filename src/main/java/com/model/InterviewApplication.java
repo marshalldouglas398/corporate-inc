@@ -105,8 +105,8 @@ public class InterviewApplication {
      * @param username username of the user you want to find
      * @return the user if found, null otherwise
      */
-    public User findUser(String username) { // to do
-        return null;
+    public User findUser(String username) {
+        return userlist.searchUser(username);
     }
     /**
      * Adds a question to the list of questions
@@ -129,7 +129,8 @@ public class InterviewApplication {
      * @param num the rating value
      * @return true if the question was rated, false otherwise
      */
-    public boolean rateQuestion(Question question, Double num) { // to do
+    public boolean rateQuestion(Question question, Double num) {
+        questionList.getQuestion(question.getId()).addRating(num);
         return true;
     }
     /**
