@@ -129,7 +129,8 @@ public class InterviewApplication {
      * @param num the rating value
      * @return true if the question was rated, false otherwise
      */
-    public boolean rateQuestion(Question question, Double num) { // to do
+    public boolean rateQuestion(Question question, Double num) {
+        questionList.getQuestion(question.getId()).addRating(num);
         return true;
     }
     /**
