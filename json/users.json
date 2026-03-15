@@ -7,7 +7,7 @@
         "email":"student@email.com", 
         "role": "Student",
         "questionsSolved":["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"], 
-        "coursesTaken":["Course.CSCS145"], 
+        "coursesTaken":["Course.CSCE145"], 
         "uscID": "1234567890", 
         "major": "Computer Science"
     },
