@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -135,9 +136,9 @@ public class User {
      * Gets the list of questions made by the user
      * @return The list of questions made by the user
      */
-    /*public ArrayList<Question> getQuestionsMade() {
+    public ArrayList<Question> getQuestionsMade() {
         return null;
-    }*/
+    }
 
     /**
      * Resets the password of the user

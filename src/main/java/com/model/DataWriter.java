@@ -3,6 +3,7 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -58,11 +59,21 @@ public class DataWriter extends DataConstants {
                 break;
             case "Editor" :
                 Editor editor = (Editor) user;
-                userDetails.put(USER_QUESTIONS_MADE, editor.getQuestionsMade());
+                ArrayList<UUID> questionIDs = new ArrayList<>();
+                for (Question q : editor.getQuestionsMade()) {
+                    questionIDs.add(q.getId());
+                }
+                questionIDs.toArray();
+                userDetails.put(USER_QUESTIONS_MADE, questionIDs);
                 break;
             case "Admin" :
                 Admin admin = (Admin) user;
-                userDetails.put(USER_QUESTIONS_MADE, admin.getQuestionsMade());
+                ArrayList<UUID> questionIDss = new ArrayList<>();
+                for (Question q : admin.getQuestionsMade()) {
+                    questionIDss.add(q.getId());
+                }
+                questionIDss.toArray();
+                userDetails.put(USER_QUESTIONS_MADE, questionIDss);
                 break;              
         }    
         return userDetails;

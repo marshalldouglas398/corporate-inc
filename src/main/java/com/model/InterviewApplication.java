@@ -119,8 +119,13 @@ public class InterviewApplication {
      * @return true if the question was added, false otherwise
      */
     public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
-        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+        if(this.user.getRole().equals("Admin")) {
             questionList.addQuestion(title, author,hints,type,discipline,difficulty,course);
+            this.user.getQuestionsMade().add(new Question(title, author, hints, type, discipline, difficulty, course));
+            return true;
+        } else if (this.user.getRole().equals("Editor")) {
+            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course);
+            this.user.getQuestionsMade().add(new Question(title, author, hints, type, discipline, difficulty, course));
             return true;
         }
         return false;
