@@ -58,7 +58,7 @@ public class InterviewApplication {
             return null;
         }
 
-        User newUser = new User(username, password, dateOfBirth, email, "Student");
+        User newUser = new Student(username, password, dateOfBirth, email, "USCID", "Major");
         userlist.getUsers().add(newUser);
         userlist.save();
         return newUser;
