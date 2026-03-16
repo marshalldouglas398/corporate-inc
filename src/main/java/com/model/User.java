@@ -151,11 +151,15 @@ public class User {
      * Checks if the user is an editor
      * @return true if the user is an editor, false otherwise
      */
-    public boolean isEditor() { return false; } // This method will be overridden in the Editor class
+    public boolean isEditor() { 
+        return this.role.equals("Editor");
+    } // This method will be overridden in the Editor class
 
     /**
      * Checks if the user is an admin
      * @return true if the user is an admin, false otherwise
      */
-    public boolean isAdmin() { return false; } // This method will be overridden in the Admin class
+    public boolean isAdmin() { 
+        return this.role.equals("Admin"); 
+    } // This method will be overridden in the Admin class
 }

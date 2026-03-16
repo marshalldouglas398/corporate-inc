@@ -96,5 +96,6 @@ public class Editor extends User {
      * Checks if the user is an editor
      * @return true if the user is an editor, false otherwise
      */
+    @Override
     public boolean isEditor() { return true; } // This method overrides the isEditor method in the User class to return true for editors
 }
