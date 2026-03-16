@@ -37,7 +37,25 @@ public class QuestionList {
 	public ArrayList<Question> filterQuestion(ArrayList<Question> allQuestions, QuestionType qtype, Discipline d, Difficulty diff, Course c, QuestionTag qt) {
 		ArrayList<Question> filteredQuestions = new ArrayList<>();
 		for (Question question : allQuestions) {
-			if (question.getType().equals(qtype) && question.getDiscipline().equals(d) && question.getDifficulty().equals(diff) && question.getCourse().equals(c) && question.getTag().equals(qt)) {
+			boolean matches = true;
+
+			if (qtype != null && !question.getType().equals(qtype)) {
+				matches = false;
+			}
+			if (d != null && !question.getDiscipline().equals(d)) {
+				matches = false;
+			}
+			if (diff != null && !question.getDifficulty().equals(diff)) {
+				matches = false;
+			}
+			if (c != null && !question.getCourse().equals(c)) {
+				matches = false;
+			}
+			if (qt != null && !question.getTag().equals(qt)) {
+				matches = false;
+			}
+
+			if (matches) {
 				filteredQuestions.add(question);
 			}
 		}
