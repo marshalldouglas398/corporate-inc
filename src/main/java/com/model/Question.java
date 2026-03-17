@@ -29,15 +29,27 @@ public class Question {
     /**
      * Parameterized constructor for the Question class
      * @param title The title of the question
+     * @param description The description of the question
+     * @param sections The sections of the question
      * @param author The author of the question
      * @param hints The hints for the question
      * @param type The type of the question
      * @param discipline The discipline(s) the question belongs to
      * @param difficulty The difficulty of the question
      * @param course The course(s) the question belongs to
+     * @param id The UUID of the question
+     * @param comments The comments on the question
+     * @param rating The rating of the question
+     * @param numRatings The number of ratings the question has received
+     * @param isInterviewMode Whether the question is in interview mode
+     * @param tag The tags associated with the question
+     * @param hints The hints for the question
+     * @param time The time limit for the interview mode in minutes
      */
     public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
         this.title = title;
+        this.description = "";
+        this.sections = new ArrayList<>();
         this.author = author;
         this.hints = hints;
         this.type = type;
@@ -48,6 +60,61 @@ public class Question {
         this.comments = new ArrayList<>();
         this.rating = null;
         this.numRatings = 0.0;
+        this.isInterviewMode = false;
+        this.tag = new ArrayList<>();
+    }
+
+    /**
+     * Full constructor used for loading from data.
+     * @param id The UUID of the question
+     * @param title The title of the question
+     * @param description The description of the question
+     * @param sections The sections of the question
+     * @param author The author of the question
+     * @param comments The comments on the question
+     * @param rating The rating of the question
+     * @param numRatings The number of ratings the question has received
+     * @param type The type of the question
+     * @param discipline The discipline(s) the question belongs to
+     * @param difficulty The difficulty of the question
+     * @param course The course(s) the question belongs to
+     * @param isInterviewMode Whether the question is in interview mode
+     * @param tag The tags associated with the question
+     * @param hints The hints for the question
+     * @param time The time limit for the interview mode in minutes
+     */
+    public Question(UUID id,
+            String title,
+            String description,
+            ArrayList<Section> sections,
+            User author,
+            ArrayList<Comment> comments,
+            Double rating,
+            Double numRatings,
+            QuestionType type,
+            ArrayList<Discipline> discipline,
+            Difficulty difficulty,
+            ArrayList<Course> course,
+            boolean isInterviewMode,
+            ArrayList<QuestionTag> tag,
+            ArrayList<String> hints,
+            int time) {
+        this.id = (id == null) ? UUID.randomUUID() : id;
+        this.title = (title == null) ? "" : title;
+        this.description = (description == null) ? "" : description;
+        this.sections = (sections == null) ? new ArrayList<>() : sections;
+        this.author = author;
+        this.comments = (comments == null) ? new ArrayList<>() : comments;
+        this.rating = rating;
+        this.numRatings = (numRatings == null) ? 0.0 : numRatings;
+        this.type = type;
+        this.discipline = (discipline == null) ? new ArrayList<>() : discipline;
+        this.difficulty = difficulty;
+        this.course = (course == null) ? new ArrayList<>() : course;
+        this.isInterviewMode = isInterviewMode;
+        this.tag = (tag == null) ? new ArrayList<>() : tag;
+        this.hints = (hints == null) ? new ArrayList<>() : hints;
+        this.time = time;
     }
 
     /**
@@ -59,6 +126,8 @@ public class Question {
         Question question = questionList.getQuestion(id);
         if (question != null) {
             this.title = question.getTitle();
+            this.description = question.getDescription();
+            this.sections = question.getSections();
             this.author = question.getAuthor();
             this.hints = question.getHints();
             this.type = question.getType();
@@ -69,8 +138,12 @@ public class Question {
             this.comments = question.getComments();
             this.rating = question.getRating();
             this.numRatings = question.getNumRatings();
+            this.isInterviewMode = question.isInterviewMode();
+            this.tag = question.getTag();
         } else {
             this.title = "";
+            this.description = "";
+            this.sections = new ArrayList<>();
             this.author = null;
             this.hints = new ArrayList<>();
             this.type = null;
@@ -81,6 +154,8 @@ public class Question {
             this.comments = new ArrayList<>();
             this.rating = null;
             this.numRatings = 0.0;
+            this.isInterviewMode = false;
+            this.tag = new ArrayList<>();
         }
     }
 
@@ -90,6 +165,8 @@ public class Question {
      */
     public Question(String title) {
         this.title = title;
+        this.description = "";
+        this.sections = new ArrayList<>();
         this.author = null;
         this.hints = new ArrayList<>();
         this.type = null;
@@ -100,6 +177,8 @@ public class Question {
         this.comments = new ArrayList<>();
         this.rating = null;
         this.numRatings = 0.0;
+        this.isInterviewMode = false;
+        this.tag = new ArrayList<>();
     }
 
     /**
@@ -287,7 +366,7 @@ public class Question {
     public ArrayList<QuestionTag> getTag() {
         return this.tag;
     }
-
+    
     /**
      * Gets the hints for the question
      * @return The hints for the question

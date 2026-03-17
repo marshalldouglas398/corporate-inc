@@ -34,17 +34,18 @@ public abstract class DataConstants {
     protected static final String QUESTION_TAGS = "tags";
     protected static final String QUESTION_HINTS = "hints";
 
-    protected static final String SECTION_TITLE = "titleS";
-    protected static final String SECTION_DESCRIPTION = "descriptionS";
+    protected static final String SECTION_TITLE = "title";
+    protected static final String SECTION_DESCRIPTION = "description";
     protected static final String SECTION_FILE = "file";
     protected static final String SECTION_CODE = "code";
 
 
-    protected static final String COMMENT_TITLE = "titleC";
+    protected static final String COMMENT_TITLE = "title";
     protected static final String COMMENT_COMMENT = "comment";
-    protected static final String COMMENT_SECTIONS = "sectionsC";
-    protected static final String COMMENT_AUTHOR = "authorC";
+    protected static final String COMMENT_SECTIONS = "sections";
+    protected static final String COMMENT_AUTHOR = "author";
     protected static final String COMMENT_REPLIES = "replies";
-    protected static final String COMMENT_RATING = "ratingC";
-    protected static final String COMMENT_TAGS = "tagsC";
+    protected static final String COMMENT_RATING = "rating";
+    protected static final String COMMENT_TAGS = "tags";
+    protected static final String COMMENT_IS_QUESTION_AUTHOR = "isQuestionAuthor";
 }

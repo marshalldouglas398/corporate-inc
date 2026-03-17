@@ -39,6 +39,54 @@ public class Comment {
     }
 
     /**
+     * Full constructor used for loading from data.
+     * @param title The title of the comment
+     * @param comment The content of the comment
+     * @param author The author of the comment
+     * @param ct The tags associated with the comment
+     * @param sections The sections associated with the comment (if any)
+     * @param replies The replies to the comment (if any)
+     * @param rating The rating of the comment
+     * @param numRatings The number of ratings the comment has received
+     * @param isQuestionAuthor Whether the author of the comment is the author of the question
+     */
+    public Comment(String title,
+            String comment,
+            User author,
+            ArrayList<CommentTag> ct,
+            ArrayList<Section> sections,
+            ArrayList<Comment> replies,
+            Double rating,
+            Double numRatings,
+            boolean isQuestionAuthor) {
+        this.title = (title == null) ? "" : title;
+        this.comment = (comment == null) ? "" : comment;
+        this.author = author;
+        this.tags = (ct == null) ? new ArrayList<>() : ct;
+        this.sections = (sections == null) ? new ArrayList<>() : sections;
+        this.replies = (replies == null) ? new ArrayList<>() : replies;
+        this.rating = rating;
+        this.numRatings = (numRatings == null) ? 0.0 : numRatings;
+        this.isQuestionAuthor = isQuestionAuthor;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public void setReplies(ArrayList<Comment> replies) {
+        this.replies = replies;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public void setNumRatings(Double numRatings) {
+        this.numRatings = numRatings;
+    }
+
+    /**
      * Adds a reply to the comment
      * @param comment The comment to add as a reply to this comment
      */
