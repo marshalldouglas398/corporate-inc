@@ -183,6 +183,7 @@ public class InterviewApplication {
      * @return true if the comment was rated, false otherwise
      */
     public boolean rateComment(Comment comment, Double rating) {
+        comment.rateComment(rating);
         return true;
     }
 }
