@@ -12,6 +12,7 @@ public class Question {
     private String title;
     private String description;
     private ArrayList<Section> sections;
+    private int numSections;
     private UUID id; 
     private User author;
     private ArrayList<Comment> comments;
@@ -36,7 +37,7 @@ public class Question {
      * @param difficulty The difficulty of the question
      * @param course The course(s) the question belongs to
      */
-    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
+    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
         this.title = title;
         this.author = author;
         this.hints = hints;
@@ -48,6 +49,11 @@ public class Question {
         this.comments = new ArrayList<>();
         this.rating = null;
         this.numRatings = 0.0;
+        this.numSections = numSections;
+        this.sections = new ArrayList<>();
+        for(int i = 0; i < numSections; i++) { // should add correct number of empty sections
+            this.sections.add(new Section());
+        }
     }
 
     /**
@@ -318,6 +324,14 @@ public class Question {
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    /**
+     * Sets the type of the question
+     * @param type The new type to set for the question
+     */
+    public void setType(QuestionType type) {
+        this.type = type;
     }
 
 }

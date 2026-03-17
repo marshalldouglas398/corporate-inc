@@ -118,20 +118,25 @@ public class InterviewApplication {
      * Adds a question to the list of questions
      * @return true if the question was added, false otherwise
      */
-    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
+    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
         if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
-            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course);
+            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course, numSections);
             return true;
         }
         return false;
     }
     /**
-     * Edits a question in the list of questions
-     * @param question the question you want to edit
-     * @return true if the question was edited, false otherwise
+     * Deletes a question from the list of questions
+     * @param question question you want to delete
+     * @return true if deleted, false if not
      */
-    public boolean editQuestion(Question question) { // to do
-        return true;
+    public boolean deleteQuestion(Question question) {
+        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+            questionList.getQuestions().remove(question);
+            questionList.save();
+            return true;
+        }
+        return false;
     }
     /**
      * Rates a question
@@ -150,30 +155,6 @@ public class InterviewApplication {
      */
     public boolean selectQuestion(Question question) {
         this.currentQuestion = question;
-        return true;
-    }
-    /**
-     * Adds a comment to a question
-     * @param question the question you want to add a comment to
-     * @return true if the comment was added, false otherwise
-     */
-    public boolean addCommentQ(Question question) {
-        return true;
-    }
-    /**
-     * Adds a comment to a comment
-     * @param comment the comment you want to add a comment to
-     * @return true if the comment was added, false otherwise
-     */
-    public boolean addCommentC(Comment comment) {
-        return true;
-    }
-    /**
-     * Edits a comment on a question
-     * @param comment the comment you want to edit
-     * @return true if the comment was edited, false otherwise
-     */
-    public boolean editComment(Comment comment) {
         return true;
     }
     /**
