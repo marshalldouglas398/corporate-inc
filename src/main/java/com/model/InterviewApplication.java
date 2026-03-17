@@ -180,6 +180,19 @@ public class InterviewApplication {
         return true;
     }
     /**
+     * Deletes a question from the list of questions
+     * @param question question you want to delete
+     * @return true if deleted, false if not
+     */
+    public boolean deleteQuestion(Question question) {
+        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+            questionList.getQuestions().remove(question);
+            questionList.save();
+            return true;
+        }
+        return false;
+    }
+    /**
      * Rates a question
      * @param question the question you want to rate
      * @param num the rating value
