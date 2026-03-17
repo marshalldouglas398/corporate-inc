@@ -17,6 +17,7 @@ public class Comment {
     private Double numRatings;
     private ArrayList<CommentTag> tags;
     private boolean isQuestionAuthor;
+    private int numSections;
 
     /**
      * Parameterized constructor for the Comment class
@@ -26,16 +27,21 @@ public class Comment {
      * @param ct The tags associated with the comment
      * @param sections The sections associated with the comment (if any)
      */
-    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA) {
+    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA, int numSections) {
         this.title = title;
         this.comment = comment;
         this.author = author;
         this.tags = ct;
         this.sections = sections;
+        this.numSections = numSections;
         this.replies = new ArrayList<>();
         this.rating = null;
         this.numRatings = 0.0;
         this.isQuestionAuthor = qA;
+        this.sections = new ArrayList<>();
+        for(int i = 0; i < numSections; i++) {
+            this.sections.add(new Section());
+        }
     }
 
     /**

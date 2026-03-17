@@ -120,9 +120,9 @@ public class InterviewApplication {
      * Adds a question to the list of questions
      * @return true if the question was added, false otherwise
      */
-    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course) {
+    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
         if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
-            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course);
+            questionList.addQuestion(title, author,hints,type,discipline,difficulty,course, numSections);
             return true;
         }
         return false;
@@ -179,6 +179,19 @@ public class InterviewApplication {
                 System.out.println("Invalid input.");
         }
         return true;
+    }
+    /**
+     * Deletes a question from the list of questions
+     * @param question question you want to delete
+     * @return true if deleted, false if not
+     */
+    public boolean deleteQuestion(Question question) {
+        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+            questionList.getQuestions().remove(question);
+            questionList.save();
+            return true;
+        }
+        return false;
     }
     /**
      * Rates a question
