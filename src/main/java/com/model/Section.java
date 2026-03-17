@@ -10,7 +10,12 @@ public class Section {
     private String description;
     private File file;
     private String code;
-
+    public Section() {
+        this.title = "";
+        this.description = "";
+        this.file = null;
+        this.code = "";
+    }
     /**
      * Parameterized constructor for the Section class
      * @param title The title of the section
