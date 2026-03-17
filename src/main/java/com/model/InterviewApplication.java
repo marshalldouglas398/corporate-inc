@@ -1,9 +1,7 @@
 package com.model;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 
 /**
  * This class represents an the actions you can take in the inteview application
