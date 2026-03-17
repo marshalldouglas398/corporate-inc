@@ -9,7 +9,7 @@ import java.util.UUID;
  * @author Marshall Pigford
  */
 public class Editor extends User {
-    private ArrayList<Question> questionsMade;
+    private ArrayList<UUID> questionsMade;
     private String role;
 
     /**
@@ -35,10 +35,10 @@ public class Editor extends User {
      * @param email The email of the editor to copy
      * @param role The role of the editor to copy
      */
-    public Editor(UUID id, String username, String password, Date dateOfBirth, String email, String role) {
+    public Editor(UUID id, String username, String password, Date dateOfBirth, String email, String role, ArrayList<UUID> questionsMade) {
         super(id, username, password, dateOfBirth, email, role);
         this.role = role;
-        this.questionsMade = new ArrayList<>();
+        this.questionsMade = questionsMade;
     }
 
     /**
@@ -46,7 +46,8 @@ public class Editor extends User {
      * @param newQuestion The question to add to the list of questions made by the editor
      */
     public void addQuestion(Question newQuestion) {
-        this.questionsMade.add(newQuestion);
+        UUID questionID = newQuestion.getId();
+        this.questionsMade.add(questionID);
         QuestionList questionList = QuestionList.getInstance();
         questionList.getQuestions().add(newQuestion);
         questionList.save();
@@ -57,8 +58,10 @@ public class Editor extends User {
      * @param curQuestion The question to edit in the list of questions made by the editor
      */
     public void editQuestion(Question curQuestion, Question newQuestion) {
-        this.questionsMade.remove(curQuestion);
-        this.questionsMade.add(newQuestion);
+        UUID newQuestionID = newQuestion.getId();
+        UUID curQuestionID = curQuestion.getId();
+        this.questionsMade.remove(curQuestionID);
+        this.questionsMade.add(newQuestionID);
         QuestionList questionList = QuestionList.getInstance();
         questionList.getQuestions().remove(curQuestion);
         questionList.getQuestions().add(newQuestion);
@@ -70,7 +73,8 @@ public class Editor extends User {
      * @param curQuestion The question to delete from the list of questions made by the editor
      */
     public void deleteQuestion(Question curQuestion) {
-        this.questionsMade.remove(curQuestion);
+        UUID curQuestionID = curQuestion.getId();
+        this.questionsMade.remove(curQuestionID);
         QuestionList questionList = QuestionList.getInstance();
         questionList.getQuestions().remove(curQuestion);
         questionList.save();
@@ -80,7 +84,7 @@ public class Editor extends User {
      * Gets the list of questions made by the editor
      * @return The list of questions made by the editor
      */
-    public ArrayList<Question> getQuestionsMade() {
+    public ArrayList<UUID> getQuestionsMade() {
         return this.questionsMade;
     }
 

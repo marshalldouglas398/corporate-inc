@@ -9,7 +9,7 @@ import java.util.UUID;
  * @author Marshall Pigford
  */
 public class Student extends User {
-    private ArrayList<Question> questionsAnswered;
+    private ArrayList<UUID> questionsAnswered;
     private ArrayList<Course> coursesTaken;
     private String uscID;
     private String major;
@@ -41,12 +41,13 @@ public class Student extends User {
      * @param uscID The USC ID of the student to copy
      * @param major The major of the student to copy
      */
-    public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major) {
+    public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major, 
+                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken) {
         super(id, username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
-        this.questionsAnswered = new ArrayList<>();
-        this.coursesTaken = new ArrayList<>();
+        this.questionsAnswered = questionsAnswered;
+        this.coursesTaken = coursesTaken;
     }
 
     /**
@@ -63,7 +64,7 @@ public class Student extends User {
      * Gets the list of questions answered by the student
      * @return The list of questions answered by the student
      */
-    public ArrayList<Question> getQuestionsAnswered() {
+    public ArrayList<UUID> getQuestionsAnswered() {
         return this.questionsAnswered;
     }
 
