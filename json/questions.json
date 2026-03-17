@@ -2,46 +2,53 @@
     {
         "title":"How?", 
         "description":"Just do the thing.", 
-        "sections":[{
-            "title": "These are the things to do", 
-            "description": "Just do the thing in this order", 
-            "file": "steps.txt", 
-            "code": "1. Do the thing\n2. Do the other thing\n3. Do the last thing"
-        }], 
+        "sections":[
+            {
+                "title": "These are the things to do", 
+                "description": "Just do the thing in this order", 
+                "file": "steps.txt", 
+                "code": "1. Do the thing\n2. Do the other thing\n3. Do the last thing"
+            }
+        ], 
         "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2b", 
         "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
-        "comments": [{
-            "titleC": "Joe Mama",
-            "comment": "Joe Mama is the best answer to this question.",
-            "sections": [{
-                "titleS": "This is my code.", 
-                "descriptionS": "I just used a print statement", 
-                "file": "code.py", 
-                "code": "print('This is how I would do the thing.')"
-            }], 
-            "authorC": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
-            "replies": [
-                {
-                    "titleC": "Joe Papa",
-                    "comment": "Joe Papa is the second best answer to this question.",
-                    "sectionsC": [
-                        {
-                            "titleS": "This is my code.", 
-                            "descriptionS": "I just used a print statement", 
-                            "file": "code.py", 
-                            "code": "print('This is how I would do the thing.')"
-                        }
-                    ], 
-                    "authorC": "9f144030-5747-41ee-a3f6-f03a838c088c", 
-                    "replies": [{}], 
-                    "rating": 4.0, 
-                    "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"], 
-                    "isQuestionAuthor": false
-                }
-            ], 
-            "rating": 5.0, 
-            "tags": ["QuestionType.SOLUTION", "Discipline.DISCUSSION", "Difficulty.HINT"]
-        }], 
+        "comments": [
+            {
+                "title": "Joe Mama",
+                "comment": "Joe Mama is the best answer to this question.",
+                "sections": [
+                    {
+                        "title": "This is my code.", 
+                        "description": "I just used a print statement", 
+                        "file": "code.py", 
+                        "code": "print('This is how I would do the thing.')"
+                    }
+                ], 
+                "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+                "replies": [
+                    {
+                        "title": "Joe Papa",
+                        "comment": "Joe Papa is the second best answer to this question.",
+                        "sections": [
+                            {
+                                "title": "This is my code.", 
+                                "description": "I just used a print statement", 
+                                "file": "code.py", 
+                                "code": "print('This is how I would do the thing.')"
+                            }
+                        ], 
+                        "author": "9f144030-5747-41ee-a3f6-f03a838c088c", 
+                        "replies": [], 
+                        "rating": 4.0, 
+                        "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                        "isQuestionAuthor": false
+                    }
+                ], 
+                "rating": 5.0, 
+                "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                "isQuestionAuthor": false
+            }
+        ], 
         "rating": 4.5, 
         "type": "TECHNICAL", 
         "discipline": ["COMPSCI"], 
@@ -57,28 +64,35 @@
     {
         "title":"How would you react?", 
         "description":"You walk into the office and see your boss is on fire. What do you do?", 
-        "sections":[{
-            "title": "This is the situation", 
-            "description": "Your boss is on fire. You need to react quickly.", 
-            "file": "situation.txt", 
-            "code": "Boss is on fire."
-        }], 
+        "sections":[
+            {
+                "title": "This is the situation", 
+                "description": "Your boss is on fire. You need to react quickly.", 
+                "file": "situation.txt", 
+                "code": "Boss is on fire."
+            }
+        ], 
         "id":"c82ae2a3-8d55-4079-a241-5cd82d499061", 
         "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
-        "comments": [{
-            "title": "Joe Mama",
-            "comment": "I would call 911 and try to put out the fire.",
-            "sections": [{
-                "title": "This is my fire code.", 
-                "description": "I just used a print statement", 
-                "file": "fire_code.py", 
-                "code": "print('This is how I would put out the fire.')"
-            }], 
-            "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
-            "replies": [{}], 
-            "rating": 4.5, 
-            "tags": ["CommentTag.SOLUTION", "CommentTag.DISCUSSION", "CommentTag.HINT"]
-        }], 
+        "comments": [
+            {
+                "title": "Joe Mama",
+                "comment": "I would call 911 and try to put out the fire.",
+                "sections": [
+                    {
+                        "title": "This is my fire code.", 
+                        "description": "I just used a print statement", 
+                        "file": "fire_code.py", 
+                        "code": "print('This is how I would put out the fire.')"
+                    }
+                ], 
+                "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+                "replies": [], 
+                "rating": 4.5, 
+                "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                "isQuestionAuthor": false
+            }
+        ], 
         "rating": 4.7, 
         "type": "BEHAVIORAL", 
         "discipline": ["COMPSCI"], 
