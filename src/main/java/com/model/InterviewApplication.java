@@ -103,8 +103,9 @@ public class InterviewApplication {
      * @return the filtered list of questions
      */
     public ArrayList<Question> filterQuestion(ArrayList<Question> questionList, QuestionType qtype,
-        Discipline d, Difficulty diff, Course c, QuestionTag qt) { // to do
-            return questionList;
+        Discipline d, Difficulty diff, Course c, QuestionTag qt) {
+        ArrayList<Question> filteredList = this.questionList.filterQuestion(this.questionList.getQuestions(), qtype, d, diff, c, qt);
+        return filteredList;
     }
     /**
      * Finds a user based on username
