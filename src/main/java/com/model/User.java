@@ -51,6 +51,19 @@ public class User {
     }
 
     /**
+     * Copy constructor for the User class
+     * @param user The user to copy
+     */
+    public User(User user) {
+        this.id = user.getID();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.dateOfBirth = new Date(user.dateOfBirth.getTime());
+        this.email = user.getEmail();
+        this.role = user.getRole();
+    }
+
+    /**
      * Gets the username of the user
      * @return The username of the user
      */

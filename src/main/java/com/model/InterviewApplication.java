@@ -264,7 +264,7 @@ public class InterviewApplication {
             String anotherSectionInput = k.nextLine();
             flag = anotherSectionInput.equalsIgnoreCase("y");
         }
-        Comment comment = new Comment(commentTitle, commentContent, user, commentTags, commentSections, question.isAuthor(((Editor)(new User(this.user)))));
+        Comment comment = new Comment(commentTitle, commentContent, user, commentTags, commentSections, question.isAuthor(((Editor)(new User(this.user)))), commentSections.size());
         question.addComment(comment);
         return true;
     }
@@ -274,6 +274,54 @@ public class InterviewApplication {
      * @return true if the comment was added, false otherwise
      */
     public boolean addCommentC(Comment comment) {
+        System.out.println("Enter the title of your comment:");
+        Scanner k = new Scanner(System.in);
+        String commentTitle = k.nextLine();
+        System.out.println("Enter the content of your comment:");
+        String commentContent = k.nextLine();
+        System.out.println("Enter the tags for your comment (separated by commas):");
+        String commentTagsInput = k.nextLine();
+        ArrayList<CommentTag> commentTags = new ArrayList<>();
+        for(String tag : commentTagsInput.split(",")) {
+            commentTags.add(CommentTag.valueOf(tag.trim()));
+        }
+        System.out.println("Would you like to add a section to your comment? (y/n)");
+        String sectionInput = k.nextLine();
+        boolean flag = sectionInput.equalsIgnoreCase("y");
+        ArrayList<Section> commentSections = new ArrayList<>();
+        while ( flag ) {
+            System.out.println("Enter the title of the section:");
+            String sectionTitle = k.nextLine();
+            System.out.println("Would you like to add a description to your section? (y/n)");
+            String descriptionInput = k.nextLine();
+            String sectionDescription = "";
+            if (descriptionInput.equalsIgnoreCase("y")) {
+                System.out.println("Enter the description of the section:");
+                sectionDescription = k.nextLine();
+            }
+            System.out.println("Would you like to add a file to your section? (y/n)");
+            String fileInput = k.nextLine();
+            File sectionFile = null;
+            if (fileInput.equalsIgnoreCase("y")) {
+                System.out.println("Enter the file path:");
+                String filePath = k.nextLine();
+                sectionFile = new File(filePath);
+            }
+            System.out.println("Would you like to add code to your section? (y/n)");
+            String codeInput = k.nextLine();
+            String sectionCode = "";
+            if (codeInput.equalsIgnoreCase("y")) {
+                System.out.println("Enter the code for the section:");
+                sectionCode = k.nextLine();
+            }
+            Section commentSection = new Section(sectionTitle, sectionDescription, sectionFile, sectionCode);
+            commentSections.add(commentSection);
+            System.out.println("Would you like to add another section to your comment? (y/n)");
+            String anotherSectionInput = k.nextLine();
+            flag = anotherSectionInput.equalsIgnoreCase("y");
+        }
+        Comment newComment = new Comment(commentTitle, commentContent, user, commentTags, commentSections, question.isAuthor(((Editor)(new User(this.user)))), commentSections.size());
+        comment.addReply(newComment);
         return true;
     }
     /**
