@@ -320,4 +320,12 @@ public class Question {
         this.difficulty = difficulty;
     }
 
+    /**
+     * Sets the type of the question
+     * @param type The new type to set for the question
+     */
+    public void setType(QuestionType type) {
+        this.type = type;
+    }
+
 }

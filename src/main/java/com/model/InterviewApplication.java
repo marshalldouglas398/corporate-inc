@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * This class represents an the actions you can take in the inteview application
@@ -130,7 +131,52 @@ public class InterviewApplication {
      * @param question the question you want to edit
      * @return true if the question was edited, false otherwise
      */
-    public boolean editQuestion(Question question) { // to do
+    public boolean editQuestion(Question question) {
+        System.out.println("How would you like to edit the question? (title, hints, type, discipline, difficulty, course)");
+        Scanner k = new Scanner(System.in);
+        String input = k.nextLine();
+        switch(input) {
+            case "title":
+                System.out.println("Enter the new title:");
+                String title = k.nextLine();
+                question.setTitle(title);
+                break;
+            case "hints":
+                System.out.println("Enter the new hints (separated by commas):");
+                String hintsInput = k.nextLine();
+                for(String hint : hintsInput.split(",")) {
+                    question.getHints().add(hint.trim());
+                }
+                break;
+            case "type":
+                System.out.println("Enter the new type (Coding, Behavioral, or Other):");
+                String typeInput = k.nextLine();
+                QuestionType type = QuestionType.valueOf(typeInput);
+                question.setType(type);
+                break;
+            case "discipline":
+                System.out.println("Enter the new disciplines (separated by commas):");
+                String disciplineInput = k.nextLine();
+                for(String d : disciplineInput.split(",")) {
+                    question.getDiscipline().add(Discipline.valueOf(d.trim()));
+                }
+                break;
+            case "difficulty":
+                System.out.println("Enter the new difficulty (Easy, Medium, or Hard):");
+                String difficultyInput = k.nextLine();
+                Difficulty difficulty = Difficulty.valueOf(difficultyInput);
+                question.setDifficulty(difficulty);
+                break;
+            case "course":
+                System.out.println("Enter the new courses (separated by commas):");
+                String courseInput = k.nextLine();
+                for(String c : courseInput.split(",")) {
+                    question.getCourse().add(Course.valueOf(c.trim()));
+                }
+                break;
+            default:
+                System.out.println("Invalid input.");
+        }
         return true;
     }
     /**
