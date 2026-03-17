@@ -50,6 +50,16 @@ public class Student extends User {
     }
 
     /**
+     * Converts the student to an editor
+     * @return The editor instance
+     */
+    public Editor toEditor() {
+        Editor editor = new Editor(username, password, dateOfBirth, email, role);
+        editor.getQuestionsMade().addAll(this.getQuestionsAnswered());
+        return editor;
+    }
+
+    /**
      * Gets the list of questions answered by the student
      * @return The list of questions answered by the student
      */
