@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -25,6 +26,7 @@ public class Driver {
         scenario4();
         scenario5();
         scenario6();
+        scenario7();
     }
 
     /**
@@ -165,7 +167,19 @@ public class Driver {
             System.out.println("Account creation failed as expected due to invalid username");
         }
     }
-
+public void scenario7() {
+        System.out.println("--------------------------------");
+        System.out.println("Scenario 7: Add question as editor");
+        User user = interviewApp.login("editor", "password");
+        ArrayList<String> hints = new ArrayList<>();
+        hints.add("Just open your mouth");
+        ArrayList<Discipline> disciplines = new ArrayList<>();
+        disciplines.add(Discipline.COMPSCI);
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(Course.CSCE240);
+        interviewApp.addQuestion("How to talk to people?", user, hints, QuestionType.BEHAVIORAL, disciplines, Difficulty.MEDIUM, courses, 1);
+        interviewApp.logout(user);
+    }
     public static void main(String[] args) {
         Driver driver = new Driver();
         driver.run();
