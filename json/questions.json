@@ -1,1 +1,107 @@
-[{"comments":[com.model.Comment@75a1cd57],"author":null,"hints":["Ask Joe","Joe Mama"],"rating":4.5,"description":"Just do the thing.","discipline":[COMPSCI],"title":"How?","type":TECHNICAL,"sections":[com.model.Section@3d012ddd],"tags":[FIND_THE_ERROR],"difficulty":EASY,"isInterviewMode":true,"course":[CSCE145],"id":d472b1d9-5c55-4310-a2a6-2afc4883ae2b},{"comments":[com.model.Comment@6f2b958e],"author":null,"hints":["Be normal"],"rating":4.7,"description":"You walk into the office and see your boss is on fire. What do you do?","discipline":[COMPSCI],"title":"How would you react?","type":BEHAVIORAL,"sections":[com.model.Section@1eb44e46],"tags":[SITUATION],"difficulty":EASY,"isInterviewMode":true,"course":[CSCE145],"id":c82ae2a3-8d55-4079-a241-5cd82d499061},{"comments":[],"author":com.model.Editor@5cbc508c,"hints":["Just open your mouth"],"rating":null,"description":"","discipline":[COMPSCI],"title":"How to talk to people?","type":BEHAVIORAL,"sections":[],"tags":[],"difficulty":MEDIUM,"isInterviewMode":false,"course":[CSCE240],"id":21836a58-c22e-4e5b-929a-a68a5d03a3f1}]
+[
+    {
+        "title":"How?", 
+        "description":"Just do the thing.", 
+        "sections":[
+            {
+                "title": "These are the things to do", 
+                "description": "Just do the thing in this order", 
+                "file": "steps.txt", 
+                "code": "1. Do the thing\n2. Do the other thing\n3. Do the last thing"
+            }
+        ], 
+        "id":"d472b1d9-5c55-4310-a2a6-2afc4883ae2b", 
+        "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
+        "comments": [
+            {
+                "title": "Joe Mama",
+                "comment": "Joe Mama is the best answer to this question.",
+                "sections": [
+                    {
+                        "title": "This is my code.", 
+                        "description": "I just used a print statement", 
+                        "file": "code.py", 
+                        "code": "print('This is how I would do the thing.')"
+                    }
+                ], 
+                "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+                "replies": [
+                    {
+                        "title": "Joe Papa",
+                        "comment": "Joe Papa is the second best answer to this question.",
+                        "sections": [
+                            {
+                                "title": "This is my code.", 
+                                "description": "I just used a print statement", 
+                                "file": "code.py", 
+                                "code": "print('This is how I would do the thing.')"
+                            }
+                        ], 
+                        "author": "9f144030-5747-41ee-a3f6-f03a838c088c", 
+                        "replies": [], 
+                        "rating": 4.0, 
+                        "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                        "isQuestionAuthor": false
+                    }
+                ], 
+                "rating": 5.0, 
+                "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                "isQuestionAuthor": false
+            }
+        ], 
+        "rating": 4.5, 
+        "type": "TECHNICAL", 
+        "discipline": ["COMPSCI"], 
+        "difficulty": "EASY", 
+        "course": ["CSCE145"], 
+        "isInterviewMode": true, 
+        "tags": ["FIND_THE_ERROR"], 
+        "hints": [
+            "Ask Joe", 
+            "Joe Mama"
+        ]
+    },
+    {
+        "title":"How would you react?", 
+        "description":"You walk into the office and see your boss is on fire. What do you do?", 
+        "sections":[
+            {
+                "title": "This is the situation", 
+                "description": "Your boss is on fire. You need to react quickly.", 
+                "file": "situation.txt", 
+                "code": "Boss is on fire."
+            }
+        ], 
+        "id":"c82ae2a3-8d55-4079-a241-5cd82d499061", 
+        "author":"9f144030-5747-41ee-a3f6-f03a838c088c", 
+        "comments": [
+            {
+                "title": "Joe Mama",
+                "comment": "I would call 911 and try to put out the fire.",
+                "sections": [
+                    {
+                        "title": "This is my fire code.", 
+                        "description": "I just used a print statement", 
+                        "file": "fire_code.py", 
+                        "code": "print('This is how I would put out the fire.')"
+                    }
+                ], 
+                "author": "10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
+                "replies": [], 
+                "rating": 4.5, 
+                "tags": ["SOLUTION", "DISCUSSION", "HINT"], 
+                "isQuestionAuthor": false
+            }
+        ], 
+        "rating": 4.7, 
+        "type": "BEHAVIORAL", 
+        "discipline": ["COMPSCI"], 
+        "difficulty": "EASY", 
+        "course": ["CSCE145"], 
+        "isInterviewMode": true, 
+        "tags": ["SITUATION"], 
+        "hints": [
+            "Be normal"
+        ]
+    }
+]
