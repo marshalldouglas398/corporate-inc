@@ -214,26 +214,30 @@ public class DataLoader extends DataConstants {
                     case "Student":
                         String uscID = userData.get(USER_USCID).toString();
                         String major = userData.get(USER_MAJOR).toString();
-                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major);
+                        ArrayList<UUID> questionsAnswered = (ArrayList<UUID>) userData.get(USER_QUESTIONS_SOLVED);
+                        ArrayList<Course> coursesTaken = (ArrayList<Course>) userData.get(USER_COURSES_TAKEN);
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken);
                         users.add(student);
                         break;
                     case "Editor":
-                        JSONArray questionsArray = (JSONArray) userData.get(USER_QUESTIONS_MADE);
+                        /*JSONArray questionsArray = (JSONArray) userData.get(USER_QUESTIONS_MADE);
                         ArrayList<UUID> questionsMade = new ArrayList<>();
                         for (Object obj : questionsArray) {
                             questionsMade.add(UUID.fromString(obj.toString()));     
-                        }
-                        Editor editor = new Editor(id, username, password, dateOfBirth, email, role);
-                        for (UUID questionID : questionsMade) {
+                        }*/
+                        ArrayList<UUID> questionsMadeE = (ArrayList<UUID>) userData.get(USER_QUESTIONS_MADE);
+                        Editor editor = new Editor(id, username, password, dateOfBirth, email, role, questionsMadeE);
+                        /*for (UUID questionID : questionsMadeE) {
                             Question question = QuestionList.getInstance().getQuestion(questionID);
                             if (question != null) {
                                 editor.addQuestion(question);
                             }
-                        }
+                        }*/
                         users.add(editor);
                         break;
                     case "Admin":
-                        Admin admin = new Admin(id, username, password, dateOfBirth, email);
+                        ArrayList<UUID> questionsMadeA = (ArrayList<UUID>) userData.get(USER_QUESTIONS_MADE);
+                        Admin admin = new Admin(id, username, password, dateOfBirth, email, questionsMadeA);
                         users.add(admin);
                         break;
                     default:

@@ -9,7 +9,7 @@ import java.util.UUID;
  * @author Marshall Pigford
  */
 public class Admin extends User {
-    private ArrayList<Question> questionsMade;
+    private ArrayList<UUID> questionsMade;
     
     /**
      * Parameterized constructor for the Admin class
@@ -30,10 +30,11 @@ public class Admin extends User {
      * @param password The password of the admin to copy
      * @param dateOfBirth The date of birth of the admin to copy
      * @param email The email of the admin to copy
+     * @param questionsMade The list of questions made by the admin
      */
-    public Admin(UUID id, String username, String password, Date dateOfBirth, String email) {
+    public Admin(UUID id, String username, String password, Date dateOfBirth, String email, ArrayList<UUID> questionsMade) {
         super(id, username, password, dateOfBirth, email, "Admin");
-        this.questionsMade = new ArrayList<>();
+        this.questionsMade = questionsMade;
     }
 
     /**
@@ -63,7 +64,7 @@ public class Admin extends User {
      * Gets the list of questions made by the admin
      * @return The list of questions made by the admin
      */
-    public ArrayList<Question> getQuestionsMade() {
+    public ArrayList<UUID> getQuestionsMade() {
         return this.questionsMade;
     }
 
