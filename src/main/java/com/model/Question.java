@@ -14,7 +14,7 @@ public class Question {
     private ArrayList<Section> sections;
     private int numSections;
     private UUID id; 
-    private User author;
+    private UUID author;
     private ArrayList<Comment> comments;
     private Double rating;
     private Double numRatings; // Same numRatings solution as Comment class, we can change it later if we want to
@@ -47,7 +47,7 @@ public class Question {
      * @param hints The hints for the question
      * @param time The time limit for the interview mode in minutes
      */
-    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
+    public Question(String title, UUID author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
         this.title = title;
         this.description = "";
         this.sections = new ArrayList<>();
@@ -88,7 +88,7 @@ public class Question {
             String title,
             String description,
             ArrayList<Section> sections,
-            User author,
+            UUID author,
             ArrayList<Comment> comments,
             Double rating,
             Double numRatings,
@@ -292,7 +292,7 @@ public class Question {
      * Gets the author of the question
      * @return The author of the question
      */
-    public User getAuthor() {
+    public UUID getAuthor() {
         return this.author;
     }
 

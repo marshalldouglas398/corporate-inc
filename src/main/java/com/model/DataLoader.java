@@ -117,10 +117,11 @@ public class DataLoader extends DataConstants {
                 String title = questionData.get(QUESTION_TITLE) == null ? "" : questionData.get(QUESTION_TITLE).toString();
                 String description = questionData.get(QUESTION_DESCRIPTION) == null ? "" : questionData.get(QUESTION_DESCRIPTION).toString();
 
-                User author = null;
+                UUID author = null;
                 Object authorObj = questionData.get(QUESTION_AUTHOR);
                 if (authorObj != null) {
-                    author = UserList.getInstance().getUser(UUID.fromString(authorObj.toString()));
+                    author = UUID.fromString(authorObj.toString());
+                    //author = UserList.getInstance().getUser(UUID.fromString(authorObj.toString()));
                 }
 
                 JSONArray hintsArray = (JSONArray) questionData.get(QUESTION_HINTS);
