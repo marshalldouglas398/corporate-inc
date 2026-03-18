@@ -45,7 +45,7 @@ public class UserList {
      */
     public User getUser(UUID uuid) {
         for (User user : users) {
-            if (user.getID().equals(uuid.toString())) {
+            if (user.getID().equals(uuid)) {
                 return user;
             }
         }
