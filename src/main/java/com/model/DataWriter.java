@@ -80,7 +80,15 @@ public class DataWriter extends DataConstants {
             }
 
             try (FileWriter file = new FileWriter(QUESTION_FILE_NAME)) {
-                file.write(jsonQuestions.toJSONString());
+                file.write("[\n");
+                for (int i = 0; i < questions.size(); i++) {
+                    JSONObject questionsJSON = getQuestionsJSON(questions.get(i));
+                    file.write(" " + questionsJSON.toJSONString());
+                    if (i < questions.size() - 1) {
+                        file.write(", \n");
+                    }
+                }
+                file.write("\n]");
                 file.flush();
             } catch (IOException e) {
                 e.printStackTrace();
