@@ -80,15 +80,7 @@ public class DataWriter extends DataConstants {
             }
 
             try (FileWriter file = new FileWriter(QUESTION_FILE_NAME)) {
-                file.write("[\n");
-                for (int i = 0; i < questions.size(); i++) {
-                    JSONObject questionsJSON = getQuestionsJSON(questions.get(i));
-                    file.write(" " + questionsJSON.toJSONString());
-                    if (i < questions.size() - 1) {
-                        file.write(", \n");
-                    }
-                }
-                file.write("\n]");
+                file.write(jsonQuestions.toJSONString());
                 file.flush();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -105,16 +97,16 @@ public class DataWriter extends DataConstants {
         questionDetails.put(QUESTION_TITLE, question.getTitle());
         questionDetails.put(QUESTION_DESCRIPTION, question.getDescription());
         questionDetails.put(QUESTION_SECTIONS, question.getSections());
-        questionDetails.put(QUESTION_ID, question.getId());
+        questionDetails.put(QUESTION_ID, question.getId().toString());
         questionDetails.put(QUESTION_AUTHOR, question.getAuthor());
         questionDetails.put(QUESTION_COMMENTS, question.getComments());
         questionDetails.put(QUESTION_RATING, question.getRating());
-        questionDetails.put(QUESTION_TYPE, question.getType());
-        questionDetails.put(QUESTION_DISCIPLINE, question.getDiscipline());
-        questionDetails.put(QUESTION_DIFFICULTY, question.getDifficulty());
-        questionDetails.put(QUESTION_COURSES, question.getCourse());
+        questionDetails.put(QUESTION_TYPE, question.getType().toString());
+        questionDetails.put(QUESTION_DISCIPLINE, question.getDiscipline().toString());
+        questionDetails.put(QUESTION_DIFFICULTY, question.getDifficulty().toString());
+        questionDetails.put(QUESTION_COURSES, question.getCourse().toString());
         questionDetails.put(QUESTION_INTERVIEW, question.isInterviewMode());
-        questionDetails.put(QUESTION_TAGS, question.getTag());
+        questionDetails.put(QUESTION_TAGS, question.getTag().toString());
         questionDetails.put(QUESTION_HINTS, question.getHints());
     
         return questionDetails;
