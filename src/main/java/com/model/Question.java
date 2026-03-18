@@ -215,7 +215,7 @@ public class Question {
      * @param student The student to complete the question for
      */
     public void completeQuestion(Student student) {
-        student.getQuestionsAnswered().add(this);
+        student.getQuestionsAnswered().add(this.getId());
     }
 
     /**

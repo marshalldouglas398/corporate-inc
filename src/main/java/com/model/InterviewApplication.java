@@ -34,6 +34,7 @@ public class InterviewApplication {
      */
     public boolean logout(User user) {
         userlist.save();
+        questionList.save();
         return true;
     } 
     /**
