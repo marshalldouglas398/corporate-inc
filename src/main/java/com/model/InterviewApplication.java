@@ -169,4 +169,19 @@ public class InterviewApplication {
         comment.rateComment(rating);
         return true;
     }
+
+    /**
+     * Searches all questions whose title contains the given keyword (case-insensitive)
+     * @param keyword the search term to look for in question titles
+     * @return list of questions whose title contains the keyword
+     */
+    public ArrayList<Question> searchQuestions(String keyword) {
+        ArrayList<Question> results = new ArrayList<>();
+        for (Question q : questionList.getQuestions()) {
+            if (q.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                results.add(q);
+            }
+        }
+        return results;
+    }
 }
