@@ -27,6 +27,7 @@ public class Driver {
         scenario5();
         scenario6();
         scenario7();
+        scenario8();
     }
 
     /**
@@ -167,7 +168,7 @@ public class Driver {
             System.out.println("Account creation failed as expected due to invalid username");
         }
     }
-public void scenario7() {
+    public void scenario7() {
         System.out.println("--------------------------------");
         System.out.println("Scenario 7: Add question as editor");
         User user = interviewApp.login("editor", "password");
@@ -180,6 +181,19 @@ public void scenario7() {
         interviewApp.addQuestion("How to talk to people?", user, hints, QuestionType.BEHAVIORAL, disciplines, Difficulty.MEDIUM, courses, 1);
         interviewApp.logout(user);
     }
+
+    public void scenario8() {
+        System.out.println("--------------------------------");
+        System.out.println("Scenario 8: Sally the Editor");
+        Date sallyDOB = new Date();
+        User user = interviewApp.createAccount("ssparrow", "sallypassword", sallyDOB, "ssparrow@gmail.com");
+        if (user != null) {
+            System.out.println("Sally's account was successfully created");
+        } else {
+            System.out.println("Sally's account creation failed, ssparrow account already exists");
+        }
+    }
+
     public static void main(String[] args) {
         Driver driver = new Driver();
         driver.run();
