@@ -139,6 +139,12 @@ public class DataWriter extends DataConstants {
         commentDetails.put(COMMENT_COMMENT, comment.getComment());
         commentDetails.put(COMMENT_RATING, comment.getRating());
         commentDetails.put(COMMENT_TAGS, comment.getTags().toString());
+        ArrayList<Section> sections = comment.getSections();
+            JSONArray jsonSections = new JSONArray();
+            for (int i = 0; i < sections.size(); i++) {
+                jsonSections.add(getSectionsJSON(sections.get(i)));
+            }
+        commentDetails.put(COMMENT_SECTIONS, jsonSections);
         ArrayList<Comment> replies = comment.getReplies();
         JSONArray jsonReplies = new JSONArray();
         for (int i = 0; i < replies.size(); i++) {
