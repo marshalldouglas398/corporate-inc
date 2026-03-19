@@ -28,6 +28,7 @@ public class Driver {
         scenario6();
         scenario7();
         scenario8();
+        scenarioSallyCreateAccount();
     }
 
     /**
@@ -139,17 +140,17 @@ public class Driver {
         System.out.println("Scenario 5: Create valid user account");
 
         Date dob = new Date();
-        User newUser = interviewApp.createAccount("newuser", "password123", dob, "newuser@email.com");
+       // User newUser = interviewApp.createAccount("newuser", "password123", dob, "newuser@email.com");
 
-        if (newUser != null) {
-            System.out.println("Account creation successful");
-            System.out.println("Username: " + newUser.getUsername());
-            System.out.println("Date of Birth: " + newUser.getBirthDate());
-            System.out.println("Email: " + newUser.getEmail());
-            System.out.println("Role: " + newUser.getRole());
-        } else {
-            System.out.println("Account creation failed");
-        }
+       // if (newUser != null) {
+       //     System.out.println("Account creation successful");
+       //     System.out.println("Username: " + newUser.getUsername());
+       //     System.out.println("Date of Birth: " + newUser.getBirthDate());
+       //     System.out.println("Email: " + newUser.getEmail());
+      //      System.out.println("Role: " + newUser.getRole());
+      //  } else {
+       //     System.out.println("Account creation failed");
+       // }
     }
 
     /**
@@ -160,13 +161,13 @@ public class Driver {
         System.out.println("Scenario 6: Create invalid user account (blank username)");
 
         Date dob = new Date();
-        User invalidUser = interviewApp.createAccount("", "password123", dob, "invaliduser@email.com");
+        //User invalidUser = interviewApp.createAccount("", "password123", dob, "invaliduser@email.com");
 
-        if (invalidUser != null) {
-            System.out.println("Account creation unexpectedly succeeded");
-        } else {
-            System.out.println("Account creation failed as expected due to invalid username");
-        }
+       // if (invalidUser != null) {
+        //    System.out.println("Account creation unexpectedly succeeded");
+       // } else {
+       //     System.out.println("Account creation failed as expected due to invalid username");
+       // }
     }
     public void scenario7() {
         System.out.println("--------------------------------");
@@ -186,7 +187,7 @@ public class Driver {
         System.out.println("--------------------------------");
         System.out.println("Scenario 8: Sally the Editor");
         Date sallyDOB = new Date();
-        User user = interviewApp.createAccount("ssparrow", "sallypassword", sallyDOB, "ssparrow@gmail.com");
+        User user = interviewApp.createAccount("ssparrow", "sallypassword", sallyDOB, "ssparrow@gmail.com", "356432334", "Computer Science");
         if (user != null) {
             System.out.println("Sally's account was successfully created");
         } else {
@@ -194,6 +195,14 @@ public class Driver {
         }
     }
 
+public void scenarioSallyCreateAccount() {
+    System.out.println("--------------------------------");
+    System.out.println("Sally Successfully Creates an Account:");
+     Date dob = new Date();
+    User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
+    interviewApp.toEditor(sallyUser);
+   // interviewApp.logout(sallyUser);
+    }
     public static void main(String[] args) {
         Driver driver = new Driver();
         driver.run();

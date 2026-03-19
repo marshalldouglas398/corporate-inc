@@ -45,7 +45,7 @@ public class InterviewApplication {
      * @param email email of the new user
      * @return the new user account if created, null otherwise
      */
-    public User createAccount(String username, String password, Date dateOfBirth, String email) {
+    public User createAccount(String username, String password, Date dateOfBirth, String email, String USCID, String major) {
         // Basic validation: all fields required
         if (username == null || username.isBlank()
                 || password == null || password.isBlank()
@@ -59,7 +59,7 @@ public class InterviewApplication {
             return null;
         }
 
-        User newUser = new Student(username, password, dateOfBirth, email, "USCID", "Major");
+        User newUser = new Student(username, password, dateOfBirth, email, USCID, major);
         userlist.getUsers().add(newUser);
         userlist.save();
         return newUser;
@@ -168,5 +168,17 @@ public class InterviewApplication {
     public boolean rateComment(Comment comment, Double rating) {
         comment.rateComment(rating);
         return true;
+    }
+    
+    public boolean toEditor(User user) {
+        if(user.getRole().equals("Student")) {
+            Student student = (Student) user;
+            Editor editor = student.toEditor();
+            userlist.getUsers().remove(user);
+            userlist.getUsers().add(editor);
+            userlist.save();
+            return true;
+        }
+        return false;
     }
 }
