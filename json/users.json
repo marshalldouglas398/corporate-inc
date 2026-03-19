@@ -28,5 +28,16 @@
         "email":"admin@email.com", 
         "role": "Admin",
         "questionsMade": ["c82ae2a3-8d55-4079-a241-5cd82d499061"]
+    },{
+        "username":"ssparrow",
+        "password": "sullivaniscoolerthansally",
+        "dateOfBirth": "2026-02-19T10:15:30.000Z",
+        "id": "def8402f-d765-46cf-8269-2a601825024a",
+        "email": "ssparrow@email.com",
+        "role": "Student",
+        "questionsSolved": [],
+        "coursesTaken": [],
+        "uscID": "0987654321",
+        "major": "Computer Science"
     }
 ]
