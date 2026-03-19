@@ -157,6 +157,7 @@ public class InterviewApplication {
      */
     public boolean selectQuestion(Question question) {
         this.currentQuestion = question;
+        this.user.incrementStreak();
         return true;
     }
     /**

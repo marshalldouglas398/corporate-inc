@@ -14,6 +14,8 @@ public class User {
     protected UUID id;
     protected String email;
     protected String role;
+    protected int streak = 0;
+    protected Date lastQuestionDate = new Date(0);
 
     /**
      * Parameterized constructor for the User class
@@ -61,6 +63,8 @@ public class User {
         this.dateOfBirth = new Date(user.dateOfBirth.getTime());
         this.email = user.getEmail();
         this.role = user.getRole();
+        this.streak = user.getStreak();
+        this.lastQuestionDate = new Date(user.getLastQuestionDate().getTime());
     }
 
     /**
@@ -112,6 +116,22 @@ public class User {
     }
 
     /**
+     * Gets the current streak of the user
+     * @return The current streak of the user
+     */
+    public int getStreak() {
+        return this.streak;
+    }
+
+    /**
+     * Gets the date of the last question answered by the user
+     * @return The date of the last question answered by the user
+     */
+    public Date getLastQuestionDate() {
+        return this.lastQuestionDate;
+    }
+
+    /**
      * Gets the list of questions solved by the user
      * @return The list of questions solved by the user
      */
@@ -151,6 +171,19 @@ public class User {
     /*public ArrayList<Question> getQuestionsMade() {
         return null;
     }*/
+
+    /**
+     * Increments the user's streak if they answer a question within 24 hours of their last question, otherwise resets the streak to 1
+     */
+    public void incrementStreak() {
+        Date today = new Date();
+        if (today.getTime() - lastQuestionDate.getTime() < 24 * 60 * 60 * 1000) {
+            this.streak++;
+        } else {
+            this.streak = 1;
+        }
+        this.lastQuestionDate = today;
+    }
 
     /**
      * Resets the password of the user
