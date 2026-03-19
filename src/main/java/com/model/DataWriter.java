@@ -111,7 +111,7 @@ public class DataWriter extends DataConstants {
             }
         questionDetails.put(QUESTION_SECTIONS, jsonSections);
         questionDetails.put(QUESTION_ID, question.getId().toString());
-        questionDetails.put(QUESTION_AUTHOR, question.getAuthor().toString());
+        questionDetails.put(QUESTION_AUTHOR, question.getAuthor() != null ? question.getAuthor().getID().toString() : null);
         ArrayList<Comment> comments = question.getComments();
             JSONArray jsonComments = new JSONArray();
             for (int i = 0; i < comments.size(); i++) {
@@ -119,12 +119,18 @@ public class DataWriter extends DataConstants {
             }
         questionDetails.put(QUESTION_COMMENTS, jsonComments);
         questionDetails.put(QUESTION_RATING, question.getRating());
-        questionDetails.put(QUESTION_TYPE, question.getType().toString());
-        questionDetails.put(QUESTION_DISCIPLINE, question.getDiscipline().toString());
-        questionDetails.put(QUESTION_DIFFICULTY, question.getDifficulty().toString());
-        questionDetails.put(QUESTION_COURSES, question.getCourse().toString());
+        questionDetails.put(QUESTION_TYPE, question.getType() != null ? question.getType().toString() : null);
+        JSONArray jsonDisciplines = new JSONArray();
+        for (Discipline d : question.getDiscipline()) { jsonDisciplines.add(d.toString()); }
+        questionDetails.put(QUESTION_DISCIPLINE, jsonDisciplines);
+        questionDetails.put(QUESTION_DIFFICULTY, question.getDifficulty() != null ? question.getDifficulty().toString() : null);
+        JSONArray jsonCourses = new JSONArray();
+        for (Course c : question.getCourse()) { jsonCourses.add(c.toString()); }
+        questionDetails.put(QUESTION_COURSES, jsonCourses);
         questionDetails.put(QUESTION_INTERVIEW, question.isInterviewMode());
-        questionDetails.put(QUESTION_TAGS, question.getTag().toString());
+        JSONArray jsonTags = new JSONArray();
+        for (QuestionTag t : question.getTag()) { jsonTags.add(t.toString()); }
+        questionDetails.put(QUESTION_TAGS, jsonTags);
         questionDetails.put(QUESTION_HINTS, question.getHints());
     
         return questionDetails;
@@ -135,10 +141,12 @@ public class DataWriter extends DataConstants {
         }
         JSONObject commentDetails = new JSONObject();
         commentDetails.put(COMMENT_TITLE, comment.getTitle());
-        commentDetails.put(COMMENT_AUTHOR, comment.getAuthor().toString());
+        commentDetails.put(COMMENT_AUTHOR, comment.getAuthor() != null ? comment.getAuthor().getID().toString() : null);
         commentDetails.put(COMMENT_COMMENT, comment.getComment());
         commentDetails.put(COMMENT_RATING, comment.getRating());
-        commentDetails.put(COMMENT_TAGS, comment.getTags().toString());
+        JSONArray jsonCommentTags = new JSONArray();
+        for (CommentTag t : comment.getTags()) { jsonCommentTags.add(t.toString()); }
+        commentDetails.put(COMMENT_TAGS, jsonCommentTags);
         ArrayList<Section> sections = comment.getSections();
             JSONArray jsonSections = new JSONArray();
             for (int i = 0; i < sections.size(); i++) {
