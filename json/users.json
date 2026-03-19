@@ -40,6 +40,18 @@
         "coursesTaken": [],
         "uscID": "0987654321",
         "major": "Computer Science"
+    },
+    {
+        "username": "Jimmy_Bauer",
+        "password": "MyNameIsJimmyBauer",
+        "dateOfBirth": "2026-02-19T10:15:30.000Z",
+        "id": "a1b84020-d765-46cf-8269-2a60182502a1",
+        "email": "jimmybauer@email.com",
+        "role": "Student",
+        "questionsSolved": [],
+        "coursesTaken": ["Course.CSCE145", "Course.CSCE240", "Course.CSCE247"],
+        "uscID": "1234567890",
+        "major": "Computer Science"
     }
 =======
  {"password":"password","coursesTaken":["Course.CSCE145"],"role":"Student","questionsSolved":["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"],"major":"Computer Science","uscID":"1234567890","dateOfBirth":"2026-02-19T10:15:30.000Z","id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240","email":"student@email.com","username":"student"}, 
