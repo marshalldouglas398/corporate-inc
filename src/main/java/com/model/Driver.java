@@ -185,6 +185,8 @@ public class Driver {
     public void scenario8() {
         System.out.println("--------------------------------");
         System.out.println("Scenario 8: Sally the Editor");
+        
+        //Sally attempts to create an account with an existing username, which should fail
         Date sallyDOB = new Date();
         User user = interviewApp.createAccount("ssparrow", "sallypassword", sallyDOB, "ssparrow@gmail.com");
         if (user != null) {
@@ -192,6 +194,19 @@ public class Driver {
         } else {
             System.out.println("Sally's account creation failed, ssparrow account already exists");
         }
+
+        //Sally creates an editor account successfully and logins in
+
+        //Sally creates a new question
+        ArrayList<String> hints = new ArrayList<>();
+        hints.add("");
+        ArrayList<Discipline> disciplines = new ArrayList<>();
+        disciplines.add(Discipline.COMPSCI);
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(Course.CSCE240);
+        interviewApp.addQuestion("Longest Subarray with given Sum", user, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, 3, "Given an integer array nums and an integer sum, return the length of the longest contiguous subarray whose total equals k.\nNote: the array can contain negative numbers");
+
+        //Sally adds two solutions to her question
     }
 
     public static void main(String[] args) {

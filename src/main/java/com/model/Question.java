@@ -47,9 +47,9 @@ public class Question {
      * @param hints The hints for the question
      * @param time The time limit for the interview mode in minutes
      */
-    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections) {
+    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections, String description) {
         this.title = title;
-        this.description = "";
+        this.description = description;
         this.sections = new ArrayList<>();
         this.author = author;
         this.hints = hints;
