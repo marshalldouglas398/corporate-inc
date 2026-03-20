@@ -30,8 +30,8 @@ public class Driver {
         scenario5();
         scenario6();
         scenario7();
+        // scenario8();
         scenario9();
-        scenario8();
     }
 
     /**
@@ -222,6 +222,9 @@ public class Driver {
 
     }
 
+    /**
+     * Ninth scenario: Jimmy Bauer
+     */
     public void scenario9() {
         System.out.println("--------------------------------");
         System.out.println("Scenario 9: Jimmy Bauer's Session");
@@ -236,7 +239,7 @@ public class Driver {
         System.out.println("Email      : " + user.getEmail());
 
         Student jimmy = (Student) user;
-        System.out.println("Courses Taken: " + jimmy.getCoursesTaken());
+        System.out.println("Daily Streak  : " + jimmy.getStreak() + " days");
 
         int courseCount = jimmy.getCoursesTaken().size();
         Difficulty targetDifficulty;
@@ -265,9 +268,9 @@ public class Driver {
             interviewApp.logout(user);
             return;
         }
-        System.out.println("Today's Challenge: \"" + dailyChallenge.getTitle() + "\"");
+        System.out.println("Today's Challenge: " + dailyChallenge.getTitle());
 
-        System.out.println("\n=== Question Details ===");
+        System.out.println("\n-- Question Details --");
         System.out.println("Title      : " + dailyChallenge.getTitle());
         System.out.println("Difficulty : " + dailyChallenge.getDifficulty());
         System.out.println("Type       : " + dailyChallenge.getType());
@@ -298,7 +301,7 @@ public class Driver {
                 solutions.add(c);
             }
         }
-        System.out.println("Found " + solutions.size() + " solution(s).");
+        System.out.println("Found " + solutions.size() + " solutions.");
         for (int i = 0; i < solutions.size(); i++) {
             Comment sol = solutions.get(i);
             System.out.println("\n[Solution " + (i + 1) + "] " + sol.getTitle());
@@ -314,7 +317,7 @@ public class Driver {
             }
         }
 
-        System.out.println("\n--- Jimmy is confused - writing a comment on Solution 2 ---");
+        System.out.println("\nJimmy is confused - writing a comment on Solution 2");
         if (solutions.size() < 2) {
             System.out.println("Not enough solutions to comment on the second one.");
         } else {
@@ -342,13 +345,13 @@ public class Driver {
             System.out.println("  Comment : " + jimmysQuestion);
         }
 
-        String outputFile = "jimmy_review.txt";
+        String outputFile = "jimmy.txt";
         printQuestionToFile(dailyChallenge, outputFile);
 
-        System.out.println("\n=== Searching for \"Binary Search Tree\" ===");
+        System.out.println("\nSearching for \"Binary Search Tree\"");
         String searchTerm = "Binary Search Tree";
         ArrayList<Question> searchResults = interviewApp.searchQuestions(searchTerm);
-        System.out.println("Found " + searchResults.size() + " question(s) matching \"" + searchTerm + "\":");
+        System.out.println("Found " + searchResults.size() + " questions matching \"" + searchTerm + "\":");
 
         for (int i = 0; i < searchResults.size(); i++) {
             Question q = searchResults.get(i);
@@ -358,9 +361,13 @@ public class Driver {
             System.out.println("  Description: " + q.getDescription());
         }
 
+        // Streak increment after completing the daily challenge session
+        jimmy.incrementStreak();
+        System.out.println("\nDaily streak updated: " + jimmy.getStreak() + " days");
+
+        // 8. LOGOUT
         boolean loggedOut = interviewApp.logout(user);
         System.out.println("\nJimmy logged out: " + loggedOut);
-        System.out.println("================================");
     }
 
     /**
@@ -370,9 +377,7 @@ public class Driver {
      */
     private void printQuestionToFile(Question question, String filename) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
-            pw.println("================================================");
             pw.println("QUESTION: " + question.getTitle());
-            pw.println("================================================");
             pw.println("Difficulty : " + question.getDifficulty());
             pw.println("Type       : " + question.getType());
             pw.println("Discipline : " + question.getDiscipline());
@@ -407,10 +412,6 @@ public class Driver {
             for (int i = 0; i < comments.size(); i++) {
                 printCommentToFile(pw, comments.get(i), i + 1, 0);
             }
-
-            pw.println("================================================");
-            pw.println("End of Question");
-            pw.println("================================================");
 
             System.out.println("\nQuestion printed to file: " + filename);
         } catch (IOException e) {

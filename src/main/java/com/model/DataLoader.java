@@ -217,7 +217,12 @@ public class DataLoader extends DataConstants {
                         String major = userData.get(USER_MAJOR).toString();
                         ArrayList<UUID> questionsAnswered = (ArrayList<UUID>) userData.get(USER_QUESTIONS_SOLVED);
                         ArrayList<Course> coursesTaken = (ArrayList<Course>) userData.get(USER_COURSES_TAKEN);
-                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken);
+                        int streak = 0;
+                        Object streakObj = userData.get(USER_STREAK);
+                        if (streakObj instanceof Number) {
+                            streak = ((Number) streakObj).intValue();
+                        }
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak);
                         users.add(student);
                         break;
                     case "Editor":
