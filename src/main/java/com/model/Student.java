@@ -13,6 +13,7 @@ public class Student extends User {
     private ArrayList<Course> coursesTaken;
     private String uscID;
     private String major;
+    private int streak;
 
     /**
      * Parameterized constructor for the Student class
@@ -29,6 +30,7 @@ public class Student extends User {
         this.major = major;
         this.questionsAnswered = new ArrayList<>();
         this.coursesTaken = new ArrayList<>();
+        this.streak = 0;
     }
 
     /**
@@ -42,12 +44,13 @@ public class Student extends User {
      * @param major The major of the student to copy
      */
     public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major, 
-                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken) {
+                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak) {
         super(id, username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
         this.questionsAnswered = questionsAnswered;
         this.coursesTaken = coursesTaken;
+        this.streak = streak;
     }
 
     /**
@@ -106,5 +109,28 @@ public class Student extends User {
      */
     public void setMajor(String major) {
         this.major = major;
+    }
+
+    /**
+     * Gets the current daily streak of the student
+     * @return The number of consecutive days the student has been active
+     */
+    public int getStreak() {
+        return this.streak;
+    }
+
+    /**
+     * Sets the daily streak of the student
+     * @param streak The streak value to set
+     */
+    public void setStreak(int streak) {
+        this.streak = streak;
+    }
+
+    /**
+     * Increments the daily streak by 1
+     */
+    public void incrementStreak() {
+        this.streak++;
     }
 }

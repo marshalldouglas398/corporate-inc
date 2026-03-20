@@ -50,6 +50,7 @@
         "questionsSolved": [],
         "coursesTaken": ["Course.CSCE145", "Course.CSCE240", "Course.CSCE247"],
         "uscID": "1234567890",
-        "major": "Computer Science"
+        "major": "Computer Science",
+        "streak": 8
     }
 ]

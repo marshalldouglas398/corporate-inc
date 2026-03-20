@@ -55,6 +55,7 @@ public class DataWriter extends DataConstants {
                 userDetails.put(USER_COURSES_TAKEN, student.getCoursesTaken());
                 userDetails.put(USER_USCID, student.getUSCID());
                 userDetails.put(USER_MAJOR, student.getMajor());
+                userDetails.put(USER_STREAK, (long) student.getStreak());
                 break;
             case "Editor" :
                 Editor editor = (Editor) user;
