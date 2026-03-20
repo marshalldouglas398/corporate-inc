@@ -166,7 +166,7 @@ public class DataWriter extends DataConstants {
         JSONObject sectionDetails = new JSONObject();
         sectionDetails.put(SECTION_TITLE, section.getTitle());
         sectionDetails.put(SECTION_DESCRIPTION, section.getDescription());
-        sectionDetails.put(SECTION_FILE, section.getFile().toString());
+        sectionDetails.put(SECTION_FILE, section.getFile() != null ? section.getFile().toString() : null);
         sectionDetails.put(SECTION_CODE, section.getCode());
         return sectionDetails;
     }

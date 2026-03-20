@@ -47,7 +47,8 @@ public class Driver {
         Date dob = new Date();
         User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
         interviewApp.toEditor(sallyUser);
-        
+        interviewApp.login("SallySullivan", "ILoveComputerScience");
+
         //Sally creates a new question
         ArrayList<String> hints = new ArrayList<>();
         hints.add("");
@@ -75,6 +76,7 @@ public class Driver {
         File solution2 = new File("files/solution2_hashmap_version.png");
         comment2.addSection(new Section("Why store the first occurance?\n", "Because we want the longest subarray.\nTime Complexity: O(n) \nCode:\n", solution2 , null));
         sallysQuestion.addComment(comment2);
+        interviewApp.logout(sallyUser);
     }
 
     public void scenario2() {
