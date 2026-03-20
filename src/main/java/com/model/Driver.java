@@ -1,5 +1,6 @@
 package com.model;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -227,7 +228,8 @@ public class Driver {
         ArrayList<CommentTag> solutionTags2 = new ArrayList<>();
         solutionTags2.add(CommentTag.EDITORSOLUTION);
         Comment comment2 = new Comment("Solution 2 - HashMap Verson: \n", "Idea is to keep track of each sum in a HashMap. \n If: currentPrefixSum - previousPrefixSum = k \nThen previousPrefixSum = currentPrefixSum - k \nSo while iterating: \n - Keep track of the prefix sum. \n - Storet the first occurence of each prefix sum in a HashMap. \n - If(prefixSum - k) exists in the map; we found a valid subarray.", sallyUser, solutionTags2, new ArrayList<Section>(), true);
-        comment2.addSection(new Section("Why store the first occurance?\n", "Because we want the longest subarray.\nTime Complexity: O(n) \nCode:\n", "solution2_hashmap", null));
+        File solution2 = new File("files/solution2_hashmap_version.png");
+        comment2.addSection(new Section("Why store the first occurance?\n", "Because we want the longest subarray.\nTime Complexity: O(n) \nCode:\n", solution2 , null));
         sallysQuestion.addComment(comment2);
     }
 
