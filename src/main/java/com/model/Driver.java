@@ -1,5 +1,6 @@
 package com.model;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -205,6 +206,7 @@ public class Driver {
         Date dob = new Date();
         User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
         interviewApp.toEditor(sallyUser);
+        
         //Sally creates a new question
         ArrayList<String> hints = new ArrayList<>();
         hints.add("");
@@ -217,13 +219,15 @@ public class Driver {
         sallysQuestion.addSection("Example 1: \n","Input: nums = [1,-1,5,-2,3], k = 3 \n Output: 4 \n \nExplanation: \nThe subarray [1,-1,5,2] sums to 3 and has length 4.", null, null);
         sallysQuestion.addSection("Example 2: \n", "Input: nums = [-2,-1,2,1], k = 3 \n Output: 2", null, null);
         sallysQuestion.addSection("Follow up Questions: \n", "- What is the time complexity of your algorithm? \n - Can you find a way to make your algorithm faster?", null, null);
+        
         //Sally adds two solutions to her question
         ArrayList<CommentTag> solution1Tags = new ArrayList<>();
         solution1Tags.add(CommentTag.EDITORSOLUTION);
         Comment solution1 = new Comment("Solution 1 - Brute Force Approach", "Try every possible subarray and compute its sum.", sallyUser, solution1Tags, new ArrayList<Section>(), true);
         sallysQuestion.addComment(solution1);
-        solution1.addSection(new Section("Time Complexity:", " O(n^2)", null, null));
+        solution1.addSection(new Section("Time Complexity:", " O(n^2)", new File("src/main/java/com/model/files/solution1_brute_force_approach.png"), null));
         solution1.addSection(new Section ("Code:", null, null, null));
+        
         ArrayList<CommentTag> solutionTags2 = new ArrayList<>();
         solutionTags2.add(CommentTag.EDITORSOLUTION);
         Comment comment2 = new Comment("Solution 2 - HashMap Verson: \n", "Idea is to keep track of each sum in a HashMap. \n If: currentPrefixSum - previousPrefixSum = k \nThen previousPrefixSum = currentPrefixSum - k \nSo while iterating: \n - Keep track of the prefix sum. \n - Storet the first occurence of each prefix sum in a HashMap. \n - If(prefixSum - k) exists in the map; we found a valid subarray.", sallyUser, solutionTags2, new ArrayList<Section>(), true);
