@@ -32,7 +32,6 @@ public class Driver {
         scenario7();
         scenario9();
         scenario8();
-        scenarioSallyCreateAccount();
     }
 
     /**
@@ -183,7 +182,7 @@ public class Driver {
         disciplines.add(Discipline.COMPSCI);
         ArrayList<Course> courses = new ArrayList<>();
         courses.add(Course.CSCE240);
-        interviewApp.addQuestion("How to talk to people?", user, hints, QuestionType.BEHAVIORAL, disciplines, Difficulty.MEDIUM, courses, 1);
+        interviewApp.addQuestion("How to talk to people?", user, hints, QuestionType.BEHAVIORAL, disciplines, Difficulty.MEDIUM, courses, "Just open your mouth and say something");
         interviewApp.logout(user);
     }
 
@@ -201,7 +200,11 @@ public class Driver {
         }
 
         //Sally creates an editor account successfully and logins in
-
+       // System.out.println("--------------------------------");
+       // System.out.println("Sally Successfully Creates an Account:");
+        Date dob = new Date();
+        User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
+        interviewApp.toEditor(sallyUser);
         //Sally creates a new question
         ArrayList<String> hints = new ArrayList<>();
         hints.add("");
@@ -209,18 +212,14 @@ public class Driver {
         disciplines.add(Discipline.COMPSCI);
         ArrayList<Course> courses = new ArrayList<>();
         courses.add(Course.CSCE240);
-        interviewApp.addQuestion("Longest Subarray with given Sum", user, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, 3, "Given an integer array nums and an integer sum, return the length of the longest contiguous subarray whose total equals k.\nNote: the array can contain negative numbers");
+        interviewApp.addQuestion("Longest Subarray with given Sum", sallyUser, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, "Given an integer array nums and an integer sum, return the length of the longest contiguous subarray whose total equals k.\nNote: the array can contain negative numbers");
+        Question sallysQuestion = interviewApp.searchQuestions("Longest Subarray with given Sum").get(0);
+        sallysQuestion.addSection("Example 1: \n","Input: nums = [1,-1,5,-2,3], k = 3 \n Output: 4 \n \nExplanation: \nThe subarray [1,-1,5,2] sums to 3 and has length 4.", null, null);
+        sallysQuestion.addSection("Example 2: \n", "Input: nums = [-2,-1,2,1], k = 3 \n Output: 2", null, null);
+        sallysQuestion.addSection("Follow up Questions: \n", "- What is the time complexity of your algorithm? \n - Can you find a way to make your algorithm faster?", null, null);
 
         //Sally adds two solutions to her question
-    }
 
-public void scenarioSallyCreateAccount() {
-    System.out.println("--------------------------------");
-    System.out.println("Sally Successfully Creates an Account:");
-     Date dob = new Date();
-    User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
-    interviewApp.toEditor(sallyUser);
-   // interviewApp.logout(sallyUser);
     }
 
     public void scenario9() {

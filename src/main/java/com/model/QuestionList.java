@@ -72,8 +72,8 @@ public class QuestionList {
 	 * @param course the course of the question
 	 * @return true if the question was added successfully
 	 */
-	public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, int numSections, String description) {
-		Question question = new Question(title, author, hints, type, discipline, difficulty, course, numSections, description);
+	public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
+		Question question = new Question(title, author, hints, type, discipline, difficulty, course, description);
 		questions.add(question);
 		return true;
 	}
