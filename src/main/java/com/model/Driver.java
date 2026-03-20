@@ -219,7 +219,12 @@ public class Driver {
         sallysQuestion.addSection("Follow up Questions: \n", "- What is the time complexity of your algorithm? \n - Can you find a way to make your algorithm faster?", null, null);
 
         //Sally adds two solutions to her question
-
+        ArrayList<CommentTag> solution1Tags = new ArrayList<>();
+        solution1Tags.add(CommentTag.EDITORSOLUTION);
+        Comment solution1 = new Comment("Solution 1 - Brute Force Approach", "Try every possible subarray and compute its sum.", sallyUser, solution1Tags, new ArrayList<Section>(), true);
+        sallysQuestion.addComment(solution1);
+        solution1.addSection(new Section("Time Complexity:", " O(n^2)", null, null));
+        solution1.addSection(new Section ("Code:", null, null, null));
     }
 
     public void scenario9() {
