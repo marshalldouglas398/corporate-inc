@@ -26,7 +26,7 @@ public class Comment {
      * @param ct The tags associated with the comment
      * @param sections The sections associated with the comment (if any)
      */
-    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA, int numSections) {
+    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA) {
         this.title = title;
         this.comment = comment;
         this.author = author;
