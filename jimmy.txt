@@ -1,0 +1,120 @@
+QUESTION: Binary Search Tree Implementation
+Difficulty : MEDIUM
+Type       : TECHNICAL
+Discipline : [COMPSCI]
+Courses    : [CSCE247]
+Tags       : [WRITE_CODE, ANALYZE_COMPLIXITY]
+Rating     : 4.7
+
+--- Description ---
+A Binary Search Tree (BST) is a node-based data structure where each node has a key greater than all keys in its left subtree and less than all keys in its right subtree. Your task is to implement the insert operation for a BST. Given the root of an existing BST and an integer value, insert the value into the correct position while maintaining the BST property. You must handle the case where the tree is empty (root is null). Return the root of the modified tree.
+
+--- Sections ---
+[Section 1] Problem Statement
+Implement the insert method for a Binary Search Tree. The method should place the new value in the correct position so the BST property is preserved: left child < parent < right child.
+Code:
+Given BST:
+     5
+    / \
+   3   8
+  / \
+ 1   4
+
+Insert 6:
+     5
+    / \
+   3   8
+  / \ /
+ 1  4 6
+
+[Section 2] Node Class Stub
+Use this Node class as the basis for your implementation.
+Code:
+class Node {
+    int val;
+    Node left, right;
+    Node(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BST {
+    Node root;
+
+    // TODO: implement insert
+    public Node insert(Node root, int val) {
+        // your code here
+    }
+}
+
+--- Hints ---
+  Hint 1: Think about what happens when you reach a null node - that is your insertion point.
+  Hint 2: For the recursive solution, what should the base case return?
+  Hint 3: For the iterative solution, you need to track both the current node and its parent.
+  Hint 4: What should you do if the value already exists in the tree?
+
+--- Solutions & Comments ---
+[Comment 1] Recursive Insert Solution
+  Author : editor
+  Tags   : [SOLUTION]
+  Rating : 4.8
+  The cleanest approach is a recursive solution. At each node, compare the value to insert against the current node's value. If smaller, recurse into the left subtree; if larger, recurse into the right subtree. When you reach a null node, that is where the new value belongs - create and return a new Node there. The recursion unwinds and re-links the tree automatically.
+  -- Recursive Implementation --
+  Base case: if root is null, return a new Node. Recursive case: compare val to root.val and recurse left or right.
+  Code:
+  public Node insert(Node root, int val) {
+      if (root == null) {
+          return new Node(val);
+      }
+      if (val < root.val) {
+          root.left = insert(root.left, val);
+      } else if (val > root.val) {
+          root.right = insert(root.right, val);
+      }
+      // val == root.val: duplicate, do nothing
+      return root;
+  }
+
+[Comment 2] Iterative Insert Solution
+  Author : editor
+  Tags   : [SOLUTION]
+  Rating : 4.6
+  An iterative approach avoids recursion stack overhead, which matters for very deep or unbalanced trees. Start at the root and walk down the tree using a pointer. At each step, decide to go left or right based on the comparison. Keep track of the parent node so you can attach the new node once you reach a null slot. This is O(h) time where h is the height of the tree.
+  -- Iterative Implementation --
+  Use a while loop to traverse to the correct insertion point, tracking the parent node along the way.
+  Code:
+  public Node insert(Node root, int val) {
+      Node newNode = new Node(val);
+      if (root == null) return newNode;
+  
+      Node current = root;
+      Node parent = null;
+  
+      while (current != null) {
+          parent = current;
+          if (val < current.val) {
+              current = current.left;
+          } else if (val > current.val) {
+              current = current.right;
+          } else {
+              return root; // duplicate, skip
+          }
+      }
+  
+      if (val < parent.val) {
+          parent.left = newNode;
+      } else {
+          parent.right = newNode;
+      }
+      return root;
+  }
+  Replies:
+    [Comment 1] Question about Solution 2
+      Author : Jimmy_Bauer
+      Tags   : [QUESTION]
+      Rating : null
+      I understand using a while loop to traverse the tree, but I am confused about why we need to track the parent node separately. Could you walk through what would happen if we tried to attach the new node without keeping track of the parent?
+
+
