@@ -10,13 +10,17 @@ public class QuestionList {
 	private static QuestionList questionList;
 	private ArrayList<Question> questions;
 
+	/**
+	 * Constructor for the QuestionList class, initializes the list of questions as an empty ArrayList
+	 */
 	private QuestionList() {
 		this.questions = new ArrayList<>();
 	}
-/**
- * Gets the instance of the QuestionList class
- * @return The instance of the QuestionList class
- */
+
+	/**
+	 * Gets the instance of the QuestionList class
+	 * @return The instance of the QuestionList class
+	 */
 	public static QuestionList getInstance() {
 		if (questionList == null) {
 			questionList = new QuestionList();
@@ -24,6 +28,7 @@ public class QuestionList {
 		}
 		return questionList;
 	}
+
 	/**
 	 * Filters the list of questions based on the given parameters
 	 * @param allQuestions the list of all questions to filter from
@@ -38,7 +43,6 @@ public class QuestionList {
 		ArrayList<Question> filteredQuestions = new ArrayList<>();
 		for (Question question : allQuestions) {
 			boolean matches = true;
-
 			if (qtype != null && !question.getType().equals(qtype)) {
 				matches = false;
 			}
@@ -54,13 +58,13 @@ public class QuestionList {
 			if (qt != null && !question.getTag().equals(qt)) {
 				matches = false;
 			}
-
 			if (matches) {
 				filteredQuestions.add(question);
 			}
 		}
 		return filteredQuestions;
 	}
+
 	/**
 	 * Adds a question to the list of questions
 	 * @param title the title of the question
@@ -70,6 +74,7 @@ public class QuestionList {
 	 * @param discipline the discipline of the question
 	 * @param difficulty the difficulty of the question
 	 * @param course the course of the question
+	 * @param description the description of the question
 	 * @return true if the question was added successfully
 	 */
 	public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
@@ -77,6 +82,7 @@ public class QuestionList {
 		questions.add(question);
 		return true;
 	}
+
 	/**
 	 * Searches for a question in the list of questions based on the given id
 	 * @param id the id of the question to search for
@@ -90,17 +96,19 @@ public class QuestionList {
 		}
 		return null;
 	}
-/**
- * Saves the list of questions to the data file
- * @return true if the save was successful, false otherwise
- */
+
+	/**
+	 * Saves the list of questions to the data file
+	 * @return true if the save was successful, false otherwise
+	 */
 	public boolean save() {
 		return DataWriter.saveQuestions();
 	}
-/**
- * Gets the list of questions
- * @return the list of questions
- */
+	
+	/**
+	 * Gets the list of questions
+	 * @return the list of questions
+	 */
 	public ArrayList<Question> getQuestions() {
 		return this.questions;
 	}

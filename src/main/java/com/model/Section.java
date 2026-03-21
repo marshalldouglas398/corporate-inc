@@ -10,12 +10,17 @@ public class Section {
     private String description;
     private File file;
     private String code;
+    
+    /**
+     * Default constructor for the Section class, initializes all fields to default values
+     */
     public Section() {
         this.title = "";
         this.description = "";
         this.file = null;
         this.code = "";
     }
+    
     /**
      * Parameterized constructor for the Section class
      * @param title The title of the section

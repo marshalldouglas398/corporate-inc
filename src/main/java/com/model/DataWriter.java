@@ -7,7 +7,16 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Responsible for saving the current state of the application to JSON files
+ * @author Ainsley Weaver
+ */
+
 public class DataWriter extends DataConstants {
+    /**
+     * Saves the current state of the users in the application to a JSON file
+     * @return true if the users were successfully saved, false otherwise
+     */
     public static boolean saveUsers() { 
         try {
             UserList userList = UserList.getInstance();
@@ -39,6 +48,11 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Converts a User object to a JSONObject for saving to a JSON file
+     * @param user the User object to be converted to a JSONObject
+     * @return a JSONObject representing the User object
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_NAME, user.getUsername());
@@ -69,6 +83,10 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
+    /**
+     * Saves the current state of the questions in the application to a JSON file
+     * @return true if the questions were successfully saved, false otherwise
+     */
     public static boolean saveQuestions() {
         try {
             QuestionList questionList = QuestionList.getInstance();
@@ -101,6 +119,11 @@ public class DataWriter extends DataConstants {
         }
     }
     
+    /**
+     * Converts a Question object to a JSONObject for saving to a JSON file
+     * @param question the Question object to be converted to a JSONObject
+     * @return a JSONObject representing the Question object
+     */
     public static JSONObject getQuestionsJSON(Question question){
         JSONObject questionDetails = new JSONObject();
         questionDetails.put(QUESTION_TITLE, question.getTitle());
@@ -136,6 +159,12 @@ public class DataWriter extends DataConstants {
     
         return questionDetails;
     }
+
+    /**
+     * Converts a Comment object to a JSONObject for saving to a JSON file
+     * @param comment the Comment object to be converted to a JSONObject
+     * @return a JSONObject representing the Comment object
+     */
     public static JSONObject getCommentsJSON(Comment comment) {
         if(comment == null) {
             return null;
@@ -162,6 +191,12 @@ public class DataWriter extends DataConstants {
         commentDetails.put(COMMENT_REPLIES, jsonReplies);
         return commentDetails;
     }
+
+    /**
+     * Converts a Section object to a JSONObject for saving to a JSON file
+     * @param section the Section object to be converted to a JSONObject
+     * @return a JSONObject representing the Section object
+     */
     public static JSONObject getSectionsJSON(Section section) {
         JSONObject sectionDetails = new JSONObject();
         sectionDetails.put(SECTION_TITLE, section.getTitle());
@@ -171,6 +206,10 @@ public class DataWriter extends DataConstants {
         return sectionDetails;
     }
 
+    /**
+     * Main method for testing purposes
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args){
         DataWriter.saveUsers();
         DataWriter.saveQuestions();

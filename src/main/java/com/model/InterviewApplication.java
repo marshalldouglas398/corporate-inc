@@ -13,6 +13,9 @@ public class InterviewApplication {
     private User user;
     private Question currentQuestion;
 
+    /**
+     * Constructor for the InterviewApplication class. Initializes the question list and user list as singletons.
+     */
     public InterviewApplication() {
         this.questionList = QuestionList.getInstance();
         this.userlist = UserList.getInstance();
@@ -43,6 +46,8 @@ public class InterviewApplication {
      * @param password password of the new user
      * @param dateOfBirth date of birth of the new user
      * @param email email of the new user
+     * @param USCID USC ID of the new user
+     * @param major major of the new user
      * @return the new user account if created, null otherwise
      */
     public User createAccount(String username, String password, Date dateOfBirth, String email, String USCID, String major) {
@@ -118,6 +123,14 @@ public class InterviewApplication {
     }
     /**
      * Adds a question to the list of questions
+     * @param title title of the question
+     * @param author author of the question
+     * @param hints hints for the question
+     * @param type type of the question
+     * @param discipline discipline of the question
+     * @param difficulty difficulty of the question
+     * @param course course of the question
+     * @param description description of the question
      * @return true if the question was added, false otherwise
      */
     public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
@@ -162,7 +175,7 @@ public class InterviewApplication {
     /**
      * Rates a comment on a question
      * @param comment comment you want to rate
-     * @param num what you want to rate the comment
+     * @param rating the rating value
      * @return true if the comment was rated, false otherwise
      */
     public boolean rateComment(Comment comment, Double rating) {
@@ -170,6 +183,11 @@ public class InterviewApplication {
         return true;
     }
     
+    /**
+     * Promotes a student user to an editor role
+     * @param user the user you want to promote
+     * @return true if the user was promoted, false otherwise
+     */
     public boolean toEditor(User user) {
         if(user.getRole().equals("Student")) {
             Student student = (Student) user;

@@ -10,13 +10,17 @@ public class UserList {
     private static  UserList userlist;
     private ArrayList<User> users;
 
+    /**
+     * Default constructor for the UserList class, initializes the list of users as an empty ArrayList
+     */
     private UserList() {
         this.users = DataLoader.getUsers();
     }
-/**
- * Gets the instance of the UserList class
- * @return The instance of the UserList class
- */
+
+    /**
+     * Gets the instance of the UserList class
+     * @return The instance of the UserList class
+     */
     public static UserList getInstance() {
         if (userlist == null) {
             userlist = new UserList();
@@ -24,6 +28,7 @@ public class UserList {
         }
         return userlist;
     }
+
     /**
      * Searches for a user in the list of users
      * @param username username of the user you want to find
@@ -37,10 +42,10 @@ public class UserList {
         }
         return null;
     }
+
     /**
      * returns a user based on username and password
-     * @param username username of the user you want to find
-     * @param password password of the user you want to find
+     * @param uuid the uuid of the user you want to find
      * @return the user if found, null otherwise
      */
     public User getUser(UUID uuid) {
@@ -51,10 +56,11 @@ public class UserList {
         }
         return null;
     }
+
     /**
      * Checks if a user exists in the list of users based on username and password
-     * @param password password of the user you want to find
      * @param username username of the user you want to find
+     * @param password password of the user you want to find
      * @return true if found, false if not
      */
     public boolean checkForUser(String username, String password) {
@@ -65,6 +71,7 @@ public class UserList {
         }
         return false;
     }
+
     /**
      * Saves the list of users to the database
      * @return true if saved, false if not
@@ -72,6 +79,7 @@ public class UserList {
     public boolean save() {
         return DataWriter.saveUsers();
     }
+
     /**
      * Checks if a user is an admin
      * @param user the user you want to check
@@ -84,7 +92,7 @@ public class UserList {
      * Logs in a user based on username and password
      * @param username username of the user you want to log in
      * @param password password of the user you want to log in
-     * @return the user who logged in
+     * @return the user who logged in, null if login failed
      */
     public User login(String username, String password) { // changed to unbreak might need to fix again
         boolean userExists = checkForUser(username, password);
@@ -94,10 +102,10 @@ public class UserList {
             return searchUser(username);
         }
     }
+
     /**
-     * Logs out a user
-     * @param user user you want to log out
-     * @return null as user has been logged out
+     * Gets the list of users
+     * @return the list of users
      */
     public ArrayList<User> getUsers() {
         return this.users;

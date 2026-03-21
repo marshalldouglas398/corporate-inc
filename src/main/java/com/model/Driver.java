@@ -16,6 +16,9 @@ public class Driver {
 
     private InterviewApplication interviewApp;
 
+    /**
+     * Constructor initializes the InterviewApplication instance
+     */
     Driver() {
         interviewApp = new InterviewApplication();
     }
@@ -28,6 +31,13 @@ public class Driver {
         scenario2();
     }
 
+    /**
+     * Scenario 1: Sally the Editor
+      - Sally attempts to create an account with an existing username
+      - Sally creates an editor account successfully and logins in
+      - Sally creates a new question and adds two solutions to her question
+      - Sally logs out
+     */
     public void scenario1() {
         System.out.println("--------------------------------");
         System.out.println("Scenario 8: Sally the Editor");
@@ -42,8 +52,6 @@ public class Driver {
         }
 
         //Sally creates an editor account successfully and logins in
-       // System.out.println("--------------------------------");
-       // System.out.println("Sally Successfully Creates an Account:");
         Date dob = new Date();
         User sallyUser = interviewApp.createAccount("SallySullivan", "ILoveComputerScience", dob, "sallysul@email.com", "356432334", "Computer Science");
         interviewApp.toEditor(sallyUser);
@@ -77,6 +85,18 @@ public class Driver {
         sallysQuestion.addComment(comment2);
     }
 
+    /**
+     * Scenario 2: Jimmy Bauer's Session
+       - Jimmy logs into the system
+       - Jimmy sees his 8 day streak
+       - System gives him a daily challenge problem, tailored to him based on his skill level and preferences
+       - Jimmy clicks on the question and views the solutions
+       - Jimmy writes a comment on the second solution
+       - Jimmy prints this question to a text file
+       - Jimmy searches questions for "Binary Search Tree" and is presented two options
+       - Daily streak has increased by 1
+       - Jimmy logs out
+     */
     public void scenario2() {
         System.out.println("--------------------------------");
         System.out.println("Scenario 9: Jimmy Bauer's Session");

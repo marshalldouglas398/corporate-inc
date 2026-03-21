@@ -51,6 +51,7 @@ public class Admin extends User {
     /**
      * Edits a user in the database
      * @param username The username of the user to edit in the database
+     * @param user The new user to replace the old user in the database
      */
     public void editUser(String username, User user) {
         UserList userList = UserList.getInstance();

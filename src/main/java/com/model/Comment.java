@@ -25,6 +25,7 @@ public class Comment {
      * @param author The author of the comment
      * @param ct The tags associated with the comment
      * @param sections The sections associated with the comment (if any)
+     * @param qA Whether the author of the comment is the author of the question
      */
     public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA) {
         this.title = title;
@@ -71,18 +72,34 @@ public class Comment {
         this.isQuestionAuthor = isQuestionAuthor;
     }
 
+    /**
+     * Sets the author of the comment
+     * @param author The new author to set for the comment
+     */
     public void setAuthor(User author) {
         this.author = author;
     }
 
+    /**
+     * Sets the replies to the comment
+     * @param replies The new replies to set for the comment
+     */
     public void setReplies(ArrayList<Comment> replies) {
         this.replies = replies;
     }
 
+    /**
+     * Sets the rating of the comment
+     * @param rating The new rating to set for the comment
+     */
     public void setRating(Double rating) {
         this.rating = rating;
     }
 
+    /**
+     * Sets the number of ratings the comment has received
+     * @param numRatings
+     */
     public void setNumRatings(Double numRatings) {
         this.numRatings = numRatings;
     }
@@ -98,6 +115,7 @@ public class Comment {
     /**
      * Rates the comment with the given rating
      * @param rating The rating to give the comment
+     * @return The new average rating of the comment after adding the given rating
      */
     public Double rateComment(Double rating) {
         // Cannot average ratings until we implement numRatings and average rating system, but we can still set the rating for now

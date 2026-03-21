@@ -42,6 +42,9 @@ public class Student extends User {
      * @param email The email of the student to copy
      * @param uscID The USC ID of the student to copy
      * @param major The major of the student to copy
+     * @param questionsAnswered The list of questions answered by the student to copy
+     * @param coursesTaken The list of courses taken by the student to copy
+     * @param streak The daily streak of the student to copy
      */
     public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major, 
                     ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak) {

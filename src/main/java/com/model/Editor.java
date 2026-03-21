@@ -34,6 +34,7 @@ public class Editor extends User {
      * @param dateOfBirth The date of birth of the editor to copy
      * @param email The email of the editor to copy
      * @param role The role of the editor to copy
+     * @param questionsMade The list of questions made by the editor to copy
      */
     public Editor(UUID id, String username, String password, Date dateOfBirth, String email, String role, ArrayList<UUID> questionsMade) {
         super(id, username, password, dateOfBirth, email, role);
@@ -56,6 +57,7 @@ public class Editor extends User {
     /**
      * Edits a question in the list of questions made by the editor and the database
      * @param curQuestion The question to edit in the list of questions made by the editor
+     * @param newQuestion The question to replace the current question with in the list of questions made by the editor
      */
     public void editQuestion(Question curQuestion, Question newQuestion) {
         UUID newQuestionID = newQuestion.getId();
@@ -92,6 +94,7 @@ public class Editor extends User {
      * Gets the role of the editor
      * @return The role of the editor
      */
+    @Override
     public String getRole() {
         return this.role;
     }
@@ -101,5 +104,7 @@ public class Editor extends User {
      * @return true if the user is an editor, false otherwise
      */
     @Override
-    public boolean isEditor() { return true; } // This method overrides the isEditor method in the User class to return true for editors
+    public boolean isEditor() { 
+        return true; 
+    } // This method overrides the isEditor method in the User class to return true for editors
 }

@@ -29,22 +29,13 @@ public class Question {
     /**
      * Parameterized constructor for the Question class
      * @param title The title of the question
-     * @param description The description of the question
-     * @param sections The sections of the question
      * @param author The author of the question
      * @param hints The hints for the question
      * @param type The type of the question
      * @param discipline The discipline(s) the question belongs to
      * @param difficulty The difficulty of the question
      * @param course The course(s) the question belongs to
-     * @param id The UUID of the question
-     * @param comments The comments on the question
-     * @param rating The rating of the question
-     * @param numRatings The number of ratings the question has received
-     * @param isInterviewMode Whether the question is in interview mode
-     * @param tag The tags associated with the question
-     * @param hints The hints for the question
-     * @param time The time limit for the interview mode in minutes
+     * @param description The description of the question
      */
     public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
         this.title = title;
@@ -202,6 +193,7 @@ public class Question {
     /**
      * Rates the question with the given rating
      * @param rating The rating to give the question
+     * @return The new average rating of the question after adding the given rating
      */
     public Double addRating(Double rating) {
         this.rating = rating * (1 / this.numRatings + 1) + this.rating * (this.numRatings / (this.numRatings + 1)); // Average rating system

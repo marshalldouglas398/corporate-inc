@@ -11,6 +11,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Responsible for loading questions and users from JSON files
+ * @author Marcus Sostak
+ */
+
 public class DataLoader extends DataConstants {
     /**
      * Parses a JSONArray of sections and returns an ArrayList of Section objects
@@ -195,6 +200,10 @@ public class DataLoader extends DataConstants {
         return questions;
     }
 
+    /**
+     * Gets the users from the data file
+     * @return An ArrayList of User objects
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
         
