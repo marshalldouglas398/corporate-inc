@@ -76,17 +76,17 @@ public class Driver {
         courses.add(Course.CSCE240);
         interviewApp.addQuestion("Longest Subarray with given Sum", sallyUser, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, "Given an integer array nums and an integer sum, return the length of the longest contiguous subarray whose total equals k.\nNote: the array can contain negative numbers");
         Question sallysQuestion = interviewApp.searchQuestions("Longest Subarray with given Sum").get(0);
-        sallysQuestion.addSection("Example 1: \n","Input: nums = [1,-1,5,-2,3], k = 3 \n Output: 4 \n \nExplanation: \nThe subarray [1,-1,5,2] sums to 3 and has length 4.", null, null);
-        sallysQuestion.addSection("Example 2: \n", "Input: nums = [-2,-1,2,1], k = 3 \n Output: 2", null, null);
-        sallysQuestion.addSection("Follow up Questions: \n", "- What is the time complexity of your algorithm? \n-Can you find a way to make your algorithm faster?", null, null);
+        sallysQuestion.addSection("Example 1:","Input: nums = [1,-1,5,-2,3], k = 3 \nOutput: 4 \nExplanation: \nThe subarray [1,-1,5,2] sums to 3 and has length 4.", null, null);
+        sallysQuestion.addSection("Example 2:", "Input: nums = [-2,-1,2,1], k = 3 \nOutput: 2", null, null);
+        sallysQuestion.addSection("Follow up Questions:", "- What is the time complexity of your algorithm? \n- Can you find a way to make your algorithm faster?", null, null);
         
         //below prints the question details to the console
-        System.out.println("\n" + sallysQuestion.getTitle());
+        System.out.println("\n--- " + sallysQuestion.getTitle() + " ---");
         System.out.println(sallysQuestion.getDescription());
         System.out.println("Author: " + sallysQuestion.getAuthor().getUsername());
         System.out.println("\n" + sallysQuestion.getSections().get(0).getTitle());
         System.out.print(sallysQuestion.getSections().get(0).getDescription());
-        System.out.println("\n" + sallysQuestion.getSections().get(1).getTitle());
+        System.out.println("\n\n" + sallysQuestion.getSections().get(1).getTitle());
         System.out.println(sallysQuestion.getSections().get(1).getDescription());
         System.out.println("\n" + sallysQuestion.getSections().get(2).getTitle());
         System.out.println(sallysQuestion.getSections().get(2).getDescription());
@@ -95,11 +95,11 @@ public class Driver {
         ArrayList<CommentTag> solution1Tags = new ArrayList<>();
         solution1Tags.add(CommentTag.EDITORSOLUTION);
         Comment solution1 = new Comment("Solution 1 - Brute Force Approach", "Try every possible subarray and compute its sum.", sallyUser, solution1Tags, new ArrayList<Section>(), true);
-        sallysQuestion.addComment(solution1);
         solution1.addSection(new Section("Time Complexity:", "O(n^2)", null, null));
         solution1.addSection(new Section ("Code:", null, new File("src/main/java/com/model/files/solution1_brute_force_approach.png"), null));
+        sallysQuestion.addComment(solution1);
         //below prints the first solution details to the console
-        System.out.println("\n" + solution1.getTitle());
+        System.out.println("\n--- " + solution1.getTitle() + " ---");
         System.out.println(solution1.getComment());
         System.out.println("\n" + solution1.getSections().get(0).getTitle());
         System.out.print(solution1.getSections().get(0).getDescription());
@@ -109,12 +109,12 @@ public class Driver {
         
         ArrayList<CommentTag> solutionTags2 = new ArrayList<>();
         solutionTags2.add(CommentTag.EDITORSOLUTION);
-        Comment comment2 = new Comment("Solution 2 - HashMap Verson:", "Idea is to keep track of each sum in a HashMap. \n If: currentPrefixSum - previousPrefixSum = k \nThen previousPrefixSum = currentPrefixSum - k \nSo while iterating: \n - Keep track of the prefix sum. \n - Storet the first occurence of each prefix sum in a HashMap. \n - If(prefixSum - k) exists in the map; we found a valid subarray.", sallyUser, solutionTags2, new ArrayList<Section>(), true);
+        Comment comment2 = new Comment("Solution 2 - HashMap Verson:", "Idea is to keep track of each sum in a HashMap. \nIf: currentPrefixSum - previousPrefixSum = k \nThen: previousPrefixSum = currentPrefixSum - k \nSo while iterating: \n - Keep track of the prefix sum. \n - Store the first occurence of each prefix sum in a HashMap. \n - If (prefixSum - k) exists in the map; we found a valid subarray.", sallyUser, solutionTags2, new ArrayList<Section>(), true);
         File solution2 = new File("files/solution2_hashmap_version.png");
         comment2.addSection(new Section("Why store the first occurance?", "Because we want the longest subarray.\nTime Complexity: O(n) \nCode:", solution2 , null));
         sallysQuestion.addComment(comment2);
         //below prints the first solution details to the console
-        System.out.println("\n" + comment2.getTitle());
+        System.out.println("\n--- " + comment2.getTitle() + " ---");
         System.out.println(comment2.getComment());
         System.out.println("\n" + comment2.getSections().get(0).getTitle());
         System.out.println(comment2.getSections().get(0).getDescription());
