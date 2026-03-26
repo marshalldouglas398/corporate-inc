@@ -18,6 +18,33 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class UserListTest {
+    /*
+    +-------------------------------------------------------+------------------------------------------------+
+    | Test                                                  | Reasoning                                      |
+    +-------------------------------------------------------+------------------------------------------------+
+    | searchUserReturnsMatchingUserWhenUsernameExists       | Finds existing username correctly              |
+    | searchUserReturnsNullWhenUsernameMissing              | Missing usernames should return null           |
+    | searchUserReturnsNullWhenUsernameIsNull               | Null username should break search              |
+    | getUserReturnsMatchingUserWhenUuidExists              | Finds existing UUID correctly                  |
+    | getUserReturnsNullWhenUuidMissing                     | Missing UUID should return null                |
+    | getUserReturnsNullWhenUuidIsNull                      | Null UUID should break lookup                  |
+    | checkForUserReturnsTrueWhenUsernameAndPasswordMatch   | Valid credentials must exist in the list       |
+    | checkForUserReturnsFalseWhenPasswordIsWrong           | Wrong password must not exist in the list      |
+    | checkForUserReturnsFalseWhenUsernameMissing           | Unknown username must not exist in the list    |
+    | checkForUserReturnsFalseWhenUsernameIsNull            | Null username should break check               |
+    | checkForUserReturnsFalseWhenPasswordIsNull            | Null password should break check               |
+    | loginReturnsUserWhenCredentialsValid                  | Login returns user on valid credentials        |
+    | loginReturnsNullWhenCredentialsInvalid                | Login fails with incorrect password            |
+    | loginReturnsNullWhenUsernameIsNull                    | Null username login should fail                |
+    | loginReturnsNullWhenPasswordIsNull                    | Null password login should fail                |
+    | isAdminReturnsTrueForAdminRoleUser                    | Admin role must be recognized                  |
+    | isAdminReturnsFalseForNonAdminUser                    | admin roles must not pass the check            |
+    | isAdminThrowsNullPointerExceptionWhenUserIsNull       | Null user should break the check               |
+    | getUsersReturnsUnderlyingListReference                | Getter should return users list reference      |
+    | saveReturnsTrueWhenUsersListIsValid                   | Valid users should save successfully           |
+    | saveReturnsFalseWhenUsersListIsNull                   | Null list should fail save                     |
+    +-------------------------------------------------------+------------------------------------------------+
+     */
     private static final UUID ALICE_ID = UUID.fromString("11111111-1111-1111-1111-111111111111");
     private static final UUID BOB_ID = UUID.fromString("22222222-2222-2222-2222-222222222222");
     private static final UUID MISSING_ID = UUID.fromString("99999999-9999-9999-9999-999999999999");
