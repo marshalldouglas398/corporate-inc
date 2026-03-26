@@ -100,6 +100,16 @@ public class UserListTest {
     }
 
     @Test
+    public void checkForUserReturnsFalseWhenUsernameIsNull() {
+        assertFalse(userList.checkForUser(null, "P@ss123"));
+    }
+
+    @Test
+    public void checkForUserReturnsFalseWhenPasswordIsNull() {
+        assertFalse(userList.checkForUser("alice", null));
+    }
+
+    @Test
     public void loginReturnsUserWhenCredentialsValid() {
         User loggedIn = userList.login("alice", "P@ss123");
         assertNotNull(loggedIn);
@@ -109,6 +119,16 @@ public class UserListTest {
     @Test
     public void loginReturnsNullWhenCredentialsInvalid() {
         assertNull(userList.login("alice", "badpass"));
+    }
+
+    @Test
+    public void loginReturnsNullWhenUsernameIsNull() {
+        assertNull(userList.login(null, "P@ss123"));
+    }
+
+    @Test
+    public void loginReturnsNullWhenPasswordIsNull() {
+        assertNull(userList.login("alice", null));
     }
 
     @Test
