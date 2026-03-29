@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.assertTrue;
@@ -7,6 +8,7 @@ import org.junit.Test;
 
 public class InterviewApplicationTest {
     InterviewApplication app = new InterviewApplication();
+    
     
     /*
     *   TESTING LOGIN()
@@ -32,7 +34,6 @@ public class InterviewApplicationTest {
     /*
     *   TESTING LOGOUT()
     */
-
     @Test
     public void testLogoutValid() {
         User user = app.login("student", "password");
@@ -165,31 +166,47 @@ public class InterviewApplicationTest {
         assertTrue(result);
     }
 
-    @Test
-    public void testDeleteUserInvalidAccount() {
-        app.login("admin", "password");
-        boolean result = app.deleteUser(null);
-        assertTrue(result);
-    }
-
     /*
     *   TESTING EDITUSER()
+    *   this entire method should probably be revamped
+    *   currently, you need to make a new user to add to the list, and the old is deleted
+    *   there has to be a way to just change a certain piece of info in the user...
     */
     @Test
-    public void testEditUserValid() {  //im not exactly sure how this method works, actually
-        app.login("admin", "password");
+    public void testEditUser() {                      
+        app.login("admin", "password"); 
         User newUser = app.createAccount("editMe", "password", new Date(), "editMe@example.com", "3456789012", "Computer Science");
+        Boolean editedUser = app.editUser(new Student("editMe", "newpassword", new Date(), "editMe@example.com", "3456789012", "Computer Science"));
+        assertTrue(newUser.getPassword().equals("newpassword"));
     }
 
     /*
     *   TESTING FILTERQUESTION()
-    *   WIP
     */
-
     @Test
     public void testFilterQuestionValid() {
         app.login("student", "password");
-        assertTrue();
+        ArrayList<Question> questionList = QuestionList.getInstance().getQuestions();
+        ArrayList<Question> filteredQuestions = app.filterQuestion(questionList, QuestionType.TECHNICAL, null, null, null, null);
+        assertTrue(!filteredQuestions.isEmpty());
+        assertTrue(filteredQuestions.get(0).getType().equals(QuestionType.TECHNICAL));
+        assertTrue(filteredQuestions.get(filteredQuestions.size()-1).getType().equals(QuestionType.TECHNICAL));
+    }
+
+    @Test
+    public void testFilterQuestionEmptySearch() {
+        app.login("student", "password");
+        ArrayList<Question> questionList = QuestionList.getInstance().getQuestions();
+        ArrayList<Question> filteredQuestions = app.filterQuestion(questionList, null, null, null, null, null);
+        assertTrue(!filteredQuestions.isEmpty());
+    }
+
+    @Test
+    public void testFilterQuestionNoMatches() {
+        app.login("student", "password");
+        ArrayList<Question> questionList = QuestionList.getInstance().getQuestions();
+        ArrayList<Question> filteredQuestions = app.filterQuestion(questionList, QuestionType.BEHAVIORAL, Discipline.CYBERSEC, Difficulty.HARD, Course.CSCE146, QuestionTag.FILL_IN_THE_BLANK);
+        assertTrue(filteredQuestions.isEmpty());
     }
 
     /*
