@@ -49,7 +49,7 @@ public class InterviewApplicationTest {
     public void setup() {
         interviewApp = new InterviewApplication();
     }
-
+   
     // testing add question
     @Test
     public void adminAddsQuestion() {
@@ -192,7 +192,7 @@ public class InterviewApplicationTest {
         User admin = interviewApp.login("admin", "password");
         QuestionList questionList = QuestionList.getInstance();
         ArrayList<Question> questions = questionList.getQuestions();
-        Question question = questions.getLast();
+        Question question = questions.get(questions.size() - 1);
         boolean result = interviewApp.deleteQuestion(question);
         assertTrue(result);
     }
@@ -202,7 +202,7 @@ public class InterviewApplicationTest {
         User editor = interviewApp.login("editor", "password");
         QuestionList questionList = QuestionList.getInstance();
         ArrayList<Question> questions = questionList.getQuestions();
-        Question question = questions.getLast();
+        Question question = questions.get(questions.size() - 1);
         boolean result = interviewApp.deleteQuestion(question);
         assertTrue(result);
     }
@@ -212,7 +212,7 @@ public class InterviewApplicationTest {
         User student = interviewApp.login("student", "password");
         QuestionList questionList = QuestionList.getInstance();
         ArrayList<Question> questions = questionList.getQuestions();
-        Question question = questions.getLast();
+        Question question = questions.get(questions.size() - 1);
         boolean result = interviewApp.deleteQuestion(question);
         assertFalse(result);
     }
@@ -346,8 +346,7 @@ public class InterviewApplicationTest {
         boolean result = interviewApp.toEditor(admin);
         assertFalse(result);
     }
-
-    // testing search questions
+      // testing search questions
 
     @Test
     public void studentSearchingCorrectKeyword() {
@@ -372,5 +371,6 @@ public class InterviewApplicationTest {
         boolean content = !results.isEmpty();
         assertTrue(content);
     }
+
 }
 

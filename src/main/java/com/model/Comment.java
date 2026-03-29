@@ -34,7 +34,7 @@ public class Comment {
         this.tags = ct;
         this.sections = sections;
         this.replies = new ArrayList<>();
-        this.rating = null;
+        this.rating = 0.0;
         this.numRatings = 0.0;
         this.isQuestionAuthor = qA;
         this.sections = new ArrayList<>();

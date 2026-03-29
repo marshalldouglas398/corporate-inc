@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
-Test set: com.model.TestTesting
+Test set: com.model.InterviewApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! -- in com.model.TestTesting
-com.model.TestTesting.initializationError -- Time elapsed: 0 s <<< ERROR!
-java.lang.reflect.InaccessibleObjectException: Unable to make public void com.model.TestTesting.testTesting() accessible: module com.corporate does not "exports com.model" to module junit
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.040 s <<< FAILURE! -- in com.model.InterviewApplicationTest
+com.model.InterviewApplicationTest.initializationError -- Time elapsed: 0.009 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make public void com.model.InterviewApplicationTest.studentSearchingKeywordWeirdCasing() accessible: module com.corporate does not "exports com.model" to module junit
 	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:353)
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:329)
 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:277)
