@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.model.UserListTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! -- in com.model.UserListTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! -- in com.model.UserListTest
 com.model.UserListTest.initializationError -- Time elapsed: 0 s <<< ERROR!
 java.lang.reflect.InaccessibleObjectException: Unable to make public void com.model.UserListTest.checkForUserReturnsFalseWhenUsernameMissing() accessible: module com.corporate does not "exports com.model" to module junit
 	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:353)

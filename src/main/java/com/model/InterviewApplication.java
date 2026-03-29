@@ -208,6 +208,7 @@ public class InterviewApplication {
     public ArrayList<Question> searchQuestions(String keyword) {
         ArrayList<Question> results = new ArrayList<>();
         for (Question q : questionList.getQuestions()) {
+            if(q.getTitle() == null) continue; // Skip questions with null titles
             if (q.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
                 results.add(q);
             }
