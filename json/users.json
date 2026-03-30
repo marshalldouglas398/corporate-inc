@@ -1,56 +1,5 @@
 [
-    {
-        "username":"student", 
-        "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
-        "id":"10dec1f3-cafb-40c3-82e0-dfbb0948c240", 
-        "email":"student@email.com", 
-        "role": "Student",
-        "questionsSolved":["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"], 
-        "coursesTaken":["Course.CSCE145"], 
-        "uscID": "1234567890", 
-        "major": "Computer Science"
-    },
-    {
-        "username":"editor", 
-        "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
-        "id":"9f144030-5747-41ee-a3f6-f03a838c088c", 
-        "email":"editor@email.com", 
-        "role": "Editor",
-        "questionsMade": ["d472b1d9-5c55-4310-a2a6-2afc4883ae2b"]
-    }, 
-    {
-        "username":"admin", 
-        "password":"password", 
-        "dateOfBirth":"2026-02-19T10:15:30.000Z", 
-        "id":"abc8402f-d765-46cf-8269-2a601825024a", 
-        "email":"admin@email.com", 
-        "role": "Admin",
-        "questionsMade": ["c82ae2a3-8d55-4079-a241-5cd82d499061"]
-    },{
-        "username":"ssparrow",
-        "password": "sullivaniscoolerthansally",
-        "dateOfBirth": "2026-02-19T10:15:30.000Z",
-        "id": "def8402f-d765-46cf-8269-2a601825024a",
-        "email": "ssparrow@email.com",
-        "role": "Student",
-        "questionsSolved": [],
-        "coursesTaken": [],
-        "uscID": "0987654321",
-        "major": "Computer Science"
-    },
-    {
-        "username": "Jimmy_Bauer",
-        "password": "MyNameIsJimmyBauer",
-        "dateOfBirth": "2026-02-19T10:15:30.000Z",
-        "id": "a1b84020-d765-46cf-8269-2a60182502a1",
-        "email": "jimmybauer@email.com",
-        "role": "Student",
-        "questionsSolved": [],
-        "coursesTaken": ["Course.CSCE145", "Course.CSCE240", "Course.CSCE247"],
-        "uscID": "1234567890",
-        "major": "Computer Science",
-        "streak": 8
-    }
+ {"password":"studentPassword","coursesTaken":[CSCE247],"role":"Student","questionsSolved":[33333333-3333-3333-3333-333333333333],"major":"Computer Science","uscID":"1234567890","dateOfBirth":"1970-02-04T12:20:00.000Z","id":"7c523327-0075-4b78-93cf-83b57ba99c7b","streak":5,"email":"student@test.com","username":"testStudent"}, 
+ {"password":"editorPassword","role":"Editor","dateOfBirth":"1970-02-16T02:06:40.000Z","id":"05391fd9-2e07-4a77-b440-2d2e0b4ab7ef","questionsMade":[33333333-3333-3333-3333-333333333333],"email":"editor@test.com","username":"testEditor"}, 
+ {"password":"adminPassword","role":"Admin","dateOfBirth":"1970-02-27T15:53:20.000Z","id":"681d0fed-1bf9-4333-8fc1-f1c13be369f6","questionsMade":[44444444-4444-4444-4444-444444444444],"email":"admin@test.com","username":"testAdmin"}
 ]
