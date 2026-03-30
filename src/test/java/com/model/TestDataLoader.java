@@ -242,14 +242,14 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(restoredQuestions);
 
-            // Check the question section data.
+            // Check the question section data
             assertTrue(loadedQuestions.size() == 1);
             assertTrue(loadedQuestions.get(0).getSections().size() == 1);
             assertTrue(loadedQuestions.get(0).getSections().get(0).getTitle().equals("Question Section"));
             assertTrue(loadedQuestions.get(0).getSections().get(0).getDescription().equals("Question Section Description"));
             assertTrue(loadedQuestions.get(0).getSections().get(0).getCode().equals("System.out.println(\"question\");"));
 
-            // Check the main comment data.
+            // Check the main comment data
             assertTrue(loadedQuestions.get(0).getComments().size() == 1);
             assertTrue(loadedQuestions.get(0).getComments().get(0).getTitle().equals("First Comment"));
             assertTrue(loadedQuestions.get(0).getComments().get(0).getComment().equals("This is the first comment"));
@@ -262,13 +262,13 @@ public class TestDataLoader {
             assertTrue(loadedQuestions.get(0).getComments().get(0).getNumRatings() == 1.0);
             assertTrue(!loadedQuestions.get(0).getComments().get(0).isAuthor());
 
-            // Check the comment section data.
+            // Check the comment section data
             assertTrue(loadedQuestions.get(0).getComments().get(0).getSections().size() == 1);
             assertTrue(loadedQuestions.get(0).getComments().get(0).getSections().get(0).getTitle().equals("Comment Section"));
             assertTrue(loadedQuestions.get(0).getComments().get(0).getSections().get(0).getDescription().equals("Comment Section Description"));
             assertTrue(loadedQuestions.get(0).getComments().get(0).getSections().get(0).getCode().equals("System.out.println(\"comment\");"));
 
-            // Check the reply data.
+            // Check the reply data
             assertTrue(loadedQuestions.get(0).getComments().get(0).getReplies().size() == 1);
             assertTrue(loadedQuestions.get(0).getComments().get(0).getReplies().get(0).getTitle().equals("Reply Title"));
             assertTrue(loadedQuestions.get(0).getComments().get(0).getReplies().get(0).getComment().equals("This is a reply"));
@@ -291,7 +291,7 @@ public class TestDataLoader {
     @Test
     public void testGetQuestionsEmpty() {
         try {
-            // Save the real file contents so the test can restore them later.
+            // Save the real file contents so the test can restore them later
             String originalUsersJSON = "";
             String originalQuestionsJSON = "";
             FileReader userReader = new FileReader(USER_FILE_NAME);
@@ -312,21 +312,21 @@ public class TestDataLoader {
             userReader.close();
             questionReader.close();
 
-            // Save an empty user list because this test does not need any authors.
+            // Save an empty user list because this test does not need any authors
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().save();
 
-            // Build a question with missing values so DataLoader has to fill in defaults.
+            // Build a question with missing values so DataLoader has to fill in defaults
             Question emptyQuestion = new Question((UUID) null, null, null, null, null, null, null, null, null, null, null, null, false, null, null, -1);
 
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().add(emptyQuestion);
             QuestionList.getInstance().save();
 
-            // Load the question back through DataLoader.
+            // Load the question back through DataLoader
             ArrayList<Question> loadedQuestions = DataLoader.getQuestions();
 
-            // Restore the original json files.
+            // Restore the original json files
             FileWriter restoreUsersWriter = new FileWriter(USER_FILE_NAME);
             restoreUsersWriter.write(originalUsersJSON);
             restoreUsersWriter.close();
@@ -335,7 +335,7 @@ public class TestDataLoader {
             restoreQuestionsWriter.write(originalQuestionsJSON);
             restoreQuestionsWriter.close();
 
-            // Put the original file data back into the singleton lists.
+            // Put the original file data back into the singleton lists
             ArrayList<User> restoredUsers = DataLoader.getUsers();
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().addAll(restoredUsers);
@@ -344,7 +344,7 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(restoredQuestions);
 
-            // Check that DataLoader replaced missing values with its default empty values.
+            // Check that DataLoader replaced missing values with its default empty values
             assertTrue(loadedQuestions.size() == 1);
             assertTrue(loadedQuestions.get(0).getTitle().equals(""));
             assertTrue(loadedQuestions.get(0).getDescription().equals(""));
@@ -378,7 +378,7 @@ public class TestDataLoader {
     @Test
     public void testGetUsersRand() {
         try {
-            // Save the real file contents so the test can restore them later.
+            // Save the real file contents so the test can restore them later
             String originalUsersJSON = "";
             String originalQuestionsJSON = "";
             FileReader userReader = new FileReader(USER_FILE_NAME);
@@ -399,14 +399,14 @@ public class TestDataLoader {
             userReader.close();
             questionReader.close();
 
-            // Build one student, one editor, and one admin to test each role path in DataLoader.
+            // Build one student, one editor, and one admin to test each role path in DataLoader
             Student student = new Student("testStudent", "studentPassword", new Date(3000000000L), "student@test.com", "1234567890", "Computer Science");
             student.setStreak(5);
 
             Editor editor = new Editor("testEditor", "editorPassword", new Date(4000000000L), "editor@test.com", "Editor");
             Admin admin = new Admin("testAdmin", "adminPassword", new Date(5000000000L), "admin@test.com");
 
-            // Save those users and clear the question file because this test only cares about users.
+            // Save those users and clear the question file because this test only cares about users
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().add(student);
             UserList.getInstance().getUsers().add(editor);
@@ -416,10 +416,10 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().save();
 
-            // Load the users back through DataLoader.
+            // Load the users back through DataLoader
             ArrayList<User> loadedUsers = DataLoader.getUsers();
 
-            // Restore the original json files.
+            // Restore the original json files
             FileWriter restoreUsersWriter = new FileWriter(USER_FILE_NAME);
             restoreUsersWriter.write(originalUsersJSON);
             restoreUsersWriter.close();
@@ -428,7 +428,7 @@ public class TestDataLoader {
             restoreQuestionsWriter.write(originalQuestionsJSON);
             restoreQuestionsWriter.close();
 
-            // Put the original file data back into the singleton lists.
+            // Put the original file data back into the singleton lists
             ArrayList<User> restoredUsers = DataLoader.getUsers();
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().addAll(restoredUsers);
@@ -437,7 +437,7 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(restoredQuestions);
 
-            // Check the student values.
+            // Check the student values
             assertTrue(loadedUsers.size() == 3);
             assertTrue(loadedUsers.get(0) instanceof Student);
             assertTrue(loadedUsers.get(0).getPassword().equals("studentPassword"));
@@ -450,7 +450,7 @@ public class TestDataLoader {
             assertTrue(((Student) loadedUsers.get(0)).getCoursesTaken().size() == 0);
             assertTrue(((Student) loadedUsers.get(0)).getStreak() == 5);
 
-            // Check the editor values.
+            // Check the editor values
             assertTrue(loadedUsers.get(1) instanceof Editor);
             assertTrue(loadedUsers.get(1).getPassword().equals("editorPassword"));
             assertTrue(loadedUsers.get(1).getBirthDate().equals(editor.getBirthDate()));
@@ -459,7 +459,7 @@ public class TestDataLoader {
             assertTrue(((Editor) loadedUsers.get(1)).getQuestionsMade().size() == 0);
             assertTrue(loadedUsers.get(1).isEditor());
 
-            // Check the admin values.
+            // Check the admin values
             assertTrue(loadedUsers.get(2) instanceof Admin);
             assertTrue(loadedUsers.get(2).getPassword().equals("adminPassword"));
             assertTrue(loadedUsers.get(2).getBirthDate().equals(admin.getBirthDate()));
@@ -479,7 +479,7 @@ public class TestDataLoader {
     @Test
     public void testGetUsersListValues() {
         try {
-            // Save the real file contents so the test can restore them later.
+            // Save the real file contents so the test can restore them later
             String originalUsersJSON = "";
             String originalQuestionsJSON = "";
             FileReader userReader = new FileReader(USER_FILE_NAME);
@@ -500,7 +500,7 @@ public class TestDataLoader {
             userReader.close();
             questionReader.close();
 
-            // Build users with actual UUID and Course data inside their lists.
+            // Build users with actual UUID and Course data inside their lists
             Student student = new Student("testStudent", "studentPassword", new Date(3000000000L), "student@test.com", "1234567890", "Computer Science");
             student.getQuestionsAnswered().add(UUID.fromString("33333333-3333-3333-3333-333333333333"));
             student.getCoursesTaken().add(Course.CSCE247);
@@ -512,7 +512,7 @@ public class TestDataLoader {
             Admin admin = new Admin("testAdmin", "adminPassword", new Date(5000000000L), "admin@test.com");
             admin.getQuestionsMade().add(UUID.fromString("44444444-4444-4444-4444-444444444444"));
 
-            // Save those users and clear the question file because this test only cares about user list values.
+            // Save those users and clear the question file because this test only cares about user list values
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().add(student);
             UserList.getInstance().getUsers().add(editor);
@@ -522,10 +522,10 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().save();
 
-            // Load the users back through DataLoader.
+            // Load the users back through DataLoader
             ArrayList<User> loadedUsers = DataLoader.getUsers();
 
-            // Restore the original json files.
+            // Restore the original json files
             FileWriter restoreUsersWriter = new FileWriter(USER_FILE_NAME);
             restoreUsersWriter.write(originalUsersJSON);
             restoreUsersWriter.close();
@@ -534,7 +534,7 @@ public class TestDataLoader {
             restoreQuestionsWriter.write(originalQuestionsJSON);
             restoreQuestionsWriter.close();
 
-            // Put the original file data back into the singleton lists.
+            // Put the original file data back into the singleton lists
             ArrayList<User> restoredUsers = DataLoader.getUsers();
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().addAll(restoredUsers);
@@ -543,7 +543,7 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(restoredQuestions);
 
-            // Check the actual values inside the loaded UUID and Course lists.
+            // Check the actual values inside the loaded UUID and Course lists
             assertTrue(loadedUsers.size() == 3);
             assertTrue(((Student) loadedUsers.get(0)).getQuestionsAnswered().get(0).equals(UUID.fromString("33333333-3333-3333-3333-333333333333")));
             assertTrue(((Student) loadedUsers.get(0)).getCoursesTaken().get(0) == Course.CSCE247);
@@ -560,15 +560,15 @@ public class TestDataLoader {
     */
     @Test
     public void testCommentJSONKeepsIsQuestionAuthor() {
-        // Build a reply that marks the author as the question author.
+        // Build a reply that marks the author as the question author
         ArrayList<CommentTag> replyTags = new ArrayList<CommentTag>();
         replyTags.add(CommentTag.DISCUSSION);
         Comment reply = new Comment("Reply Title", "This is a reply", null, replyTags, new ArrayList<Section>(), new ArrayList<Comment>(), 3.0, 1.0, true);
 
-        // Convert it to json using DataWriter.
+        // Convert it to json using DataWriter
         String replyJSON = DataWriter.getCommentsJSON(reply).toJSONString();
 
-        // Check that the flag is still present in the json text.
+        // Check that the flag is still present in the json text
         assertTrue(replyJSON.contains("\"isQuestionAuthor\":true"));
     }
 
@@ -578,20 +578,20 @@ public class TestDataLoader {
     */
     @Test
     public void testQuestionJSONKeepsTime() {
-        // Build the enum lists needed for a real Question object.
+        // Build the enum lists needed for a real Question object
         ArrayList<Discipline> disciplines = new ArrayList<Discipline>();
         disciplines.add(Discipline.COMPSCI);
 
         ArrayList<Course> courses = new ArrayList<Course>();
         courses.add(Course.CSCE247);
 
-        // Create an interview question with a time limit.
+        // Create an interview question with a time limit
         Question question = new Question(UUID.fromString("88888888-8888-8888-8888-888888888888"), "timeQuestion", "timeDescription", new ArrayList<Section>(), null, new ArrayList<Comment>(), null, 0.0, QuestionType.TECHNICAL, disciplines, Difficulty.EASY, courses, true, new ArrayList<QuestionTag>(), new ArrayList<String>(), 25);
 
-        // Convert it to json using DataWriter.
+        // Convert it to json using DataWriter
         String questionJSON = DataWriter.getQuestionsJSON(question).toJSONString();
 
-        // Check that the time value is still present in the json text.
+        // Check that the time value is still present in the json text
         assertTrue(questionJSON.contains("\"time\":25"));
     }
 
@@ -602,7 +602,7 @@ public class TestDataLoader {
     @Test
     public void testGetQuestionsBadJSON() {
         try {
-            // Save the real file contents so the test can restore them later.
+            // Save the real file contents so the test can restore them later
             String originalUsersJSON = "";
             String originalQuestionsJSON = "";
             FileReader userReader = new FileReader(USER_FILE_NAME);
@@ -623,7 +623,7 @@ public class TestDataLoader {
             userReader.close();
             questionReader.close();
 
-            // Write a bad question file on purpose to trigger the error path in DataLoader.
+            // Write a bad question file on purpose to trigger the error path in DataLoader
             FileWriter badUsersWriter = new FileWriter(USER_FILE_NAME);
             badUsersWriter.write("[]");
             badUsersWriter.close();
@@ -632,10 +632,10 @@ public class TestDataLoader {
             badQuestionsWriter.write("{ bad json }");
             badQuestionsWriter.close();
 
-            // Load the malformed question file.
+            // Load the malformed question file
             ArrayList<Question> loadedQuestions = DataLoader.getQuestions();
 
-            // Restore the original json files.
+            // Restore the original json files
             FileWriter restoreUsersWriter = new FileWriter(USER_FILE_NAME);
             restoreUsersWriter.write(originalUsersJSON);
             restoreUsersWriter.close();
@@ -644,7 +644,7 @@ public class TestDataLoader {
             restoreQuestionsWriter.write(originalQuestionsJSON);
             restoreQuestionsWriter.close();
 
-            // Put the original file data back into the singleton lists.
+            // Put the original file data back into the singleton lists
             ArrayList<User> restoredUsers = DataLoader.getUsers();
             UserList.getInstance().getUsers().clear();
             UserList.getInstance().getUsers().addAll(restoredUsers);
@@ -653,7 +653,7 @@ public class TestDataLoader {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(restoredQuestions);
 
-            // The current behavior is to return null when the question json is invalid.
+            // The current behavior is to return null when the question json is invalid
             assertTrue(loadedQuestions == null);
         } catch (Exception e) {
             throw new RuntimeException(e);

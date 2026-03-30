@@ -18,13 +18,13 @@ public class TestQuestionList {
     */
     @Test
     public void testAddQuestion() {
-        // Save the current question list so the test can put it back when it is done.
+        // Save the current question list so the test can put it back when it is done
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build the data that addQuestion needs.
+        // Build the data that addQuestion needs
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -37,18 +37,18 @@ public class TestQuestionList {
         courses.add(Course.CSCE247);
         courses.add(Course.CSCE240);
 
-        // Clear the list so the test controls exactly what is inside it.
+        // Clear the list so the test controls exactly what is inside it
         QuestionList.getInstance().getQuestions().clear();
 
-        // Add the question and save the result before restoring the original list.
+        // Add the question and save the result before restoring the original list
         boolean wasAdded = QuestionList.getInstance().addQuestion("testTitle", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, "testDescription");
         Question addedQuestion = QuestionList.getInstance().getQuestions().get(0);
 
-        // Put the original questions back so later tests start with the original data.
+        // Put the original questions back so later tests start with the original data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check that the new question was added with the correct values.
+        // Check that the new question was added with the correct values
         assertTrue(wasAdded);
         assertTrue(addedQuestion.getTitle().equals("testTitle"));
         assertTrue(addedQuestion.getAuthor().getUsername().equals("testEditor"));
@@ -73,13 +73,13 @@ public class TestQuestionList {
     */
     @Test
     public void testGetQuestionRand() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build two questions so the test can search for one of them.
+        // Build two questions so the test can search for one of them
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -91,19 +91,19 @@ public class TestQuestionList {
         Question question1 = new Question("questionOne", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.EASY, courses, "descriptionOne");
         Question question2 = new Question("questionTwo", author, hints, QuestionType.BEHAVIORAL, disciplines, Difficulty.HARD, courses, "descriptionTwo");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
 
-        // Look up the second question by id.
+        // Look up the second question by id
         Question loadedQuestion = QuestionList.getInstance().getQuestion(question2.getId());
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check that the correct question was found.
+        // Check that the correct question was found
         assertTrue(loadedQuestion != null);
         assertTrue(loadedQuestion.getId().equals(question2.getId()));
         assertTrue(loadedQuestion.getTitle().equals("questionTwo"));
@@ -115,13 +115,13 @@ public class TestQuestionList {
     */
     @Test
     public void testGetQuestionNone() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build one question so the search has data, but use a different id for the lookup.
+        // Build one question so the search has data, but use a different id for the lookup
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -132,18 +132,18 @@ public class TestQuestionList {
 
         Question question = new Question("questionOne", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.EASY, courses, "descriptionOne");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question);
 
-        // Search for an id that is not in the list.
+        // Search for an id that is not in the list
         Question loadedQuestion = QuestionList.getInstance().getQuestion(UUID.fromString("99999999-9999-9999-9999-999999999999"));
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check that QuestionList returned null for the missing id.
+        // Check that QuestionList returned null for the missing id
         assertTrue(loadedQuestion == null);
     }
 
@@ -153,7 +153,7 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionNone() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
@@ -173,21 +173,21 @@ public class TestQuestionList {
         Question question3 = new Question("questionThree", author, hints, QuestionType.CONCEPTUAL, disciplines, Difficulty.MEDIUM, courses, "descriptionThree");
         Question question4 = new Question("questionFour", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.HARD, courses, "descriptionFour");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Run the filter with all null values.
+        // Run the filter with all null values
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), null, null, null, null, null);
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the returned list.
+        // Check the size and the order of the returned list
         assertTrue(filteredQuestions.size() == 4);
         assertTrue(filteredQuestions.get(0).getTitle().equals("questionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("questionTwo"));
@@ -201,13 +201,13 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionType() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build four questions so the test can check the first and last technical matches.
+        // Build four questions so the test can check the first and last technical matches
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -221,21 +221,21 @@ public class TestQuestionList {
         Question question3 = new Question("technicalQuestionTwo", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.MEDIUM, courses, "descriptionThree");
         Question question4 = new Question("conceptualQuestion", author, hints, QuestionType.CONCEPTUAL, disciplines, Difficulty.EASY, courses, "descriptionFour");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Filter for only technical questions.
+        // Filter for only technical questions
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), QuestionType.TECHNICAL, null, null, null, null);
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the technical questions that were returned.
+        // Check the size and the order of the technical questions that were returned
         assertTrue(filteredQuestions.size() == 2);
         assertTrue(filteredQuestions.get(0).getTitle().equals("technicalQuestionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("technicalQuestionTwo"));
@@ -247,13 +247,13 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionDifficulty() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build four questions so the test can check the first and last hard matches.
+        // Build four questions so the test can check the first and last hard matches
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -267,21 +267,21 @@ public class TestQuestionList {
         Question question3 = new Question("mediumQuestion", author, hints, QuestionType.CONCEPTUAL, disciplines, Difficulty.MEDIUM, courses, "descriptionThree");
         Question question4 = new Question("hardQuestionTwo", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.HARD, courses, "descriptionFour");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Filter for only hard questions.
+        // Filter for only hard questions
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), null, null, Difficulty.HARD, null, null);
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the hard questions that were returned.
+        // Check the size and the order of the hard questions that were returned
         assertTrue(filteredQuestions.size() == 2);
         assertTrue(filteredQuestions.get(0).getTitle().equals("hardQuestionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("hardQuestionTwo"));
@@ -293,13 +293,13 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionDiscipline() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build four questions so the test can check the first and last computer science matches.
+        // Build four questions so the test can check the first and last computer science matches
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -317,21 +317,21 @@ public class TestQuestionList {
         Question question3 = new Question("compsciQuestionTwo", author, hints, QuestionType.CONCEPTUAL, disciplines1, Difficulty.MEDIUM, courses, "descriptionThree");
         Question question4 = new Question("compengQuestionTwo", author, hints, QuestionType.TECHNICAL, disciplines2, Difficulty.EASY, courses, "descriptionFour");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Filter for only computer science questions.
+        // Filter for only computer science questions
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), null, Discipline.COMPSCI, null, null, null);
 
         // Restore the original list before the assertions run.
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the computer science questions that were returned.
+        // Check the size and the order of the computer science questions that were returned
         assertTrue(filteredQuestions.size() == 2);
         assertTrue(filteredQuestions.get(0).getTitle().equals("compsciQuestionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("compsciQuestionTwo"));
@@ -343,13 +343,13 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionCourse() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build four questions so the test can check the first and last CSCE247 matches.
+        // Build four questions so the test can check the first and last CSCE247 matches
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -366,21 +366,21 @@ public class TestQuestionList {
         Question question3 = new Question("course247QuestionTwo", author, hints, QuestionType.CONCEPTUAL, disciplines, Difficulty.MEDIUM, courses1, "descriptionThree");
         Question question4 = new Question("course240QuestionTwo", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.EASY, courses2, "descriptionFour");
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Filter for only CSCE247 questions.
+        // Filter for only CSCE247 questions
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), null, null, null, Course.CSCE247, null);
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the CSCE247 questions that were returned.
+        // Check the size and the order of the CSCE247 questions that were returned
         assertTrue(filteredQuestions.size() == 2);
         assertTrue(filteredQuestions.get(0).getTitle().equals("course247QuestionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("course247QuestionTwo"));
@@ -392,13 +392,13 @@ public class TestQuestionList {
     */
     @Test
     public void testFilterQuestionTag() {
-        // Save the current question list so the test can restore it later.
+        // Save the current question list so the test can restore it later
         ArrayList<Question> originalQuestions = new ArrayList<Question>();
         for (Question question : QuestionList.getInstance().getQuestions()) {
             originalQuestions.add(question);
         }
 
-        // Build four questions so the test can check the first and last write code matches.
+        // Build four questions so the test can check the first and last write code matches
         Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
         ArrayList<String> hints = new ArrayList<String>();
         hints.add("testHint1");
@@ -416,21 +416,21 @@ public class TestQuestionList {
         Question question4 = new Question("situationQuestionTwo", author, hints, QuestionType.TECHNICAL, disciplines, Difficulty.EASY, courses, "descriptionFour");
         question4.getTag().add(QuestionTag.SITUATION);
 
-        // Replace the shared list with only the test data.
+        // Replace the shared list with only the test data
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().add(question1);
         QuestionList.getInstance().getQuestions().add(question2);
         QuestionList.getInstance().getQuestions().add(question3);
         QuestionList.getInstance().getQuestions().add(question4);
 
-        // Filter for only write code questions.
+        // Filter for only write code questions
         ArrayList<Question> filteredQuestions = QuestionList.getInstance().filterQuestion(QuestionList.getInstance().getQuestions(), null, null, null, null, QuestionTag.WRITE_CODE);
 
-        // Restore the original list before the assertions run.
+        // Restore the original list before the assertions run
         QuestionList.getInstance().getQuestions().clear();
         QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-        // Check the size and the order of the write code questions that were returned.
+        // Check the size and the order of the write code questions that were returned
         assertTrue(filteredQuestions.size() == 2);
         assertTrue(filteredQuestions.get(0).getTitle().equals("writeCodeQuestionOne"));
         assertTrue(filteredQuestions.get(1).getTitle().equals("writeCodeQuestionTwo"));
@@ -443,7 +443,7 @@ public class TestQuestionList {
     @Test
     public void testSave() {
         try {
-            // Save the current question list and the current json file text so the test can restore them later.
+            // Save the current question list and the current json file text so the test can restore them later
             ArrayList<Question> originalQuestions = new ArrayList<Question>();
             for (Question question : QuestionList.getInstance().getQuestions()) {
                 originalQuestions.add(question);
@@ -460,7 +460,7 @@ public class TestQuestionList {
 
             questionReader.close();
 
-            // Build one question and save it through QuestionList.
+            // Build one question and save it through QuestionList
             Editor author = new Editor("testEditor", "editorPassword", new Date(1000000000L), "editor@test.com", "Editor");
             ArrayList<String> hints = new ArrayList<String>();
             hints.add("testHint1");
@@ -476,7 +476,7 @@ public class TestQuestionList {
 
             boolean wasSaved = QuestionList.getInstance().save();
 
-            // Read the saved json file to see what QuestionList wrote.
+            // Read the saved json file to see what QuestionList wrote
             String savedQuestionsJSON = "";
             FileReader savedQuestionReader = new FileReader(QUESTION_FILE_NAME);
             int savedQuestionCharacter = savedQuestionReader.read();
@@ -488,7 +488,7 @@ public class TestQuestionList {
 
             savedQuestionReader.close();
 
-            // Restore the original json file and the original question list.
+            // Restore the original json file and the original question list
             FileWriter restoreQuestionsWriter = new FileWriter(QUESTION_FILE_NAME);
             restoreQuestionsWriter.write(originalQuestionsJSON);
             restoreQuestionsWriter.close();
@@ -496,7 +496,7 @@ public class TestQuestionList {
             QuestionList.getInstance().getQuestions().clear();
             QuestionList.getInstance().getQuestions().addAll(originalQuestions);
 
-            // Check that save returned true and that the saved json contains the question title.
+            // Check that save returned true and that the saved json contains the question title
             assertTrue(wasSaved);
             assertTrue(savedQuestionsJSON.contains("saveQuestion"));
         } catch (Exception e) {
