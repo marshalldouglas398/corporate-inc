@@ -134,7 +134,7 @@ public class InterviewApplication {
      * @return true if the question was added, false otherwise
      */
     public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
-        if(this.user.getRole().equals("Admin") || this.user.getRole().equals("Editor")) {
+        if(author.getRole().equals("Admin") || author.getRole().equals("Editor")) {
             questionList.addQuestion(title, author, hints, type, discipline, difficulty, course, description);
             return true;
         }
@@ -208,6 +208,7 @@ public class InterviewApplication {
     public ArrayList<Question> searchQuestions(String keyword) {
         ArrayList<Question> results = new ArrayList<>();
         for (Question q : questionList.getQuestions()) {
+            if(q.getTitle() == null) continue; // Skip questions with null titles
             if (q.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
                 results.add(q);
             }
