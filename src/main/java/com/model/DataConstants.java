@@ -4,8 +4,9 @@ package com.model;
  * @author Eden Moore
  */
 public abstract class DataConstants {
-    protected static final String USER_FILE_NAME = "json/users.json";
-    protected static final String QUESTION_FILE_NAME = "json/questions.json";
+    /** Not final so paths are read at runtime (tests may redirect) and are not inlined into other classes. */
+    protected static String USER_FILE_NAME = "json/users.json";
+    protected static String QUESTION_FILE_NAME = "json/questions.json";
 
     protected static final String USER_ID = "id";
     protected static final String USER_NAME = "username";
