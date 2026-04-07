@@ -9,3 +9,53 @@
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
+
+
+/* Style for Create Account */
+.submit-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-font-family: "News Cycle"; /*maybe change*/
+}
+
+.create-account-title {
+    -fx-text-fill: #73000A;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-font-family: "News Cycle"; /*maybe change*/
+}
+
+.input-headers {
+    -fx-text-fill: #000000;
+    -fx-font-size: 30px;
+    -fx-font-family: "News Cycle"; /*maybe change*/
+}
+
+.input-boxes {
+    -fx-background-color: #D9D9D9;
+    -fx-font-size: 30px;
+}
+
+.create-account-background {
+    -fx-background-image: url("../images/backgroung.png");
+}
+
+.coporate-logo {
+    -fx-background-image: url("../images/corporatelogo.png");
+    -fx-background-height: 48px;
+    -fx-background-width: 138px;
+}
+
+.usc-symbol {
+    -fx-background-image: url("../images/uscsymbol.png");
+    -fx-background-height: 221px;
+    -fx-background-width: 172px;
+}
+.corporate-header {
+     -fx-text-fill: #ffffff;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-font-family: "News Cycle"; /*maybe change*/
+}
