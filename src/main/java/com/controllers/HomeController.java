@@ -6,10 +6,10 @@ import com.corporate.App;
 
 import javafx.fxml.FXML;
 
-public class PrimaryController {
+public class HomeController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void goToLogin() throws IOException {
+        App.setRoot("login");
     }
 }
