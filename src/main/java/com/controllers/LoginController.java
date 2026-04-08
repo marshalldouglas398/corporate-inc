@@ -38,7 +38,7 @@ public class LoginController {
         String password = txt_password.getText();
         System.out.println("Your name is " + username); 
         System.out.println("Your password is " + password);
-
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         Parent root = loader.load();
 
