@@ -2,11 +2,11 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="640.0" prefWidth="980.0" styleClass="login-page" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
@@ -34,6 +34,7 @@
                   <Label styleClass="login-label" text="Password" />
                   <TextField fx:id="txt_password" styleClass="login-input" />
                   <Button fx:id="btn_login" maxWidth="1.7976931348623157E308" onAction="#login" styleClass="login-button" text="Log In" />
+                  <Label fx:id="lbl_error" text="Label" visible="false" />
                   <Button mnemonicParsing="false" onAction="#goToCreate" styleClass="login-link" text="Create Account" />
                </children>
             </VBox>
