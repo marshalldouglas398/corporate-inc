@@ -33,6 +33,11 @@ public class LoginController {
     }
 
     @FXML
+    private void goToCreate() throws IOException {
+        App.setRoot("create");
+    }
+
+    @FXML
     void login(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
