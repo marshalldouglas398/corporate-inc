@@ -1,6 +1,7 @@
 package com.controllers;
 
 import java.io.IOException;
+import java.lang.classfile.Label;
 
 import com.corporate.App;
 
@@ -22,6 +23,9 @@ public class LoginController {
 
     @FXML
     private Button btn_login;
+
+    @FXML
+    private Label lbl_error;
 
     @FXML
     private void back() throws IOException {
