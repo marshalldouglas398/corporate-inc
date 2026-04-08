@@ -43,19 +43,12 @@ public class CreateController {
     private TextField txt_major;
 
     @FXML
-    private Label lbl_status;
-
-    @FXML
     private Button btn_create;
 
-    private final InterviewApplication interviewApp = new InterviewApplication();
-
     @FXML
-    private void initialize() {
-        if (lbl_status != null) {
-            lbl_status.setText("");
-        }
-    }
+    private Label lbl_status;
+
+    private final InterviewApplication interviewApp = new InterviewApplication();
 
     @FXML
     private void back() throws IOException {
@@ -94,21 +87,7 @@ public class CreateController {
             setStatus("Could not create account. Username may already exist.");
             return;
         }
-
-        clearFields();
         App.setRoot("login");
-    }
-
-    private void clearFields() {
-        clearField(txt_username);
-        clearField(txt_username1);
-        clearField(txt_username2);
-        clearField(txt_username3);
-        clearField(txt_username4);
-        clearField(txt_email);
-        clearField(txt_uscid);
-        clearField(txt_major);
-        setStatus("");
     }
 
     private void setStatus(String message) {
@@ -151,11 +130,5 @@ public class CreateController {
 
     private String getTrimmedText(TextField field) {
         return getText(field).trim();
-    }
-
-    private void clearField(TextField field) {
-        if (field != null) {
-            field.clear();
-        }
     }
 }
