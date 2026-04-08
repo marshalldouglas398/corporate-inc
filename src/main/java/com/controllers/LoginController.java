@@ -3,6 +3,7 @@ package com.controllers;
 import java.io.IOException;
 
 import com.corporate.App;
+import com.model.InterviewApplication;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,16 +30,15 @@ public class LoginController {
     }
 
     @FXML
-    private void goToCreate() throws IOException {
-        App.setRoot("create");
-    }
-
-    @FXML
     void login(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
         System.out.println("Your name is " + username); 
         System.out.println("Your password is " + password);
+
+        InterviewApplication app = new InterviewApplication();
+        app.login(username, password);
+        
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         Parent root = loader.load();
