@@ -34,8 +34,7 @@
                   <Label styleClass="login-label" text="Password" />
                   <TextField fx:id="txt_password" styleClass="login-input" />
                   <Button fx:id="btn_login" maxWidth="1.7976931348623157E308" onAction="#login" styleClass="login-button" text="Log In" />
-                  <Button mnemonicParsing="false" styleClass="login-link" text="Create Account" />
-                  <Label fx:id="lbl_error" text="Label" />
+                  <Label fx:id="lbl_error" text="Label" visible="false" />
                   <Button mnemonicParsing="false" onAction="#goToCreate" styleClass="login-link" text="Create Account" />
                </children>
             </VBox>
