@@ -28,6 +28,9 @@ public class LoginController {
     private Label lbl_error;
 
     @FXML
+    private Button createButton;
+
+    @FXML
     private void back() throws IOException {
         App.setRoot("home");
     }
@@ -50,5 +53,10 @@ public class LoginController {
         App.setRoot("dash");
         DashController controller = loader.getController();
         controller.displayWelcome(username);
+    }
+
+    @FXML
+    void goToCreate(ActionEvent event) throws IOException {
+        App.setRoot("create");
     }
 }

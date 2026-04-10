@@ -34,10 +34,7 @@
                   <Label styleClass="login-label" text="Password" />
                   <TextField fx:id="txt_password" styleClass="login-input" />
                   <Button fx:id="btn_login" maxWidth="1.7976931348623157E308" onAction="#login" styleClass="login-button" text="Log In" />
-<<<<<<< HEAD
-=======
                   <Label fx:id="lbl_error" text="Label" visible="false" />
->>>>>>> fa458e7ca73e8a9332ed9985002c4d140a059e1b
                   <Button mnemonicParsing="false" onAction="#goToCreate" styleClass="login-link" text="Create Account" />
                </children>
             </VBox>
