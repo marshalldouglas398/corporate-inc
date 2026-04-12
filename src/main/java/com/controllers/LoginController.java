@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.corporate.App;
 import com.model.InterviewApplication;
+import com.model.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,10 +48,17 @@ public class LoginController {
             lbl_error.setVisible(true);
             return;
         }
+        User currentUser = app.login(username, password);
+        String role = currentUser.getRole();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         Parent root = loader.load();
-
-        App.setRoot("dash");
+        if(role.equals("Admin")) {
+            App.setRoot("dashA");
+        } else if(role.equals("Editor")) {
+            App.setRoot("dashE");
+        } else if(role.equals("Student")) {
+            App.setRoot("dash");
+        }
         DashController controller = loader.getController();
         controller.displayWelcome(username);
     }
