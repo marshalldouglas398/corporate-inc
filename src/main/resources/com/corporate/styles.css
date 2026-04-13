@@ -302,3 +302,8 @@
     -fx-font-family: "News Cycle";
     -fx-fill: #A9A9A9;
 }
+.dashboard-brand-title {
+    -fx-font-size: 60px;
+    -fx-font-family: "News Cycle";
+    -fx-fill: white;
+}

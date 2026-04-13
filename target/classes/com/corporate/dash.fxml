@@ -11,272 +11,269 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="640.0" prefWidth="980.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.DashController">
+<BorderPane prefHeight="1101.0" prefWidth="2018.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.DashController">
    <top>
-      <AnchorPane prefHeight="90.0" prefWidth="980.0" styleClass="dashboard-header" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="0.0" prefWidth="1512.0" styleClass="dashboard-header" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_logout" layoutX="899.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <Label layoutX="87.0" layoutY="52.0" pickOnBounds="false" styleClass="login-brand-title" stylesheets="@styles.css" text="Corporate Code">
+            <Button fx:id="btn_logout" layoutX="1894.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <Label layoutX="87.0" layoutY="43.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="dashboard-brand-title" stylesheets="@styles.css" text="Corporate Code" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextField layoutX="686.0" layoutY="61.0" prefHeight="47.0" prefWidth="203.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
-            <Button fx:id="h_button" layoutX="641.0" layoutY="61.0" mnemonicParsing="false" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <Button fx:id="stg_btn" layoutX="935.0" layoutY="62.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <Button fx:id="q_btn" layoutX="598.0" layoutY="61.0" mnemonicParsing="false" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="937.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+            <TextField layoutX="1627.0" layoutY="42.0" prefHeight="58.0" prefWidth="241.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
+            <Button fx:id="h_button" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <Button fx:id="stg_btn" layoutX="1958.0" layoutY="29.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <Button fx:id="q_btn" layoutX="1472.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <ImageView fitHeight="57.0" fitWidth="76.0" layoutX="1944.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                <image>
-                  <Image url="@../../../../../../../Downloads/Settings.png" />
+                  <Image url="@images/Settings.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="901.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+            <ImageView fitHeight="50.0" fitWidth="59.0" layoutX="1545.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                <image>
-                  <Image url="@../../../../../../../Downloads/Log%20out.png" />
+                  <Image url="@images/Home.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="26.0" layoutX="644.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+            <ImageView fitHeight="49.0" fitWidth="54.0" layoutX="1476.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                <image>
-                  <Image url="@../../../../../../../Downloads/Home.png" />
+                  <Image url="@images/Book.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="89.0" fitWidth="28.0" layoutX="602.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+            <ImageView fitHeight="49.0" fitWidth="58.0" layoutX="1889.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                <image>
-                  <Image url="@../../../../../../../Downloads/Book.png" />
+                  <Image url="@images/Log%20out.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
    </top>
    <right>
-      <AnchorPane prefHeight="672.0" prefWidth="1020.0" styleClass="dashboard-page" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="948.0" prefWidth="2086.0" styleClass="dashboard-page" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="130.0" prefWidth="980.0">
                <children>
-                  <Text fx:id="welcomeMessage" layoutX="108.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-header" text="Welcome, user!">
+                  <Text fx:id="welcomeMessage" layoutX="148.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-header" text="Welcome, user!">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text layoutX="108.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="690.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="Streak:">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="859.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="98.0" layoutY="130.0" maxWidth="449.0" prefHeight="370.0" prefWidth="449.0" styleClass="dashboard-student-challenge-box">
+            <AnchorPane layoutX="157.0" layoutY="217.0" maxWidth="685.0" prefHeight="420.0" prefWidth="685.0" styleClass="dashboard-student-challenge-box">
                <children>
-                  <Text fill="#fff8f8" layoutX="10.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-header" text="Today's Challenge">
+                  <Text fill="#fff8f8" layoutX="31.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-header" text="Today's Challenge">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Line endX="223.80001831054688" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-135.66668701171875" stroke="WHITE" />
-                  <Text fill="WHITE" layoutX="20.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challege-question-title" text="Question Title">
+                  <Line endX="472.66668701171875" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-114.0" startY="-5.96484375" stroke="WHITE" />
+                  <Text fill="WHITE" layoutX="38.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challege-question-title" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="21.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="description" wrappingWidth="340.3072204589844">
+                  <Text fill="WHITE" layoutX="54.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="description" wrappingWidth="340.3072204589844">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="21.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="QType">
+                  <Text fill="WHITE" layoutX="41.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="182.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="Difficulty">
+                  <Text fill="WHITE" layoutX="167.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button layoutX="39.0" layoutY="267.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="349.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
+                  <Button layoutX="61.0" layoutY="267.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="567.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="568.0" layoutY="135.0" prefHeight="290.0" prefWidth="382.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+            <AnchorPane layoutX="1160.0" layoutY="186.0" prefHeight="406.0" prefWidth="730.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
                <children>
-                  <Text layoutX="6.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Suggested Problems">
+                  <Text layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Suggested Problems" wrappingWidth="502.84765625">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Line endX="223.80001831054688" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
-                  <Text layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Line endX="568.0" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
+                  <Text layoutX="52.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="22.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="22.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="37.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text layoutX="52.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Line endX="223.80001831054688" layoutX="143.0" layoutY="144.0" startX="-135.66668701171875" />
-                  <Line endX="223.80001831054688" layoutX="143.0" layoutY="221.0" startX="-135.66668701171875" />
-                  <Text layoutX="116.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Line endX="570.0" layoutX="143.0" layoutY="165.0" startX="-135.66668701171875" />
+                  <Line endX="571.0" layoutX="143.0" layoutY="286.0" startX="-135.66668701171875" />
+                  <Text layoutX="179.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="120.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text layoutX="179.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text layoutX="52.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="120.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text layoutX="179.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text layoutX="52.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button layoutX="292.0" layoutY="88.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button layoutX="621.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="292.0" layoutY="166.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button layoutX="621.0" layoutY="202.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="292.0" layoutY="240.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button layoutX="621.0" layoutY="318.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="104.0" layoutY="440.0" prefHeight="224.0" prefWidth="445.0">
-               <children>
-                  <Text layoutX="17.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Account Summary" wrappingWidth="352.01666259765625">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <AnchorPane layoutY="100.0" prefHeight="123.0" prefWidth="189.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
-                     <children>
-                        <Text layoutX="63.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Completed">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="# questions">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="209.0" layoutY="100.0" prefHeight="123.0" prefWidth="209.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
-                     <children>
-                        <Text layoutX="31.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Major">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Text>
-                        <Line endX="1.4000244140625" endY="-38.466705322265625" layoutX="95.0" layoutY="50.0" startX="1.4000244140625" startY="65.0" />
-                        <Text layoutX="134.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Courses">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Text>
-                        <Text layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-major">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-courses">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="568.0" layoutY="442.0" prefHeight="230.0" prefWidth="382.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+            <AnchorPane layoutX="595.0" layoutY="575.0" prefHeight="0.0" prefWidth="412.0" />
+            <AnchorPane layoutX="1159.0" layoutY="664.0" prefHeight="284.0" prefWidth="725.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
                <children>
                   <Text layoutX="6.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Recent Activity">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Line endX="223.80001831054688" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
-                  <Text layoutX="49.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Line endX="568.0" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
+                  <Text layoutX="49.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="48.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text layoutX="49.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Line endX="223.80001831054688" layoutX="143.0" layoutY="144.0" startX="-135.66668701171875" />
-                  <Text layoutX="116.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Line endX="563.0" layoutX="136.0" layoutY="165.0" startX="-135.66668701171875" />
+                  <Text layoutX="155.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="120.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text layoutX="155.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="277.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
+                  <Text layoutX="614.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="277.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
+                  <Text layoutX="614.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
+            <AnchorPane layoutX="158.0" layoutY="708.0" prefHeight="231.0" prefWidth="249.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+               <children>
+                  <Text layoutX="63.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Completed">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="# questions">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="427.0" layoutY="709.0" prefHeight="225.0" prefWidth="412.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+               <children>
+                  <Text layoutX="31.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Major">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Line endX="1.4000244140625" endY="-38.466705322265625" layoutX="95.0" layoutY="50.0" startX="1.4000244140625" startY="65.0" />
+                  <Text layoutX="134.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Courses">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-major">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-courses">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text layoutX="1554.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="Streak:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="1758.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="150.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="195.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Account Summary" wrappingWidth="352.01666259765625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </right>
