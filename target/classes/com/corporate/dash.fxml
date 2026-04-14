@@ -29,7 +29,7 @@
                </font>
             </Label>
             <TextField layoutX="1627.0" layoutY="42.0" prefHeight="58.0" prefWidth="241.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
-            <Button fx:id="h_button" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="h_btn" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
@@ -76,27 +76,27 @@
                      </font>
                   </Text>
                   <Line endX="472.66668701171875" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-114.0" startY="-5.96484375" stroke="WHITE" />
-                  <Text fill="WHITE" layoutX="38.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challege-question-title" text="Question Title">
+                  <Text fx:id="chll_title" fill="WHITE" layoutX="38.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challege-question-title" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="54.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="description" wrappingWidth="340.3072204589844">
+                  <Text fx:id="chll_desc" fill="WHITE" layoutX="54.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="description" wrappingWidth="340.3072204589844">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="41.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="QType">
+                  <Text fx:id="chll_type" fill="WHITE" layoutX="41.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="167.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="Difficulty">
+                  <Text fx:id="chll_diff" fill="WHITE" layoutX="167.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-question-description" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button layoutX="61.0" layoutY="267.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="567.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
+                  <Button fx:id="chll_btn" layoutX="61.0" layoutY="267.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="567.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="1160.0" layoutY="186.0" prefHeight="406.0" prefWidth="730.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
@@ -107,64 +107,64 @@
                      </font>
                   </Text>
                   <Line endX="568.0" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
-                  <Text layoutX="52.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="sug_1_title" layoutX="52.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="sug_1_title" layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="sug_3_tutle" layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="sug_1_type" layoutX="52.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                   <Line endX="570.0" layoutX="143.0" layoutY="165.0" startX="-135.66668701171875" />
                   <Line endX="571.0" layoutX="143.0" layoutY="286.0" startX="-135.66668701171875" />
-                  <Text layoutX="179.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="sug_1_diff" layoutX="179.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="179.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="sug_2_diff" layoutX="179.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="sug_2_type" layoutX="52.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="179.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="sug_3_diff" layoutX="179.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="sug_3_type" layoutX="52.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button layoutX="621.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button fx:id="sug_1_start_btn" layoutX="621.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="621.0" layoutY="202.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button fx:id="sug_2_start_btn" layoutX="621.0" layoutY="202.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="621.0" layoutY="318.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                  <Button fx:id="sug_3_start_btn" layoutX="621.0" layoutY="318.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -180,43 +180,43 @@
                      </font>
                   </Text>
                   <Line endX="568.0" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
-                  <Text layoutX="49.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="rct_1_title" layoutX="49.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="rct_2_tutle" layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="49.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="rct_1_type" layoutX="49.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                   <Line endX="563.0" layoutX="136.0" layoutY="165.0" startX="-135.66668701171875" />
-                  <Text layoutX="155.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="rct_1_diff" layoutX="155.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="155.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="rct_2_diff" layoutX="155.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="rct_2_type" layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="614.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
+                  <Text fx:id="rct_date_1" layoutX="614.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="614.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
+                  <Text fx:id="rct_date_2" layoutX="614.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -230,7 +230,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="# questions">
+                  <Text fx:id="num_q_text" layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="# questions">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -250,12 +250,12 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-major">
+                  <Text fx:id="mjr_text" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-major">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-courses">
+                  <Text fx:id="crs_text" layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="stud-courses">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -267,12 +267,12 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="1754.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
+            <Text fx:id="stk_num_text" layoutX="1754.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="150.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
+            <Text fx:id="date_text" layoutX="150.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
                <font>
                   <Font size="18.0" />
                </font>
