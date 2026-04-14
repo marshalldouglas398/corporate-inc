@@ -15,7 +15,7 @@
    <top>
       <AnchorPane prefHeight="0.0" prefWidth="1512.0" styleClass="dashboard-header" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_logout" layoutX="1894.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="btn_logout" layoutX="1575.0" layoutY="48.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
@@ -28,8 +28,8 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextField layoutX="1627.0" layoutY="42.0" prefHeight="58.0" prefWidth="241.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
-            <Button fx:id="h_btn" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <TextField layoutX="1338.0" layoutY="57.0" prefHeight="58.0" prefWidth="241.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
+            <Button fx:id="h_btn" layoutX="1253.0" layoutY="51.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
@@ -37,15 +37,8 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="stg_btn" layoutX="1958.0" layoutY="36.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
-               <graphic>
-                  <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-                     <image>
-                        <Image url="@images/Settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="q_btn" layoutX="1472.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="stg_btn" layoutX="1646.0" layoutY="37.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <Button fx:id="q_btn" layoutX="1176.0" layoutY="52.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                <graphic>
                   <ImageView fitHeight="49.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
@@ -53,11 +46,16 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <ImageView fitHeight="57.0" fitWidth="76.0" layoutX="1651.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+               <image>
+                  <Image url="@images/Settings.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
    <right>
-      <AnchorPane prefHeight="948.0" prefWidth="2086.0" styleClass="dashboard-page" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="948.0" prefWidth="2104.0" styleClass="dashboard-page" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="130.0" prefWidth="980.0">
                <children>
