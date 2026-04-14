@@ -12,6 +12,7 @@ import com.model.Course;
 import com.model.Question;
 import com.model.QuestionList;
 import com.model.Student;
+import com.model.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -138,8 +139,8 @@ public class DashController {
     private Student currentUser;
 
 
-    public void setUser(Student user) {
-        this.currentUser = user;
+    public void setUser(User user) {
+        this.currentUser = (Student) user;
         displayWelcome(user.getUsername());
         // setting date
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM, d, yyyy", Locale.ENGLISH);
