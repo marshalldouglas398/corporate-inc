@@ -15,36 +15,44 @@
    <top>
       <AnchorPane prefHeight="0.0" prefWidth="1512.0" styleClass="dashboard-header" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_logout" layoutX="1894.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
+            <Button fx:id="btn_logout" layoutX="1894.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                     <image>
+                        <Image url="@images/Log%20out.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Label layoutX="87.0" layoutY="43.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="dashboard-brand-title" stylesheets="@styles.css" text="Corporate Code" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
             <TextField layoutX="1627.0" layoutY="42.0" prefHeight="58.0" prefWidth="241.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
-            <Button fx:id="h_button" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <Button fx:id="stg_btn" layoutX="1958.0" layoutY="29.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <Button fx:id="q_btn" layoutX="1472.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css" />
-            <ImageView fitHeight="57.0" fitWidth="76.0" layoutX="1944.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-               <image>
-                  <Image url="@images/Settings.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="59.0" layoutX="1545.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-               <image>
-                  <Image url="@images/Home.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="54.0" layoutX="1476.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-               <image>
-                  <Image url="@images/Book.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="58.0" layoutX="1889.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-               <image>
-                  <Image url="@images/Log%20out.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="h_button" layoutX="1542.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                     <image>
+                        <Image url="@images/Home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="stg_btn" layoutX="1958.0" layoutY="36.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+               <graphic>
+                  <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                     <image>
+                        <Image url="@images/Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="q_btn" layoutX="1472.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                     <image>
+                        <Image url="@images/Book.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </AnchorPane>
    </top>
@@ -259,7 +267,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="1758.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
+            <Text layoutX="1754.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-streak-text" text="#">
                <font>
                   <Font size="20.0" />
                </font>
