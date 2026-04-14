@@ -3,6 +3,7 @@ package com.controllers;
 import java.io.IOException;
 
 import com.corporate.App;
+import com.model.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -125,7 +126,14 @@ public class DashController {
     @FXML
     private Text rct_date_2;
 
+    private User currentUser;
 
+
+    public void setUser(User user) {
+        this.currentUser = user;
+        displayWelcome(user.getUsername());
+    }
+    
     @FXML
     private void logout() throws IOException {
         App.setRoot("login");
@@ -134,6 +142,5 @@ public class DashController {
     @FXML
     public void displayWelcome(String username) {
         welcomeMessage.setText("Welcome, " + username + "!");
-
     }
 }

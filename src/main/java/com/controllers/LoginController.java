@@ -60,7 +60,7 @@ public class LoginController {
             App.setRoot("dash");
         }
         DashController controller = loader.getController();
-        controller.displayWelcome(username);
+        controller.setUser(currentUser);
     }
 
     @FXML
