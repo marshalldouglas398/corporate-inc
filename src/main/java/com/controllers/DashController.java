@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.UUID;
 
 import com.corporate.App;
 import com.model.Course;
@@ -147,12 +146,7 @@ public class DashController {
         String formattedDate = LocalDate.now().format(formatter);
         setDate(formattedDate);
         // setting account summary
-        int num_q = 0;
-        for(UUID q : currentUser.getQuestionsAnswered()) {
-            if(q != null) {
-                num_q++;
-            }
-        }
+        int num_q = currentUser.getQuestionsAnswered().size();
         setNumQ(num_q);
         ArrayList<Course> courses = new ArrayList<>();
         courses.addAll(currentUser.getCoursesTaken());
@@ -202,10 +196,10 @@ public class DashController {
             rct_1_type.setVisible(false);
             rct_1_diff.setVisible(false);
             rct_date_1.setVisible(false); 
-            rct_2_title.setVisible(false);
-            rct_2_type.setVisible(false);
-            rct_2_diff.setVisible(false);
-            rct_date_2.setVisible(false);
+          //  rct_2_title.setVisible(false);
+          //  rct_2_type.setVisible(false);
+          //  rct_2_diff.setVisible(false);
+          //  rct_date_2.setVisible(false);
         }
         // setting suggested
         if(recent == 0 || recent < 3) { // maybe change numbers?
@@ -254,13 +248,37 @@ public class DashController {
 
     @FXML
     public void setCourses(ArrayList<Course> courses) {
-        String courseStr = "";
-        for(Course c : courses) {
-            String course = c.toString();
-            String noenum = course.substring(course.indexOf('.') + 1);
-            courseStr += noenum + "\n";
+         String courseStr = "";
+
+    for (Object o : courses) {
+        Course c;
+
+        if (o instanceof Course) {
+            c = (Course) o;
+        } else {
+            String raw = o.toString();
+
+            // Remove enum prefix if present
+            if (raw.contains(".")) {
+                raw = raw.substring(raw.lastIndexOf('.') + 1);
+            }
+
+            c = Course.valueOf(raw);
         }
-        crs_text.setText(courseStr);
+
+        String noenum = c.toString().substring(c.toString().indexOf('.') + 1);
+        courseStr += noenum + "\n";
+    }
+
+    crs_text.setText(courseStr);
+
+       // String courseStr = "";
+        //for(Course c : courses) { // error here
+        //    String course = c.toString();
+        //    String noenum = course.substring(course.indexOf('.') + 1);
+        //    courseStr += noenum + "\n";
+       // }
+       // crs_text.setText(courseStr);
     }
 
     @FXML
