@@ -50,21 +50,35 @@ public class LoginController {
         }
         User currentUser = app.login(username, password);
         String role = currentUser.getRole();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader = null;
         if(role.equals("Admin")) {
-            App.setRoot("dashA");
+           loader = new FXMLLoader(getClass().getResource("/com/corporate/dashA.fxml"));
         } else if(role.equals("Editor")) {
-            App.setRoot("dashE");
+           loader = new FXMLLoader(getClass().getResource("/com/corporate/dashE.fxml"));
         } else if(role.equals("Student")) {
-            App.setRoot("dash");
+           loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         }
-        DashController controller = loader.getController();
-        controller.setUser(currentUser);
+        Parent root = loader.load();
+        Object controller = loader.getController();
+        if(controller instanceof DashController) {
+            DashController dash = (DashController) controller;
+            dash.setUser(currentUser);
+        } 
+        if(controller instanceof DashAController) {
+            DashAController dashA = (DashAController) controller;
+           // dashA.setUser(currentUser); not implemented
+        }
+        if(controller instanceof DashEController) {
+            DashEController dashE = (DashEController) controller;
+           // dashE.setUser(currentUser); not implemented
+        }
+        App.setRoot(root);
     }
 
     @FXML
     void goToCreate(ActionEvent event) throws IOException {
         App.setRoot("create");
     }
+
+    
 }
