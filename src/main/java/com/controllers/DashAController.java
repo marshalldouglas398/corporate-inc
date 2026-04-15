@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import com.corporate.App;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class DashAController {
@@ -16,6 +18,59 @@ public class DashAController {
     private Text welcomeMessage;
 
     @FXML
+    private Button btn_questions;
+    
+    @FXML
+    private Button btn_home;
+
+    @FXML
+    private Button btn_settings;
+
+    @FXML
+    private TextField textfield_search_top;
+
+    @FXML
+    private Text text_dash_date;
+
+    @FXML
+    private Button btn_upgrade_requests;
+
+    @FXML
+    private Button btn_flagged_questions;
+
+    @FXML
+    private Button btn_add_questions;
+
+    @FXML
+    private Button btn_manage_users;
+
+    @FXML
+    private Text text_questions_created;
+
+    @FXML
+    private Text text_total_users;
+
+    @FXML
+    private Text text_ra_title_one;
+
+    @FXML
+    private Text text_ra_date_one;
+
+    @FXML
+    private Text text_ra_title_two;
+
+    @FXML
+    private Text text_ra_date_two;
+
+    @FXML
+    private Text text_ra_title_three;
+
+    @FXML
+    private Text text_ra_date_three;
+
+    //private Admin currentUser;
+
+    @FXML
     private void logout() throws IOException {
         App.setRoot("login");
     }
@@ -23,6 +78,17 @@ public class DashAController {
     @FXML
     public void displayWelcome(String username) {
         welcomeMessage.setText("Welcome, " + username + "!");
-
     }
+
+    public void goToSearch(ActionEvent event) throws IOException {
+        String keyword = textfield_search_top.getText();
+        System.out.println("Searching for: " + keyword);
+
+        App.setRoot("search");
+    }
+    /*
+    public void setUser(Admin admin) {
+        this.currentUser = admin;
+        displayWelcome(admin.getUsername());
+    }*/
 }
