@@ -196,10 +196,10 @@ public class DashController {
             rct_1_type.setVisible(false);
             rct_1_diff.setVisible(false);
             rct_date_1.setVisible(false); 
-          //  rct_2_title.setVisible(false);
-          //  rct_2_type.setVisible(false);
-          //  rct_2_diff.setVisible(false);
-          //  rct_date_2.setVisible(false);
+            rct_2_title.setVisible(false);
+            rct_2_type.setVisible(false);
+            rct_2_diff.setVisible(false);
+            rct_date_2.setVisible(false);
         }
         // setting suggested
         if(recent == 0 || recent < 3) { // maybe change numbers?
