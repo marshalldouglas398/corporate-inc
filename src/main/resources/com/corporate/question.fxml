@@ -6,10 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
@@ -22,11 +20,10 @@
          <children>
             <Label text="Corporate Code" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" text="Book" />
-            <Button mnemonicParsing="false" text="Home" />
-            <TextField fx:id="searchField" promptText="Enter a keyword" prefWidth="240.0" />
-            <Button mnemonicParsing="false" text="User" />
-            <Button mnemonicParsing="false" text="Settings" />
+            <Button fx:id="h_btn" mnemonicParsing="false" onAction="#goToDashboard" text="Home" />
+            <Button fx:id="srch_btn" mnemonicParsing="false" onAction="#goToSearch" text="Search" />
+            <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#logout" text="Logout" />
+            <Button fx:id="stg_btn" mnemonicParsing="false" onAction="#goToSettings" text="Settings" />
          </children>
       </HBox>
    </top>
@@ -41,8 +38,8 @@
                   <Label fx:id="questionTitleLabel" text="Two Sum" />
                   <HBox spacing="8.0">
                      <children>
-                        <Label fx:id="tagOneLabel" text="Technical" />
-                        <Label fx:id="tagTwoLabel" text="Write Code" />
+                        <Label fx:id="qTypeLabel" text="Technical" />
+                        <Label fx:id="qTagLabel" text="Write Code" />
                         <Label fx:id="difficultyLabel" text="Easy" />
                      </children>
                   </HBox>
@@ -59,7 +56,7 @@
                               <Label text="3.75/5" />
                            </children>
                         </HBox>
-                        <Label text="Given an array of integers nums and an integer target, return indices of the two numbers that add up to target. There is exactly one solution, and you may not use the same element twice." wrapText="true" />
+                        <Label fx:id="q_desc_label" text="Given an array of integers nums and an integer target, return indices of the two numbers that add up to target. There is exactly one solution, and you may not use the same element twice." wrapText="true" />
                         <Label text="Examples" />
                         <VBox spacing="10.0">
                            <children>
@@ -106,10 +103,10 @@
                         <TextArea fx:id="responseArea" prefHeight="170.0" promptText="Type your answer here" wrapText="true" />
                         <HBox spacing="8.0">
                            <children>
-                              <Button mnemonicParsing="false" text="+ Add Section" />
-                              <Button mnemonicParsing="false" text="+ Add Tag" />
+                              <Button fx:id="add_sec_btn" mnemonicParsing="false" text="+ Add Section" />
+                              <Button fx:id="add_t_btn" mnemonicParsing="false" text="+ Add Tag" />
                               <Region HBox.hgrow="ALWAYS" />
-                              <Button mnemonicParsing="false" text="Submit Comment" />
+                              <Button fx:id="sub_com_btn" mnemonicParsing="false" text="Submit Comment" />
                            </children>
                         </HBox>
                      </children>
@@ -139,8 +136,8 @@
                                           <Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." wrapText="true" />
                                           <HBox spacing="8.0">
                                              <children>
-                                                <Button mnemonicParsing="false" text="Reply" />
-                                                <Button mnemonicParsing="false" text="Rate" />
+                                                <Button fx:id="rep_com_btn" mnemonicParsing="false" text="Reply" />
+                                                <Button fx:id="rate_com_btn" mnemonicParsing="false" text="Rate" />
                                              </children>
                                           </HBox>
                                           <Label text="End of comment section" />

@@ -59,17 +59,16 @@ public class LoginController {
            loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         }
         Parent root = loader.load();
-        Object controller = loader.getController();
-        if(controller instanceof DashController) {
-            DashController dash = (DashController) controller;
+        if(role.equals("Student")) {
+            DashController dash = loader.getController();
             dash.setUser(currentUser);
         } 
-        if(controller instanceof DashAController) {
-            DashAController dashA = (DashAController) controller;
+        if(role.equals("Admin")) {
+            DashAController dashA = loader.getController();
            // dashA.setUser(currentUser); not implemented
         }
-        if(controller instanceof DashEController) {
-            DashEController dashE = (DashEController) controller;
+        if(role.equals("Editor")) {
+            DashEController dashE = loader.getController();
            // dashE.setUser(currentUser); not implemented
         }
         App.setRoot(root);

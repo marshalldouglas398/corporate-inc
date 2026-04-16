@@ -16,8 +16,17 @@ public class DashEController {
     
     @FXML
     private Text welcomeMessage;
+     @FXML
+    private Button q_btn;
+
+    @FXML
+    private Button h_btn;
+
+    @FXML
+    private Button stg_btn;
 
     private Editor currentUser;
+
 
     @FXML
     private void logout() throws IOException {
