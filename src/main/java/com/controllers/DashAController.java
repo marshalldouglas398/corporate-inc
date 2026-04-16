@@ -7,7 +7,6 @@ import com.corporate.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class DashAController {
@@ -27,7 +26,7 @@ public class DashAController {
     private Button btn_settings;
 
     @FXML
-    private TextField textfield_search_top;
+    private Button btn_search;
 
     @FXML
     private Text text_dash_date;
@@ -68,8 +67,6 @@ public class DashAController {
     @FXML
     private Text text_ra_date_three;
 
-    @FXML
-    private Button btn_test_search;
     //private Admin currentUser;
 
     @FXML
@@ -82,12 +79,14 @@ public class DashAController {
         welcomeMessage.setText("Welcome, " + username + "!");
     }
 
-    public void goToSearch(ActionEvent event) throws IOException {
-        String keyword = textfield_search_top.getText();
-        System.out.println("Searching for: " + keyword);
-
+    private void goToSearch(ActionEvent event) throws IOException {
         App.setRoot("search");
     }
+
+    private void goToSettings(ActionEvent event) throws IOException {
+        App.setRoot("settings");
+    }
+
     /*
     public void setUser(Admin admin) {
         this.currentUser = admin;

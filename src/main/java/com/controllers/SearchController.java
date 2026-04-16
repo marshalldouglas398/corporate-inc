@@ -31,17 +31,17 @@ public class SearchController {
     }
 
     @FXML
-    private void goToQuestions(ActionEvent event) throws IOException {
-        //App.setRoot("questions");
-    }
-
-    @FXML
-    private void goToDashboard(ActionEvent event) throws IOException {
+    private void goToDash(ActionEvent event) throws IOException {
         App.setRoot("dash");
     }
 
     @FXML
+    private void goToSearch(ActionEvent event) throws IOException {
+        App.setRoot("search");
+    }
+
+    @FXML
     private void goToSettings(ActionEvent event) throws IOException {
-        //App.setRoot("settings");
+        App.setRoot("settings");
     }
 }

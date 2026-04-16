@@ -217,18 +217,18 @@ public class DashController {
     }
 
     @FXML
-    private void goToQuestions(ActionEvent event) throws IOException {
-        //App.setRoot("questions"); not implemented yet
-    }
-
-    @FXML
     private void goToDashboard(ActionEvent event) throws IOException {
         App.setRoot("dash");
     }
 
     @FXML
     private void goToSettings(ActionEvent event) throws IOException {
-        //App.setRoot("settings"); not implemented yet
+        App.setRoot("settings");
+    }
+
+    @FXML
+    private void goToSearch(ActionEvent event) throws IOException {
+        App.setRoot("search");
     }
 
     @FXML
