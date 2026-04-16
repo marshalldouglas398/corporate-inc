@@ -68,6 +68,8 @@ public class DashAController {
     @FXML
     private Text text_ra_date_three;
 
+    @FXML
+    private Button btn_test_search;
     //private Admin currentUser;
 
     @FXML
