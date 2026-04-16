@@ -8,8 +8,10 @@ import java.util.Locale;
 
 import com.corporate.App;
 import com.model.Course;
+import com.model.Difficulty;
 import com.model.Question;
 import com.model.QuestionList;
+import com.model.QuestionType;
 import com.model.Student;
 import com.model.User;
 
@@ -136,6 +138,7 @@ public class DashController {
     private Text rct_date_2;
 
     private Student currentUser;
+    private Question cll;
 
 
     public void setUser(User user) {
@@ -209,6 +212,28 @@ public class DashController {
         } else if(recent >= 10) {
             
         }
+        // challenge problems
+        QuestionList q = QuestionList.getInstance();
+        ArrayList<Question> all = q.getQuestions();
+        ArrayList<Question> filtered = new ArrayList<>();
+        if(recent == 0 || recent < 3) {
+        filtered = q.filterQuestion(all, null, null, Difficulty.EASY, null, null);
+        } else if(recent >= 3 || recent < 10) {
+        filtered = q.filterQuestion(all, null, null, Difficulty.EASY, null, null);
+        } else if(recent >= 10) {
+        filtered = q.filterQuestion(all, null, null, Difficulty.EASY, null, null); 
+        }
+        int n = 0;
+        cll = filtered.get(n);
+        while(currentUser.getQuestionsAnswered().contains(cll)) { // needs to be fixed in the future
+            n++;
+            cll = filtered.get(n);
+        }
+        chll_title.setText(cll.getTitle());
+        chll_desc.setText(cll.getDescription());
+        setType(cll.getType());
+        setDiff(cll.getDifficulty());
+
     }
 
     @FXML
@@ -229,6 +254,11 @@ public class DashController {
     @FXML
     private void goToSettings(ActionEvent event) throws IOException {
         //App.setRoot("settings"); not implemented yet
+    }
+
+    @FXML
+    private void goToChallenge(ActionEvent event) throws IOException {
+      // to do
     }
 
     @FXML
@@ -290,4 +320,19 @@ public class DashController {
     public void setStreak(int streak) {
         stk_num_text.setText(Integer.toString(streak));
     }
+
+    @FXML
+    public void setType(QuestionType t) {
+        String type = t.toString();
+        String noenumtype = type.substring(type.indexOf('.') + 1);
+        chll_type.setText(noenumtype);
+    }
+
+    @FXML
+    public void setDiff(Difficulty d) {
+        String diff = d.toString();
+        String noenumdiff = diff.substring(diff.indexOf('.') + 1);
+        chll_diff.setText(noenumdiff);
+    }
+    
 }
