@@ -79,10 +79,12 @@ public class DashAController {
         welcomeMessage.setText("Welcome, " + username + "!");
     }
 
+    @FXML
     private void goToSearch(ActionEvent event) throws IOException {
         App.setRoot("search");
     }
 
+    @FXML
     private void goToSettings(ActionEvent event) throws IOException {
         App.setRoot("settings");
     }
