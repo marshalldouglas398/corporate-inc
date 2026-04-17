@@ -117,9 +117,18 @@ public class Comment {
      * @return The new average rating of the comment after adding the given rating
      */
     public Double rateComment(Double rating) {
-        // Cannot average ratings until we implement numRatings and average rating system, but we can still set the rating for now
-        this.rating = rating * (1 / this.numRatings + 1) + this.rating * (this.numRatings / (this.numRatings + 1)); // Average rating system
-        this.numRatings++;
+        if (rating == null) {
+            return this.rating;
+        }
+        double n = (this.numRatings == null) ? 0.0 : this.numRatings;
+        if (n <= 0.0) {
+            this.rating = rating;
+            this.numRatings = 1.0;
+        } else {
+            double prior = (this.rating == null) ? 0.0 : this.rating;
+            this.rating = (prior * n + rating) / (n + 1.0);
+            this.numRatings = n + 1.0;
+        }
         return this.rating;
     }
 

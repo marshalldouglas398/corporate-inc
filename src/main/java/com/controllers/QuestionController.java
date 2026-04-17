@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 import com.corporate.App;
@@ -26,10 +27,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -324,23 +331,69 @@ public class QuestionController {
         refreshComments();
     }
 
+    /**
+     * Rating dialog: text field only accepts a single digit 1–5 (no other characters can be entered).
+     * OK with an empty field shows a warning.
+     */
     private Optional<Double> promptRating(String title) {
-        TextInputDialog dialog = new TextInputDialog();
+        Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle(title);
-        dialog.setHeaderText("Enter a number from 1 to 5");
-        Optional<String> result = dialog.showAndWait();
-        if (result.isEmpty()) {
+        dialog.setHeaderText("Enter a single digit from 1 to 5");
+
+        TextField field = new TextField();
+        field.setMaxWidth(72);
+        field.setPromptText("1–5");
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.isEmpty()) {
+                return change;
+            }
+            if (newText.length() > 1) {
+                return null;
+            }
+            char c = newText.charAt(0);
+            if (c >= '1' && c <= '5') {
+                return change;
+            }
+            return null;
+        };
+        field.setTextFormatter(new TextFormatter<>(filter));
+
+        VBox content = new VBox(10);
+        content.getChildren().addAll(new Label("Rating:"), field);
+        dialog.getDialogPane().setContent(content);
+        ButtonType okType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(okType, ButtonType.CANCEL);
+
+        Optional<ButtonType> choice = dialog.showAndWait();
+        if (choice.isEmpty() || choice.get() != okType) {
+            return Optional.empty();
+        }
+
+        String s = field.getText() == null ? "" : field.getText().trim();
+        if (s.isEmpty()) {
+            showRatingWarning("Please enter a rating from 1 to 5.");
             return Optional.empty();
         }
         try {
-            double rating = Double.parseDouble(result.get().trim());
-            if (rating < 1 || rating > 5) {
+            int value = Integer.parseInt(s);
+            if (value < 1 || value > 5) {
+                showRatingWarning("Rating must be a whole number from 1 to 5.");
                 return Optional.empty();
             }
-            return Optional.of(rating);
+            return Optional.of((double) value);
         } catch (NumberFormatException ex) {
+            showRatingWarning("Rating must be a whole number from 1 to 5.");
             return Optional.empty();
         }
+    }
+
+    private void showRatingWarning(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Invalid rating");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     private void refreshView() {
