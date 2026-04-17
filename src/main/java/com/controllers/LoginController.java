@@ -31,6 +31,7 @@ public class LoginController {
     @FXML
     private Button createButton;
 
+    private InterviewApplication app;
     @FXML
     private void back() throws IOException {
         App.setRoot("home");
@@ -42,7 +43,7 @@ public class LoginController {
         String password = txt_password.getText();
         System.out.println("Your name is " + username); 
         System.out.println("Your password is " + password);
-        InterviewApplication app = new InterviewApplication();
+        app = new InterviewApplication();
         if(app.login(username, password) == null) {
             lbl_error.setText("Invalid username or password");
             lbl_error.setVisible(true);
@@ -62,6 +63,7 @@ public class LoginController {
         if(role.equals("Student")) {
             DashController dash = loader.getController();
             dash.setUser(currentUser);
+            dash.setInterviewApplication(app);
         } 
         if(role.equals("Admin")) {
             DashAController dashA = loader.getController();

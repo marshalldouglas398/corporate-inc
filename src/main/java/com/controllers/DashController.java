@@ -9,6 +9,7 @@ import java.util.Locale;
 import com.corporate.App;
 import com.model.Course;
 import com.model.Difficulty;
+import com.model.InterviewApplication;
 import com.model.Question;
 import com.model.QuestionList;
 import com.model.QuestionType;
@@ -125,9 +126,6 @@ public class DashController {
     private Text rct_1_diff;
 
     @FXML
-    private Text rct_date_1;
-
-    @FXML
     private Text rct_2_title;
 
     @FXML
@@ -136,16 +134,16 @@ public class DashController {
     @FXML
     private Text rct_2_diff;
 
-    @FXML
-    private Text rct_date_2;
-
     private Student currentUser;
     private Question cll;
     private Question sug1;
     private Question sug2;
     private Question sug3;
+    private InterviewApplication app;
 
-
+    public void setInterviewApplication(InterviewApplication app) {
+        this.app = app;
+    }
     public void setUser(User user) {
         this.currentUser = (Student) user;
         displayWelcome(user.getUsername());
@@ -322,22 +320,31 @@ public class DashController {
 
     @FXML
     private void logout() throws IOException {
+        app.logout(currentUser);
         App.setRoot("login");
     }
 
     @FXML
     private void goToDashboard(ActionEvent event) throws IOException {
-        App.setRoot("dash");
+       // App.setRoot("dash");
     }
 
     @FXML
     private void goToSettings(ActionEvent event) throws IOException {
-        App.setRoot("settings");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/settings.fxml"));
+            Parent root = loader.load();
+            SettingsController controller = loader.getController();
+            controller.setUser(currentUser);
+            App.setRoot(root);
     }
 
     @FXML
     private void goToSearch(ActionEvent event) throws IOException {
-        App.setRoot("search");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/search.fxml"));
+            Parent root = loader.load();
+            SearchController controller = loader.getController();
+            controller.setUser(currentUser);
+            App.setRoot(root);
     }
 
     @FXML
@@ -424,16 +431,7 @@ public class DashController {
         String noenum = c.toString().substring(c.toString().indexOf('.') + 1);
         courseStr += noenum + "\n";
     }
-
     crs_text.setText(courseStr);
-
-       // String courseStr = "";
-        //for(Course c : courses) { // error here
-        //    String course = c.toString();
-        //    String noenum = course.substring(course.indexOf('.') + 1);
-        //    courseStr += noenum + "\n";
-       // }
-       // crs_text.setText(courseStr);
     }
 
     @FXML

@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -26,7 +27,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="87.0" layoutY="43.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="dashboard-brand-title" stylesheets="@styles.css" text="Corporate Code" textFill="WHITE">
+                  <Label layoutX="211.0" layoutY="72.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="dashboard-brand-title" stylesheets="@styles.css" text="Corporate Code" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -57,6 +58,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="158.0" layoutX="37.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="157.0" />
+                  <ImageView fitHeight="162.0" fitWidth="261.0" layoutX="-15.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/transparent-logo%202.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </top>
@@ -100,7 +107,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Button fx:id="chll_btn" layoutX="61.0" layoutY="267.0" mnemonicParsing="false" onAction="#goToChallenge" prefHeight="55.0" prefWidth="567.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
+                        <Button fx:id="chll_btn" layoutX="61.0" layoutY="267.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="567.0" styleClass="dashboard-button-challenge" text="Start Challenge" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="1160.0" layoutY="186.0" prefHeight="406.0" prefWidth="730.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
@@ -116,12 +123,12 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="sug_2_title" layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                        <Text fx:id="sug_1_title" layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="sug_3_title" layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                        <Text fx:id="sug_3_tutle" layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -158,17 +165,17 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Button fx:id="sug_1_start_btn" layoutX="621.0" layoutY="82.0" mnemonicParsing="false" onAction="#goToSug1" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                        <Button fx:id="sug_1_start_btn" layoutX="621.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sug_2_start_btn" layoutX="621.0" layoutY="202.0" mnemonicParsing="false" onAction="#goToSug2" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                        <Button fx:id="sug_2_start_btn" layoutX="621.0" layoutY="202.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="sug_3_start_btn" layoutX="621.0" layoutY="318.0" mnemonicParsing="false" onAction="#goToSug3" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
+                        <Button fx:id="sug_3_start_btn" layoutX="621.0" layoutY="318.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Start">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -213,16 +220,6 @@
                         <Text fx:id="rct_2_type" layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
                            <font>
                               <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="rct_date_1" layoutX="614.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="rct_date_2" layoutX="614.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
-                           <font>
-                              <Font size="16.0" />
                            </font>
                         </Text>
                      </children>
