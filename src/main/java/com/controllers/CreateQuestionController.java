@@ -1,5 +1,8 @@
 package com.controllers;
 
+import com.model.User;
+
 public class CreateQuestionController {
-    // Layout-only scaffold for future question creation behavior.
+   public void setUser(User user) {
+   }
 }

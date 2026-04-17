@@ -71,7 +71,8 @@ public class LoginController {
         }
         if(role.equals("Editor")) {
             DashEController dashE = loader.getController();
-           // dashE.setUser(currentUser); not implemented
+           dashE.setUser(currentUser);
+           dashE.setInterviewApplication(app);
         }
         App.setRoot(root);
     }

@@ -14,6 +14,7 @@ public class Student extends User {
     private String uscID;
     private String major;
     private int streak;
+    private boolean editorRequest;
 
     /**
      * Parameterized constructor for the Student class
@@ -23,6 +24,7 @@ public class Student extends User {
      * @param email The email of the student
      * @param uscID The USC ID of the student
      * @param major The major of the student
+     * @param editorRequest Whether the student has requested to become an editor
      */
     public Student(String username, String password, Date dateOfBirth, String email, String uscID, String major) {
         super(username, password, dateOfBirth, email, "Student");
@@ -31,6 +33,7 @@ public class Student extends User {
         this.questionsAnswered = new ArrayList<>();
         this.coursesTaken = new ArrayList<>();
         this.streak = 0;
+        this.editorRequest = false;
     }
 
     /**
@@ -45,15 +48,18 @@ public class Student extends User {
      * @param questionsAnswered The list of questions answered by the student to copy
      * @param coursesTaken The list of courses taken by the student to copy
      * @param streak The daily streak of the student to copy
+     * @param editorRequest Whether the student to copy has requested to become an editor
      */
     public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major, 
-                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak) {
+                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak, boolean editorRequest) {
         super(id, username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
         this.questionsAnswered = questionsAnswered;
         this.coursesTaken = coursesTaken;
+        this.editorRequest = editorRequest;
         this.streak = streak;
+
     }
 
     /**
@@ -97,6 +103,13 @@ public class Student extends User {
     public String getMajor() {
         return this.major;
     }
+    /*
+     * Gets whether the student has requested to become an editor
+     * @return Whether the student has requested to become an editor
+     */
+    public boolean hasRequestedEditor() {
+        return this.editorRequest;
+    }
 
     /**
      * Sets the USC ID of the student
@@ -135,5 +148,13 @@ public class Student extends User {
      */
     public void incrementStreak() {
         this.streak++;
+    }
+
+    /**
+     * Sets whether the student has requested to become an editor
+     * @param editorRequest The value to set for the editor request status
+     */
+    public void setEditorRequest(boolean editorRequest) {
+        this.editorRequest = editorRequest;
     }
 }

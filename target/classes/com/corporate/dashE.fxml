@@ -28,7 +28,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button fx:id="h_btn" layoutX="1176.0" layoutY="42.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="h_btn" layoutX="1176.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
@@ -77,8 +77,8 @@
                      </font>
                   </Text>
                   <Line endX="472.66668701171875" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-114.0" startY="-5.96484375" stroke="WHITE" />
-                  <Button fx:id="qtns_m_btn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="571.0" text="Button" />
-                  <Button fx:id="edi_sl_btn" layoutX="35.0" layoutY="223.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="577.0" text="Button" />
+                  <Button fx:id="qtns_m_btn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="97.0" prefWidth="571.0" text="Button" />
+                  <Button fx:id="edi_sl_btn" layoutX="35.0" layoutY="223.0" mnemonicParsing="false" onAction="#addEditorSolution" prefHeight="98.0" prefWidth="577.0" text="Button" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="595.0" layoutY="575.0" prefHeight="0.0" prefWidth="412.0" />
@@ -95,7 +95,7 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_2_tutle" layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="rct_2_title" layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -121,16 +121,6 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_date_1" layoutX="381.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="rct_date_2" layoutX="391.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-completed-date" text="Completed [date]" textAlignment="RIGHT" wrappingWidth="92.37921142578125">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="158.0" layoutY="708.0" prefHeight="231.0" prefWidth="249.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
@@ -154,7 +144,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="crs_text" layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="rating">
+                  <Text fx:id="avg_rate_txt" layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="rating">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -171,7 +161,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button fx:id="add_q_btn" layoutX="1048.0" layoutY="246.0" mnemonicParsing="false" prefHeight="213.0" prefWidth="514.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Add Question" />
+            <Button fx:id="add_q_btn" layoutX="1048.0" layoutY="246.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="213.0" prefWidth="514.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Add Question" />
          </children>
       </AnchorPane>
    </right>

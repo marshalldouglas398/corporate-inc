@@ -20,6 +20,7 @@ public abstract class DataConstants {
     protected static final String USER_QUESTIONS_MADE = "questionsMade";
     protected static final String USER_ROLE = "role";
     protected static final String USER_STREAK = "streak";
+    protected static final String USER_EDITOR_REQUEST = "editorRequest";
 
     protected static final String QUESTION_TITLE = "title";
     protected static final String QUESTION_DESCRIPTION = "description";

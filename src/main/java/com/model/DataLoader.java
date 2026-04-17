@@ -231,7 +231,12 @@ public class DataLoader extends DataConstants {
                         if (streakObj instanceof Number) {
                             streak = ((Number) streakObj).intValue();
                         }
-                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak);
+                        boolean editorRequest = false;
+                        Object editorRequestObj = userData.get(USER_EDITOR_REQUEST);
+                        if (editorRequestObj instanceof Boolean) {
+                            editorRequest = (Boolean) editorRequestObj;
+                        }
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak, editorRequest);
                         users.add(student);
                         break;
                     case "Editor":
