@@ -87,22 +87,22 @@
                   </MenuButton>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="366.0" prefWidth="980.0">
+            <AnchorPane fx:id="qAnchorPane" prefHeight="366.0" prefWidth="980.0">
                <children>
                   <Pane layoutX="77.0" layoutY="14.0" prefHeight="75.0" prefWidth="829.0" style="-fx-background-color: white;">
                      <children>
-                        <Text layoutX="65.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Title" wrappingWidth="245.33677673339844">
+                        <Text fx:id="qTitle" layoutX="65.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Title" wrappingWidth="245.33677673339844">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="65.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="245.33677673339844">
+                        <Text fx:id="qDesc" layoutX="65.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="245.33677673339844">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <Text layoutX="66.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tags:" wrappingWidth="245.33677673339844" />
-                        <Button layoutX="713.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" text="Start">
+                        <Text fx:id="qTags" layoutX="66.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tags:" wrappingWidth="245.33677673339844" />
+                        <Button fx:id="qStartBtn" layoutX="713.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" text="Start">
                            <font>
                               <Font size="10.0" />
                            </font>

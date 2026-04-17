@@ -4,10 +4,13 @@ import java.io.IOException;
 
 import com.corporate.App;
 import com.model.Admin;
+import com.model.Editor;
 import com.model.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
@@ -87,21 +90,37 @@ public class CreateQuestionController {
     @FXML
     private Button saveButton;
 
-    @FXML
     private User currentUser;
-
-    //needs setuser to check if user is admin or editor and then switch to respective dashboard
-    @FXML
-    private void back(ActionEvent event) throws IOException { 
-        if (currentUser instanceof Admin) {
-            App.setRoot("dashA");
-        } else {
-            App.setRoot("dashE");
-        }
-    }
+    private Editor editor;
+    private Admin admin;
 
     public void setUser(User user) {
         this.currentUser = user;
+    }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException { 
+        String role = currentUser.getRole();
+        String fxmlFile = "";
+        FXMLLoader loader = null;
+
+        if (role.equals("Admin")) {
+            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashA.fxml"));
+        } else if(role.equals("Editor")) {
+            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashE.fxml"));
+        } else {
+            System.out.println("Error: User role is not Admin or Editor");
+        }
+        Parent root = loader.load();
+        if(role.equals("Admin")) {
+            DashAController dashA = loader.getController();
+            dashA.setUser(currentUser);
+        }
+        if(role.equals("Editor")) {
+            DashEController dashE = loader.getController();
+            dashE.setUser(currentUser);
+        }
+        App.setRoot(root);
     }
 
 }
