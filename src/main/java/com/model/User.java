@@ -160,6 +160,10 @@ public class User {
         this.password = password;
     }
 
+    public void resetEmail(String email) {
+        this.email = email;
+    }
+
     /**
      * Checks if the user is an editor
      * @return true if the user is an editor, false otherwise
