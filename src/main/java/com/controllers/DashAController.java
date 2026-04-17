@@ -7,10 +7,13 @@ import java.util.Locale;
 
 import com.corporate.App;
 import com.model.Admin;
+import com.model.InterviewApplication;
 import com.model.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
@@ -73,9 +76,16 @@ public class DashAController {
     private Text text_rau_um_three;
 
     private Admin currentUser;
+    private InterviewApplication app;
+
+
+    public void setInterviewApplication(InterviewApplication app) {
+        this.app = app;
+    }
 
     @FXML
     private void logout() throws IOException {
+        app.logout(currentUser);
         App.setRoot("login");
     }
 
@@ -86,17 +96,32 @@ public class DashAController {
 
     @FXML
     private void goToSearch(ActionEvent event) throws IOException {
-        App.setRoot("search");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/search.fxml"));
+        Parent root = loader.load();
+        SearchController controller = loader.getController();
+        controller.setUser(currentUser);
+        //controller.setInterviewApplication(app);
+        App.setRoot(root);
     }
 
     @FXML
     private void goToSettings(ActionEvent event) throws IOException {
-        App.setRoot("settings");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/settings.fxml"));
+        Parent root = loader.load();
+        SettingsController controller = loader.getController();
+        controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
+        App.setRoot(root);
     }
 
     @FXML
     private void goToCreateQuestion(ActionEvent event) throws IOException {
-        App.setRoot("createQuestion");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/createQuestion.fxml"));
+        Parent root = loader.load();
+        CreateQuestionController controller = loader.getController();
+        controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
+        App.setRoot(root);
     }
 
     @FXML

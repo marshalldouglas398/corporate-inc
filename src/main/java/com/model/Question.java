@@ -238,6 +238,14 @@ public class Question {
         this.sections.add(new Section(title, description, file, code));
     }
 
+    /*
+     * Adds a section to the question
+     * @param section The section to add
+     */
+    public void addSection(Section section) {
+        this.sections.add(section);
+    }
+
     /**
      * Checks if the given user is the author of the question
      * @param user The user to check if they are the author of the question

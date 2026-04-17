@@ -96,7 +96,19 @@ public class QuestionList {
 		}
 		return null;
 	}
-
+	/**
+	 * Searches for a question by title
+	 * @param title the title of the question to search for
+	 * @return the question if found, null otherwise
+	 */
+	public Question getQuestion(String title) {
+		for (Question question : questions) {
+			if (question.getTitle().equals(title)) {
+				return question;
+			}
+		}
+		return null;
+	}
 	/**
 	 * Saves the list of questions to the data file
 	 * @return true if the save was successful, false otherwise
