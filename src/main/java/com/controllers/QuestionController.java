@@ -23,6 +23,7 @@ import com.model.Section;
 import com.model.Student;
 import com.model.User;
 
+import javafx.geometry.Insets;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -497,7 +498,7 @@ public class QuestionController {
             return;
         }
         for (Comment comment : comments) {
-            commentsContainer.getChildren().add(buildCommentNode(comment));
+            commentsContainer.getChildren().add(buildCommentNode(comment, 0));
         }
     }
 
@@ -526,8 +527,10 @@ public class QuestionController {
         return false;
     }
 
-    private VBox buildCommentNode(Comment comment) {
+    private VBox buildCommentNode(Comment comment, int depth) {
         VBox box = new VBox(6);
+        box.setPadding(new Insets(0, 0, 0, depth * 16.0));
+
         String authorName = comment.getAuthor() == null ? "unknown" : comment.getAuthor().getUsername();
         Label header = new Label(authorName + "  " + formatCommentTags(comment.getTags()) + "  Rating " + formatSimpleRating(comment.getRating()));
         Label body = new Label(safe(comment.getComment()));
@@ -559,6 +562,16 @@ public class QuestionController {
         rateButton.setOnAction(e -> rateComment(comment));
         actions.getChildren().addAll(replyButton, rateButton);
         box.getChildren().add(actions);
+
+        ArrayList<Comment> replies = comment.getReplies();
+        if (replies != null && !replies.isEmpty()) {
+            VBox repliesBox = new VBox(8);
+            for (Comment reply : replies) {
+                repliesBox.getChildren().add(buildCommentNode(reply, depth + 1));
+            }
+            box.getChildren().add(repliesBox);
+        }
+
         return box;
     }
 
