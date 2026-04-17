@@ -215,4 +215,18 @@ public class InterviewApplication {
         }
         return results;
     }
+
+    /**
+     * Saves userList
+     */
+    public void saveUsers() {
+    userlist.save();
+    }
+
+    /**
+     * saves questionList
+     */
+    public void saveQuestions() {
+        questionList.save();
+    }
 }

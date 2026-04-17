@@ -163,6 +163,7 @@ public class DashEController {
         Parent root = loader.load();
         SettingsController controller = loader.getController();
         controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
         App.setRoot(root);
     }
 

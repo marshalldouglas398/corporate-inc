@@ -157,4 +157,8 @@ public class Student extends User {
     public void setEditorRequest(boolean editorRequest) {
         this.editorRequest = editorRequest;
     }
+
+    public void addCourse(Course course) {
+        this.coursesTaken.add(course);
+    }
 }
