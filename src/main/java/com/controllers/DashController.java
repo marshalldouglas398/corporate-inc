@@ -58,7 +58,7 @@ public class DashController {
     private Text chll_diff;
 
     @FXML
-    private Button cll_btn;
+    private Button chll_btn;
 
     //Account Summary Section
 
@@ -349,6 +349,7 @@ public class DashController {
         QuestionController controller = loader.getController();
         controller.setQuestion(cll);
         controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
         App.setRoot(root);
     }
 
@@ -360,6 +361,7 @@ public class DashController {
             QuestionController controller = loader.getController();
             controller.setQuestion(sug1);
             controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
             App.setRoot(root);
         }
     }
@@ -372,6 +374,7 @@ public class DashController {
             QuestionController controller = loader.getController();
             controller.setQuestion(sug2);
             controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
             App.setRoot(root);
         }
     }
@@ -384,6 +387,7 @@ public class DashController {
             QuestionController controller = loader.getController();
             controller.setQuestion(sug3);
             controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
             App.setRoot(root);
         }
     }

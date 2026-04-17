@@ -31,13 +31,12 @@ public class Comment {
         this.title = title;
         this.comment = comment;
         this.author = author;
-        this.tags = ct;
-        this.sections = sections;
+        this.tags = (ct == null) ? new ArrayList<>() : new ArrayList<>(ct);
+        this.sections = (sections == null) ? new ArrayList<>() : new ArrayList<>(sections);
         this.replies = new ArrayList<>();
         this.rating = 0.0;
         this.numRatings = 0.0;
         this.isQuestionAuthor = qA;
-        this.sections = new ArrayList<>();
     }
 
     /**
