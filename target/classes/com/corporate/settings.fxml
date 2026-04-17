@@ -45,7 +45,7 @@
                   <Button fx:id="em_btn" layoutX="29.0" layoutY="53.0" mnemonicParsing="false" onAction="#editEmail" text="Update Email" />
                   <Text layoutX="23.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Data:" />
                   <Button fx:id="crs_btn" layoutX="27.0" layoutY="122.0" mnemonicParsing="false" onAction="#editCourses" text="Add Courses" />
-                  <Button fx:id="mjr_button" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#editMajor" text="Change Major" />
+                  <Button fx:id="mjr_btn" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#editMajor" text="Change Major" />
                   <Button fx:id="pass_btn" layoutX="27.0" layoutY="87.0" mnemonicParsing="false" onAction="#editPassword" text="Reset Password" />
                   <Button fx:id="ed_btn" layoutX="28.0" layoutY="225.0" mnemonicParsing="false" onAction="#requestEditor" text="Request Account Upgrade" />
                   <Text fx:id="act_txt" layoutX="31.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" />
