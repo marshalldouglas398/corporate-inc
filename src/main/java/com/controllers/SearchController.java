@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.corporate.App;
 import com.model.Admin;
 import com.model.Editor;
+import com.model.Question;
 import com.model.Student;
 import com.model.User;
 
@@ -12,6 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class SearchController {
     @FXML
@@ -61,4 +65,17 @@ public class SearchController {
     private void goToSettings(ActionEvent event) throws IOException {
         App.setRoot("settings");
     }
+
+    //
+    private Question qSearch;
+    Text qTitle;
+    Text qDesc;
+    Text qTags;
+    Button qStartBtn;
+    AnchorPane qAnchorPane;
+
+    public QuestionDialog(Question question) {
+        super();
+    }
+
 }
