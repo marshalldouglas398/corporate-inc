@@ -158,8 +158,7 @@ public class DataWriter extends DataConstants {
         questionDetails.put(QUESTION_COURSES, jsonCourses);
         questionDetails.put(QUESTION_INTERVIEW, question.isInterviewMode());
         JSONArray jsonTags = new JSONArray();
-        for (QuestionTag t : question.getTag()) { jsonTags.add(t.toString()); }
-        questionDetails.put(QUESTION_TAGS, jsonTags);
+        questionDetails.put(QUESTION_TAG, jsonTags);
         questionDetails.put(QUESTION_HINTS, question.getHints());
     
         return questionDetails;
@@ -180,8 +179,7 @@ public class DataWriter extends DataConstants {
         commentDetails.put(COMMENT_COMMENT, comment.getComment());
         commentDetails.put(COMMENT_RATING, comment.getRating());
         JSONArray jsonCommentTags = new JSONArray();
-        for (CommentTag t : comment.getTags()) { jsonCommentTags.add(t.toString()); }
-        commentDetails.put(COMMENT_TAGS, jsonCommentTags);
+        commentDetails.put(COMMENT_TAG, jsonCommentTags);
         ArrayList<Section> sections = comment.getSections();
             JSONArray jsonSections = new JSONArray();
             for (int i = 0; i < sections.size(); i++) {

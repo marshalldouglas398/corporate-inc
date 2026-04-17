@@ -22,7 +22,7 @@ public class Question {
     private Difficulty difficulty;
     private ArrayList<Course> course;
     private boolean isInterviewMode; // I'll make a getter and setter for this
-    private ArrayList<QuestionTag> tag;
+    private QuestionTag tag;
     private ArrayList<String> hints;
     private int time = -1; // Time limit for interview mode in minutes, -1 means no time limit
 
@@ -36,8 +36,9 @@ public class Question {
      * @param difficulty The difficulty of the question
      * @param course The course(s) the question belongs to
      * @param description The description of the question
+     * @param qt The tag associated with the question
      */
-    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
+    public Question(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description, QuestionTag qt) {
         this.title = title;
         this.description = description;
         this.sections = new ArrayList<>();
@@ -52,7 +53,7 @@ public class Question {
         this.rating = null;
         this.numRatings = 0.0;
         this.isInterviewMode = false;
-        this.tag = new ArrayList<>();
+        this.tag = qt;
     }
 
     /**
@@ -87,7 +88,7 @@ public class Question {
             Difficulty difficulty,
             ArrayList<Course> course,
             boolean isInterviewMode,
-            ArrayList<QuestionTag> tag,
+            QuestionTag tag,
             ArrayList<String> hints,
             int time) {
         this.id = (id == null) ? UUID.randomUUID() : id;
@@ -103,7 +104,7 @@ public class Question {
         this.difficulty = difficulty;
         this.course = (course == null) ? new ArrayList<>() : course;
         this.isInterviewMode = isInterviewMode;
-        this.tag = (tag == null) ? new ArrayList<>() : tag;
+        this.tag = tag;
         this.hints = (hints == null) ? new ArrayList<>() : hints;
         this.time = time;
     }
@@ -146,7 +147,7 @@ public class Question {
             this.rating = null;
             this.numRatings = 0.0;
             this.isInterviewMode = false;
-            this.tag = new ArrayList<>();
+            this.tag = null;
         }
     }
 
@@ -169,7 +170,7 @@ public class Question {
         this.rating = null;
         this.numRatings = 0.0;
         this.isInterviewMode = false;
-        this.tag = new ArrayList<>();
+        this.tag = null;
     }
 
     /**
@@ -223,7 +224,7 @@ public class Question {
      * @param comment The comment containing the solution to add to the question
      */
     public void submitSolution(Comment comment) {
-        comment.addTag(CommentTag.SOLUTION);
+        comment.setTag(CommentTag.SOLUTION);
         this.comments.add(comment);
     }
 
@@ -364,7 +365,7 @@ public class Question {
      * Gets the tags associated with the question
      * @return The tags associated with the question
      */
-    public ArrayList<QuestionTag> getTag() {
+    public QuestionTag getTag() {
         return this.tag;
     }
     

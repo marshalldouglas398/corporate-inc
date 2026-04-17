@@ -133,9 +133,9 @@ public class InterviewApplication {
      * @param description description of the question
      * @return true if the question was added, false otherwise
      */
-    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description) {
+    public boolean addQuestion(String title, User author, ArrayList<String> hints, QuestionType type, ArrayList<Discipline> discipline, Difficulty difficulty, ArrayList<Course> course, String description, QuestionTag qt) {
         if(author.getRole().equals("Admin") || author.getRole().equals("Editor")) {
-            questionList.addQuestion(title, author, hints, type, discipline, difficulty, course, description);
+            questionList.addQuestion(title, author, hints, type, discipline, difficulty, course, description, qt);
             return true;
         }
         return false;

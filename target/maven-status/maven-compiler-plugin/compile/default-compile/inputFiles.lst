@@ -1,24 +1,35 @@
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Student.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\DataWriter.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\corporate\PrimaryController.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\QuestionTag.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\DataLoader.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\CommentTag.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Question.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\QuestionList.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\InterviewApplication.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Driver.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\corporate\App.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Course.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Section.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\User.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Difficulty.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\module-info.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\corporate\SecondaryController.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\DataConstants.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Admin.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Discipline.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Editor.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\Comment.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\QuestionType.java
-C:\Users\edenr\Software Engineering\corporate-inc\src\main\java\com\model\UserList.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\SearchController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Question.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\DashEController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\QuestionTag.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\SearchDialog.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\UserList.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\DataConstants.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Section.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\User.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Student.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\DataWriter.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\EditorQController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\CreateController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\QuestionList.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\CreateQuestionController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\DashAController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\module-info.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\LoginController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\InterviewApplication.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\QuestionController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Editor.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Comment.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Driver.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Discipline.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\DataLoader.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\SettingsController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\DashController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\QuestionType.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\EditorSolutionController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\controllers\HomeController.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Difficulty.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Admin.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\CommentTag.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\model\Course.java
+C:\Users\LPSpu\csce247\corporate-inc\src\main\java\com\corporate\App.java

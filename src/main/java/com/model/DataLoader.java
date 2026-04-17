@@ -71,15 +71,18 @@ public class DataLoader extends DataConstants {
             JSONArray sectionsArray = (JSONArray) commentData.get(COMMENT_SECTIONS);
             ArrayList<Section> sections = parseSections(sectionsArray);
 
-            JSONArray tagsArray = (JSONArray) commentData.get(COMMENT_TAGS);
-            ArrayList<CommentTag> tags = new ArrayList<>();
+            CommentTag tag = commentData.get(COMMENT_TAG) == null ? null
+                        : CommentTag.valueOf(commentData.get(COMMENT_TAG).toString());
+            /*
+            JSONArray tagsArray = (JSONArray) commentData.get(COMMENT_TAG);
+            CommentTag tag = new ArrayList<>();
             if (tagsArray != null) {
                 for (Object tagObj : tagsArray) {
                     if (tagObj != null) {
                         tags.add(CommentTag.valueOf(tagObj.toString()));
                     }
                 }
-            }
+            }*/
 
             JSONArray repliesArray = (JSONArray) commentData.get(COMMENT_REPLIES);
             ArrayList<Comment> replies = parseComments(repliesArray);
@@ -100,7 +103,7 @@ public class DataLoader extends DataConstants {
                 isQuestionAuthor = Boolean.parseBoolean(isQuestionAuthorObj.toString());
             }
 
-            comments.add(new Comment(title, commentText, author, tags, sections, replies, rating, numRatings, isQuestionAuthor));
+            comments.add(new Comment(title, commentText, author, tag, sections, replies, rating, numRatings, isQuestionAuthor));
         }
         return comments;
     }
@@ -158,13 +161,16 @@ public class DataLoader extends DataConstants {
                     }
                 }
 
+                /*
                 JSONArray tagArray = (JSONArray) questionData.get(QUESTION_TAGS);
                 ArrayList<QuestionTag> tag = new ArrayList<>();
                 if (tagArray != null) {
                     for (Object obj : tagArray) {
                         tag.add(QuestionTag.valueOf(obj.toString()));
                     }
-                }
+                }*/
+                QuestionTag tag = questionData.get(QUESTION_TAG) == null ? null
+                        : QuestionTag.valueOf(questionData.get(QUESTION_TAG).toString());
 
                 JSONArray sectionsArray = (JSONArray) questionData.get(QUESTION_SECTIONS);
                 ArrayList<Section> sections = parseSections(sectionsArray);

@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class SearchDialog {
     private Question qSearch;
+    VBox vbox;
     Text qTitle;
     Text qDesc;
     Text qTags;
@@ -18,7 +19,6 @@ public class SearchDialog {
 
     public SearchDialog(Question question) {
         super();
-        this.setTitle("Question Details");
         this.qSearch = question;
         buildUI();
     }
@@ -27,7 +27,7 @@ public class SearchDialog {
         vbox = new VBox();
         qTitle = new Text(qSearch.getTitle());
         qDesc = new Text(qSearch.getDescription());
-        qTags = new Text(String.join(", ", qSearch.get()));
+        qTags = new Text(qSearch.getDifficulty().toString() + " " + qSearch.getType() + " " + qSearch.get);
     }
     
 }

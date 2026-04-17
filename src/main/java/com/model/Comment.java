@@ -15,7 +15,7 @@ public class Comment {
     private Double rating;
     // Could add numRatings for average rating system
     private Double numRatings;
-    private ArrayList<CommentTag> tags;
+    private CommentTag tag;
     private boolean isQuestionAuthor;
 
     /**
@@ -27,11 +27,11 @@ public class Comment {
      * @param sections The sections associated with the comment (if any)
      * @param qA Whether the author of the comment is the author of the question
      */
-    public Comment(String title, String comment, User author, ArrayList<CommentTag> ct, ArrayList<Section> sections, boolean qA) {
+    public Comment(String title, String comment, User author, CommentTag ct, ArrayList<Section> sections, boolean qA) {
         this.title = title;
         this.comment = comment;
         this.author = author;
-        this.tags = (ct == null) ? new ArrayList<>() : new ArrayList<>(ct);
+        this.tag = ct;
         this.sections = (sections == null) ? new ArrayList<>() : new ArrayList<>(sections);
         this.replies = new ArrayList<>();
         this.rating = 0.0;
@@ -54,7 +54,7 @@ public class Comment {
     public Comment(String title,
             String comment,
             User author,
-            ArrayList<CommentTag> ct,
+            CommentTag ct,
             ArrayList<Section> sections,
             ArrayList<Comment> replies,
             Double rating,
@@ -63,7 +63,7 @@ public class Comment {
         this.title = (title == null) ? "" : title;
         this.comment = (comment == null) ? "" : comment;
         this.author = author;
-        this.tags = (ct == null) ? new ArrayList<>() : ct;
+        this.tag = ct;
         this.sections = (sections == null) ? new ArrayList<>() : sections;
         this.replies = (replies == null) ? new ArrayList<>() : replies;
         this.rating = rating;
@@ -140,7 +140,7 @@ public class Comment {
         this.title = comment.getTitle();
         this.comment = comment.getComment();
         this.sections = comment.getSections();
-        this.tags = comment.getTags();
+        this.tag = comment.getTag();
     }
 
     /**
@@ -162,10 +162,10 @@ public class Comment {
     /**
      * Adds a tag to the comment
      * @param tag The tag to add to the comment
-     */
+     
     public void addTag(CommentTag tag) {
         this.tags.add(tag);
-    }
+    } */
 
     /**
      * Gets the title of the comment
@@ -195,8 +195,8 @@ public class Comment {
      * Gets the tags associated with the comment
      * @return The tags associated with the comment
      */
-    public ArrayList<CommentTag> getTags() {
-        return this.tags;
+    public CommentTag getTag() {
+        return this.tag;
     }
 
     /**
@@ -259,8 +259,8 @@ public class Comment {
      * Sets the tags associated with the comment
      * @param tags The new tags to set for the comment
      */
-    public void setTags(ArrayList<CommentTag> tags) {
-        this.tags = tags;
+    public void setTag(CommentTag tag) {
+        this.tag = tag;
     }
 
     /**
