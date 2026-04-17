@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -27,152 +26,140 @@
       </HBox>
    </top>
    <center>
-      <ScrollPane fitToWidth="true" prefHeight="682.0" prefWidth="1200.0">
-         <content>
-            <VBox fx:id="createQuestionContent" spacing="14.0">
+      <VBox fx:id="createQuestionContent" spacing="14.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label fx:id="pageTitleLabel" text="Create Question" />
+            <VBox fx:id="metadataSection" spacing="10.0">
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                </padding>
                <children>
-                  <Label fx:id="pageTitleLabel" text="Create Question" />
-                  <VBox fx:id="metadataSection" spacing="10.0">
-                     <padding>
-                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                     </padding>
+                  <Label text="Question Metadata; Stick to one per category for now, later you can add more" />
+                  <HBox spacing="10.0">
                      <children>
-                        <Label text="Question Metadata" />
-                        <HBox spacing="10.0">
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Title" />
-                                    <TextField fx:id="questionTitleField" promptText="Enter question title" />
-                                 </children>
-                              </VBox>
-                              <VBox prefWidth="220.0" spacing="6.0">
-                                 <children>
-                                    <Label text="Difficulty" />
-                                    <TextField fx:id="questionDifficultyField" promptText="EASY / MEDIUM / HARD" />
-                                 </children>
-                              </VBox>
+                              <Label text="Title" />
+                              <TextField fx:id="questionTitleField" promptText="Enter question title" />
                            </children>
-                        </HBox>
-                        <HBox spacing="10.0">
+                        </VBox>
+                        <VBox prefWidth="220.0" spacing="6.0">
                            <children>
-                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Question Type" />
-                                    <TextField fx:id="questionTypeField" promptText="TECHNICAL / BEHAVIORAL / CONCEPTUAL" />
-                                 </children>
-                              </VBox>
-                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Tags" />
-                                    <TextField fx:id="questionTagsField" promptText="Comma-separated QuestionTag values" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox spacing="10.0">
-                           <children>
-                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Discipline(s)" />
-                                    <TextField fx:id="questionDisciplinesField" promptText="COMPSCI, COMPENG, CYBERSEC, DATASCI" />
-                                 </children>
-                              </VBox>
-                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label text="Course(s)" />
-                                    <TextField fx:id="questionCoursesField" promptText="CSCE145, CSCE146, CSCE240, CSCE247, CSCE350" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                           <children>
-                              <CheckBox fx:id="interviewModeCheckBox" mnemonicParsing="false" text="Interview Mode" />
-                              <Label text="Time Limit (minutes)" />
-                              <TextField fx:id="interviewTimeField" prefWidth="180.0" promptText="e.g. 45" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <VBox fx:id="statementSection" spacing="8.0">
-                     <padding>
-                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                     </padding>
-                     <children>
-                        <Label text="Problem Statement" />
-                        <TextArea fx:id="questionDescriptionArea" prefHeight="170.0" promptText="Describe the question prompt and constraints..." wrapText="true" />
-                     </children>
-                  </VBox>
-                  <VBox fx:id="hintsSection" spacing="10.0">
-                     <padding>
-                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                     </padding>
-                     <children>
-                        <Label text="Hints" />
-                        <TextField fx:id="questionHintOneField" promptText="Hint 1" />
-                        <TextField fx:id="questionHintTwoField" promptText="Hint 2" />
-                        <TextField fx:id="questionHintThreeField" promptText="Hint 3" />
-                     </children>
-                  </VBox>
-                  <VBox fx:id="sectionsBuilderSection" spacing="10.0">
-                     <padding>
-                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                     </padding>
-                     <children>
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                           <children>
-                              <Label text="Sections" />
-                              <Region HBox.hgrow="ALWAYS" />
-                              <Button fx:id="addSectionButton" mnemonicParsing="false" text="+ Add Section" />
-                           </children>
-                        </HBox>
-                        <Label fx:id="sectionInstructionsLabel" text="Use Add Section to add additional section blocks (layout placeholder)." wrapText="true" />
-                        <VBox fx:id="sectionsContainer" spacing="12.0">
-                           <children>
-                              <VBox fx:id="sectionCardOne" spacing="8.0">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label text="Section 1" />
-                                    <TextField fx:id="sectionOneTitleField" promptText="Section title" />
-                                    <TextArea fx:id="sectionOneDescriptionArea" prefHeight="100.0" promptText="Section description" wrapText="true" />
-                                    <TextField fx:id="sectionOneFileField" promptText="Attached file name/path (optional)" />
-                                    <TextArea fx:id="sectionOneCodeArea" prefHeight="120.0" promptText="Code/content for this section" wrapText="true" />
-                                 </children>
-                              </VBox>
-                              <VBox fx:id="sectionCardTwoPlaceholder" spacing="8.0">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label text="Section 2 (Placeholder for add-section flow)" />
-                                    <TextField fx:id="sectionTwoTitleField" promptText="Section title" />
-                                    <TextArea fx:id="sectionTwoDescriptionArea" prefHeight="100.0" promptText="Section description" wrapText="true" />
-                                    <TextField fx:id="sectionTwoFileField" promptText="Attached file name/path (optional)" />
-                                    <TextArea fx:id="sectionTwoCodeArea" prefHeight="120.0" promptText="Code/content for this section" wrapText="true" />
-                                 </children>
-                              </VBox>
+                              <Label text="Difficulty" />
+                              <TextField fx:id="questionDifficultyField" promptText="EASY / MEDIUM / HARD" />
                            </children>
                         </VBox>
                      </children>
-                  </VBox>
-                  <HBox fx:id="actionsRow" alignment="CENTER_RIGHT" spacing="10.0">
+                  </HBox>
+                  <HBox spacing="10.0">
                      <children>
-                        <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
-                        <Button fx:id="previewButton" mnemonicParsing="false" text="Preview" />
-                        <Button fx:id="saveButton" mnemonicParsing="false" text="Save Question" />
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Question Type" />
+                              <TextField fx:id="questionTypeField" promptText="TECHNICAL / BEHAVIORAL / CONCEPTUAL" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Tag" />
+                              <TextField fx:id="questionTagsField" promptText="Comma-separated QuestionTag values" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="10.0">
+                     <children>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Discipline" />
+                              <TextField fx:id="questionDisciplinesField" promptText="COMPSCI, COMPENG, CYBERSEC, DATASCI" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Course" />
+                              <TextField fx:id="questionCoursesField" promptText="CSCE145, CSCE146, CSCE240, CSCE247, CSCE350" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <CheckBox fx:id="interviewModeCheckBox" mnemonicParsing="false" text="Interview Mode" />
+                        <Label text="Time Limit (minutes)" />
+                        <TextField fx:id="interviewTimeField" prefWidth="180.0" promptText="e.g. 45" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-         </content>
-      </ScrollPane>
+            <VBox fx:id="statementSection" spacing="8.0">
+               <padding>
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+               </padding>
+               <children>
+                  <Label text="Problem Statement" />
+                  <TextArea fx:id="questionDescriptionArea" prefHeight="170.0" promptText="Describe the question prompt and constraints..." wrapText="true" />
+               </children>
+            </VBox>
+            <VBox fx:id="hintsSection" spacing="10.0">
+               <padding>
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+               </padding>
+               <children>
+                  <Label text="Hints" />
+                  <TextField fx:id="questionHintOneField" promptText="Hint 1" />
+                  <TextField fx:id="questionHintTwoField" promptText="Hint 2" />
+                  <TextField fx:id="questionHintThreeField" promptText="Hint 3" />
+               </children>
+            </VBox>
+            <VBox fx:id="sectionsBuilderSection" spacing="10.0">
+               <padding>
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label text="Sections" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="sectionInstructionsLabel" text="Use Add Section to add a section to the question." wrapText="true" />
+                  <VBox fx:id="sectionsContainer" spacing="12.0">
+                     <children>
+                        <VBox fx:id="sectionCardOne" spacing="8.0">
+                           <padding>
+                              <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                           </padding>
+                           <children>
+                              <Label text="Section " />
+                              <TextField fx:id="sectionOneTitleField" promptText="Section title" />
+                              <TextArea fx:id="sectionOneDescriptionArea" prefHeight="100.0" promptText="Section description" wrapText="true" />
+                              <TextField fx:id="sectionOneFileField" promptText="Attached file name/path (optional)" />
+                              <TextArea fx:id="sectionOneCodeArea" prefHeight="120.0" promptText="Code/content for this section" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="sectionCardTwoPlaceholder" spacing="8.0">
+                           <padding>
+                              <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <HBox fx:id="actionsRow" alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="addSectionButton" mnemonicParsing="false" onAction="#addSection" text="+ Add Section" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#back" text="Back" />
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveQuestion" text="Save Question" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </center>
    <stylesheets>
       <URL value="@styles.css" />

@@ -196,6 +196,7 @@ public class DashEController {
         Parent root = loader.load();
         CreateQuestionController controller = loader.getController();
         controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
         App.setRoot(root);
     }
 
