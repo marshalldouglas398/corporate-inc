@@ -15,6 +15,10 @@ public class App extends Application {
 
     private static Scene scene;
 
+    public static Object getRoot() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 1500, 760);

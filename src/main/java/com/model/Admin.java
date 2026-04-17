@@ -75,4 +75,9 @@ public class Admin extends User {
      */
     @Override
     public boolean isAdmin() { return true; }
+
+    public ArrayList<User> getUsers() {
+        UserList userList = UserList.getInstance();
+        return userList.getUsers();
+    }
 }

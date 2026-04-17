@@ -1,8 +1,13 @@
 package com.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import com.corporate.App;
+import com.model.Admin;
+import com.model.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,24 +55,24 @@ public class DashAController {
     private Text text_total_users;
 
     @FXML
-    private Text text_ra_title_one;
+    private Text text_rau_u_one;
 
     @FXML
-    private Text text_ra_date_one;
+    private Text text_rau_u_two;
 
     @FXML
-    private Text text_ra_title_two;
+    private Text text_rau_u_three;
 
     @FXML
-    private Text text_ra_date_two;
+    private Text text_rau_um_one;
 
     @FXML
-    private Text text_ra_title_three;
+    private Text text_rau_um_two;
 
     @FXML
-    private Text text_ra_date_three;
+    private Text text_rau_um_three;
 
-    //private Admin currentUser;
+    private Admin currentUser;
 
     @FXML
     private void logout() throws IOException {
@@ -89,9 +94,49 @@ public class DashAController {
         App.setRoot("settings");
     }
 
-    /*
-    public void setUser(Admin admin) {
-        this.currentUser = admin;
-        displayWelcome(admin.getUsername());
-    }*/
+    @FXML
+    private void goToCreateQuestion(ActionEvent event) throws IOException {
+        App.setRoot("createQuestion");
+    }
+
+    @FXML
+    public void setUser(User user) {
+        this.currentUser = (Admin) user;
+        displayWelcome(currentUser.getUsername());
+
+        // setting date
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM, d, yyyy", Locale.ENGLISH);
+        String formattedDate = LocalDate.now().format(formatter);
+        setDate(formattedDate);
+
+        // setting account summary
+        int num_q = currentUser.getQuestionsMade().size() - 1;
+        setNumQ(num_q);
+        int num_users = currentUser.getUsers().size();
+        setNumUsers(num_users);
+
+        // recently added users
+        text_rau_u_one.setText(currentUser.getUsers().get(num_users - 1).getUsername());
+        text_rau_u_two.setText(currentUser.getUsers().get(num_users - 2).getUsername());
+        text_rau_u_three.setText(currentUser.getUsers().get(num_users - 3).getUsername());
+        text_rau_um_one.setText(currentUser.getUsers().get(num_users - 1).getEmail());
+        text_rau_um_two.setText(currentUser.getUsers().get(num_users - 2).getEmail());
+        text_rau_um_three.setText(currentUser.getUsers().get(num_users - 3).getEmail());
+    }
+
+    @FXML
+    public void setDate(String date) {
+        text_dash_date.setText(date);
+    }
+
+    @FXML
+    public void setNumQ(int num_q) {
+        text_questions_created.setText(Integer.toString(num_q));
+    }
+
+    @FXML
+    public void setNumUsers(int num_users) {
+        text_total_users.setText(Integer.toString(num_users));
+    }
+
 }

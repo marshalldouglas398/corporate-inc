@@ -123,12 +123,12 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="sug_1_title" layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                        <Text fx:id="sug_2_title" layoutX="52.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="sug_3_tutle" layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                        <Text fx:id="sug_3_title" layoutX="52.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
                            <font>
                               <Font size="20.0" />
                            </font>
