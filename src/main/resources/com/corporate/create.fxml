@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="640.0" prefWidth="980.0" styleClass="create-account-page" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.CreateController">
    <top>
@@ -26,9 +27,12 @@
    <center>
       <VBox alignment="CENTER" styleClass="create-account-content">
          <children>
-            <VBox alignment="TOP_LEFT" spacing="8.0" styleClass="create-account-card">
+            <VBox alignment="TOP_LEFT" maxWidth="610.0" prefHeight="634.0" prefWidth="610.0" spacing="8.0" styleClass="create-account-card">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" styleClass="create-account-title" text="Create New Account" />
+                  <Label maxWidth="1.7976931348623157E308" styleClass="create-account-title" text="Create New Account">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font></Label>
                   <Label styleClass="create-account-label" text="Enter your username:" />
                   <TextField fx:id="txt_username" promptText="username" styleClass="create-account-input" />
                   <Label styleClass="create-account-label" text="Enter your password:" />
