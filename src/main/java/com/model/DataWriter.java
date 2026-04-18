@@ -66,10 +66,15 @@ public class DataWriter extends DataConstants {
             case "Student" :
                 Student student = (Student) user;
                 userDetails.put(USER_QUESTIONS_SOLVED, student.getQuestionsAnswered());
-                userDetails.put(USER_COURSES_TAKEN, student.getCoursesTaken());
+                JSONArray jsonCourses = new JSONArray();
+                for (Course c : student.getCoursesTaken()) {
+                    jsonCourses.add(c.toString());
+                }
+                userDetails.put(USER_COURSES_TAKEN, jsonCourses);
                 userDetails.put(USER_USCID, student.getUSCID());
                 userDetails.put(USER_MAJOR, student.getMajor());
                 userDetails.put(USER_STREAK, (long) student.getStreak());
+                userDetails.put(USER_EDITOR_REQUEST, student.hasRequestedEditor());
                 break;
             case "Editor" :
                 Editor editor = (Editor) user;

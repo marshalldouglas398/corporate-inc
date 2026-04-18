@@ -1,7 +1,6 @@
 package com.corporate;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +13,10 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
+
+    public static Object getRoot() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
     @Override
     public void start(Stage stage) throws IOException {

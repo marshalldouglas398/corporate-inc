@@ -225,13 +225,27 @@ public class DataLoader extends DataConstants {
                         String uscID = userData.get(USER_USCID).toString();
                         String major = userData.get(USER_MAJOR).toString();
                         ArrayList<UUID> questionsAnswered = (ArrayList<UUID>) userData.get(USER_QUESTIONS_SOLVED);
-                        ArrayList<Course> coursesTaken = (ArrayList<Course>) userData.get(USER_COURSES_TAKEN);
+                        JSONArray courseArray = (JSONArray) userData.get(USER_COURSES_TAKEN);
+                        ArrayList<Course> coursesTaken = new ArrayList<>();
+
+                        if (courseArray != null) {
+                            for (Object obj : courseArray) {
+                            String raw = obj.toString(); // "Course.CSCE145" or "CSCE146"
+                            String enumName = raw.contains(".") ? raw.split("\\.")[1] : raw;
+                            coursesTaken.add(Course.valueOf(enumName));
+                            }
+                        }
                         int streak = 0;
                         Object streakObj = userData.get(USER_STREAK);
                         if (streakObj instanceof Number) {
                             streak = ((Number) streakObj).intValue();
                         }
-                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak);
+                        boolean editorRequest = false;
+                        Object editorRequestObj = userData.get(USER_EDITOR_REQUEST);
+                        if (editorRequestObj instanceof Boolean) {
+                            editorRequest = (Boolean) editorRequestObj;
+                        }
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak, editorRequest);
                         users.add(student);
                         break;
                     case "Editor":

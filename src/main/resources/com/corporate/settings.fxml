@@ -12,8 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SettingsController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -33,33 +32,36 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <TextField layoutX="92.0" layoutY="13.0" text="keyword" />
-                  <Button fx:id="q_btn" layoutX="-3.0" layoutY="13.0" mnemonicParsing="false" text="Q's" />
-                  <Button fx:id="h_btn" layoutX="46.0" layoutY="13.0" mnemonicParsing="false" text="Dash" />
-                  <Button fx:id="btn_logout" layoutX="242.0" layoutY="12.0" mnemonicParsing="false" text="Logout" />
+                  <Button fx:id="h_btn" layoutX="146.0" layoutY="12.0" mnemonicParsing="false" onAction="#goToDash" text="Dash" />
+                  <Button fx:id="btn_logout" layoutX="242.0" layoutY="12.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
                   <Button fx:id="stg_btn" layoutX="292.0" layoutY="13.0" mnemonicParsing="false" text="Settings" />
+                  <Button fx:id="h_btn1" layoutX="190.0" layoutY="12.0" mnemonicParsing="false" onAction="#goToSearch" text="Search" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
                   <Text layoutX="17.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings:" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="258.0" layoutX="12.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="576.0" />
-                  <Button fx:id="em_btn" layoutX="29.0" layoutY="53.0" mnemonicParsing="false" text="Update Email" />
+                  <Button fx:id="em_btn" layoutX="29.0" layoutY="53.0" mnemonicParsing="false" onAction="#editEmail" text="Update Email" />
                   <Text layoutX="23.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Data:" />
-                  <Button fx:id="crs_btn" layoutX="27.0" layoutY="122.0" mnemonicParsing="false" text="Add Courses" />
-                  <Button fx:id="mjr_button" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" text="Change Major" />
-                  <Button fx:id="pass_btn" layoutX="27.0" layoutY="87.0" mnemonicParsing="false" text="Reset Password" />
-                  <Button fx:id="ed_btn" layoutX="28.0" layoutY="225.0" mnemonicParsing="false" text="Request Account Upgrade" />
-                  <Text layoutX="31.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" />
+                  <Button fx:id="crs_btn" layoutX="27.0" layoutY="122.0" mnemonicParsing="false" onAction="#editCourses" text="Add Courses" />
+                  <Button fx:id="mjr_btn" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#editMajor" text="Change Major" />
+                  <Button fx:id="pass_btn" layoutX="27.0" layoutY="87.0" mnemonicParsing="false" onAction="#editPassword" text="Reset Password" />
+                  <Button fx:id="ed_btn" layoutX="28.0" layoutY="225.0" mnemonicParsing="false" onAction="#requestEditor" text="Request Account Upgrade" />
+                  <Text fx:id="act_txt" layoutX="31.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" />
+                  <TextField fx:id="crs_txt" layoutX="116.0" layoutY="122.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="267.0" fitWidth="421.0" layoutX="-79.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="267.0" fitWidth="421.0" layoutX="-9.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/transparent-logo%202.png" />
                      </image>
                   </ImageView>
+                  <TextField fx:id="email_txt" layoutX="-126.0" layoutY="48.0" />
+                  <TextField fx:id="pass_txt" layoutX="-118.0" layoutY="82.0" />
+                  <TextField fx:id="mjr_txt" layoutX="-125.0" layoutY="155.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />

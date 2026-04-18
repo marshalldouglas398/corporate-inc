@@ -196,8 +196,17 @@ public class Question {
      * @return The new average rating of the question after adding the given rating
      */
     public Double addRating(Double rating) {
-        this.rating = rating * (1 / this.numRatings + 1) + this.rating * (this.numRatings / (this.numRatings + 1)); // Average rating system
-        this.numRatings++;
+        if (rating == null) {
+            return this.rating;
+        }
+        double n = (this.numRatings == null) ? 0.0 : this.numRatings;
+        if (n <= 0.0 || this.rating == null) {
+            this.rating = rating;
+            this.numRatings = 1.0;
+        } else {
+            this.rating = (this.rating * n + rating) / (n + 1.0);
+            this.numRatings = n + 1.0;
+        }
         return this.rating;
     }
 
@@ -227,6 +236,14 @@ public class Question {
      */
     public void addSection(String title, String description, File file, String code) {
         this.sections.add(new Section(title, description, file, code));
+    }
+
+    /*
+     * Adds a section to the question
+     * @param section The section to add
+     */
+    public void addSection(Section section) {
+        this.sections.add(section);
     }
 
     /**

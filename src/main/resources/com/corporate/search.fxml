@@ -27,39 +27,38 @@
                         <Font size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textfield_search_top" layoutX="620.0" layoutY="48.0" prefHeight="36.0" prefWidth="194.0" promptText="Enter a keyword" styleClass="dashboard-search" stylesheets="@styles.css" />
                   <Button fx:id="btn_logout" layoutX="820.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="57.0" prefWidth="54.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                      <graphic>
-                        <ImageView fx:id="btn_logout" fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                        <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                            <image>
                               <Image url="@images/Log%20out.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="q_btn" layoutX="481.0" layoutY="42.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="38.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+                  <Button fx:id="h_btn" layoutX="695.0" layoutY="41.0" mnemonicParsing="false" onAction="#goToDash" prefHeight="44.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                      <graphic>
-                        <ImageView fx:id="btn_dash" fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-                           <image>
-                              <Image url="@images/Book.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="h_btn" layoutX="535.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
-                     <graphic>
-                        <ImageView fx:id="btn_home" fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                        <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                            <image>
                               <Image url="@images/Home.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="stg_btn" layoutX="868.0" layoutY="38.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="50.0" prefWidth="55.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+                  <Button fx:id="stg_btn" layoutX="868.0" layoutY="38.0" mnemonicParsing="false" onAction="#goToSettings" pickOnBounds="false" prefHeight="50.0" prefWidth="55.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
                      <graphic>
-                        <ImageView fx:id="btn_settings" fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                        <ImageView fitHeight="41.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                            <image>
                               <Image url="@images/Settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btn_search" layoutX="764.0" layoutY="47.0" mnemonicParsing="false" onAction="#goToSearch">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/search_btn.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -88,22 +87,22 @@
                   </MenuButton>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="366.0" prefWidth="980.0">
+            <AnchorPane fx:id="qAnchorPane" prefHeight="366.0" prefWidth="980.0">
                <children>
                   <Pane layoutX="77.0" layoutY="14.0" prefHeight="75.0" prefWidth="829.0" style="-fx-background-color: white;">
                      <children>
-                        <Text layoutX="65.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Title" wrappingWidth="245.33677673339844">
+                        <Text fx:id="qTitle" layoutX="65.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Title" wrappingWidth="245.33677673339844">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="65.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="245.33677673339844">
+                        <Text fx:id="qDesc" layoutX="65.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="245.33677673339844">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <Text layoutX="66.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tags:" wrappingWidth="245.33677673339844" />
-                        <Button layoutX="713.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" text="Start">
+                        <Text fx:id="qTags" layoutX="66.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tags:" wrappingWidth="245.33677673339844" />
+                        <Button fx:id="qStartBtn" layoutX="713.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" text="Start">
                            <font>
                               <Font size="10.0" />
                            </font>
