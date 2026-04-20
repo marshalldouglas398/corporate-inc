@@ -271,3 +271,150 @@
     -fx-font-family: "News Cycle";
     -fx-text-fill: #333333;
 }
+
+/* Manage users cards */
+.manage-user-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 14 18 14 18;
+}
+
+.manage-user-avatar {
+    -fx-background-color: #f7d96b;
+    -fx-background-radius: 10;
+}
+
+.manage-user-avatar-label {
+    -fx-text-fill: #7a1111;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.manage-user-info {
+    -fx-padding: 0 0 0 12;
+}
+
+.manage-user-name {
+    -fx-text-fill: #7a1111;
+    -fx-font-size: 16px;
+}
+
+.manage-user-meta {
+    -fx-text-fill: #6f6f6f;
+    -fx-font-size: 12px;
+}
+
+.manage-user-action-button {
+    -fx-background-color: #8a1515;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+/* Create question screen */
+.create-question-page {
+    -fx-background-color: #e8e8e8;
+}
+
+.create-question-header-bar {
+    -fx-background-color: #44090F;
+    -fx-padding: 14 24 14 24;
+    -fx-border-color: #73000A;
+    -fx-border-width: 0 0 2 0;
+}
+
+.create-question-brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.create-question-header-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-family: "News Cycle";
+    -fx-font-weight: 700;
+    -fx-padding: 10 12 10 12;
+}
+
+.create-question-content {
+    -fx-padding: 26 28 24 28;
+}
+
+.create-question-title {
+    -fx-text-fill: #73000A;
+    -fx-font-size: 40px;
+    -fx-font-weight: 800;
+}
+
+.create-question-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-padding: 20 22 20 22;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 20, 0.25, 0, 4);
+}
+
+.create-question-inner-card {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 12;
+    -fx-border-color: #d9d9d9;
+    -fx-border-radius: 12;
+    -fx-padding: 12 14 12 14;
+}
+
+.create-question-label {
+    -fx-text-fill: #111111;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+}
+
+.create-question-input {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-font-size: 16px;
+    -fx-padding: 10 12 10 12;
+}
+
+.create-question-textarea {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-font-size: 16px;
+}
+
+.create-question-textarea .content {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+}
+
+.create-question-check-box {
+    -fx-text-fill: #111111;
+    -fx-font-size: 16px;
+}
+
+.create-question-check-box .box {
+    -fx-background-color: #e7e7e7;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.create-question-note {
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+.create-question-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-family: "News Cycle";
+    -fx-font-weight: 700;
+    -fx-background-radius: 4;
+    -fx-padding: 10 16 10 16;
+}

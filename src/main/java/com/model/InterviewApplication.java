@@ -229,4 +229,11 @@ public class InterviewApplication {
     public void saveQuestions() {
         questionList.save();
     }
+
+    /**
+     * Gets the userList
+     */
+    public UserList getUserList() {
+        return userlist;
+    }
 }

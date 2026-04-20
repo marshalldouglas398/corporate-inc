@@ -128,7 +128,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="121.0" prefWidth="302.0">
                                  <children>
-                                    <Button fx:id="btn_manage_users" layoutY="31.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="302.0" styleClass="button-add-manage" text="Manage Users" />
+                                    <Button fx:id="btn_manage_users" layoutY="54.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="37.0" prefWidth="302.0" text="Manage Users" />
                                  </children>
                               </AnchorPane>
                            </children>
