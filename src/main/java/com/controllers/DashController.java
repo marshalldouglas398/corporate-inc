@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.UUID;
 
 import com.corporate.App;
 import com.model.Course;
@@ -21,6 +22,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class DashController {
@@ -60,6 +63,9 @@ public class DashController {
     @FXML
     private Button chll_btn;
 
+    @FXML
+    private Rectangle diff_rect_chll;
+
     //Account Summary Section
 
     @FXML
@@ -76,6 +82,9 @@ public class DashController {
     @FXML
     private Text stk_num_text;
 
+    @FXML
+    private ImageView fire_emoji;
+
     // Suggested Problems
 
     @FXML
@@ -91,6 +100,9 @@ public class DashController {
     private Button sug_1_start_btn;
 
     @FXML
+    private Rectangle diff_rect_sug1;
+
+    @FXML
     private Text sug_2_title;
 
     @FXML
@@ -102,7 +114,10 @@ public class DashController {
     @FXML
     private Button sug_2_start_btn;
 
-     @FXML
+    @FXML
+    private Rectangle diff_rect_sug2;
+
+    @FXML
     private Text sug_3_title;
 
     @FXML
@@ -113,6 +128,9 @@ public class DashController {
 
     @FXML
     private Button sug_3_start_btn;
+
+    @FXML
+    private Rectangle diff_rect_sug3;
 
     // Recent Activity(Starts off invisible)
 
@@ -125,6 +143,9 @@ public class DashController {
     @FXML
     private Text rct_1_diff;
 
+    @FXML 
+    private Rectangle diff_rect_rct1;
+
     @FXML
     private Text rct_2_title;
 
@@ -134,11 +155,16 @@ public class DashController {
     @FXML
     private Text rct_2_diff;
 
+    @FXML
+    private Rectangle diff_rect_rct2;
+
     private Student currentUser;
     private Question cll;
     private Question sug1;
     private Question sug2;
     private Question sug3;
+    private Question r1;
+    private Question r2;
     private InterviewApplication app;
 
     public void setInterviewApplication(InterviewApplication app) {
@@ -161,10 +187,18 @@ public class DashController {
         setStreak(currentUser.getStreak());
 
         //recent activity
-        int recent = currentUser.getQuestionsAnswered().size() - 1;
+        int recent = currentUser.getQuestionsAnswered().size();
         if(recent == 1) {
             QuestionList ql = QuestionList.getInstance();
-            Question q = ql.getQuestion(currentUser.getQuestionsAnswered().get(recent));
+            Object raw = currentUser.getQuestionsAnswered().get(recent - 1);
+            UUID id = null;
+            if (raw instanceof UUID) {
+                id = (UUID) raw;
+            } else if (raw instanceof String) {
+                id = UUID.fromString((String) raw);
+            } 
+            Question q = ql.getQuestion(id);
+            r1 = q;
             rct_1_title.setText(q.getTitle());
             String type = q.getType().toString();
             String noenumtype = type.substring(type.indexOf('.') + 1);
@@ -172,14 +206,42 @@ public class DashController {
             String diff = q.getDifficulty().toString();
             String noenumdiff = diff.substring(diff.indexOf('.') + 1);
             rct_1_diff.setText(noenumdiff);
+            if(noenumdiff.equals("EASY")) {
+                diff_rect_rct1.setStyle("-fx-fill: #AFFFAF");
+                rct_1_diff.setStyle("-fx-fill: #487D48");
+            } else if(noenumdiff.equals("MEDIUM")) {
+                diff_rect_rct1.setStyle("-fx-fill: #ffc40066");
+                rct_1_diff.setStyle("-fx-fill: #AD7032");
+            } else if(noenumdiff.equals("HARD")) {
+                diff_rect_rct1.setStyle("-fx-fill: #FF000066");
+                rct_1_diff.setStyle("-fx-fill: #B41D2C");
+            }
+            r2 = null;
             rct_2_title.setVisible(false);
             rct_2_type.setVisible(false);
             rct_2_diff.setVisible(false);
+            diff_rect_rct2.setVisible(false);
 
         } else if(recent > 1) {
             QuestionList ql = QuestionList.getInstance();
-            Question q = ql.getQuestion(currentUser.getQuestionsAnswered().get(recent));
-            Question q2 = ql.getQuestion(currentUser.getQuestionsAnswered().get(recent - 1));
+            Object raw = currentUser.getQuestionsAnswered().get(recent - 1);
+            UUID id = null;
+            if (raw instanceof UUID) {
+                id = (UUID) raw;
+            } else if (raw instanceof String) {
+                id = UUID.fromString((String) raw);
+            } 
+            Question q = ql.getQuestion(id);
+            r1 = q;
+            Object raw2 = currentUser.getQuestionsAnswered().get(recent - 2);
+            UUID id2 = null;
+            if (raw2 instanceof UUID) {
+                id2 = (UUID) raw;
+            } else if (raw instanceof String) {
+                id2 = UUID.fromString((String) raw);
+            } 
+            Question q2 = ql.getQuestion(id);
+            r2 = q2;
             rct_1_title.setText(q.getTitle());
             String type = q.getType().toString();
             String noenumtype = type.substring(type.indexOf('.') + 1);
@@ -187,20 +249,44 @@ public class DashController {
             String diff = q.getDifficulty().toString();
             String noenumdiff = diff.substring(diff.indexOf('.') + 1);
             rct_1_diff.setText(noenumdiff);
+            if(noenumdiff.equals("EASY")) {
+                diff_rect_rct1.setStyle("-fx-fill: #AFFFAF");
+                rct_1_diff.setStyle("-fx-fill: #487D48");
+            } else if(noenumdiff.equals("MEDIUM")) {
+                diff_rect_rct1.setStyle("-fx-fill: #ffc40066");
+                rct_1_diff.setStyle("-fx-fill: #AD7032");
+            } else if(noenumdiff.equals("HARD")) {
+                diff_rect_rct1.setStyle("-fx-fill: #FF000066");
+                rct_1_diff.setStyle("-fx-fill: #B41D2C");
+            }
             rct_2_title.setText(q2.getTitle());
             String type2 = q2.getType().toString();
             String noenumtype2 = type2.substring(type2.indexOf('.') + 1);
             rct_2_type.setText(noenumtype2);
             String diff2 = q2.getDifficulty().toString();
             String noenumdiff2 = diff2.substring(diff2.indexOf('.') + 1);
+            if(noenumdiff2.equals("EASY")) {
+                diff_rect_rct2.setStyle("-fx-fill: #AFFFAF");
+                rct_2_diff.setStyle("-fx-fill: #487D48");
+            } else if(noenumdiff2.equals("MEDIUM")) {
+                diff_rect_rct2.setStyle("-fx-fill: #ffc40066");
+                rct_2_diff.setStyle("-fx-fill: #AD7032");
+            } else if(noenumdiff2.equals("HARD")) {
+                diff_rect_rct2.setStyle("-fx-fill: #FF000066");
+                rct_2_diff.setStyle("-fx-fill: #B41D2C");
+            }
             rct_2_diff.setText(noenumdiff2);
-        } else if(recent == 0) {
+        } else if(recent == 0 || recent < 0) {
+            r1 = null;
             rct_1_title.setVisible(false);
             rct_1_type.setVisible(false);
             rct_1_diff.setVisible(false);
+            diff_rect_rct1.setVisible(false);
+            r2 = null;
             rct_2_title.setVisible(false);
             rct_2_type.setVisible(false);
             rct_2_diff.setVisible(false);
+            diff_rect_rct2.setVisible(false);
         }
         QuestionList q = QuestionList.getInstance();
         ArrayList<Question> all = q.getQuestions();
@@ -221,7 +307,7 @@ public class DashController {
         } else {
             sug = null;
         }
-        while(currentUser.getQuestionsAnswered().contains(sug)) { // needs to be fixed in the future
+        while((sug != null && r1 != null && sug.getTitle().equals(r1.getTitle())) || (sug != null && r2 != null && sug.getTitle().equals(r2.getTitle()))) { // needs to be fixed in the future
             j++;
             if(j >= size) {
                 sug = null;
@@ -232,13 +318,25 @@ public class DashController {
         sug1 = sug;
         if(sug != null) {
             sug_1_title.setText(sug.getTitle());
-            sug_1_diff.setText(getDiff(sug.getDifficulty()));
+            String diff1 = getDiff(sug.getDifficulty());
+            sug_1_diff.setText(diff1);
+            if(diff1.equals("EASY")) {
+                diff_rect_sug1.setStyle("-fx-fill: #AFFFAF");
+                sug_1_diff.setStyle("-fx-fill: #487D48");
+            } else if(diff1.equals("MEDIUM")) {
+                diff_rect_sug1.setStyle("-fx-fill: #ffc40066");
+                sug_1_diff.setStyle("-fx-fill: #AD7032");
+            } else if(diff1.equals("HARD")) {
+                diff_rect_sug1.setStyle("-fx-fill: #FF000066");
+                sug_1_diff.setStyle("-fx-fill: #B41D2C");
+            }
             sug_1_type.setText(getType(sug.getType()));
         } else {
             sug_1_title.setVisible(false);
             sug_1_diff.setVisible(false);
             sug_1_type.setVisible(false);
             sug_1_start_btn.setVisible(false);
+            diff_rect_sug1.setVisible(false);
         }
         j++;
         if(!(j >= size)) {
@@ -246,7 +344,7 @@ public class DashController {
         } else {
             sug = null;
         }
-        while(currentUser.getQuestionsAnswered().contains(sug)) { // needs to be fixed in the future
+        while((sug!=null && r1 != null && sug.getTitle().equals(r1.getTitle())) || (sug != null && r2 != null && sug.getTitle().equals(r2.getTitle()))) { // needs to be fixed in the future
             j++;
             if(j >= size) {
                 sug = null;
@@ -257,13 +355,25 @@ public class DashController {
         sug2 = sug;
         if(sug != null) {
             sug_2_title.setText(sug.getTitle());
-            sug_2_diff.setText(getDiff(sug.getDifficulty()));
+            String diff2 = getDiff(sug.getDifficulty());
+            sug_2_diff.setText(diff2);
+            if(diff2.equals("EASY")) {
+                diff_rect_sug2.setStyle("-fx-fill: #AFFFAF");
+                sug_2_diff.setStyle("-fx-fill: #487D48");
+            } else if(diff2.equals("MEDIUM")) {
+                diff_rect_sug2.setStyle("-fx-fill: #ffc40066");
+                sug_2_diff.setStyle("-fx-fill: #AD7032");
+            } else if(diff2.equals("HARD")) {
+                diff_rect_sug2.setStyle("-fx-fill: #FF000066");
+                sug_2_diff.setStyle("-fx-fill: #B41D2C");
+            }
             sug_2_type.setText(getType(sug.getType()));
         } else {
             sug_2_title.setVisible(false);
             sug_2_diff.setVisible(false);
             sug_2_type.setVisible(false);
             sug_2_start_btn.setVisible(false);
+            diff_rect_sug2.setVisible(false);
         }
         j++;
        if(!(j >= size)) {
@@ -271,7 +381,7 @@ public class DashController {
         } else {
             sug = null;
         }
-        while(currentUser.getQuestionsAnswered().contains(sug)) { // needs to be fixed in the future
+        while((sug != null && r1 != null && sug.getTitle().equals(r1.getTitle())) || (sug != null && r2 != null && sug.getTitle().equals(r2.getTitle()))) { // needs to be fixed in the future
             j++;
             if(j >= size) {
                 sug = null;
@@ -282,13 +392,25 @@ public class DashController {
         sug3 = sug;
         if(sug != null) {
             sug_3_title.setText(sug.getTitle());
-            sug_3_diff.setText(getDiff(sug.getDifficulty()));
+            String diff3 = getDiff(sug.getDifficulty());
+            sug_3_diff.setText(diff3);
+            if(diff3.equals("EASY")) {
+                diff_rect_sug3.setStyle("-fx-fill: #AFFFAF");
+                sug_3_diff.setStyle("-fx-fill: #487D48");
+            } else if(diff3.equals("MEDIUM")) {
+                diff_rect_sug3.setStyle("-fx-fill: #ffc40066");
+                sug_3_diff.setStyle("-fx-fill: #AD7032");
+            } else if(diff3.equals("HARD")) {
+                diff_rect_sug3.setStyle("-fx-fill: #FF000066");
+                sug_3_diff.setStyle("-fx-fill: #B41D2C");
+            }
             sug_3_type.setText(getType(sug.getType()));
         } else {
             sug_3_title.setVisible(false);
             sug_3_diff.setVisible(false);
             sug_3_type.setVisible(false);
             sug_3_start_btn.setVisible(false);
+            diff_rect_sug3.setVisible(false);
         }
         
         // challenge problems
@@ -309,7 +431,18 @@ public class DashController {
         chll_title.setText(cll.getTitle());
         chll_desc.setText(cll.getDescription());
         chll_type.setText(getType(cll.getType()));
-        chll_diff.setText(getDiff(cll.getDifficulty()));
+        String chlldiff = getDiff(cll.getDifficulty());
+        chll_diff.setText(chlldiff);
+        if(chlldiff.equals("EASY")) {
+                diff_rect_chll.setStyle("-fx-fill: #AFFFAF");
+                chll_diff.setStyle("-fx-fill: #487D48");
+            } else if(chlldiff.equals("MEDIUM")) {
+                diff_rect_chll.setStyle("-fx-fill: #ffc40066");
+                chll_diff.setStyle("-fx-fill: #AD7032");
+            } else if(chlldiff.equals("HARD")) {
+                diff_rect_chll.setStyle("-fx-fill: #FF000066");
+                chll_diff.setStyle("-fx-fill: #B41D2C");
+            }
 
     }
 
@@ -442,6 +575,11 @@ public class DashController {
     @FXML
     public void setStreak(int streak) {
         stk_num_text.setText(Integer.toString(streak));
+        if(streak >= 3) {
+            fire_emoji.setVisible(true);
+        } else {
+            fire_emoji.setVisible(false);
+        }
     }
 
     @FXML
@@ -458,5 +596,4 @@ public class DashController {
         String noenumdiff = diff.substring(diff.indexOf('.') + 1);
         return noenumdiff;
     }
-    
 }
