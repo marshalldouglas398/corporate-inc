@@ -78,14 +78,16 @@
     -fx-font-size: 16px;
     -fx-padding: 10 12 10 12;
 }
+
 .dashboard-start-button {
     -fx-background-color: #73000A;
     -fx-text-fill: white;
-     -fx-font-family: "News Cycle";
+    -fx-font-family: "News Cycle";
     -fx-font-size: 16px;
     -fx-background-radius: 4;
     -fx-padding: 10 16 10 16;
 }
+
 .dashboard-sections-background {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
@@ -132,6 +134,8 @@
     -fx-font-weight: bold;
     -fx-background-radius: 16;
     -fx-padding: 26 28 26 28;
-
 }
 
+#header-title {
+    -fx-padding: 1;
+}
