@@ -125,8 +125,23 @@ public class DashAController {
     }
 
     @FXML
+    private void goToManageUsers(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/manageUsers.fxml"));
+            Parent root = loader.load();
+            ManageUsersController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+            App.setRoot(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void setUser(User user) {
         this.currentUser = (Admin) user;
+        btn_manage_users.setOnAction(this::goToManageUsers);
         displayWelcome(currentUser.getUsername());
 
         // setting date
