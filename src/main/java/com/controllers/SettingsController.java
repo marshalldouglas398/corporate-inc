@@ -62,9 +62,9 @@ public class SettingsController {
     private Text act_txt;
     
     private User currentUser;
-    private Student student;
-    private Editor editor;
-    private Admin admin;
+    private Student student = null;
+    private Editor editor = null;
+    private Admin admin = null;
     private InterviewApplication app;
 
     public void setInterviewApplication(InterviewApplication app) {
@@ -106,14 +106,15 @@ public class SettingsController {
         if(student != null) {
             DashController dash = loader.getController();
             dash.setUser(currentUser);
-        } 
-        if(admin != null) {
+            dash.setInterviewApplication(app);
+        } else if(admin != null) {
             DashAController dashA = loader.getController();
             dashA.setUser(currentUser);
-        }
-        if(editor != null) {
+            dashA.setInterviewApplication(app);
+        } else if(editor != null) {
             DashEController dashE = loader.getController();
            dashE.setUser(currentUser);
+           dashE.setInterviewApplication(app);
         }
         App.setRoot(root);
     }
