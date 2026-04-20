@@ -1,0 +1,33 @@
+.settings-page {
+    -fx-background-color: #E3E3E3;
+}
+.header-bar {
+    -fx-background-color: #44090F;
+    -fx-border-color: #73000A;
+}
+.brand-title {
+    -fx-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: 700;
+}
+.header-button {
+    -fx-background-color: #44090F;
+
+}
+.sub-header {
+    -fx-fill: #000000;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-font: "News Cycle";
+}
+.section-header {
+    -fx-fill: #000000;
+    -fx-font-size: 35px;
+    -fx-font-family: "News Cycle";
+}
+.change-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+     -fx-font-family: "News Cycle";
+    -fx-font-size: 30px;
+}

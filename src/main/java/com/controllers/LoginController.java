@@ -68,6 +68,7 @@ public class LoginController {
         if(role.equals("Admin")) {
             DashAController dashA = loader.getController();
             dashA.setUser(currentUser);
+            dashA.setInterviewApplication(app);
         }
         if(role.equals("Editor")) {
             DashEController dashE = loader.getController();

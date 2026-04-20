@@ -1,0 +1,85 @@
+.dashboard-page {
+    -fx-background-color: #d3d3d3;
+}
+.header {
+    -fx-background-color: #44090F;
+    -fx-padding: 14 24 14 24;
+    -fx-border-color: #73000A;
+    -fx-border-width: 0 0 2 0;
+}
+.header-button {
+    -fx-background-color: #44090f;
+    -fx-background-radius: 4;
+    -fx-padding: 10 16 10 16;
+}
+.header-text{
+    -fx-fill: black;
+    -fx-font-size: 58px;
+    -fx-font-family: "News Cycle";
+    -fx-font-weight: bold;
+}
+.date {
+    -fx-fill: black;
+    -fx-font-size: 36px;
+    -fx-font-family: "News Cycle";
+}
+.student-challenge-box { 
+    -fx-background-color: #73000A;
+    -fx-background-radius: 16;
+    -fx-padding: 26 28 26 28;
+    -fx-max-width: 420;
+}
+.challenge-header {
+    -fx-fill: white;
+    -fx-font-size: 36px;
+    -fx-font-family: "News Cycle";
+}
+.challege-question-title {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-family: "News Cycle";
+}
+.challenge-question-description {
+    -fx-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-family: "News Cycle";
+}
+.button-challenge {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-font-size: 24px;
+    -fx-text-fill: #44090F;
+    -fx-font-family: "News Cycle";
+    -fx-padding: 10 12 10 12;
+}
+.streak-text {
+    -fx-fill: #73000A;
+    -fx-font-size: 52px;
+    -fx-font-family: "News Cycle";
+    -fx-font-weight: bold;
+}
+.start-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+     -fx-font-family: "News Cycle";
+    -fx-font-size: 25px;
+}
+.sections-background {
+    -fx-background-color: #ffffff;
+}
+.sections-text {
+    -fx-font-size: 32px;
+    -fx-font-family: "News Cycle";
+    -fx-fill: #73000A;
+}
+.sections-labels {
+    -fx-font-size: 25px;
+    -fx-font-family: "News Cycle";
+}
+.brand-title {
+    -fx-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: 700;
+    -fx-font-family: "News Cycle";
+}
