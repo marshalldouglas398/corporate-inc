@@ -13,7 +13,7 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SettingsController">
    <content>
-      <BorderPane maxHeight="Infinity" maxWidth="Infinity" styleClass="settings-page" stylesheets="@settingstyles.css">
+      <BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="settings-page" stylesheets="@settingstyles.css">
          <top>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="header-bar" stylesheets="@settingstyles.css" BorderPane.alignment="CENTER">
                <children>
