@@ -13,7 +13,7 @@
 
 /* Style for Create Account */
 .background-img {
-    -fx-background-image: url("../../../resources/com/corporate/images/background.png");
+    -fx-background-image: url("../corporate/images/background.png");
     -fx-background-size: cover;
 }
 
