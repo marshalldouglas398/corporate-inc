@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="640.0" prefWidth="980.0" styleClass="login-page" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
+<BorderPane prefHeight="640.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginController">
    <top>
       <HBox alignment="CENTER_LEFT" spacing="14.0" styleClass="login-header-bar">
          <children>
@@ -46,4 +47,8 @@
    <stylesheets>
       <URL value="@styles.css" />
    </stylesheets>
+   <styleClass>
+      <String fx:value="login-page" />
+      <String fx:value="background-img" />
+   </styleClass>
 </BorderPane>

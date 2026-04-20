@@ -12,6 +12,11 @@
 
 
 /* Style for Create Account */
+.background-img {
+    -fx-background-image: url("../../../resources/com/corporate/images/background.png");
+    -fx-background-size: cover;
+}
+
 .submit-button {
     -fx-background-color: #73000A;
     -fx-text-fill: white;
