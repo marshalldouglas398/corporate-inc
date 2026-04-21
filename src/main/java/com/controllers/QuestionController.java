@@ -22,6 +22,7 @@ import com.model.QuestionType;
 import com.model.Section;
 import com.model.Student;
 import com.model.User;
+import com.model.UserList;
 
 import javafx.geometry.Insets;
 import javafx.event.ActionEvent;
@@ -313,6 +314,14 @@ public class QuestionController {
         } else {
             currentQuestion.addComment(created);
         }
+
+        if (student != null && tags.contains(CommentTag.SOLUTION)) {
+            if (!student.getQuestionsAnswered().contains(currentQuestion.getId())) {
+                currentQuestion.completeQuestion(student);
+            }
+            UserList.getInstance().save();
+        }
+
         QuestionList.getInstance().save();
         responseArea.clear();
         draftSections.clear();
