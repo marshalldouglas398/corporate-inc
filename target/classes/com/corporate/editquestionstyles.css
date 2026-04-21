@@ -1,0 +1,104 @@
+.edit-question-page {
+    -fx-background-color: #e8e8e8;
+}
+
+.edit-question-header {
+    -fx-background-color: #44090F;
+    -fx-padding: 14 24 14 24;
+    -fx-border-color: #73000A;
+    -fx-border-width: 0 0 2 0;
+}
+
+.edit-question-brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.edit-question-header-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 12 10 12;
+}
+
+.edit-question-content {
+    -fx-padding: 26 28 24 28;
+}
+
+.edit-question-title {
+    -fx-text-fill: #73000A;
+    -fx-font-size: 36px;
+    -fx-font-weight: 800;
+}
+
+.edit-question-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-padding: 18 20 18 20;
+}
+
+.edit-question-inner-card {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 12;
+    -fx-border-color: #d9d9d9;
+    -fx-border-radius: 12;
+    -fx-padding: 12 14 12 14;
+}
+
+.edit-question-label {
+    -fx-text-fill: #111111;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.edit-question-input {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-font-size: 15px;
+    -fx-padding: 9 12 9 12;
+}
+
+.edit-question-textarea {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-font-size: 15px;
+}
+
+.edit-question-textarea .content {
+    -fx-background-color: #e7e7e7;
+    -fx-background-radius: 4;
+}
+
+.edit-question-check-box {
+    -fx-text-fill: #111111;
+    -fx-font-size: 15px;
+}
+
+.edit-question-note {
+    -fx-text-fill: #555555;
+    -fx-font-size: 13px;
+}
+
+.edit-question-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 4;
+    -fx-padding: 10 14 10 14;
+}
+
+.edit-question-button-secondary {
+    -fx-background-color: #d9d9d9;
+    -fx-text-fill: #222222;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 4;
+    -fx-padding: 10 14 10 14;
+}
