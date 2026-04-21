@@ -45,9 +45,6 @@ public class DashEController {
     private Button qtns_m_btn;
 
     @FXML
-    private Button edi_sl_btn;
-
-    @FXML
     private Text num_q_text;
     
     @FXML
@@ -217,15 +214,6 @@ public class DashEController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editorQ.fxml"));
         Parent root = loader.load();
         EditorQController controller = loader.getController();
-        controller.setUser(currentUser);
-        App.setRoot(root);
-    }
-
-    @FXML
-    private void addEditorSolution(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editorSolution.fxml"));
-        Parent root = loader.load();
-        EditorSolutionController controller = loader.getController();
         controller.setUser(currentUser);
         App.setRoot(root);
     }

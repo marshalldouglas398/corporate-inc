@@ -70,7 +70,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="157.0" layoutY="217.0" maxWidth="685.0" prefHeight="420.0" prefWidth="685.0" styleClass="management-box" stylesheets="@dasheditorstyles.css">
+            <AnchorPane layoutX="157.0" layoutY="217.0" maxWidth="676.0" prefHeight="307.0" prefWidth="676.0" styleClass="management-box" stylesheets="@dasheditorstyles.css">
                <children>
                   <Text fill="#fff8f8" layoutX="31.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="management-header" text="Manage Questions:">
                      <font>
@@ -78,8 +78,7 @@
                      </font>
                   </Text>
                   <Line endX="472.66668701171875" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-114.0" startY="-5.96484375" stroke="WHITE" />
-                  <Button fx:id="qtns_m_btn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="97.0" prefWidth="571.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="View Questions Created" />
-                  <Button fx:id="edi_sl_btn" layoutX="35.0" layoutY="223.0" mnemonicParsing="false" onAction="#addEditorSolution" prefHeight="98.0" prefWidth="577.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="Add Editor Solution" />
+                  <Button fx:id="qtns_m_btn" layoutX="39.0" layoutY="123.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="97.0" prefWidth="571.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="View Questions Created" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="595.0" layoutY="575.0" prefHeight="0.0" prefWidth="412.0" />
@@ -175,7 +174,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="195.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="Account Summary" wrappingWidth="352.01666259765625">
+            <Text layoutX="158.0" layoutY="614.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="Account Summary" wrappingWidth="352.01666259765625">
                <font>
                   <Font size="20.0" />
                </font>
