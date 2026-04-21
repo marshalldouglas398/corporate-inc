@@ -1,0 +1,44 @@
+.question-page {
+    -fx-background-color: #d3d3d3;
+}
+.header {
+    -fx-background-color: #44090F;
+    -fx-padding: 14 24 14 24;
+    -fx-border-color: #73000A;
+    -fx-border-width: 0 0 2 0;
+}
+.header-button {
+    -fx-background-color: #44090f;
+    -fx-background-radius: 4;
+    -fx-padding: 10 16 10 16;
+}
+.header-text{
+    -fx-fill: black;
+    -fx-font-size: 30px;
+    -fx-font-family: "News Cycle";
+    -fx-font-weight: bold;
+}
+.brand-title {
+    -fx-fill: white;
+    -fx-font-size: 50px;
+    -fx-font-weight: 700;
+    -fx-font-family: "News Cycle";
+}
+.sections-background {
+    -fx-background-color: #ffffff;
+}
+.action-button {
+    -fx-background-color: #73000A;
+    -fx-text-fill: white;
+     -fx-font-family: "News Cycle";
+    -fx-font-size: 20px;
+}
+.sections-labels {
+    -fx-font-size: 20px;
+    -fx-font-family: "News Cycle";
+}
+.sections-text {
+    -fx-font-size: 32px;
+    -fx-font-family: "News Cycle";
+    -fx-fill: #73000A;
+}

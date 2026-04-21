@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -14,29 +16,62 @@
 
 <BorderPane prefHeight="760.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.QuestionController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="78.0" spacing="16.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="78.0" spacing="16.0" styleClass="header" stylesheets="@questionstyles.css" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="14.0" left="20.0" right="20.0" top="14.0" />
          </padding>
          <children>
-            <Label text="Corporate Code" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Button fx:id="h_btn" mnemonicParsing="false" onAction="#goToDashboard" text="Home" />
-            <Button fx:id="srch_btn" mnemonicParsing="false" onAction="#goToSearch" text="Search" />
-            <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#logout" text="Logout" />
-            <Button fx:id="stg_btn" mnemonicParsing="false" onAction="#goToSettings" text="Settings" />
+            <ImageView fitHeight="60.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/corporatelogo-new.png" />
+               </image>
+            </ImageView>
+            <Label styleClass="corporate-header" stylesheets="@questionstyles.css" text="Corporate Code" />
+            <Region prefHeight="70.0" prefWidth="0.0" stylesheets="@questionstyles.css" HBox.hgrow="ALWAYS" />
+            <Button fx:id="h_btn" mnemonicParsing="false" onAction="#goToDashboard" styleClass="create-question-header-button" stylesheets="@questionstyles.css">
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="srch_btn" mnemonicParsing="false" onAction="#goToSearch" styleClass="create-question-header-button" stylesheets="@questionstyles.css">
+               <graphic>
+                  <ImageView fitHeight="56.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/search_btn.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="logout_btn" mnemonicParsing="false" onAction="#logout" styleClass="create-question-header-button" stylesheets="@questionstyles.css">
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Log%20out.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="stg_btn" mnemonicParsing="false" onAction="#goToSettings" styleClass="create-question-header-button" stylesheets="@questionstyles.css">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
    </top>
    <center>
-      <HBox prefHeight="680.0" prefWidth="1200.0" spacing="18.0">
+      <HBox prefHeight="680.0" prefWidth="1200.0" spacing="18.0" styleClass="question-page" stylesheets="@questionstyles.css">
          <padding>
             <Insets bottom="18.0" left="20.0" right="20.0" top="18.0" />
          </padding>
          <children>
-            <VBox fx:id="leftColumn" spacing="14.0" HBox.hgrow="ALWAYS">
+            <VBox fx:id="leftColumn" spacing="14.0" styleClass="sections-background" stylesheets="@questionstyles.css" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="questionTitleLabel" text="Loading question..." />
+                  <Label fx:id="questionTitleLabel" styleClass="header-text" stylesheets="@questionstyles.css" text="Loading question..." />
                   <HBox spacing="8.0">
                      <children>
                         <Label fx:id="qTypeLabel" text="" />
@@ -51,17 +86,17 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" spacing="8.0">
                            <children>
-                              <Label text="Problem Description" />
+                              <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Problem Description" />
                               <Region HBox.hgrow="ALWAYS" />
-                              <Button fx:id="rate_question_btn" mnemonicParsing="false" onAction="#rateQuestion" text="Rate" />
+                              <Button fx:id="rate_question_btn" mnemonicParsing="false" onAction="#rateQuestion" styleClass="action-button" stylesheets="@questionstyles.css" text="Rate" />
                               <Label fx:id="questionRatingLabel" text="-" />
                            </children>
                         </HBox>
                         <Label fx:id="q_desc_label" text="" wrapText="true" />
-                        <Label text="Examples" />
+                        <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Examples" />
                         <VBox fx:id="examplesContainer" spacing="10.0">
                            <children>
-                              <Label text="No examples available." />
+                              <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="No examples available." />
                            </children>
                         </VBox>
                      </children>
@@ -71,7 +106,7 @@
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>
                      <children>
-                        <Label text="Hints" />
+                        <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Hints" />
                         <VBox fx:id="hintsContainer" spacing="6.0" />
                      </children>
                   </VBox>
@@ -84,14 +119,14 @@
                         <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                      </padding>
                      <children>
-                        <Label text="Your Response" />
+                        <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Your Response" />
                         <TextArea fx:id="responseArea" prefHeight="170.0" promptText="Type your answer here" wrapText="true" />
                         <HBox spacing="8.0">
                            <children>
-                              <Button fx:id="add_sec_btn" mnemonicParsing="false" onAction="#addSectionDraft" text="+ Add Section" />
-                              <Button fx:id="add_t_btn" mnemonicParsing="false" onAction="#addTagDraft" text="+ Add Tag" />
+                              <Button fx:id="add_sec_btn" mnemonicParsing="false" onAction="#addSectionDraft" styleClass="action-button" stylesheets="@questionstyles.css" text="+ Add Section" />
+                              <Button fx:id="add_t_btn" mnemonicParsing="false" onAction="#addTagDraft" styleClass="action-button" stylesheets="@questionstyles.css" text="+ Add Tag" />
                               <Region HBox.hgrow="ALWAYS" />
-                              <Button fx:id="sub_com_btn" mnemonicParsing="false" onAction="#submitComment" text="Submit Comment" />
+                              <Button fx:id="sub_com_btn" mnemonicParsing="false" onAction="#submitComment" styleClass="action-button" stylesheets="@questionstyles.css" text="Submit Comment" />
                            </children>
                         </HBox>
                         <Label fx:id="replyingToLabel" text="" visible="false" />
@@ -108,7 +143,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <Label text="Comments" />
+                              <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Comments" />
                               <Region HBox.hgrow="ALWAYS" />
                               <ComboBox fx:id="commentFilterBox" onAction="#onCommentFilterChanged" prefWidth="170.0" promptText="Comment Filters" />
                            </children>

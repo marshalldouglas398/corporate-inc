@@ -24,10 +24,10 @@ import com.model.Student;
 import com.model.User;
 import com.model.UserList;
 
-import javafx.geometry.Insets;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -121,10 +121,12 @@ public class QuestionController {
     private Editor editor;
     private Admin admin;
     private User currentUser;
-    private InterviewApplication app = new InterviewApplication();
+    private InterviewApplication app;
     private final ArrayList<Section> draftSections = new ArrayList<>();
     private final ArrayList<CommentTag> draftTags = new ArrayList<>();
     private Comment replyingTo;
+
+
 
     @FXML
     public void initialize() {
@@ -151,6 +153,7 @@ public class QuestionController {
 
     @FXML
     private void logout() throws IOException {
+        app.logout(currentUser);
         App.setRoot("login");
     }
 
@@ -193,6 +196,7 @@ public class QuestionController {
         SettingsController controller = loader.getController();
         if (currentUser != null) {
             controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
         }
         App.setRoot(root);
     }
@@ -204,6 +208,7 @@ public class QuestionController {
         SearchController controller = loader.getController();
         if (currentUser != null) {
             controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
         }
         App.setRoot(root);
     }
