@@ -361,6 +361,14 @@ public class Question {
     }
 
     /**
+     * Gets the interview time limit in minutes.
+     * @return The interview time limit, or -1 if not set.
+     */
+    public int getTime() {
+        return this.time;
+    }
+
+    /**
      * Checks if the question is in interview mode
      * @return True if the question is in interview mode, false otherwise
      */
@@ -414,6 +422,46 @@ public class Question {
      */
     public void setType(QuestionType type) {
         this.type = type;
+    }
+
+    /**
+     * Sets the disciplines associated with the question.
+     * @param discipline The disciplines to set
+     */
+    public void setDiscipline(ArrayList<Discipline> discipline) {
+        this.discipline = (discipline == null) ? new ArrayList<>() : discipline;
+    }
+
+    /**
+     * Sets the courses associated with the question.
+     * @param course The courses to set
+     */
+    public void setCourse(ArrayList<Course> course) {
+        this.course = (course == null) ? new ArrayList<>() : course;
+    }
+
+    /**
+     * Sets the tags associated with the question.
+     * @param tag The tags to set
+     */
+    public void setTag(ArrayList<QuestionTag> tag) {
+        this.tag = (tag == null) ? new ArrayList<>() : tag;
+    }
+
+    /**
+     * Sets the hints associated with the question.
+     * @param hints The hints to set
+     */
+    public void setHints(ArrayList<String> hints) {
+        this.hints = (hints == null) ? new ArrayList<>() : hints;
+    }
+
+    /**
+     * Sets the sections associated with the question.
+     * @param sections The sections to set
+     */
+    public void setSections(ArrayList<Section> sections) {
+        this.sections = (sections == null) ? new ArrayList<>() : sections;
     }
 
 }
