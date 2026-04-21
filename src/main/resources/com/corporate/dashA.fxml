@@ -108,7 +108,7 @@
                               <Line endX="163.86663818359375" endY="1.52587890625E-5" layoutX="168.0" layoutY="63.0" startX="-126.86666870117188" startY="1.52587890625E-5" stroke="WHITE" />
                               <AnchorPane layoutX="35.0" layoutY="80.0" prefHeight="50.0" prefWidth="301.0">
                                  <children>
-                                    <Button fx:id="btn_upgrade_requests" layoutY="6.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="Editor Upgrade Requests" />
+                                    <Button fx:id="btn_manage_upgrade_requests" layoutY="6.0" mnemonicParsing="false" onAction="#goToUpgradeRequests" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="Editor Upgrade Requests" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="36.0" layoutY="139.0" prefHeight="50.0" prefWidth="301.0">
@@ -122,21 +122,14 @@
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <AnchorPane prefHeight="98.0" prefWidth="302.0">
-                              <AnchorPane prefHeight="86.0" prefWidth="302.0">
                                  <children>
                                     <Button fx:id="btn_add_question" layoutY="12.0" mnemonicParsing="false" onAction="#goToCreateQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Add Question" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="70.0" prefWidth="302.0">
-                                 <children>
-                                    <Button fx:id="btn_manage_users" layoutY="16.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="37.0" prefWidth="302.0" text="Manage Users" />
-                                 </children>
-                              </AnchorPane>
+                              <AnchorPane prefHeight="70.0" prefWidth="302.0" />
                               <AnchorPane prefHeight="124.0" prefWidth="302.0">
-                              <AnchorPane prefHeight="70.0" prefWidth="302.0">
                                  <children>
                                     <Button fx:id="btn_manage_users" layoutY="52.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="82.0" prefWidth="302.0" styleClass="button-add-manage" text="Manage Users" />
-                                    <Button fx:id="btn_manage_upgrade_requests" layoutY="16.0" mnemonicParsing="false" onAction="#goToUpgradeRequests" prefHeight="37.0" prefWidth="302.0" text="Editor Upgrade Requests" />
                                  </children>
                               </AnchorPane>
                            </children>

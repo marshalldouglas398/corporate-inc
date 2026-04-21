@@ -40,9 +40,6 @@ public class DashAController {
     private Text text_dash_date;
 
     @FXML
-    private Button btn_upgrade_requests;
-
-    @FXML
     private Button btn_flagged_questions;
 
     @FXML
@@ -160,7 +157,6 @@ public class DashAController {
         this.currentUser = (Admin) user;
         btn_manage_users.setOnAction(this::goToManageUsers);
         btn_manage_upgrade_requests.setOnAction(this::goToUpgradeRequests);
-        btn_upgrade_requests.setOnAction(this::goToUpgradeRequests);
         displayWelcome(currentUser.getUsername());
 
         // setting date
