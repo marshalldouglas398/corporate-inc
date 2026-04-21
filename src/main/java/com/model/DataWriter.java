@@ -65,7 +65,11 @@ public class DataWriter extends DataConstants {
         switch (role) {
             case "Student" :
                 Student student = (Student) user;
-                userDetails.put(USER_QUESTIONS_SOLVED, student.getQuestionsAnswered());
+                JSONArray jsonQuestionsSolved = new JSONArray();
+                for (Object questionId : student.getQuestionsAnswered()) {
+                    jsonQuestionsSolved.add(questionId.toString());
+                }
+                userDetails.put(USER_QUESTIONS_SOLVED, jsonQuestionsSolved);
                 JSONArray jsonCourses = new JSONArray();
                 for (Course c : student.getCoursesTaken()) {
                     jsonCourses.add(c.toString());
@@ -78,11 +82,19 @@ public class DataWriter extends DataConstants {
                 break;
             case "Editor" :
                 Editor editor = (Editor) user;
-                userDetails.put(USER_QUESTIONS_MADE, editor.getQuestionsMade());
+                JSONArray jsonQuestionsMadeE = new JSONArray();
+                for (Object questionId : editor.getQuestionsMade()) {
+                    jsonQuestionsMadeE.add(questionId.toString());
+                }
+                userDetails.put(USER_QUESTIONS_MADE, jsonQuestionsMadeE);
                 break;
             case "Admin" :
                 Admin admin = (Admin) user;
-                userDetails.put(USER_QUESTIONS_MADE, admin.getQuestionsMade());
+                JSONArray jsonQuestionsMadeA = new JSONArray();
+                for (Object questionId : admin.getQuestionsMade()) {
+                    jsonQuestionsMadeA.add(questionId.toString());
+                }
+                userDetails.put(USER_QUESTIONS_MADE, jsonQuestionsMadeA);
                 break;              
         }    
         return userDetails;

@@ -22,6 +22,7 @@ import com.model.QuestionType;
 import com.model.Section;
 import com.model.Student;
 import com.model.User;
+import com.model.UserList;
 
 import javafx.geometry.Insets;
 import javafx.event.ActionEvent;
@@ -155,13 +156,34 @@ public class QuestionController {
 
     @FXML
     private void goToDashboard(ActionEvent event) throws IOException {
-       if (student != null) {
-            App.setRoot("dash");
+        FXMLLoader loader = null;
+        if (student != null) {
+            loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
         } else if (editor != null) {
-            App.setRoot("dashE");
+            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashE.fxml"));
         } else if (admin != null) {
-            App.setRoot("dashA");
+            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashA.fxml"));
         }
+
+        if (loader == null) {
+            return;
+        }
+
+        Parent root = loader.load();
+        if (student != null) {
+            DashController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+        } else if (editor != null) {
+            DashEController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+        } else if (admin != null) {
+            DashAController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+        }
+        App.setRoot(root);
     }
 
     @FXML
@@ -292,6 +314,14 @@ public class QuestionController {
         } else {
             currentQuestion.addComment(created);
         }
+
+        if (student != null && tags.contains(CommentTag.SOLUTION)) {
+            if (!student.getQuestionsAnswered().contains(currentQuestion.getId())) {
+                currentQuestion.completeQuestion(student);
+            }
+            UserList.getInstance().save();
+        }
+
         QuestionList.getInstance().save();
         responseArea.clear();
         draftSections.clear();
