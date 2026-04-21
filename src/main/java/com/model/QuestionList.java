@@ -43,19 +43,19 @@ public class QuestionList {
 		ArrayList<Question> filteredQuestions = new ArrayList<>();
 		for (Question question : allQuestions) {
 			boolean matches = true;
-			if (qtype != null && !question.getType().equals(qtype)) {
+			if (qtype != null && (question.getType() == null || !question.getType().equals(qtype))) {
 				matches = false;
 			}
-			if (d != null && !question.getDiscipline().equals(d)) {
+			if (d != null && (question.getDiscipline() == null || !question.getDiscipline().contains(d))) {
 				matches = false;
 			}
-			if (diff != null && !question.getDifficulty().equals(diff)) {
+			if (diff != null && (question.getDifficulty() == null || !question.getDifficulty().equals(diff))) {
 				matches = false;
 			}
-			if (c != null && !question.getCourse().equals(c)) {
+			if (c != null && (question.getCourse() == null || !question.getCourse().contains(c))) {
 				matches = false;
 			}
-			if (qt != null && !question.getTag().equals(qt)) {
+			if (qt != null && (question.getTag() == null || !question.getTag().contains(qt))) {
 				matches = false;
 			}
 			if (matches) {
