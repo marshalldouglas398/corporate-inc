@@ -418,3 +418,101 @@
     -fx-background-radius: 4;
     -fx-padding: 10 16 10 16;
 }
+
+/* Editor requests screen */
+.editor-requests-page {
+    -fx-background-color: #e8e8e8;
+}
+
+.editor-requests-header {
+    -fx-background-color: #44090F;
+    -fx-border-color: #73000A;
+    -fx-border-width: 0 0 2 0;
+}
+
+.editor-requests-brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 35px;
+}
+
+.editor-requests-header-button {
+    -fx-background-color: transparent;
+}
+
+.editor-requests-content {
+    -fx-background-color: #e8e8e8;
+}
+
+.editor-requests-title {
+    -fx-fill: #111111;
+    -fx-font-size: 27px;
+}
+
+.editor-requests-search-wrapper {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 0 10 0 14;
+}
+
+.editor-requests-search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 16px;
+    -fx-prompt-text-fill: #9a9a9a;
+}
+
+.editor-requests-search-button {
+    -fx-background-color: transparent;
+}
+
+.editor-requests-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.editor-requests-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.editor-requests-list {
+    -fx-background-color: transparent;
+}
+
+.editor-request-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 14 18 14 18;
+}
+
+.editor-request-avatar {
+    -fx-background-color: #f7d96b;
+    -fx-background-radius: 10;
+}
+
+.editor-request-avatar-label {
+    -fx-text-fill: #7a1111;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.editor-request-info {
+    -fx-padding: 0 0 0 12;
+}
+
+.editor-request-name {
+    -fx-text-fill: #7a1111;
+    -fx-font-size: 16px;
+}
+
+.editor-request-meta {
+    -fx-text-fill: #6f6f6f;
+    -fx-font-size: 12px;
+}
+
+.editor-request-action-button {
+    -fx-background-color: #8a1515;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}

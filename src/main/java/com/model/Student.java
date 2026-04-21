@@ -67,8 +67,15 @@ public class Student extends User {
      * @return The editor instance
      */
     public Editor toEditor() {
-        Editor editor = new Editor(username, password, dateOfBirth, email, "Editor");
-        editor.getQuestionsMade().addAll(this.getQuestionsAnswered());
+        Editor editor = new Editor(
+            this.getID(),
+            username,
+            password,
+            new Date(dateOfBirth.getTime()),
+            email,
+            "Editor",
+            new ArrayList<>(this.getQuestionsAnswered())
+        );
         return editor;
     }
 

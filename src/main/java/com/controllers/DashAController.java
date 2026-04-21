@@ -52,6 +52,9 @@ public class DashAController {
     private Button btn_manage_users;
 
     @FXML
+    private Button btn_manage_upgrade_requests;
+
+    @FXML
     private Text text_questions_created;
 
     @FXML
@@ -139,9 +142,25 @@ public class DashAController {
     }
 
     @FXML
+    private void goToUpgradeRequests(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editorRequests.fxml"));
+            Parent root = loader.load();
+            EditorRequestsController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+            App.setRoot(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     public void setUser(User user) {
         this.currentUser = (Admin) user;
         btn_manage_users.setOnAction(this::goToManageUsers);
+        btn_manage_upgrade_requests.setOnAction(this::goToUpgradeRequests);
+        btn_upgrade_requests.setOnAction(this::goToUpgradeRequests);
         displayWelcome(currentUser.getUsername());
 
         // setting date
