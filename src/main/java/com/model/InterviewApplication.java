@@ -110,7 +110,7 @@ public class InterviewApplication {
      */
     public ArrayList<Question> filterQuestion(ArrayList<Question> questionList, QuestionType qtype,
         Discipline d, Difficulty diff, Course c, QuestionTag qt) {
-        ArrayList<Question> filteredList = this.questionList.filterQuestion(this.questionList.getQuestions(), qtype, d, diff, c, qt);
+        ArrayList<Question> filteredList = this.questionList.filterQuestion(questionList, qtype, d, diff, c, qt);
         return filteredList;
     }
     /**
@@ -207,13 +207,49 @@ public class InterviewApplication {
      */
     public ArrayList<Question> searchQuestions(String keyword) {
         ArrayList<Question> results = new ArrayList<>();
+        String searchTerm = keyword == null ? "" : keyword.trim().toLowerCase();
         for (Question q : questionList.getQuestions()) {
             if(q.getTitle() == null) continue; // Skip questions with null titles
-            if (q.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+            if (searchTerm.isBlank() || q.getTitle().toLowerCase().contains(searchTerm)) {
                 results.add(q);
             }
         }
         return results;
+    }
+
+    /**
+     * Searches questions by title and then applies the given filters
+     * @param keyword the title keyword
+     * @param qtype the question type filter
+     * @param diff the difficulty filter
+     * @return list of questions matching the search and filters
+     */
+    public ArrayList<Question> searchQuestionsByTitle(String keyword, QuestionType qtype, Difficulty diff) {
+        ArrayList<Question> matchingQuestions = searchQuestions(keyword);
+        return filterQuestion(matchingQuestions, qtype, null, diff, null, null);
+    }
+
+    /**
+     * Searches questions by author username and applies the given filters
+     * @param username the author username keyword
+     * @param qtype the question type filter
+     * @param diff the difficulty filter
+     * @return list of questions matching the search and filters
+     */
+    public ArrayList<Question> searchQuestionsByUsername(String username, QuestionType qtype, Difficulty diff) {
+        ArrayList<Question> matchingQuestions = new ArrayList<>();
+        String keyword = username == null ? "" : username.trim().toLowerCase();
+
+        for (Question question : questionList.getQuestions()) {
+            if (question.getAuthor() == null || question.getAuthor().getUsername() == null) {
+                continue;
+            }
+            String authorUsername = question.getAuthor().getUsername().toLowerCase();
+            if (keyword.isBlank() || authorUsername.contains(keyword)) {
+                matchingQuestions.add(question);
+            }
+        }
+        return filterQuestion(matchingQuestions, qtype, null, diff, null, null);
     }
 
     /**

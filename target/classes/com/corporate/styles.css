@@ -520,3 +520,139 @@
     -fx-text-fill: white;
     -fx-font-size: 15px;
 }
+
+/* Search screen */
+.search-page {
+    -fx-background-color: #e7e7e7;
+}
+
+.search-header-bar {
+    -fx-background-color: #4f060d;
+}
+
+.search-header-logo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+}
+
+.search-brand-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+}
+
+.search-header-field {
+    -fx-background-color: #efefef;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+}
+
+.search-header-button {
+    -fx-background-color: transparent;
+}
+
+.search-content {
+    -fx-background-color: #e7e7e7;
+}
+
+.search-title {
+    -fx-fill: black;
+}
+
+.search-filter-toggle {
+    -fx-background-color: #8f8a8a;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.search-filter-box {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #d4d4d4;
+    -fx-border-radius: 10;
+}
+
+.search-main-search-box {
+    -fx-background-color: transparent;
+}
+
+.search-main-field {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-font-size: 16px;
+    -fx-padding: 0 50 0 14;
+}
+
+.search-main-search-button {
+    -fx-background-color: transparent;
+}
+
+.search-results-scroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.search-results-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.search-results-list {
+    -fx-background-color: transparent;
+    -fx-padding: 2 0 10 0;
+}
+
+.search-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 12 18 12 18;
+}
+
+.search-card-icon-box {
+    -fx-background-color: #f6df84;
+    -fx-background-radius: 8;
+}
+
+.search-card-icon-label {
+    -fx-text-fill: #8a1515;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.search-card-title {
+    -fx-text-fill: #8a1515;
+    -fx-font-size: 17px;
+}
+
+.search-card-description {
+    -fx-text-fill: #2b2b2b;
+    -fx-font-size: 14px;
+}
+
+.search-card-tag-label {
+    -fx-text-fill: #7a7a7a;
+    -fx-font-size: 12px;
+}
+
+.search-card-tag-pill {
+    -fx-background-color: #ececec;
+    -fx-background-radius: 6;
+    -fx-padding: 2 8 2 8;
+    -fx-text-fill: #5e5e5e;
+    -fx-font-size: 11px;
+}
+
+.search-card-button {
+    -fx-background-color: #8a1515;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+
+.search-empty-label {
+    -fx-text-fill: #5f5f5f;
+    -fx-font-size: 15px;
+    -fx-padding: 8 4 8 4;
+}
