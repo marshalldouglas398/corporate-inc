@@ -10,46 +10,46 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="900" prefWidth="2018.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.DashEController">
+<BorderPane prefHeight="900" prefWidth="2018.0" styleClass="dashboard-page" stylesheets="@dasheditorstyles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.DashEController">
    <top>
-      <AnchorPane prefHeight="161.0" prefWidth="1586.0" styleClass="dashboard-header" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="161.0" prefWidth="1586.0" styleClass="header" stylesheets="@dasheditorstyles.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btn_logout" layoutX="1348.0" layoutY="42.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="60.0" prefWidth="65.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Label layoutX="87.0" layoutY="43.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="brand-title" stylesheets="@dasheditorstyles.css" text="Corporate Code" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="stg_btn" layoutX="1835.0" layoutY="43.0" mnemonicParsing="false" onAction="#goToSettings" pickOnBounds="false" prefHeight="98.0" prefWidth="115.0" styleClass="header-button" stylesheets="@dasheditorstyles.css">
                <graphic>
-                  <ImageView fitHeight="49.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="69.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                     <image>
+                        <Image url="@images/Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btn_logout" layoutX="1708.0" layoutY="36.0" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="102.0" prefWidth="108.0" styleClass="header-button" stylesheets="@dasheditorstyles.css">
+               <graphic>
+                  <ImageView fitHeight="76.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                      <image>
                         <Image url="@images/Log%20out.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Label layoutX="87.0" layoutY="43.0" pickOnBounds="false" prefHeight="88.0" prefWidth="529.0" styleClass="dashboard-brand-title" stylesheets="@styles.css" text="Corporate Code" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="h_btn" layoutX="1176.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="61.0" prefWidth="59.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="btn_search" layoutX="1583.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="91.0" prefWidth="97.0" styleClass="header-button" stylesheets="@dasheditorstyles.css">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="66.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" styleClass="header-button">
                      <image>
-                        <Image url="@images/Home.png" />
+                        <Image url="@images/search_btn.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="stg_btn" layoutX="1422.0" layoutY="37.0" mnemonicParsing="false" onAction="#goToSettings" pickOnBounds="false" prefHeight="73.0" prefWidth="76.0" styleClass="dashboard-header-button" stylesheets="@styles.css">
+            <Button fx:id="h_btn" layoutX="1443.0" layoutY="41.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="95.0" prefWidth="101.0" styleClass="header-button" stylesheets="@dasheditorstyles.css">
                <graphic>
-                  <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="73.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/Settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="btn_search" layoutX="1285.0" layoutY="57.0" mnemonicParsing="false" onAction="#goToSearch">
-               <graphic>
-                  <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/search_btn.png" />
+                        <Image url="@images/Home.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -62,106 +62,106 @@
          <children>
             <AnchorPane prefHeight="130.0" prefWidth="980.0">
                <children>
-                  <Text fx:id="welcomeMessage" layoutX="148.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-header" text="Welcome, user!">
+                  <Text fx:id="welcomeMessage" layoutX="148.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-text" text="Welcome, user!">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="157.0" layoutY="217.0" maxWidth="685.0" prefHeight="420.0" prefWidth="685.0" styleClass="dashboard-student-challenge-box">
+            <AnchorPane layoutX="157.0" layoutY="217.0" maxWidth="685.0" prefHeight="420.0" prefWidth="685.0" styleClass="management-box" stylesheets="@dasheditorstyles.css">
                <children>
-                  <Text fill="#fff8f8" layoutX="31.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-challenge-header" text="Manage Questions:">
+                  <Text fill="#fff8f8" layoutX="31.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="management-header" text="Manage Questions:">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
                   <Line endX="472.66668701171875" fill="WHITE" layoutX="145.0" layoutY="62.0" startX="-114.0" startY="-5.96484375" stroke="WHITE" />
-                  <Button fx:id="qtns_m_btn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="97.0" prefWidth="571.0" text="Button" />
-                  <Button fx:id="edi_sl_btn" layoutX="35.0" layoutY="223.0" mnemonicParsing="false" onAction="#addEditorSolution" prefHeight="98.0" prefWidth="577.0" text="Button" />
+                  <Button fx:id="qtns_m_btn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="97.0" prefWidth="571.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="View Questions Created" />
+                  <Button fx:id="edi_sl_btn" layoutX="35.0" layoutY="223.0" mnemonicParsing="false" onAction="#addEditorSolution" prefHeight="98.0" prefWidth="577.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="Add Editor Solution" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="595.0" layoutY="575.0" prefHeight="0.0" prefWidth="412.0" />
-            <AnchorPane layoutX="1031.0" layoutY="526.0" prefHeight="284.0" prefWidth="549.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+            <AnchorPane layoutX="1031.0" layoutY="526.0" prefHeight="409.0" prefWidth="549.0" styleClass="sections-background" stylesheets="@styles.css">
                <children>
-                  <Text layoutX="6.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Recent Activity">
+                  <Text layoutX="6.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="Recent Activity">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
                   <Line endX="360.0" layoutX="143.0" layoutY="62.0" startX="-135.66668701171875" />
-                  <Text fx:id="rct_1_title" layoutX="49.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="rct_1_title" layoutX="49.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_2_title" layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-text" text="Question Title">
+                  <Text fx:id="rct_2_title" layoutX="49.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-text" text="Question Title">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_1_type" layoutX="49.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="rct_1_type" layoutX="49.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                   <Line endX="369.0" layoutX="136.0" layoutY="165.0" startX="-135.66668701171875" />
-                  <Text fx:id="rct_1_diff" layoutX="155.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="rct_1_diff" layoutX="155.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_2_diff" layoutX="155.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Difficulty">
+                  <Text fx:id="rct_2_diff" layoutX="155.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Difficulty">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rct_2_type" layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="QType">
+                  <Text fx:id="rct_2_type" layoutX="52.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="QType">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="158.0" layoutY="708.0" prefHeight="231.0" prefWidth="249.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+            <AnchorPane layoutX="158.0" layoutY="708.0" prefHeight="231.0" prefWidth="249.0" styleClass="sections-background" stylesheets="@dasheditorstyles.css">
                <children>
-                  <Text layoutX="63.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Created">
+                  <Text layoutX="63.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Created">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="num_q_text" layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="# questions">
+                  <Text fx:id="num_q_text" layoutX="53.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="# questions">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="427.0" layoutY="709.0" prefHeight="225.0" prefWidth="276.0" styleClass="dashboard-sections-background" stylesheets="@styles.css">
+            <AnchorPane layoutX="427.0" layoutY="709.0" prefHeight="225.0" prefWidth="276.0" styleClass="sections-background" stylesheets="@dasheditorstyles.css">
                <children>
-                  <Text layoutX="62.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="Average Rating">
+                  <Text layoutX="62.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Average Rating">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="avg_rate_txt" layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-labels" text="rating">
+                  <Text fx:id="avg_rate_txt" layoutX="110.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="rating">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <Text fx:id="date_text" layoutX="150.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
+            <Text fx:id="date_text" layoutX="150.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="Insert Date Logic Here" wrappingWidth="439.01666259765625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="195.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-date" text="Account Summary" wrappingWidth="352.01666259765625">
+            <Text layoutX="195.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date" text="Account Summary" wrappingWidth="352.01666259765625">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button fx:id="add_q_btn" layoutX="1048.0" layoutY="246.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="213.0" prefWidth="514.0" styleClass="dashboard-start-button" stylesheets="@styles.css" text="Add Question" />
+            <Button fx:id="add_q_btn" layoutX="1048.0" layoutY="246.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="213.0" prefWidth="514.0" styleClass="add-question-button" stylesheets="@dasheditorstyles.css" text="Add Question" />
          </children>
       </AnchorPane>
    </right>

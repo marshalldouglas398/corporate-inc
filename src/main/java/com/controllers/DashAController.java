@@ -103,7 +103,7 @@ public class DashAController {
         Parent root = loader.load();
         SearchController controller = loader.getController();
         controller.setUser(currentUser);
-        //controller.setInterviewApplication(app);
+        controller.setInterviewApplication(app);
         App.setRoot(root);
     }
 

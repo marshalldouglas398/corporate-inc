@@ -118,9 +118,10 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <Pane prefHeight="242.0" prefWidth="90.0" />
+                        <Pane prefHeight="237.0" prefWidth="90.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <AnchorPane prefHeight="98.0" prefWidth="302.0">
                               <AnchorPane prefHeight="86.0" prefWidth="302.0">
                                  <children>
                                     <Button fx:id="btn_add_question" layoutY="12.0" mnemonicParsing="false" onAction="#goToCreateQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Add Question" />
@@ -131,8 +132,10 @@
                                     <Button fx:id="btn_manage_users" layoutY="16.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="37.0" prefWidth="302.0" text="Manage Users" />
                                  </children>
                               </AnchorPane>
+                              <AnchorPane prefHeight="124.0" prefWidth="302.0">
                               <AnchorPane prefHeight="70.0" prefWidth="302.0">
                                  <children>
+                                    <Button fx:id="btn_manage_users" layoutY="52.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="82.0" prefWidth="302.0" styleClass="button-add-manage" text="Manage Users" />
                                     <Button fx:id="btn_manage_upgrade_requests" layoutY="16.0" mnemonicParsing="false" onAction="#goToUpgradeRequests" prefHeight="37.0" prefWidth="302.0" text="Editor Upgrade Requests" />
                                  </children>
                               </AnchorPane>
@@ -140,25 +143,24 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Pane maxHeight="100.0" prefHeight="24.0" prefWidth="986.0" />
+                  <Pane maxHeight="100.0" prefHeight="29.0" prefWidth="986.0" />
                   <HBox alignment="CENTER" prefHeight="135.0" prefWidth="980.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="50.0" />
-                        <VBox prefHeight="175.0" prefWidth="356.0" styleClass="dashboard-sections-background">
+                        <VBox prefHeight="175.0" prefWidth="356.0">
                            <children>
                               <AnchorPane prefHeight="34.0" prefWidth="356.0">
                                  <children>
-                                    <Text layoutX="6.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-title" text="Account Summary" wrappingWidth="234.4166259765625">
+                                    <Text layoutX="28.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-title" text="Account Summary" wrappingWidth="234.4166259765625">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </AnchorPane>
-                              <Line endX="163.86663818359375" endY="1.52587890625E-5" startX="-126.86666870117188" startY="1.52587890625E-5" stroke="#b19090" />
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="370.0">
                                  <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <AnchorPane prefHeight="113.0" prefWidth="146.0" styleClass="dashboard-sections-background">
                                        <children>
                                           <Text layoutX="43.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created">
                                              <font>
@@ -172,7 +174,8 @@
                                           </Text>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+                                    <Pane prefHeight="113.0" prefWidth="29.0" />
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="113.0" prefWidth="201.0" styleClass="dashboard-sections-background">
                                        <children>
                                           <Text layoutX="22.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current User Count">
                                              <font>

@@ -68,7 +68,7 @@
 
 .create-account-title {
     -fx-text-fill: #73000A;
-    -fx-font-size: 40px;
+    -fx-font-size: 30px;
     -fx-font-weight: 800;
 }
 
@@ -94,6 +94,10 @@
     -fx-font-weight: 700;
     -fx-background-radius: 4;
     -fx-padding: 10 16 10 16;
+}
+
+.back-btn {
+    -fx-background-color: #73000A;
 }
 
 .input-headers {

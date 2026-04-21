@@ -72,9 +72,9 @@ public class SettingsController {
     }
     public void setUser(User user) {
         this.currentUser = user;
-        if(user instanceof Student) {
+        if(currentUser.getRole().equals("Student")) {
             this.student = (Student) user;
-        } else if(user instanceof Editor) {
+        } else if(currentUser.getRole().equals("Editor")) {
             this.editor = (Editor) user;
             crs_btn.setVisible(false);
             mjr_btn.setVisible(false);
@@ -82,7 +82,7 @@ public class SettingsController {
             mjr_txt.setVisible(false);
             ed_btn.setVisible(false);
             act_txt.setVisible(false);
-        } else if(user instanceof Admin) {
+        } else if(currentUser.getRole().equals("Admin")) {
             this.admin = (Admin) user;
             crs_btn.setVisible(false);
             mjr_btn.setVisible(false);
