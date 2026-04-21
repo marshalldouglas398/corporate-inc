@@ -30,8 +30,10 @@
 .action-button {
     -fx-background-color: #73000A;
     -fx-text-fill: white;
-     -fx-font-family: "News Cycle";
+    -fx-font-family: "News Cycle";
     -fx-font-size: 20px;
+    -fx-background-radius: 4;
+    -fx-padding: 8 14 8 14;
 }
 .sections-labels {
     -fx-font-size: 20px;
@@ -41,4 +43,9 @@
     -fx-font-size: 32px;
     -fx-font-family: "News Cycle";
     -fx-fill: #73000A;
+}
+
+.question-content-text {
+    -fx-font-size: 20px;
+    -fx-font-family: "News Cycle";
 }

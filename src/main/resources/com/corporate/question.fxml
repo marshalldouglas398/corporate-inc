@@ -92,7 +92,7 @@
                               <Label fx:id="questionRatingLabel" text="-" />
                            </children>
                         </HBox>
-                        <Label fx:id="q_desc_label" text="" wrapText="true" />
+                        <Label fx:id="q_desc_label" styleClass="question-content-text" stylesheets="@questionstyles.css" text="" wrapText="true" />
                         <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Examples" />
                         <VBox fx:id="examplesContainer" spacing="10.0">
                            <children>

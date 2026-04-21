@@ -570,6 +570,7 @@ public class QuestionController {
         Label header = new Label(authorName + "  " + formatCommentTags(comment.getTags()) + "  Rating " + formatSimpleRating(comment.getRating()));
         Label body = new Label(safe(comment.getComment()));
         body.setWrapText(true);
+        body.getStyleClass().add("question-content-text");
         box.getChildren().addAll(header, body);
 
         if (comment.getSections() != null) {
@@ -580,12 +581,14 @@ public class QuestionController {
                 }
                 Label sectionLabel = new Label(text);
                 sectionLabel.setWrapText(true);
+                sectionLabel.getStyleClass().add("question-content-text");
                 box.getChildren().add(sectionLabel);
             }
         }
 
         HBox actions = new HBox(8);
         Button replyButton = new Button("Reply");
+        replyButton.getStyleClass().add("action-button");
         replyButton.setDisable(!isEditable());
         replyButton.setOnAction(e -> {
             replyingTo = comment;
@@ -593,6 +596,7 @@ public class QuestionController {
             replyingToLabel.setVisible(true);
         });
         Button rateButton = new Button("Rate");
+        rateButton.getStyleClass().add("action-button");
         rateButton.setDisable(!isEditable());
         rateButton.setOnAction(e -> rateComment(comment));
         actions.getChildren().addAll(replyButton, rateButton);
