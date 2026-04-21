@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="760.0" prefWidth="1200.0" styleClass="edit-question-page" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.EditQuestionController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="78.0" spacing="12.0" styleClass="edit-question-header" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="14.0" left="20.0" right="20.0" top="14.0" />
+         </padding>
+         <children>
+            <Label styleClass="edit-question-brand-title" text="Corporate Code" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btn_home" mnemonicParsing="false" onAction="#goToDashboard" styleClass="edit-question-header-button" text="Home" />
+            <Button fx:id="btn_search" mnemonicParsing="false" onAction="#goToSearch" styleClass="edit-question-header-button" text="Search" />
+            <Button fx:id="btn_settings" mnemonicParsing="false" onAction="#goToSettings" styleClass="edit-question-header-button" text="Settings" />
+            <Button fx:id="btn_logout" mnemonicParsing="false" onAction="#logout" styleClass="edit-question-header-button" text="Logout" />
+            <Button fx:id="btn_back" mnemonicParsing="false" onAction="#back" styleClass="edit-question-header-button" text="Back" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="edit-question-scroll" BorderPane.alignment="CENTER">
+         <content>
+            <VBox spacing="14.0" styleClass="edit-question-content">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <Label styleClass="edit-question-title" text="Edit Question" />
+                  <VBox spacing="10.0" styleClass="edit-question-card">
+                     <padding>
+                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="edit-question-label" text="Question Metadata" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Title" />
+                                    <TextField fx:id="questionTitleField" promptText="Enter question title" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="230.0" spacing="6.0">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Difficulty" />
+                                    <ComboBox fx:id="questionDifficultyField" promptText="Select difficulty" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Question Type" />
+                                    <ComboBox fx:id="questionTypeField" promptText="Select type" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Tags" />
+                                    <TextField fx:id="questionTagsField" promptText="Comma-separated QuestionTag values" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Discipline" />
+                                    <ComboBox fx:id="questionDisciplinesField" promptText="Select discipline" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Course" />
+                                    <ComboBox fx:id="questionCoursesField" promptText="Select course" styleClass="edit-question-input" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" styleClass="edit-question-card">
+                     <padding>
+                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="edit-question-label" text="Problem Statement" />
+                        <TextArea fx:id="questionDescriptionArea" prefHeight="170.0" promptText="Describe the question prompt and constraints..." styleClass="edit-question-textarea" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0" styleClass="edit-question-card">
+                     <padding>
+                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="edit-question-label" text="Interview Settings" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="interviewModeCheckBox" mnemonicParsing="false" styleClass="edit-question-check-box" text="Interview Mode" />
+                              <Label styleClass="edit-question-label" text="Time Limit (minutes)" />
+                              <TextField fx:id="interviewTimeField" prefWidth="180.0" promptText="e.g. 45" styleClass="edit-question-input" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0" styleClass="edit-question-card">
+                     <padding>
+                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="edit-question-label" text="Hints" />
+                        <TextField fx:id="questionHintOneField" promptText="Hint 1" styleClass="edit-question-input" />
+                        <TextField fx:id="questionHintTwoField" promptText="Hint 2" styleClass="edit-question-input" />
+                        <TextField fx:id="questionHintThreeField" promptText="Hint 3" styleClass="edit-question-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0" styleClass="edit-question-card">
+                     <padding>
+                        <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label styleClass="edit-question-label" text="Sections" />
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="addSectionButton" mnemonicParsing="false" onAction="#addSection" styleClass="edit-question-button" text="+ Add Section" />
+                           </children>
+                        </HBox>
+                        <Label styleClass="edit-question-note" text="Edit existing sections below. Add Section inserts a new section card." wrapText="true" />
+                        <VBox fx:id="sectionsContainer" spacing="12.0">
+                           <children>
+                              <VBox spacing="8.0" styleClass="edit-question-inner-card">
+                                 <padding>
+                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                 </padding>
+                                 <children>
+                                    <Label styleClass="edit-question-label" text="Section" />
+                                    <TextField fx:id="sectionOneTitleField" promptText="Section title" styleClass="edit-question-input" />
+                                    <TextArea fx:id="sectionOneDescriptionArea" prefHeight="100.0" promptText="Section description" styleClass="edit-question-textarea" wrapText="true" />
+                                    <TextField fx:id="sectionOneFileField" promptText="Attached file name/path (optional)" styleClass="edit-question-input" />
+                                    <TextArea fx:id="sectionOneCodeArea" prefHeight="120.0" promptText="Code/content for this section" styleClass="edit-question-textarea" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelEdit" styleClass="edit-question-button-secondary" text="Cancel" />
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveChanges" styleClass="edit-question-button" text="Save Changes" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <stylesheets>
+      <URL value="@editquestionstyles.css" />
+   </stylesheets>
+</BorderPane>
