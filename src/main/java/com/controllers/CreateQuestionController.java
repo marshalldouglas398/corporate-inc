@@ -198,7 +198,13 @@ public class CreateQuestionController {
             }
         }
         current.setInterviewMode(interviewMode, Integer.parseInt(timeLimit));
+        if(editor != null) {
+            editor.addQuestion(current);
+        } else if(admin != null) {
+            admin.addQuestion(current);
+        }
         app.saveQuestions();
+        app.saveUsers();
     }
     private <T extends Enum<T>> T safeEnum(Class<T> enumClass, String value) {
         try {

@@ -79,6 +79,8 @@ public class DashEController {
 
     private Editor currentUser;
     private InterviewApplication app;
+    private Question r1;
+    private Question r2;
 
     public void setInterviewApplication(InterviewApplication app) {
         this.app = app;
@@ -98,16 +100,25 @@ public class DashEController {
         } else {
             avg_rate_txt.setText("None");
         }
-         int recent = currentUser.getQuestionsMade().size() - 1;
+        int recent = currentUser.getQuestionsMade().size();
         if(recent == 1) {
             QuestionList ql = QuestionList.getInstance();
-            Question q = ql.getQuestion(currentUser.getQuestionsMade().get(recent));
+            Object raw = currentUser.getQuestionsMade().get(recent - 1);
+            UUID id = null;
+            if (raw instanceof UUID) {
+                id = (UUID) raw;
+            } else if (raw instanceof String) {
+                id = UUID.fromString((String) raw);
+            } 
+            Question q = ql.getQuestion(id);
+            r1 = q;
             rct_1_title.setText(q.getTitle());
             String type = q.getType().toString();
             String noenumtype = type.substring(type.indexOf('.') + 1);
             rct_1_type.setText(noenumtype);
             String diff = q.getDifficulty().toString();
             String noenumdiff = diff.substring(diff.indexOf('.') + 1);
+            rct_1_diff.setText(noenumdiff);
             if(noenumdiff.equals("EASY")) {
                 diff_rect_1.setStyle("-fx-fill: #AFFFAF");
                 rct_1_diff.setStyle("-fx-fill: #487D48");
@@ -118,21 +129,39 @@ public class DashEController {
                 diff_rect_1.setStyle("-fx-fill: #FF000066");
                 rct_1_diff.setStyle("-fx-fill: #B41D2C");
             }
-            rct_1_diff.setText(noenumdiff);
+            r2 = null;
             rct_2_title.setVisible(false);
             rct_2_type.setVisible(false);
             rct_2_diff.setVisible(false);
             diff_rect_2.setVisible(false);
+
         } else if(recent > 1) {
             QuestionList ql = QuestionList.getInstance();
-            Question q = ql.getQuestion(currentUser.getQuestionsMade().get(recent));
-            Question q2 = ql.getQuestion(currentUser.getQuestionsMade().get(recent - 1));
+            Object raw = currentUser.getQuestionsMade().get(recent - 1);
+            UUID id = null;
+            if (raw instanceof UUID) {
+                id = (UUID) raw;
+            } else if (raw instanceof String) {
+                id = UUID.fromString((String) raw);
+            } 
+            Question q = ql.getQuestion(id);
+            r1 = q;
+            Object raw2 = currentUser.getQuestionsMade().get(recent - 2);
+            UUID id2 = null;
+            if (raw2 instanceof UUID) {
+                id2 = (UUID) raw;
+            } else if (raw instanceof String) {
+                id2 = UUID.fromString((String) raw);
+            } 
+            Question q2 = ql.getQuestion(id);
+            r2 = q2;
             rct_1_title.setText(q.getTitle());
             String type = q.getType().toString();
             String noenumtype = type.substring(type.indexOf('.') + 1);
             rct_1_type.setText(noenumtype);
             String diff = q.getDifficulty().toString();
             String noenumdiff = diff.substring(diff.indexOf('.') + 1);
+            rct_1_diff.setText(noenumdiff);
             if(noenumdiff.equals("EASY")) {
                 diff_rect_1.setStyle("-fx-fill: #AFFFAF");
                 rct_1_diff.setStyle("-fx-fill: #487D48");
@@ -143,7 +172,6 @@ public class DashEController {
                 diff_rect_1.setStyle("-fx-fill: #FF000066");
                 rct_1_diff.setStyle("-fx-fill: #B41D2C");
             }
-            rct_1_diff.setText(noenumdiff);
             rct_2_title.setText(q2.getTitle());
             String type2 = q2.getType().toString();
             String noenumtype2 = type2.substring(type2.indexOf('.') + 1);
@@ -161,11 +189,13 @@ public class DashEController {
                 rct_2_diff.setStyle("-fx-fill: #B41D2C");
             }
             rct_2_diff.setText(noenumdiff2);
-        } else if(recent == 0) {
+        } else if(recent == 0 || recent < 0) {
+            r1 = null;
             rct_1_title.setVisible(false);
             rct_1_type.setVisible(false);
             rct_1_diff.setVisible(false);
             diff_rect_1.setVisible(false);
+            r2 = null;
             rct_2_title.setVisible(false);
             rct_2_type.setVisible(false);
             rct_2_diff.setVisible(false);

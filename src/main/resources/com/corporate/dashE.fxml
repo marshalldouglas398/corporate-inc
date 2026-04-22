@@ -118,8 +118,8 @@
                            </font>
                         </Text>
                         <Line endX="369.0" layoutX="136.0" layoutY="165.0" startX="-135.66668701171875" />
-                        <Rectangle fx:id="diff_rect_1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="165.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
-                        <Text fx:id="rct_1_diff" layoutX="170.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Difficulty">
+                        <Rectangle fx:id="diff_rect_1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="184.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
+                        <Text fx:id="rct_1_diff" layoutX="191.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Difficulty">
                            <font>
                               <Font size="18.0" />
                            </font>

@@ -80,4 +80,15 @@ public class Admin extends User {
         UserList userList = UserList.getInstance();
         return userList.getUsers();
     }
+     /**
+     * Adds a question to the list of questions made by the editor and the database
+     * @param newQuestion The question to add to the list of questions made by the editor
+     */
+    public void addQuestion(Question newQuestion) {
+        UUID questionID = newQuestion.getId();
+        this.questionsMade.add(questionID);
+        QuestionList questionList = QuestionList.getInstance();
+        questionList.getQuestions().add(newQuestion);
+        questionList.save();
+    }
 }
