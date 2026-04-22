@@ -29,6 +29,11 @@
     -fx-background-radius: 4;
     -fx-padding: 10 16 10 16;
 }
+
+.welcome-message {
+    -fx-font-weight: bold;
+}
+
 .dashboard-date {
     -fx-fill: black;
     -fx-font-size: 36px;
@@ -114,7 +119,7 @@
     -fx-fill: #A9A9A9;
 }
 .dashboard-brand-title {
-    -fx-font-size: 60px;
+    -fx-font-size: 35px;
     -fx-font-family: "News Cycle";
     -fx-fill: white;
 }

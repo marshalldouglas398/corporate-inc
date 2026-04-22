@@ -74,15 +74,15 @@
                   <Pane maxHeight="100.0" prefHeight="42.0" prefWidth="986.0" />
                   <HBox maxHeight="100.0" prefHeight="82.0" prefWidth="986.0">
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="400.0" />
-                        <VBox maxHeight="200.0">
+                        <Pane prefHeight="82.0" prefWidth="366.0" />
+                        <VBox maxHeight="200.0" prefHeight="82.0" prefWidth="728.0">
                            <children>
-                              <Text fx:id="welcomeMessage" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, user!" wrappingWidth="272.507080078125">
+                              <Text fx:id="welcomeMessage" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome-message" text="Welcome, user!" wrappingWidth="626.1070556640625">
                                  <font>
                                     <Font size="35.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="text_dash_date" strokeType="OUTSIDE" strokeWidth="0.0" text="[insert date logic]" wrappingWidth="272.507080078125">
+                              <Text fx:id="text_dash_date" strokeType="OUTSIDE" strokeWidth="0.0" text="[insert date logic]" wrappingWidth="593.3070068359375">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -110,7 +110,7 @@
                               </AnchorPane>
                               <AnchorPane layoutX="36.0" layoutY="139.0" prefHeight="50.0" prefWidth="301.0">
                                  <children>
-                                    <Button fx:id="btn_flagged_questions" layoutY="6.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="Flagged Question Review" />
+                                    <Button fx:id="btn_flagged_questions" layoutY="6.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="View Questions Created" />
                                  </children>
                               </AnchorPane>
                            </children>
