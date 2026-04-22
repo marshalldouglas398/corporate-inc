@@ -88,6 +88,7 @@
                            <children>
                               <Label styleClass="sections-labels" stylesheets="@questionstyles.css" text="Problem Description" />
                               <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="edit_question_btn" managed="false" mnemonicParsing="false" onAction="#editCurrentQuestion" styleClass="action-button" stylesheets="@questionstyles.css" text="Edit" visible="false" />
                               <Button fx:id="rate_question_btn" mnemonicParsing="false" onAction="#rateQuestion" styleClass="action-button" stylesheets="@questionstyles.css" text="Rate" />
                               <Label fx:id="questionRatingLabel" text="-" />
                            </children>

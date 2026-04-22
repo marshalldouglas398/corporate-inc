@@ -123,7 +123,11 @@
                                     <Button fx:id="btn_add_question" layoutY="12.0" mnemonicParsing="false" onAction="#goToCreateQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Add Question" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="70.0" prefWidth="302.0" />
+                              <AnchorPane prefHeight="70.0" prefWidth="302.0">
+                                 <children>
+                                    <Button layoutY="6.0" mnemonicParsing="false" onAction="#goToEditQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Edit Existing Question" />
+                                 </children>
+                              </AnchorPane>
                               <AnchorPane prefHeight="124.0" prefWidth="302.0">
                                  <children>
                                     <Button fx:id="btn_manage_users" layoutY="52.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="82.0" prefWidth="302.0" styleClass="button-add-manage" text="Manage Users" />

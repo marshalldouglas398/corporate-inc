@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.corporate.App;
@@ -120,6 +121,12 @@ public class EditQuestionController {
         this.app = app;
     }
 
+    public void setQuestion(Question question) {
+        this.currentQuestion = question;
+        this.currentSectionIndex = 0;
+        reloadCurrentQuestion();
+    }
+
     @FXML
     private void initialize() {
         questionTypeField.getItems().setAll(enumNames(QuestionType.values()));
@@ -138,6 +145,7 @@ public class EditQuestionController {
         } else if (user instanceof Editor) {
             this.editor = (Editor) user;
         }
+        applyEditingState();
     }
 
     @FXML
@@ -159,6 +167,10 @@ public class EditQuestionController {
     private void saveChanges(ActionEvent event) throws IOException {
         if (currentQuestion == null) {
             showInfo("No question available to save.");
+            return;
+        }
+        if (!canCurrentUserEdit()) {
+            showInfo("Only the author of this question can edit it.");
             return;
         }
 
@@ -222,6 +234,10 @@ public class EditQuestionController {
         if (currentQuestion == null) {
             return;
         }
+        if (!canCurrentUserEdit()) {
+            showInfo("Only the author of this question can edit it.");
+            return;
+        }
         upsertVisibleSection();
         currentQuestion.getSections().add(new Section());
         currentSectionIndex = currentQuestion.getSections().size() - 1;
@@ -278,11 +294,16 @@ public class EditQuestionController {
     }
 
     private void loadFirstQuestion() {
+        if (currentQuestion != null) {
+            reloadCurrentQuestion();
+            return;
+        }
         List<Question> questions = QuestionList.getInstance().getQuestions();
         if (questions == null || questions.isEmpty()) {
             currentQuestion = null;
             clearForm();
             sectionStatusLabel.setText("No questions available.");
+            applyEditingState();
             return;
         }
         currentQuestion = questions.get(0);
@@ -294,6 +315,7 @@ public class EditQuestionController {
         if (currentQuestion == null) {
             clearForm();
             sectionStatusLabel.setText("No question loaded.");
+            applyEditingState();
             return;
         }
 
@@ -326,6 +348,7 @@ public class EditQuestionController {
             currentSectionIndex = currentQuestion.getSections().size() - 1;
         }
         loadSectionIntoForm();
+        applyEditingState();
     }
 
     private void upsertVisibleSection() {
@@ -444,5 +467,44 @@ public class EditQuestionController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private void applyEditingState() {
+        boolean canEdit = canCurrentUserEdit();
+        questionTitleField.setDisable(!canEdit);
+        questionDescriptionArea.setDisable(!canEdit);
+        questionTypeField.setDisable(!canEdit);
+        questionDifficultyField.setDisable(!canEdit);
+        questionDisciplinesField.setDisable(!canEdit);
+        questionCoursesField.setDisable(!canEdit);
+        questionTagsField.setDisable(!canEdit);
+        interviewModeCheckBox.setDisable(!canEdit);
+        interviewTimeField.setDisable(!canEdit);
+        questionHintOneField.setDisable(!canEdit);
+        questionHintTwoField.setDisable(!canEdit);
+        questionHintThreeField.setDisable(!canEdit);
+        sectionOneTitleField.setDisable(!canEdit);
+        sectionOneDescriptionArea.setDisable(!canEdit);
+        sectionOneFileField.setDisable(!canEdit);
+        sectionOneCodeArea.setDisable(!canEdit);
+        cancelButton.setDisable(!canEdit);
+        if (saveButton != null) {
+            saveButton.setDisable(!canEdit);
+        }
+        if (addSectionButton != null) {
+            addSectionButton.setDisable(!canEdit);
+        }
+        if (sectionStatusLabel != null && currentQuestion != null && !canEdit) {
+            sectionStatusLabel.setText("Read-only: only the question author can edit this question.");
+        }
+    }
+
+    private boolean canCurrentUserEdit() {
+        if (currentUser == null || currentQuestion == null || currentQuestion.getAuthor() == null) {
+            return false;
+        }
+        UUID currentUserId = currentUser.getID();
+        UUID authorId = currentQuestion.getAuthor().getID();
+        return currentUserId != null && currentUserId.equals(authorId);
     }
 }

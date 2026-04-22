@@ -72,6 +72,9 @@ public class QuestionController {
     private Button rate_com_btn;
 
     @FXML
+    private Button edit_question_btn;
+
+    @FXML
     private Label questionTitleLabel;
 
     @FXML
@@ -210,6 +213,20 @@ public class QuestionController {
             controller.setUser(currentUser);
             controller.setInterviewApplication(app);
         }
+        App.setRoot(root);
+    }
+
+    @FXML
+    private void editCurrentQuestion(ActionEvent event) throws IOException {
+        if (!canEditCurrentQuestion()) {
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editQuestion.fxml"));
+        Parent root = loader.load();
+        EditQuestionController controller = loader.getController();
+        controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
+        controller.setQuestion(currentQuestion);
         App.setRoot(root);
     }
 
@@ -450,6 +467,7 @@ public class QuestionController {
             hintsCard.setManaged(false);
             commentsContainer.getChildren().setAll(new Label("No comments yet."));
             setEditableState(false);
+            setQuestionEditState(false);
             return;
         }
 
@@ -464,6 +482,7 @@ public class QuestionController {
         refreshComments();
         rebuildDraftViews();
         setEditableState(isEditable());
+        setQuestionEditState(canEditCurrentQuestion());
     }
 
     private void refreshExamples() {
@@ -656,6 +675,21 @@ public class QuestionController {
 
     private boolean isEditable() {
         return currentUser != null;
+    }
+
+    private boolean canEditCurrentQuestion() {
+        if (currentUser == null || currentQuestion == null || currentQuestion.getAuthor() == null) {
+            return false;
+        }
+        return currentUser.getID().equals(currentQuestion.getAuthor().getID());
+    }
+
+    private void setQuestionEditState(boolean canEditQuestion) {
+        if (edit_question_btn == null) {
+            return;
+        }
+        edit_question_btn.setVisible(canEditQuestion);
+        edit_question_btn.setManaged(canEditQuestion);
     }
 
     private String formatQuestionTags(List<QuestionTag> tags) {

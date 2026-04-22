@@ -192,6 +192,7 @@
                      </font>
                   </Text>
                   <Button fx:id="add_q_btn" layoutX="1048.0" layoutY="246.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="213.0" prefWidth="514.0" styleClass="add-question-button" stylesheets="@dasheditorstyles.css" text="Add Question" />
+                  <Button layoutX="1048.0" layoutY="474.0" mnemonicParsing="false" onAction="#goToEditQuestion" prefHeight="100.0" prefWidth="514.0" styleClass="button-management" stylesheets="@dasheditorstyles.css" text="Edit Existing Question" />
                </children>
             </AnchorPane>
          </right>

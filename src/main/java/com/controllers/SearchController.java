@@ -187,6 +187,25 @@ public class SearchController {
         }
     }
 
+    @FXML
+    private void editQuestion(ActionEvent event) {
+        try {
+            Question question = getQuestionFromEvent(event);
+            if (!canEditQuestion(question)) {
+                return;
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editQuestion.fxml"));
+            Parent root = loader.load();
+            EditQuestionController controller = loader.getController();
+            controller.setUser(currentUser);
+            controller.setInterviewApplication(app);
+            controller.setQuestion(question);
+            App.setRoot(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private ArrayList<Question> getFilteredQuestions() {
         QuestionType type = getSelectedType();
         Difficulty difficulty = getSelectedDifficulty();
@@ -241,6 +260,13 @@ public class SearchController {
         startButton.getStyleClass().add("search-card-button");
 
         card.getChildren().addAll(avatar, info, spacer, startButton);
+        if (canEditQuestion(question)) {
+            Button editButton = new Button("Edit");
+            editButton.setUserData(question.getId().toString());
+            editButton.setOnAction(event -> editQuestion(event));
+            editButton.getStyleClass().add("search-card-button");
+            card.getChildren().add(editButton);
+        }
         return card;
     }
 
@@ -307,5 +333,12 @@ public class SearchController {
         Button button = (Button) event.getSource();
         String id = (String) button.getUserData();
         return QuestionList.getInstance().getQuestion(UUID.fromString(id));
+    }
+
+    private boolean canEditQuestion(Question question) {
+        if (question == null || currentUser == null || question.getAuthor() == null) {
+            return false;
+        }
+        return currentUser.getID().equals(question.getAuthor().getID());
     }
 }
