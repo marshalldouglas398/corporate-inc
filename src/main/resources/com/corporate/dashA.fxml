@@ -110,7 +110,7 @@
                               </AnchorPane>
                               <AnchorPane layoutX="36.0" layoutY="139.0" prefHeight="50.0" prefWidth="301.0">
                                  <children>
-                                    <Button fx:id="btn_flagged_questions" layoutY="6.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="View Questions Created" />
+                                    <Button fx:id="btn_flagged_questions" layoutY="6.0" mnemonicParsing="false" onAction="#goToAdminQ" prefHeight="37.0" prefWidth="302.0" styleClass="button-alert" text="View Questions Created" />
                                  </children>
                               </AnchorPane>
                            </children>

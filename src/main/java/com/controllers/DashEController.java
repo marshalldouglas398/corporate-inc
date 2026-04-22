@@ -255,6 +255,7 @@ public class DashEController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/editorQ.fxml"));
         Parent root = loader.load();
         EditorQController controller = loader.getController();
+        controller.setInterviewApplication(app);
         controller.setUser(currentUser);
         App.setRoot(root);
     }

@@ -135,6 +135,16 @@ public class DashAController {
     }
 
     @FXML
+    private void goToAdminQ(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/adminQ.fxml"));
+        Parent root = loader.load();
+        AdminQController controller = loader.getController();
+        controller.setUser(currentUser);
+        controller.setInterviewApplication(app);
+        App.setRoot(root);
+    }
+
+    @FXML
     private void goToManageUsers(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/manageUsers.fxml"));

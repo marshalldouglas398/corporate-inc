@@ -9,7 +9,6 @@ import java.util.UUID;
 
 import com.corporate.App;
 import com.model.Admin;
-import com.model.Editor;
 import com.model.InterviewApplication;
 import com.model.Question;
 import com.model.QuestionList;
@@ -29,7 +28,8 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
-public class EditorQController {
+public class AdminQController {
+
     @FXML
     private Button btn_home;
 
@@ -54,18 +54,29 @@ public class EditorQController {
     @FXML
     private Label emptyStateLabel;
 
-    private User currentUser;
-    private Editor editor;
-    private Admin admin;
+    private Admin currentUser;
     private InterviewApplication app;
 
     public void setInterviewApplication(InterviewApplication app) {
         this.app = app;
     }
 
+    public void setUser(User user) {
+        this.currentUser = (Admin) user;
+        if (app == null) {
+            app = new InterviewApplication();
+        }
+        displayWelcome(user.getUsername());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy", Locale.ENGLISH);
+        if (text_dash_date != null) {
+            text_dash_date.setText(LocalDate.now().format(formatter));
+        }
+        loadQuestionCards();
+    }
+
     @FXML
-    private void initialize() {
-        // grid populated after setUser is called
+    public void displayWelcome(String username) {
+        if (welcomeMessage != null) welcomeMessage.setText("Welcome, " + username + "!");
     }
 
     @FXML
@@ -75,8 +86,13 @@ public class EditorQController {
     }
 
     @FXML
-    public void displayWelcome(String username) {
-        if (welcomeMessage != null) welcomeMessage.setText("Welcome, " + username + "!");
+    private void goToDash(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/corporate/dashA.fxml"));
+        Parent root = loader.load();
+        DashAController dashA = loader.getController();
+        dashA.setUser(currentUser);
+        dashA.setInterviewApplication(app);
+        App.setRoot(root);
     }
 
     @FXML
@@ -109,56 +125,11 @@ public class EditorQController {
         App.setRoot(root);
     }
 
-    public void setUser(User user) {
-        this.currentUser = user;
-        this.editor = null;
-        this.admin = null;
-        if (user instanceof Editor) {
-            this.editor = (Editor) user;
-        } else if (user instanceof Admin) {
-            this.admin = (Admin) user;
-        }
-        if (app == null) {
-            app = new InterviewApplication();
-        }
-        displayWelcome(user.getUsername());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy", Locale.ENGLISH);
-        if (text_dash_date != null) {
-            text_dash_date.setText(LocalDate.now().format(formatter));
-        }
-        loadQuestionCards();
-    }
-
-    @FXML
-    private void goToDash(ActionEvent event) throws IOException {
-        FXMLLoader loader;
-        if (admin != null) {
-            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashA.fxml"));
-            Parent root = loader.load();
-            DashAController dashA = loader.getController();
-            dashA.setUser(currentUser);
-            dashA.setInterviewApplication(app);
-            App.setRoot(root);
-        } else if (editor != null) {
-            loader = new FXMLLoader(getClass().getResource("/com/corporate/dashE.fxml"));
-            Parent root = loader.load();
-            DashEController dashE = loader.getController();
-            dashE.setUser(currentUser);
-            dashE.setInterviewApplication(app);
-            App.setRoot(root);
-        }
-    }
-
-    @FXML
-    public void setDate(String date) {
-        if (text_dash_date != null) text_dash_date.setText(date);
-    }
-
     private void loadQuestionCards() {
         if (questionsGrid == null) return;
         questionsGrid.getChildren().clear();
 
-        ArrayList<UUID> ids = getQuestionIds();
+        ArrayList<UUID> ids = currentUser.getQuestionsMade();
         QuestionList ql = QuestionList.getInstance();
         ArrayList<Question> questions = new ArrayList<>();
         for (Object raw : ids) {
@@ -179,16 +150,9 @@ public class EditorQController {
             emptyStateLabel.setVisible(false);
             emptyStateLabel.setManaged(false);
         }
-
         for (Question q : questions) {
             questionsGrid.getChildren().add(buildCard(q));
         }
-    }
-
-    private ArrayList<UUID> getQuestionIds() {
-        if (editor != null) return editor.getQuestionsMade();
-        if (admin != null) return admin.getQuestionsMade();
-        return new ArrayList<>();
     }
 
     private VBox buildCard(Question question) {

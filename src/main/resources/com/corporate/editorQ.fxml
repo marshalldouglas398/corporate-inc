@@ -26,16 +26,18 @@
                         <Image url="@images/corporatelogo-new.png" />
                      </image>
                   </ImageView>
-               </graphic></Label>
+               </graphic>
+            </Label>
             <Region HBox.hgrow="ALWAYS" />
             <Button fx:id="btn_home" mnemonicParsing="false" onAction="#goToDash" styleClass="dashboard-header-button">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Home.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
             <Button fx:id="btn_search" mnemonicParsing="false" onAction="#goToSearch" styleClass="dashboard-header-button">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
@@ -43,23 +45,26 @@
                         <Image url="@images/search_btn.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
             <Button fx:id="btn_logout" mnemonicParsing="false" onAction="#logout" styleClass="dashboard-header-button">
                <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="33.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Log%20out.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
             <Button fx:id="btn_settings" mnemonicParsing="false" onAction="#goToSettings" styleClass="dashboard-header-button">
                <graphic>
-                  <ImageView fitHeight="41.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
+                  <ImageView fitHeight="41.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/Settings.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
          </children>
       </HBox>
    </top>
@@ -69,148 +74,24 @@
             <Insets bottom="18.0" left="20.0" right="20.0" top="18.0" />
          </padding>
          <children>
-            <Label fx:id="welcomeMessage" styleClass="dashboard-welcome-message" text="Welcome back, Editor!" />
-            <Label fx:id="text_dash_date" styleClass="dashboard-date" text="Thursday, April 2, 2026" />
+            <Label fx:id="welcomeMessage" styleClass="dashboard-welcome-message" text="Welcome back!" />
+            <Label fx:id="text_dash_date" styleClass="dashboard-date" text="" />
             <HBox alignment="CENTER_LEFT" spacing="12.0">
                <children>
                   <Label styleClass="editor-q-toolbar-label" text="Questions Made:" />
                   <Region HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" styleClass="dashboard-button-challenge" text="Add Question" />
+                  <Button mnemonicParsing="false" onAction="#addQuestion" styleClass="dashboard-button-challenge" text="Add Question" />
                </children>
             </HBox>
             <VBox styleClass="editor-q-grid-wrap" VBox.vgrow="ALWAYS">
                <children>
+                  <Label fx:id="emptyStateLabel" managed="false" styleClass="editor-q-toolbar-label" text="You haven't created any questions yet." visible="false" />
                   <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
                      <content>
-                        <TilePane alignment="TOP_CENTER" hgap="20.0" orientation="HORIZONTAL" prefColumns="3" prefTileWidth="360.0" styleClass="editor-q-tile-pane" vgap="20.0">
-                           <children>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="Two Sum" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="Binary Search Tree" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="Tree Traversal" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="Merge Intervals" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="LRU Cache" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox maxWidth="360.0" minWidth="360.0" prefWidth="360.0" spacing="10.0" styleClass="editor-q-card">
-                                 <padding>
-                                    <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
-                                 </padding>
-                                 <children>
-                                    <Label styleClass="editor-q-card-title" text="Design Hit Counter" />
-                                    <HBox alignment="CENTER_LEFT" spacing="8.0">
-                                       <children>
-                                          <Label styleClass="editor-q-card-tag" text="tag" />
-                                          <Region HBox.hgrow="ALWAYS" />
-                                          <Label styleClass="editor-q-card-rating" text="Rating: 4.5" />
-                                       </children>
-                                    </HBox>
-                                    <Label styleClass="editor-q-card-body" text="Given an array of integers and a target value, find the indices of two numbers that add up to the target." wrapText="true" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Button mnemonicParsing="false" styleClass="dashboard-start-button" text="Edit" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
+                        <TilePane fx:id="questionsGrid" alignment="TOP_LEFT" hgap="20.0" orientation="HORIZONTAL" prefColumns="3" prefTileWidth="360.0" styleClass="editor-q-tile-pane" vgap="20.0">
+                           <padding>
+                              <Insets bottom="12.0" left="4.0" right="4.0" top="12.0" />
+                           </padding>
                         </TilePane>
                      </content>
                   </ScrollPane>
