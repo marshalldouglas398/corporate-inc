@@ -149,11 +149,11 @@ public class DashEController {
             Object raw2 = currentUser.getQuestionsMade().get(recent - 2);
             UUID id2 = null;
             if (raw2 instanceof UUID) {
-                id2 = (UUID) raw;
-            } else if (raw instanceof String) {
-                id2 = UUID.fromString((String) raw);
+                id2 = (UUID) raw2;
+            } else if (raw2 instanceof String) {
+                id2 = UUID.fromString((String) raw2);
             } 
-            Question q2 = ql.getQuestion(id);
+            Question q2 = ql.getQuestion(id2);
             r2 = q2;
             rct_1_title.setText(q.getTitle());
             String type = q.getType().toString();
@@ -272,12 +272,27 @@ public class DashEController {
     private void avgQRating(ArrayList<UUID> questionsMade) {
         double totalRating = 0;
         QuestionList qList = QuestionList.getInstance();
-        for (UUID qID : questionsMade) {
-            Question currentQ = qList.getQuestion(qID);
-            totalRating += currentQ.getRating();
+        for (Object qID : questionsMade) {
+            Object raw = qID;
+             UUID id = null;
+            if (raw instanceof UUID) {
+                id = (UUID) raw;
+            } else if (raw instanceof String) {
+                id = UUID.fromString((String) raw);
+            } 
+            Question currentQ = qList.getQuestion(id);
+            Double rating = currentQ.getRating();
+            if(rating != null) {
+            totalRating += rating;
+            }
         }
+        Double totalRatingD = totalRating;
+        if(totalRatingD == null) {
         double averageRating = totalRating / questionsMade.size();
         avg_rate_txt.setText(String.format("%.2f", averageRating));
+        } else {
+        avg_rate_txt.setText("None");
+        }
     }
 
 }

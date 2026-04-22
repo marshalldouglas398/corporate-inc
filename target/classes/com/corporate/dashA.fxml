@@ -150,40 +150,55 @@
                               </AnchorPane>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="370.0">
                                  <children>
-                                    <AnchorPane prefHeight="113.0" prefWidth="146.0" styleClass="dashboard-sections-background">
+                                    <AnchorPane prefHeight="122.0" prefWidth="133.0" styleClass="dashboard-sections-background">
                                        <children>
-                                          <Text layoutX="43.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created">
+                                          <Text layoutX="61.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="text_questions_created" layoutX="32.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# questions">
+                                          <Text fx:id="text_questions_created" layoutX="50.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# questions">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
+                                    <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="22.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/checkmark.png" />
+                                       </image>
+                                    </ImageView>
                                        </children>
                                     </AnchorPane>
                                     <Pane prefHeight="113.0" prefWidth="29.0" />
-                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="113.0" prefWidth="201.0" styleClass="dashboard-sections-background">
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="122.0" prefWidth="226.0" styleClass="dashboard-sections-background">
                                        <children>
-                                          <Text layoutX="22.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current User Count">
+                                          <Text layoutX="65.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current User Count">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
                                           </Text>
-                                          <Text fx:id="text_total_users" layoutX="65.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# users">
+                                          <Text fx:id="text_total_users" layoutX="105.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# users">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
                                           </Text>
+                                    <ImageView fitHeight="54.0" fitWidth="46.0" layoutX="13.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/greycircle.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/cap.png" />
+                                       </image>
+                                    </ImageView>
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
-                        <Pane prefHeight="177.0" prefWidth="96.0" />
+                        <Pane prefHeight="206.0" prefWidth="52.0" />
                         <AnchorPane prefHeight="206.0" prefWidth="386.0" styleClass="dashboard-sections-background" stylesheets="@dashadminstyles.css">
                            <children>
                               <Text layoutX="22.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-title" text="Recently Added Users">
