@@ -104,8 +104,7 @@
                         </Text>
                         <Line endX="163.86663818359375" endY="1.52587890625E-5" layoutX="168.0" layoutY="63.0" startX="-126.86666870117188" startY="1.52587890625E-5" stroke="WHITE" />
                         <Button fx:id="qtns_m_btn" layoutX="36.0" layoutY="95.0" mnemonicParsing="false" onAction="#viewQuestionsMade" prefHeight="37.0" prefWidth="323.0" styleClass="button-alert" text="View Questions Created" />
-                        <Button fx:id="add_q_btn" layoutX="36.0" layoutY="146.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="37.0" prefWidth="323.0" styleClass="button-alert" text="Add Question" />
-                        <Button layoutX="36.0" layoutY="196.0" mnemonicParsing="false" onAction="#goToEditQuestion" prefHeight="37.0" prefWidth="323.0" styleClass="button-alert" text="Edit Existing Question" />
+                        <Button fx:id="add_q_btn" layoutX="36.0" layoutY="164.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="37.0" prefWidth="323.0" styleClass="button-alert" text="Add Question" />
                      </children>
                   </AnchorPane>
                   <Pane prefHeight="237.0" prefWidth="65.0" />
