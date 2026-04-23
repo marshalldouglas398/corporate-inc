@@ -132,7 +132,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" styleClass="search-card-button" text="Start" />
+                              <Button minHeight="34.0" minWidth="98.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" styleClass="search-card-button" text="Start" />
                            </children>
                         </HBox>
                      </children>

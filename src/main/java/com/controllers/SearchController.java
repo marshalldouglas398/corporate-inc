@@ -258,6 +258,8 @@ public class SearchController {
         startButton.setUserData(question.getId().toString());
         startButton.setOnAction(event -> startQuestion(event));
         startButton.getStyleClass().add("search-card-button");
+        startButton.setMinHeight(34);
+        startButton.setMinWidth(98);
 
         card.getChildren().addAll(avatar, info, spacer, startButton);
         if (canEditQuestion(question)) {
