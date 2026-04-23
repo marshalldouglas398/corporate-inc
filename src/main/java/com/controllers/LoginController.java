@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginController {
@@ -20,7 +21,7 @@ public class LoginController {
     public TextField txt_username;
 
     @FXML
-    private TextField txt_password;
+    private PasswordField txt_password;
 
     @FXML
     private Button btn_login;
@@ -41,8 +42,6 @@ public class LoginController {
     void login(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
-        System.out.println("Your name is " + username); 
-        System.out.println("Your password is " + password);
         app = new InterviewApplication();
         if(app.login(username, password) == null) {
             lbl_error.setText("Invalid username or password");
