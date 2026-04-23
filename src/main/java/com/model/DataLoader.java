@@ -2,9 +2,12 @@ package com.model;
 
 import java.io.File;
 import java.io.FileReader;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -17,6 +20,29 @@ import org.json.simple.parser.JSONParser;
  */
 
 public class DataLoader extends DataConstants {
+    private static Date parseStreakUpdate(Object value) {
+        if (!(value instanceof String)) {
+            return null;
+        }
+        String raw = ((String) value).trim();
+        if (raw.isEmpty()) {
+            return null;
+        }
+
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(raw);
+        } catch (ParseException ignored) {
+            // Fall back for older persisted values like "Tue Oct 10 10:15:30 EDT 2023".
+        }
+        try {
+            SimpleDateFormat legacy = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+            legacy.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return legacy.parse(raw);
+        } catch (ParseException ignored) {
+            return null;
+        }
+    }
+
     /**
      * Parses a JSONArray of sections and returns an ArrayList of Section objects
      * @param sectionsArray The JSONArray of sections to parse
@@ -245,11 +271,7 @@ public class DataLoader extends DataConstants {
                         if (editorRequestObj instanceof Boolean) {
                             editorRequest = (Boolean) editorRequestObj;
                         }
-                        Date StreakUpdate = null;
-                        Object StreakUpdateObj = userData.get(USER_STREAK_UPDATE);
-                        if (StreakUpdateObj instanceof String) {
-                            StreakUpdate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse((String) StreakUpdateObj);
-                        }
+                        Date StreakUpdate = parseStreakUpdate(userData.get(USER_STREAK_UPDATE));
                         Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak, editorRequest, StreakUpdate);
                         users.add(student);
                         break;

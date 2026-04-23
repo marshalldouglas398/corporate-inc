@@ -2,7 +2,10 @@ package com.model;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,6 +16,20 @@ import org.json.simple.JSONObject;
  */
 
 public class DataWriter extends DataConstants {
+    private static final SimpleDateFormat ISO_UTC_FORMAT = buildIsoUtcFormatter();
+
+    private static SimpleDateFormat buildIsoUtcFormatter() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formatter;
+    }
+
+    private static String toIsoUtc(Date date) {
+        if (date == null) {
+            return null;
+        }
+        return ISO_UTC_FORMAT.format(date);
+    }
     /**
      * Saves the current state of the users in the application to a JSON file
      * @return true if the users were successfully saved, false otherwise
@@ -79,7 +96,7 @@ public class DataWriter extends DataConstants {
                 userDetails.put(USER_MAJOR, student.getMajor());
                 userDetails.put(USER_STREAK, (long) student.getStreak());
                 userDetails.put(USER_EDITOR_REQUEST, student.hasRequestedEditor());
-                userDetails.put(USER_STREAK_UPDATE, student.getStreakUpdate());
+                userDetails.put(USER_STREAK_UPDATE, toIsoUtc(student.getStreakUpdate()));
                 break;
             case "Editor" :
                 Editor editor = (Editor) user;
