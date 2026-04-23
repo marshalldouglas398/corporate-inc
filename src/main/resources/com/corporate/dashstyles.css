@@ -67,6 +67,7 @@
 }
 .sections-background {
     -fx-background-color: #ffffff;
+    -fx-background-radius: 16;
 }
 .sections-text {
     -fx-font-size: 32px;

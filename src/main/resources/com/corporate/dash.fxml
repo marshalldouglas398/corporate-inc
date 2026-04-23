@@ -257,7 +257,7 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="386.0" layoutY="708.0" prefHeight="230.0" prefWidth="222.0" styleClass="sections-background" stylesheets="@dashstyles.css">
+                              <AnchorPane layoutX="397.0" layoutY="708.0" prefHeight="230.0" prefWidth="222.0" styleClass="sections-background" stylesheets="@dashstyles.css">
                                  <children>
                                     <Text layoutX="78.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sections-labels" text="Major">
                                        <font>

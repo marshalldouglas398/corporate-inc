@@ -96,7 +96,7 @@
 .dashboard-sections-background {
     -fx-background-color: #ffffff;
     -fx-background-radius: 16;
-    -fx-padding: 26 28 26 28;
+    -fx-padding: 26 28 26 0;
     
 }
 

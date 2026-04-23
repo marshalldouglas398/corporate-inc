@@ -144,9 +144,9 @@
                                     </Text>
                                  </children>
                               </AnchorPane>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="370.0">
-                                 <children>
-                                    <AnchorPane prefHeight="122.0" prefWidth="133.0" styleClass="dashboard-sections-background">
+                        <AnchorPane>
+                           <children>
+                                    <AnchorPane layoutX="21.0" layoutY="1.0" prefHeight="122.0" prefWidth="133.0" styleClass="dashboard-sections-background">
                                        <children>
                                           <Text layoutX="61.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created">
                                              <font>
@@ -165,8 +165,7 @@
                                     </ImageView>
                                        </children>
                                     </AnchorPane>
-                                    <Pane prefHeight="113.0" prefWidth="29.0" />
-                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="122.0" prefWidth="226.0" styleClass="dashboard-sections-background">
+                                    <AnchorPane layoutX="206.0" prefHeight="126.0" prefWidth="156.0" styleClass="dashboard-sections-background">
                                        <children>
                                           <Text layoutX="65.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current User Count">
                                              <font>
@@ -190,19 +189,19 @@
                                     </ImageView>
                                        </children>
                                     </AnchorPane>
-                                 </children>
-                              </HBox>
+                           </children>
+                        </AnchorPane>
                            </children>
                         </VBox>
                         <Pane prefHeight="206.0" prefWidth="52.0" />
-                        <AnchorPane prefHeight="206.0" prefWidth="386.0" styleClass="dashboard-sections-background" stylesheets="@dashadminstyles.css">
+                        <AnchorPane prefHeight="206.0" prefWidth="401.0" styleClass="dashboard-sections-background" stylesheets="@dashadminstyles.css">
                            <children>
-                              <Text layoutX="22.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-title" text="Recently Added Users">
+                              <Text layoutX="22.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-sections-title" text="Recently Added Users">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Line endX="163.86663818359375" endY="1.52587890625E-5" layoutX="149.0" layoutY="63.0" startX="-126.86666870117188" startY="1.52587890625E-5" stroke="#b19090" />
+                              <Line endX="163.86663818359375" endY="1.52587890625E-5" layoutX="149.0" layoutY="57.0" startX="-126.86666870117188" startY="1.52587890625E-5" stroke="#b19090" />
                               <Text fx:id="text_rau_u_one" layoutX="38.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User One">
                                  <font>
                                     <Font size="15.0" />
