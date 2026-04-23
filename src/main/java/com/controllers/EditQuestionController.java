@@ -500,7 +500,13 @@ public class EditQuestionController {
     }
 
     private boolean canCurrentUserEdit() {
-        if (currentUser == null || currentQuestion == null || currentQuestion.getAuthor() == null) {
+        if (currentUser == null || currentQuestion == null) {
+            return false;
+        }
+        if (currentUser instanceof Admin) {
+            return true;
+        }
+        if (currentQuestion.getAuthor() == null) {
             return false;
         }
         UUID currentUserId = currentUser.getID();
