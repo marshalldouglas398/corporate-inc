@@ -245,7 +245,12 @@ public class DataLoader extends DataConstants {
                         if (editorRequestObj instanceof Boolean) {
                             editorRequest = (Boolean) editorRequestObj;
                         }
-                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak, editorRequest);
+                        Date StreakUpdate = null;
+                        Object StreakUpdateObj = userData.get(USER_STREAK_UPDATE);
+                        if (StreakUpdateObj instanceof String) {
+                            StreakUpdate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse((String) StreakUpdateObj);
+                        }
+                        Student student = new Student(id, username, password, dateOfBirth, email, uscID, major, questionsAnswered, coursesTaken, streak, editorRequest, StreakUpdate);
                         users.add(student);
                         break;
                     case "Editor":

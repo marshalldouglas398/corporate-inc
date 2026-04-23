@@ -1,8 +1,11 @@
 package com.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
@@ -335,6 +338,17 @@ public class QuestionController {
             replyingTo = null;
         } else {
             currentQuestion.addComment(created);
+            LocalDate now = LocalDate.now();
+            LocalDate compare = null;
+            if(student != null && student.getStreakUpdate() != null){
+                Date stored = student.getStreakUpdate();
+                compare = stored.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            }
+            if(created.getTags().contains(CommentTag.SOLUTION) && student != null && (student.getStreakUpdate() == null || (compare.plusDays(1).isAfter(now)))){
+                Date now1 = new Date();
+                student.updateStreakDate(now1);
+                student.incrementStreak();
+            }
         }
 
         if (student != null && tags.contains(CommentTag.SOLUTION)) {
