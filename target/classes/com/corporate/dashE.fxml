@@ -37,50 +37,6 @@
                         <Image url="@images/Home.png" />
                      </image>
                   </ImageView>
-<<<<<<< HEAD
-                  <Label prefHeight="62.0" prefWidth="450.0" text="Corporate Code" textFill="WHITE">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  <Region HBox.hgrow="ALWAYS" />
-                  <Button fx:id="btn_home" mnemonicParsing="false" prefHeight="44.0" prefWidth="0.0" styleClass="dashboard-header-button" stylesheets="@dashadminstyles.css">
-                     <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-                           <image>
-                              <Image url="@images/Home.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btn_search" mnemonicParsing="false" onAction="#goToSearch" prefHeight="62.0" prefWidth="70.0" styleClass="dashboard-header-button">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/search_btn.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btn_logout" mnemonicParsing="false" onAction="#logout" pickOnBounds="false" prefHeight="64.0" prefWidth="66.0" styleClass="dashboard-header-button" stylesheets="@dashadminstyles.css">
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-                           <image>
-                              <Image url="@images/Log%20out.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="btn_settings" mnemonicParsing="false" onAction="#goToSettings" pickOnBounds="false" prefHeight="62.0" prefWidth="71.0" styleClass="dashboard-header-button" stylesheets="@dashadminstyles.css">
-                     <graphic>
-                        <ImageView fitHeight="41.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
-                           <image>
-                              <Image url="@images/Settings.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-=======
                </graphic>
             </Button>
             <Button fx:id="btn_search" mnemonicParsing="false" onAction="#goToSearch" prefHeight="62.0" prefWidth="70.0" styleClass="dashboard-header-button">
@@ -134,7 +90,6 @@
                         </Text>
                      </children>
                   </VBox>
->>>>>>> 871da974bcf9fc2ad2b8e5566de81c1766678043
                </children>
             </HBox>
             <Pane prefHeight="24.0" prefWidth="980.0" />

@@ -115,17 +115,12 @@
                         <Pane prefHeight="237.0" prefWidth="90.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <AnchorPane prefHeight="98.0" prefWidth="302.0">
+                              <AnchorPane prefHeight="128.0" prefWidth="302.0">
                                  <children>
-                                    <Button fx:id="btn_add_question" layoutY="12.0" mnemonicParsing="false" onAction="#goToCreateQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Add Question" />
+                                    <Button fx:id="btn_add_question" layoutY="48.0" mnemonicParsing="false" onAction="#goToCreateQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Add Question" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="106.0" prefWidth="302.0">
-                                 <children>
-                                    <Button layoutY="6.0" mnemonicParsing="false" onAction="#goToEditQuestion" prefHeight="62.0" prefWidth="302.0" styleClass="button-add-manage" text="Edit Existing Question" />
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane maxHeight="70.0" prefHeight="70.0" prefWidth="302.0">
+                              <AnchorPane maxHeight="142.0" prefHeight="142.0" prefWidth="302.0">
                                  <children>
                                     <Button fx:id="btn_manage_users" layoutY="29.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="82.0" prefWidth="302.0" styleClass="button-add-manage" text="Manage Users" />
                                  </children>
