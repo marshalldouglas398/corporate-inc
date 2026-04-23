@@ -15,6 +15,7 @@ public class Student extends User {
     private String major;
     private int streak;
     private boolean editorRequest;
+    private Date StreakUpdate;
 
     /**
      * Parameterized constructor for the Student class
@@ -34,6 +35,7 @@ public class Student extends User {
         this.coursesTaken = new ArrayList<>();
         this.streak = 0;
         this.editorRequest = false;
+        this.StreakUpdate = null;
     }
 
     /**
@@ -51,7 +53,7 @@ public class Student extends User {
      * @param editorRequest Whether the student to copy has requested to become an editor
      */
     public Student(UUID id, String username, String password, Date dateOfBirth, String email, String uscID, String major, 
-                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak, boolean editorRequest) {
+                    ArrayList<UUID> questionsAnswered, ArrayList<Course> coursesTaken, int streak, boolean editorRequest, Date StreakUpdate) {
         super(id, username, password, dateOfBirth, email, "Student");
         this.uscID = uscID;
         this.major = major;
@@ -59,7 +61,7 @@ public class Student extends User {
         this.coursesTaken = coursesTaken;
         this.editorRequest = editorRequest;
         this.streak = streak;
-
+        this.StreakUpdate = StreakUpdate;
     }
 
     /**
@@ -117,6 +119,14 @@ public class Student extends User {
     public boolean hasRequestedEditor() {
         return this.editorRequest;
     }
+    
+    /*
+     * Gets the date of the last streak update
+     * @return The date of the last streak update
+     */
+    public Date getStreakUpdate() {
+        return this.StreakUpdate;
+    }
 
     /**
      * Sets the USC ID of the student
@@ -164,8 +174,19 @@ public class Student extends User {
     public void setEditorRequest(boolean editorRequest) {
         this.editorRequest = editorRequest;
     }
-
+    /**
+     * Adds a course to the list of courses taken by the student
+     * @param course to add
+     */
     public void addCourse(Course course) {
         this.coursesTaken.add(course);
     }
+    /**
+     * Updates the date of the last streak update
+     * @param date
+     */
+    public void updateStreakDate(Date date) {
+        this.StreakUpdate = date;
+    }
 }
+
