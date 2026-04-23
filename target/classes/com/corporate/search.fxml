@@ -27,13 +27,13 @@
                         <Image url="@images/corporatelogo-new.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="62.0" prefWidth="246.0" text="Corporate Code" textFill="WHITE">
+                  <Label prefHeight="62.0" prefWidth="370.0" text="Corporate Code" textFill="WHITE">
                      <font>
                         <Font size="35.0" />
                      </font>
                   </Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Button fx:id="btn_home"  onAction="#goToDash" mnemonicParsing="false" prefHeight="44.0" prefWidth="0.0" styleClass="dashboard-header-button" stylesheets="@dashadminstyles.css">
+                  <Button fx:id="btn_home" mnemonicParsing="false" onAction="#goToDash" prefHeight="44.0" prefWidth="0.0" styleClass="dashboard-header-button" stylesheets="@dashadminstyles.css">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-header-button">
                            <image>

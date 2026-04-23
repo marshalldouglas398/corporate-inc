@@ -23,7 +23,7 @@
             </ImageView>
             <VBox spacing="1.0">
                <children>
-                  <Label styleClass="login-brand-title" text="Corporate Code" />
+                  <Label prefHeight="40.0" prefWidth="330.0" styleClass="login-brand-title" text="Corporate Code" />
                </children>
             </VBox>
          </children>

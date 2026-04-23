@@ -24,7 +24,7 @@
                         <Image url="@images/corporatelogo-new.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="62.0" prefWidth="246.0" text="Corporate Code" textFill="WHITE">
+                  <Label prefHeight="62.0" prefWidth="362.0" text="Corporate Code" textFill="WHITE">
                      <font>
                         <Font size="35.0" />
                      </font>

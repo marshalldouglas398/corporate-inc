@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-
 <ScrollPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.CreateQuestionController">
    <content>
       <BorderPane prefHeight="760.0" prefWidth="1200.0" styleClass="create-question-page">
@@ -23,7 +22,7 @@
                   <Insets bottom="14.0" left="20.0" right="20.0" top="14.0" />
                </padding>
                <children>
-                  <Label styleClass="create-question-brand-title" text="Corporate Code" />
+                  <Label prefHeight="40.0" prefWidth="333.0" styleClass="create-question-brand-title" text="Corporate Code" />
                   <Region HBox.hgrow="ALWAYS" />
                   <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" styleClass="create-question-header-button" text="Back" />
                </children>
