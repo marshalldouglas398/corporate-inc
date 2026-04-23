@@ -344,7 +344,7 @@ public class QuestionController {
                 Date stored = student.getStreakUpdate();
                 compare = stored.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             }
-            if(created.getTags().contains(CommentTag.SOLUTION) && student != null && (student.getStreakUpdate() == null || (compare.plusDays(1).isAfter(now)))){
+            if((created.getTags().contains(CommentTag.SOLUTION)) && (student != null) && (student.getStreakUpdate() == null || (compare.plusDays(1).isAfter(now)))){
                 Date now1 = new Date();
                 student.updateStreakDate(now1);
                 student.incrementStreak();
