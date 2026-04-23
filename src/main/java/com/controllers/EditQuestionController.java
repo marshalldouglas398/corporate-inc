@@ -1,7 +1,7 @@
 package com.controllers;
 
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -149,7 +149,7 @@ public class EditQuestionController {
     }
 
     @FXML
-    private void goToDashboard(ActionEvent event) throws IOException {
+    private void goToDash(ActionEvent event) throws IOException {
         goBackToRoleDashboard();
     }
 

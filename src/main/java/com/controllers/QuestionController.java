@@ -161,7 +161,7 @@ public class QuestionController {
     }
 
     @FXML
-    private void goToDashboard(ActionEvent event) throws IOException {
+    private void goToDash(ActionEvent event) throws IOException {
         FXMLLoader loader = null;
         if (student != null) {
             loader = new FXMLLoader(getClass().getResource("/com/corporate/dash.fxml"));
