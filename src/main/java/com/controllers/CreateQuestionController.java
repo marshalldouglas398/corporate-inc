@@ -12,7 +12,6 @@ import com.model.Discipline;
 import com.model.Editor;
 import com.model.InterviewApplication;
 import com.model.Question;
-import com.model.QuestionList;
 import com.model.QuestionTag;
 import com.model.QuestionType;
 import com.model.Section;
@@ -164,18 +163,19 @@ public class CreateQuestionController {
         Discipline disc = safeEnum(Discipline.class, questionDisciplinesField.getText());
         Course course = safeEnum(Course.class, questionCoursesField.getText());
         QuestionTag tag = safeEnum(QuestionTag.class, questionTagsField.getText());
-       // QuestionType type = QuestionType.valueOf(questionTypeField.getText().toUpperCase());
-       // Discipline disc = Discipline.valueOf(questionDisciplinesField.getText().toUpperCase());
-        //Difficulty difficulty = Difficulty.valueOf(questionDifficultyField.getText().toUpperCase());
         ArrayList<Discipline> disciplines = new ArrayList<>();
         disciplines.add(disc);
-       // QuestionTag tag = QuestionTag.valueOf(questionTagsField.getText().toUpperCase());
         ArrayList<QuestionTag> tags = new ArrayList<>();
         tags.add(tag);
-        //Course course = Course.valueOf(questionCoursesField.getText().toUpperCase());
         ArrayList<Course> courses = new ArrayList<>();
         courses.add(course);
-        String timeLimit = interviewTimeField.getText();
+        String timeLimit;
+        if(!interviewTimeField.getText().isEmpty()) {
+            timeLimit = interviewTimeField.getText();
+        } else {
+            timeLimit = null;
+        }
+
         Boolean interviewMode = interviewModeCheckBox.isSelected();
         String description = questionDescriptionArea.getText();
         ArrayList<String> hints = new ArrayList<>();
@@ -188,11 +188,7 @@ public class CreateQuestionController {
         if(!questionHintThreeField.getText().isEmpty()) {
             hints.add(questionHintThreeField.getText());
         }
-        QuestionList questionList = QuestionList.getInstance();
-        //app.addQuestion(title, currentUser, hints, type, disciplines, difficulty, courses, description);
-        //app.saveQuestions();
         Question currentQ = new Question(title, currentUser, hints, type, disciplines, difficulty, courses, description);
-        //Question current = questionList.getQuestion(title);
         if(!sections.isEmpty()) {
             for(Section section : sections) {
                 currentQ.addSection(section);
