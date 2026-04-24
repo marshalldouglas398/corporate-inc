@@ -189,22 +189,23 @@ public class CreateQuestionController {
             hints.add(questionHintThreeField.getText());
         }
         QuestionList questionList = QuestionList.getInstance();
-        app.addQuestion(title, currentUser, hints, type, disciplines, difficulty, courses, description);
-        app.saveQuestions();
-        Question current = questionList.getQuestion(title);
+        //app.addQuestion(title, currentUser, hints, type, disciplines, difficulty, courses, description);
+        //app.saveQuestions();
+        Question currentQ = new Question(title, currentUser, hints, type, disciplines, difficulty, courses, description);
+        //Question current = questionList.getQuestion(title);
         if(!sections.isEmpty()) {
             for(Section section : sections) {
-                current.addSection(section);
+                currentQ.addSection(section);
             }
         }
-        current.setInterviewMode(interviewMode, Integer.parseInt(timeLimit));
+        currentQ.setInterviewMode(interviewMode, Integer.parseInt(timeLimit));
         if(editor != null) {
-            editor.addQuestion(current);
+            editor.addQuestion(currentQ);
         } else if(admin != null) {
-            admin.addQuestion(current);
+            admin.addQuestion(currentQ);
         }
-        app.saveQuestions();
         app.saveUsers();
+        //app.saveQuestions();
     }
     private <T extends Enum<T>> T safeEnum(Class<T> enumClass, String value) {
         try {

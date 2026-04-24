@@ -92,7 +92,7 @@ public class DashEController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM, d, yyyy", Locale.ENGLISH);
         String formattedDate = LocalDate.now().format(formatter);
         setDate(formattedDate);
-        int num_q = currentUser.getQuestionsMade().size() - 1;
+        int num_q = currentUser.getQuestionsMade().size();
         setNumQ(num_q);
         ArrayList<UUID> questionsMade = currentUser.getQuestionsMade();
         if (questionsMade.size() > 0) {
