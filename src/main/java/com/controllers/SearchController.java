@@ -186,7 +186,7 @@ public class SearchController {
             throw new RuntimeException(e);
         }
     }
-
+    /*
     @FXML
     private void editQuestion(ActionEvent event) {
         try {
@@ -204,7 +204,7 @@ public class SearchController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     private ArrayList<Question> getFilteredQuestions() {
         QuestionType type = getSelectedType();
@@ -262,13 +262,14 @@ public class SearchController {
         startButton.setMinWidth(98);
 
         card.getChildren().addAll(avatar, info, spacer, startButton);
+        /*
         if (canEditQuestion(question)) {
             Button editButton = new Button("Edit");
             editButton.setUserData(question.getId().toString());
             editButton.setOnAction(event -> editQuestion(event));
             editButton.getStyleClass().add("search-card-button");
             card.getChildren().add(editButton);
-        }
+        }*/
         return card;
     }
 
@@ -336,11 +337,11 @@ public class SearchController {
         String id = (String) button.getUserData();
         return QuestionList.getInstance().getQuestion(UUID.fromString(id));
     }
-
+    /*
     private boolean canEditQuestion(Question question) {
         if (question == null || currentUser == null || question.getAuthor() == null) {
             return false;
         }
         return currentUser.getID().equals(question.getAuthor().getID());
-    }
+    }*/
 }
