@@ -95,7 +95,7 @@ public class DashEController {
         int num_q = currentUser.getQuestionsMade().size() - 1;
         setNumQ(num_q);
         ArrayList<UUID> questionsMade = currentUser.getQuestionsMade();
-        if (questionsMade.size()-1 > 0) {
+        if (questionsMade.size() > 0) {
             avgQRating(questionsMade);
         } else {
             avg_rate_txt.setText("None");
@@ -283,6 +283,7 @@ public class DashEController {
     @FXML
     private void avgQRating(ArrayList<UUID> questionsMade) {
         double totalRating = 0;
+        int count = 0;
         QuestionList qList = QuestionList.getInstance();
         for (Object qID : questionsMade) {
             Object raw = qID;
@@ -296,11 +297,12 @@ public class DashEController {
             Double rating = currentQ.getRating();
             if(rating != null) {
             totalRating += rating;
+            count++;
             }
         }
-        Double totalRatingD = totalRating;
-        if(totalRatingD == null) {
-        double averageRating = totalRating / questionsMade.size();
+        //Double totalRatingD = totalRating;
+        if(count > 0) {
+        double averageRating = totalRating / count;
         avg_rate_txt.setText(String.format("%.2f", averageRating));
         } else {
         avg_rate_txt.setText("None");
