@@ -185,7 +185,7 @@ public class DashAController {
         setDate(formattedDate);
 
         // setting account summary
-        int num_q = currentUser.getQuestionsMade().size() - 1;
+        int num_q = currentUser.getQuestionsMade().size();
         setNumQ(num_q);
         int num_users = currentUser.getUsers().size();
         setNumUsers(num_users);

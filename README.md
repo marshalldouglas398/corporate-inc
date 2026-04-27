@@ -20,5 +20,8 @@ With this software, we hope to improve the student employment rate and get USC s
 [UML Sequence Diagram 1](https://lucid.app/lucidchart/6efcfc32-3a18-43dc-ab73-48ff24d4569e/edit?view_items=Lq7xBwT6IkK8&page=0_0&invitationId=inv_d95c24a4-9636-45d1-aa62-2a71a38d853c)
 [UML Sequence Diagram 2](https://lucid.app/lucidchart/97c6c605-0887-47e2-84c9-125f36e17458/edit?viewport_loc=-1659%2C-1345%2C3708%2C2008%2C0_0&invitationId=inv_dd3fdbe1-8a9d-47e6-bf9e-9c34a2998948)
 
-#### Program Presentation Video
+#### Program Prototype Presentation Video
 [YouTube Link](https://youtu.be/J0u4xI9AWXo)
+
+#### Final App Presentation Video
+[YouTube Link](https://youtu.be/xOlHs24ZmXc?si=Z10htMkLmyQ_vrGz)
